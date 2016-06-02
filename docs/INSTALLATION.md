@@ -1,6 +1,6 @@
 # Installing Factor, and making Exercism and Factor play nice
 
-<a href="#Making Exercism and Factor play nice">**Even if you already have Factor installed, you still need to read the last section of this document.**</a>
+[**Even if you already have Factor installed, you still need to read the last section of this document for important information about Factor's relationship with Exercism.**](#making-factor-and-exercism-play-nice)
 
 ---
 
@@ -8,7 +8,7 @@
 
 To install Factor, you have a couple of choices.
 
-For production servers and mission-critical applications, we recommend a stable binary release from the homepage, but because all commits and pulls are thoroughly tested and carefully reviewed, the nightly builds and even the bleeding edge of `git` are quite safe.
+For production servers and mission-critical applications, we recommend a stable binary release from the homepage, but because all commits and pulls are thoroughly tested and carefully reviewed, the [nightly builds](#nightly) and even the [bleeding edge of `git`](#autobuild-from-source) are quite safe.
 
 ---
 
@@ -16,9 +16,7 @@ For production servers and mission-critical applications, we recommend a stable 
 
 Download a binary for your platform from <http://factorcode.org>, and run the installer.
 
-These binaries and sources are typically a few months behind `git`, so if you want the latest bugfixes and features (dark mode UI, perhaps?) then see the "(auto)build from source" section below, to obtain the up-to-the-minute version.
-
-If your platform isn't listed on that page (i.e. not one of Windows, Linux or Mac) then there's no guarantee Factor will build and run for you. You can still try building directly from source; see below.
+These binaries and sources are typically a few months behind `git`. If you want the latest bugfixes and features (dark mode UI, perhaps?), or if your platform isn't listed on that page (i.e. not Windows, Linux or Mac), then see the ["build from source"](#autobuild-from-source) section below, to obtain the up-to-the-minute version.
 
 ---
 ### Nightly
@@ -29,7 +27,7 @@ The website also provides nightly binaries, built from git. Only builds that pas
 
 ### (Auto)build from source
 
-If neither of the above options are good enough for you, and you need all the latest tech, then you will need a modern (C++0x) C++ compiler like GCC >=4.8 or Clang >=3.5, and:
+If neither of the above options are good enough for you, and you need all the latest tech, then you will need a modern C++ compiler like GCC >=4.8 or Clang >=3.5, `make`, `curl`, and:
 
 1. Download the `build` shell script: [**here** for `sh`, `bash`, etc](https://raw.githubusercontent.com/factor/factor/master/build.sh) or [**here** for Windows](https://raw.githubusercontent.com/factor/factor/master/build.cmd). Put it in the directory where Factor should be installed.
 2. Run it with the `install` argument: `./build.sh install`, or `.\build.cmd install` on Windows. This will clone Factor's `git` repository, build it, and download a Factor VM image from <http://factorcode.org>. This process will take between 2 and 20 minutes, depending on the speed of your internet connection and processor.
@@ -85,16 +83,15 @@ Not recommended as things can go wrong too easily, but this may be your only opt
 Before you go any further, we need to talk about Factor's directory structure.
 
 When you bootstrap a new vocabulary from the Factor listener:
-<!-- IMAGE IN FUTURE -->
 ```
 ( scratchpad ) USE: tools.scaffold
 Loading resource:basis/tools/scaffold/scaffold.factor
 Loading resource:basis/tools/scaffold/scaffold-docs.factor
 ( scratchpad ) "new-vocab" scaffold-work
 ```
-you are creating a new directory in `place-factor-is-installed/work/new-vocab`. `core`, `basis`, `extra`, `misc`, and `unmaintained` are all default vocabulary root paths in `place-factor-is-installed`, and most of them need to exist for Factor to run. `work` just happens to hold *your* personal vocabulary projects. Factor does not, by default, look for vocabularies to load outside of these roots.
+you are creating a new directory in `place-factor-is-installed/work/new-vocab`, containing the file `new-vocab.factor`. `core`, `basis`, `extra`, `misc`, and `unmaintained` are all default vocabulary root paths in `place-factor-is-installed`, and most of them need to exist for Factor to run. `work` just happens to hold *your* personal vocabulary projects. Factor does not, by default, look for vocabularies to load outside of these roots.
 
-Exercism's directory for exercises is in a directory in your home folder. `C:\Users\You\exercism\` on Windows, or `~/exercism` on Unicies. See the problem?
+On the other hand, Exercism's directory for exercises is in a directory in your home folder. `C:\Users\You\exercism\` on Windows, or `~/exercism` on Unicies. See the problem?
 
 There is a disparity between where Factor wants your code and where Exercism wants your code. Happily, however, there are a few solutions.
 
@@ -130,10 +127,10 @@ your-home-directory
 
 If you're not blessed with hard links, then you can use one of the three other methods mentioned in the [Factor documentation on this](http://docs.factorcode.org/content/article-add-vocab-roots.html).
 
-1. Use an environment variable. Factor looks at the FACTOR_ROOTS environment variable for a list of PATHSEP-separated paths, where PATHSEP is your platform's PATH entry separator (`:` on Unicies, `;` on Windows). This means:
-  * `export FACTOR_ROOTS="home/you/exercism/factor"` in your `.bashrc` or equivalent
-  * On Windows, changing your user's enivronment variables to set `FACTOR_ROOTS` to `C:\Users\You\exercism\factor`.
+1. Use an environment variable. Factor looks at the `FACTOR_ROOTS` environment variable for a list of paths, separated by `:` on Unicies, `;` on Windows, or whatever your path separator is. This means:
+  * `export FACTOR_ROOTS="home/you/exercism/factor:another/directory"` in your `.bashrc` or equivalent
+  * On Windows, changing your user's enivronment variables to set `FACTOR_ROOTS` to `C:\Users\You\exercism\factor;C:\Another\Directory`.
 
-2. Create a configuration file. You can list additional vocabulary roots in a file that Factor reads at startup: [Additional vocabulary roots file](http://docs.factorcode.org/content/article-.factor-roots.html)
+2. Create a configuration file. You can list additional vocabulary roots in a file read by Factor at startup: [Additional vocabulary roots file](http://docs.factorcode.org/content/article-.factor-roots.html)
 
 3. Call the [add-vocab-root](http://docs.factorcode.org/content/word-add-vocab-root%2Cvocabs.loader.html) word from your [.factor-rc file](http://docs.factorcode.org/content/article-.factor-rc.html).

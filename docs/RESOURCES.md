@@ -1,8 +1,4 @@
-# Recommended learning resources
-
-<!-- pulled from LEARNING.md, which used to live here, but then I realised what this should actually be -->
-
----
+## Recommended learning resources
 
 * The [Official Factor Documentation](http://docs.factorcode.org).
 * The [Factor GitHub Repository Wiki](http://github.com/factor/factor/wiki).
