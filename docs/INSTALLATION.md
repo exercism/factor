@@ -16,7 +16,7 @@ For production servers and mission-critical applications, we recommend a stable 
 
 Download a binary for your platform from <http://factorcode.org>, and run the installer.
 
-These binaries and sources are typically a few months behind `git`, so if you want the latest bugfixes and features (dark mode UI, perhaps?) then see the "all platforms" section below, to obtain the up-to-the-minute version.
+These binaries and sources are typically a few months behind `git`, so if you want the latest bugfixes and features (dark mode UI, perhaps?) then see the "(auto)build from source" section below, to obtain the up-to-the-minute version.
 
 If your platform isn't listed on that page (i.e. not one of Windows, Linux or Mac) then there's no guarantee Factor will build and run for you. You can still try building directly from source; see below.
 
@@ -29,7 +29,7 @@ The website also provides nightly binaries, built from git. Only builds that pas
 
 ### (Auto)build from source
 
-If neither of the above options are good enough for you, and you need all the latest tech, then you will need a modern (C++0x) C++ compiler like GCC >=4.8, Clang >=3.5 or MSVCRT >= 2012, and:
+If neither of the above options are good enough for you, and you need all the latest tech, then you will need a modern (C++0x) C++ compiler like GCC >=4.8 or Clang >=3.5, and:
 
 1. Download the `build` shell script: [**here** for `sh`, `bash`, etc](https://raw.githubusercontent.com/factor/factor/master/build.sh) or [**here** for Windows](https://raw.githubusercontent.com/factor/factor/master/build.cmd). Put it in the directory where Factor should be installed.
 2. Run it with the `install` argument: `./build.sh install`, or `.\build.cmd install` on Windows. This will clone Factor's `git` repository, build it, and download a Factor VM image from <http://factorcode.org>. This process will take between 2 and 20 minutes, depending on the speed of your internet connection and processor.
