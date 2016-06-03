@@ -1,6 +1,6 @@
 # Installing Factor, and making Exercism and Factor play nice
 
-[**Even if you already have Factor installed, you still need to read the last section of this document for important information about Factor's relationship with Exercism.**](#making-factor-and-exercism-play-nice)
+[**Even if you already have Factor installed, you still need to read the last section of this document for important information about Factor's relationship with Exercism.**](#play-nice)
 
 ---
 
@@ -78,7 +78,7 @@ Not recommended as things can go wrong too easily, but this may be your only opt
 
 ---
 
-## Making Exercism and Factor play nice
+## Making Exercism and Factor play nice <a name="playnice"> </a>
 
 Before you go any further, we need to talk about Factor's directory structure.
 
@@ -91,17 +91,19 @@ Loading resource:basis/tools/scaffold/scaffold-docs.factor
 ```
 you are creating a new directory in `place-factor-is-installed/work/new-vocab`, containing the file `new-vocab.factor`. `core`, `basis`, `extra`, `misc`, and `unmaintained` are all default vocabulary root paths in `place-factor-is-installed`, and most of them need to exist for Factor to run. `work` just happens to hold *your* personal vocabulary projects. Factor does not, by default, look for vocabularies to load outside of these roots.
 
-On the other hand, Exercism's directory for exercises is in a directory in your home folder. `C:\Users\You\exercism\` on Windows, or `~/exercism` on Unicies. See the problem?
+On the other hand, Exercism's directory for exercises is in a directory in your home folder. `C:\Users\You\exercism\` on Windows, or `~/exercism` on Unicies.
 
 There is a disparity between where Factor wants your code and where Exercism wants your code. Happily, however, there are a few solutions.
 
-The cleanest, preferred solution, if your platform / filesystem is capable of [hard links](http://enwp.org/Hard_link), is:
+The cleanest, preferred solution, if your platform / filesystem is capable of [symbolic links](http://enwp.org/Symbolic_link), is:
 
 1. Run in the listener: `USE: tools.scaffold "exercism" scaffold-work`
-2. a [hard link](http://enwp.org/Hard_link) between `~/exercism/factor` and the new `place-factor-is-installed/work/exercism`. GNU Coreutils `ln` creates hard links by default, so `ln ~/exercism/factor place-factor-is-installed/work/exercism` should do the job.
-3. Now, Exercism problems folders will be used as Factor sub-vocabularies of the `exercism` vocabulary.
-
-**Remember, deleting something on one end of the hard link will delete the object on the other end!** Symbolic links are one-way, but hard links are not, so be careful.
+2. Make a symbolic link from `exercism/factor` to `factor/work/exercism`. From the Factor listener run:
+```
+USE: io.files.links
+"/home/you/factor/work/exercism" "/home/you/exercism/factor" make-link
+```
+3. Now, Exercism problem folders will be used as Factor sub-vocabularies of the `exercism` vocabulary. `exercism/factor` is a pointer to `factor/work/exercism`.
 
 An example:
 
@@ -109,23 +111,21 @@ An example:
 your-home-directory
 │
 ├── exercism
-│   └── factor           <-------------------+
-│       └── hello-world                      |
-│           ├── hello-world.factor           |
-│           └── hello-world-tests.factor     |
-└── factor                                   |
-    ├── basis                                |- hard linked!
-    ├── core                                 |
+│   └── factor           >--------->---------+
+│                                            |
+└── factor                                   v
+    ├── basis                                |
+    ├── core                                 |- soft-linked
     ├── extra                                |
-    ├── misc                                 |
+    ├── misc                                 v
     └── work                                 |
-        └── exercism     <-------------------+
+        └── exercism     <---------<---------+
             └── hello-world
                 ├── hello-world.factor
                 └── hello-world-tests.factor
 ```
 
-If you're not blessed with hard links, then you can use one of the three other methods mentioned in the [Factor documentation on this](http://docs.factorcode.org/content/article-add-vocab-roots.html).
+Otherwise, use one of the three other methods mentioned in the [Factor documentation on this](http://docs.factorcode.org/content/article-add-vocab-roots.html).
 
 1. Use an environment variable. Factor looks at the `FACTOR_ROOTS` environment variable for a list of paths, separated by `:` on Unicies, `;` on Windows, or whatever your path separator is. This means:
   * `export FACTOR_ROOTS="home/you/exercism/factor:another/directory"` in your `.bashrc` or equivalent
