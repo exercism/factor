@@ -16,3 +16,6 @@ The MIT License (MIT)
 
 Copyright (c) 2016 Katrina Owen, _@kytrinyx.com
 
+### [Factor icon](https://github.com/exercism/xfactor/tree/master/img/icon.png)
+
+The Factor "Tyrannosaurus Rex" logo is owned by John Benediktsson. We have adapted it, changing the colour scheme, with his permission.
