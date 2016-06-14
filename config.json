@@ -5,14 +5,14 @@
   "active": false,
   "test_pattern": "TODO",
   "problems": [
-
+    "hello-world"
   ],
   "deprecated": [
-
   ],
   "ignored": [
     "bin",
-    "docs"
+    "docs",
+    "exercism-testing"
   ],
   "foregone": [
 
