@@ -1,6 +1,6 @@
-# Installing Factor, and making Exercism and Factor play nice
+# Installing Factor, and making Factor and Exercism play nice
 
-[**Even if you already have Factor installed, you still need to read the last section of this document for important information about Factor's relationship with Exercism.**](#making-factor-and-exercism-play-nice)
+[**Even if you already have Factor installed, you still need to read the last section of this document for important information about testing Factor code in the Exercism environment.**](#play-nice)
 
 ---
 
@@ -74,63 +74,20 @@ You no longer need the top level buildscript.
 
 ### (Actually) Build from source
 
-Not recommended as things can go wrong too easily, but this may be your only option. In most cases, a simple `make` should suffice.
+Not recommended as the buildscripts are quite good at touchlessly setting things up, but this may be your only option. In most cases, a simple `make` should suffice.
+
+If `make` fails with an error about a non-present target, try `make factor` or, if you can read a Makefile, find the make target for your platform in `GNUmakefile`.
+
+If *that* fails, open an issue on [factor/factor](https://github.com/factor/factor) containing the error -- the friendly developers will be happy to help.
 
 ---
 
-## Making Exercism and Factor play nice
+## Making Exercism and Factor work together <a name="play-nice"> </a>
 
-Before you go any further, we need to talk about Factor's directory structure.
+Name clashes between Exercism and the Factor standard library, Exercism and Factor's mutual strictness about filenames, and Factor's reluctance to find vocabularies outside its source tree are all **factor**s making it kind of tricky for Exercism users to test their Factor code.
 
-When you bootstrap a new vocabulary from the Factor listener:
-```
-( scratchpad ) USE: tools.scaffold
-Loading resource:basis/tools/scaffold/scaffold.factor
-Loading resource:basis/tools/scaffold/scaffold-docs.factor
-( scratchpad ) "new-vocab" scaffold-work
-```
-you are creating a new directory in `place-factor-is-installed/work/new-vocab`, containing the file `new-vocab.factor`. `core`, `basis`, `extra`, `misc`, and `unmaintained` are all default vocabulary root paths in `place-factor-is-installed`, and most of them need to exist for Factor to run. `work` just happens to hold *your* personal vocabulary projects. Factor does not, by default, look for vocabularies to load outside of these roots.
+A [wrapper vocabulary](https://github.com/catb0t/exercism.factor) has been written to streamline the Factor workflow in an Exercism context. This vocab allows users like you, and xfactor contributors alike, to use the `tools.test` framework to write tests in a familiar way, but automating and eliminating the manual configuration which was otherwise necessary.
 
-On the other hand, Exercism's directory for exercises is in a directory in your home folder. `C:\Users\You\exercism\` on Windows, or `~/exercism` on Unicies. See the problem?
+To test your Factor code in your `exercism/factor` folder, just download [exercism.factor](https://github.com/catb0t/exercism.factor/archive/master.zip) and unzip it somewhere Factor can find it. `resource:work/exercism` is a good choice, so `testing.factor` is `resource:work/exercism/testing/testing.factor`.
 
-There is a disparity between where Factor wants your code and where Exercism wants your code. Happily, however, there are a few solutions.
-
-The cleanest, preferred solution, if your platform / filesystem is capable of [hard links](http://enwp.org/Hard_link), is:
-
-1. Run in the listener: `USE: tools.scaffold "exercism" scaffold-work`
-2. a [hard link](http://enwp.org/Hard_link) between `~/exercism/factor` and the new `place-factor-is-installed/work/exercism`. GNU Coreutils `ln` creates hard links by default, so `ln ~/exercism/factor place-factor-is-installed/work/exercism` should do the job.
-3. Now, Exercism problems folders will be used as Factor sub-vocabularies of the `exercism` vocabulary.
-
-**Remember, deleting something on one end of the hard link will delete the object on the other end!** Symbolic links are one-way, but hard links are not, so be careful.
-
-An example:
-
-```
-your-home-directory
-│
-├── exercism
-│   └── factor           <-------------------+
-│       └── hello-world                      |
-│           ├── hello-world.factor           |
-│           └── hello-world-tests.factor     |
-└── factor                                   |
-    ├── basis                                |- hard linked!
-    ├── core                                 |
-    ├── extra                                |
-    ├── misc                                 |
-    └── work                                 |
-        └── exercism     <-------------------+
-            └── hello-world
-                ├── hello-world.factor
-                └── hello-world-tests.factor
-```
-
-If you're not blessed with hard links, then you can use one of the three other methods mentioned in the [Factor documentation on this](http://docs.factorcode.org/content/article-add-vocab-roots.html).
-
-1. Use an environment variable. Factor looks at the `FACTOR_ROOTS` environment variable for a list of paths, separated by `:` on Unicies, `;` on Windows, or whatever your path separator is. This means:
-  * `export FACTOR_ROOTS="home/you/exercism/factor:another/directory"` in your `.bashrc` or equivalent
-  * On Windows, changing your user's enivronment variables to set `FACTOR_ROOTS` to `C:\Users\You\exercism\factor;C:\Another\Directory`.
-
-2. Create a configuration file. You can list additional vocabulary roots in a file read by Factor at startup: [Additional vocabulary roots file](http://docs.factorcode.org/content/article-.factor-roots.html)
-
-3. Call the [add-vocab-root](http://docs.factorcode.org/content/word-add-vocab-root%2Cvocabs.loader.html) word from your [.factor-rc file](http://docs.factorcode.org/content/article-.factor-rc.html).
+For information on using `exercism.testing`, refer to the [testing documentation](exercism.io/languages/factor#test), or to `exercism.testing`'s documentation by running `"exercism.testing" help` in Factor.
