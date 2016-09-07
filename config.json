@@ -4,17 +4,35 @@
   "repository": "https://github.com/exercism/xfactor",
   "active": false,
   "test_pattern": "TODO",
-  "problems": [
 
+  "problems": [
+    "hello-world"
   ],
+
+  "exercises": [
+    {
+      "slug": "hello-world",
+      "difficulty": 1,
+      "topics": [
+          "word definition",
+          "stack effect",
+          "text formatting",
+          "quotations"
+      ]
+    }
+  ],
+
   "deprecated": [
   ],
+
   "ignored": [
     "bin",
     "docs",
     "exercism-testing"
   ],
+
   "foregone": [
 
   ]
+
 }
