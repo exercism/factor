@@ -6,7 +6,7 @@
   "test_pattern": "TODO",
 
   "problems": [
-    "hello-world"
+
   ],
 
   "exercises": [
@@ -23,12 +23,12 @@
   ],
 
   "deprecated": [
+
   ],
 
   "ignored": [
     "bin",
-    "docs",
-    "exercism-testing"
+    "docs"
   ],
 
   "foregone": [
