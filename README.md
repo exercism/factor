@@ -70,12 +70,6 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
 If you think you've found a factual or technical error, or you just have a question or suggestion about some part of the Markdown or Factor documentation, we'd :heart: you to open an issue or pull request.
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 Katrina Owen, _@kytrinyx.com
-
 ### [Factor icon](https://github.com/exercism/xfactor/tree/master/img/icon.png)
 
 The Factor "Tyrannosaurus Rex" logo is owned by John Benediktsson. We have adapted it, changing the colour scheme, with his permission.
