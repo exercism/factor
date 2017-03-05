@@ -1,6 +1,6 @@
-USING: formatting kernel ;
+USING: formatting kernel sequences ;
 IN: hello-world
 
 : hello-name ( name -- string )
-  dup "" = [ drop "World" ] when
+  dup empty? [ drop "World" ] when
   "Hello, %s!" sprintf ;

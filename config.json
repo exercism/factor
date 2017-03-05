@@ -6,7 +6,8 @@
   "test_pattern": "TODO",
 
   "problems": [
-    "hello-world"
+    "hello-world",
+    "leap"
   ],
 
   "exercises": [
@@ -19,6 +20,16 @@
           "text formatting",
           "quotations"
       ]
+    },
+    {
+      "slug": "leap",
+      "difficulty": 2,
+      "topics": [
+        "quotations",
+        "word definition",
+        "conditionals",
+        "logical operators"
+      ]
     }
   ],
 
@@ -27,8 +38,7 @@
 
   "ignored": [
     "bin",
-    "docs",
-    "exercism-testing"
+    "docs"
   ],
 
   "foregone": [
