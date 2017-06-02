@@ -1,4 +1,8 @@
-# xfactor
+# xFactor
+
+---
+
+[![Build Status](https://travis-ci.org/exercism/xfactor.svg?branch=master)](https://travis-ci.org/exercism/xfactor)
 
 Exercism problems in Factor.
 
@@ -35,9 +39,7 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
   testing exercise: hello-world
 
-  Unit Test: { { "Hello, World!" } [ "" hello-you ] }
-  Unit Test: { { "Hello, Alice!" } [ "Alice" hello-you ] }
-  Unit Test: { { "Hello, Bob!" } [ "Bob" hello-you ] }
+  Unit Test: { { "Hello, World!" } [ say-hello ] }
   ```
 
   Alternatively, to run all tests in all exercise directories:
@@ -49,9 +51,7 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
   testing exercise: hello-world
 
-  Unit Test: { { "Hello, World!" } [ "" hello-you ] }
-  Unit Test: { { "Hello, Alice!" } [ "Alice" hello-you ] }
-  Unit Test: { { "Hello, Bob!" } [ "Bob" hello-you ] }
+  Unit Test: { { "Hello, World!" } [ say-hello ] }
   ```
 
   `config.json` is verified for logical integrity on each run. To only check `config.json`'s validity:
