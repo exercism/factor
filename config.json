@@ -4,12 +4,6 @@
   "repository": "https://github.com/exercism/xfactor",
   "active": false,
   "test_pattern": "TODO",
-
-  "problems": [
-    "hello-world",
-    "leap"
-  ],
-
   "exercises": [
     {
       "slug": "hello-world",
