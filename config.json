@@ -4,25 +4,34 @@
   "repository": "https://github.com/exercism/xfactor",
   "active": false,
   "test_pattern": "TODO",
+
   "exercises": [
     {
       "slug": "hello-world",
       "difficulty": 1,
       "topics": [
           "word definition",
-          "stack effect",
-          "text formatting",
-          "quotations"
+          "stack effect"
       ]
     },
     {
       "slug": "leap",
-      "difficulty": 2,
+      "difficulty": 3,
       "topics": [
         "quotations",
         "word definition",
         "conditionals",
         "logical operators"
+      ]
+    },
+    {
+      "slug": "two-fer",
+      "difficulty": 2,
+      "topics": [
+          "word definition",
+          "stack effect",
+          "text formatting",
+          "quotations"
       ]
     }
   ],
