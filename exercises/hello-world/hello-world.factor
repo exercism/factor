@@ -4,4 +4,4 @@ USING: ;
 IN: hello-world
 
 ! your implementation goes here
-! : hello-name ( -- ) ;
+! : say-hello ( -- ) ;
