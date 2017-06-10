@@ -4,14 +4,13 @@
   "repository": "https://github.com/exercism/xfactor",
   "active": false,
   "test_pattern": "TODO",
-
   "exercises": [
     {
       "slug": "hello-world",
       "difficulty": 1,
       "topics": [
-          "word definition",
-          "stack effect"
+        "word definition",
+        "stack effect"
       ]
     },
     {
@@ -28,24 +27,17 @@
       "slug": "two-fer",
       "difficulty": 2,
       "topics": [
-          "word definition",
-          "stack effect",
-          "text formatting",
-          "quotations"
+        "word definition",
+        "stack effect",
+        "text formatting",
+        "quotations"
       ]
     }
   ],
-
   "deprecated": [
-  ],
 
-  "ignored": [
-    "bin",
-    "docs"
   ],
-
   "foregone": [
 
   ]
-
 }
