@@ -32,6 +32,15 @@
         "text formatting",
         "quotations"
       ]
+    },
+    {
+      "slug": "isogram",
+      "difficulty": 1,
+      "topics": [
+          "word definition",
+          "stack effect",
+          "strings"
+      ]
     }
   ],
   "deprecated": [
