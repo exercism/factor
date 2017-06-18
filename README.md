@@ -1,8 +1,8 @@
-# xFactor
+# Exercism Factor Track
 
 ---
 
-[![Build Status](https://travis-ci.org/exercism/xfactor.svg?branch=master)](https://travis-ci.org/exercism/xfactor)
+[![Build Status](https://travis-ci.org/exercism/factor.svg?branch=master)](https://travis-ci.org/exercism/factor)
 
 Exercism problems in Factor.
 
@@ -33,8 +33,8 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
 2. Test an exercise's example code with:
   ```
-  xfactor (master) $ factor -run=exericsm.testing hello-world
-  working directory OK: /home/you/git/xfactor is a dev-env
+  factor (master) $ factor -run=exericsm.testing hello-world
+  working directory OK: /home/you/git/factor is a dev-env
   config.json and exercises OK
 
   testing exercise: hello-world
@@ -45,8 +45,8 @@ Here's what you need to do to start working with the Factor code in the `exercis
   Alternatively, to run all tests in all exercise directories:
 
   ```
-  xfactor (master) $ factor -run=exericsm.testing run-all
-  working directory OK: /home/you/git/xfactor is a dev-env
+  factor (master) $ factor -run=exericsm.testing run-all
+  working directory OK: /home/you/git/factor is a dev-env
   config.json and exercises OK
 
   testing exercise: hello-world
@@ -56,8 +56,8 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
   `config.json` is verified for logical integrity on each run. To only check `config.json`'s validity:
   ```
-  xfactor (master) $ factor -run=exericsm.testing VERIFY
-  working directory OK: /home/you/git/xfactor is a dev-env
+  factor (master) $ factor -run=exericsm.testing VERIFY
+  working directory OK: /home/you/git/factor is a dev-env
   config.json and exercises OK
   ```
   If `config.json` is invalid, then an error will be thrown and tests will not run.
@@ -70,6 +70,6 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
 If you think you've found a factual or technical error, or you just have a question or suggestion about some part of the Markdown or Factor documentation, we'd :heart: you to open an issue or pull request.
 
-### [Factor icon](https://github.com/exercism/xfactor/tree/master/img/icon.png)
+### [Factor icon](https://github.com/exercism/factor/tree/master/img/icon.png)
 
 The Factor "Tyrannosaurus Rex" logo is owned by John Benediktsson. We have adapted it, changing the colour scheme, with his permission.
