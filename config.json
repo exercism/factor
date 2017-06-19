@@ -1,7 +1,7 @@
 {
   "slug": "factor",
   "language": "Factor",
-  "repository": "https://github.com/exercism/xfactor",
+  "repository": "https://github.com/exercism/factor",
   "active": false,
   "test_pattern": "TODO",
   "exercises": [
