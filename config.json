@@ -1,7 +1,7 @@
 {
   "language": "Factor",
   "active": false,
-  "test_pattern": "TODO",
+  "test_pattern": "-tests[.]factor",
   "exercises": [
     {
       "uuid": "c81c4175-f06b-404d-8c01-c4a6dba661d3",
