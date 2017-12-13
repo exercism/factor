@@ -14,7 +14,7 @@ There are many great resources for learning Factor.
 
 Lastly and maybe leastly,
 
-* The [Concatenative Wiki](concatenative.org/wiki/view/Factor). Note that while it has good content and it's not wrong by any means, it's not really updated and [is being phased out](https://github.com/factor/factor/issues/706) in favour of the GitHub Wiki above.
+* The [Concatenative Wiki](http://www.concatenative.org/wiki/view/Factor). Note that while it has good content and it's not wrong by any means, it's not really updated and [is being phased out](https://github.com/factor/factor/issues/706) in favour of the GitHub Wiki above.
 
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/factor-lang). There's not a large community (okay, about three users including yours truly) but ask there if you're really, truly stuck and someone will surely help you out.
 
