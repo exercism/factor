@@ -43,7 +43,7 @@ readable as we can.
 
 ## Testing Exercises
 
-If you followed the [installation instructions](http://exercism.io/languages/factor/installing), just run the provided test suite against your implementation with `"exercise-name" test`.
+If you followed the [installation instructions](http://exercism.io/languages/factor/installation), just run the provided test suite against your implementation with `"exercise-name" test`.
 
 ## Submitting Exercises
 
