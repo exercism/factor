@@ -64,7 +64,7 @@ Here's what you need to do to start working with the Factor code in the `exercis
 
   Check out `exercism-testing`'s documentation for more information.
 
-4. Find a bug, or have a question or comment about `exercism.testing`? [Open an issue](https://github.com/catb0t/exericsm.factor/issues) or [pull request](https://github.com/catb0t/exericsm.factor/pulls)!
+4. Find a bug, or have a question or comment about `exercism.testing`? [Open an issue](https://github.com/exercism/factor/issues) or [pull request](https://github.com/exercism/factor/pulls)!
 
 ## Working on the Documentation
 
