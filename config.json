@@ -2,6 +2,7 @@
   "language": "Factor",
   "active": false,
   "blurb": "",
+  "version": 3,
   "test_pattern": "-tests[.]factor",
   "exercises": [
     {
