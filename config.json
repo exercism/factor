@@ -29,15 +29,14 @@
       ]
     },
     {
-      "slug": "leap",
-      "uuid": "17fb2814-2164-4933-8f72-adeb9b2b5ccf",
+      "slug": "isogram",
+      "uuid": "d3afeeb3-8c4e-4a31-81a2-fb039ab3c5af",
       "core": false,
       "unlocked_by": null,
-      "difficulty": 3,
+      "difficulty": 1,
       "topics": [
-        "conditionals",
-        "logical_operators",
-        "quotations",
+        "stack_effect",
+        "strings",
         "word_definition"
       ]
     },
@@ -55,14 +54,15 @@
       ]
     },
     {
-      "slug": "isogram",
-      "uuid": "d3afeeb3-8c4e-4a31-81a2-fb039ab3c5af",
+      "slug": "leap",
+      "uuid": "17fb2814-2164-4933-8f72-adeb9b2b5ccf",
       "core": false,
       "unlocked_by": null,
-      "difficulty": 1,
+      "difficulty": 3,
       "topics": [
-        "stack_effect",
-        "strings",
+        "conditionals",
+        "logical_operators",
+        "quotations",
         "word_definition"
       ]
     }
