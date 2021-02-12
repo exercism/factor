@@ -1,4 +1,4 @@
-## Recommended learning resources
+# Recommended learning resources
 
 * The [Official Factor Documentation](http://docs.factorcode.org).
 * The [Factor GitHub Repository Wiki](http://github.com/factor/factor/wiki).

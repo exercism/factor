@@ -1,3 +1,5 @@
+# About
+
 Factor was originally designed by Slava Pestov in 2002, as a scripting language implemented on the JVM for game engines. The platform and ecosystem has come a long way since that time, as has the core of the language itself. Factor's standard library has grown enormous, and its implementation, including its self-hosting native code optimising compiler, is now written almost entirely in Factor.
 
 Factor can create standalone, and even GUI applications that behave exactly the same on Linux, Windows and Mac OS.
