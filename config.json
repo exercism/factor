@@ -15,6 +15,20 @@
     "indent_size": 4
   },
   "test_pattern": "-tests[.]factor",
+  "files": {
+    "solution": [
+      "%{kebab_slug}.factor"
+    ],
+    "test": [
+      "%{kebab_slug}-tests.factor"
+    ],
+    "example": [
+      "%{kebab_slug}-example.factor"
+    ],
+    "exemplar": [
+      ".meta/%{kebab_slug}-exemplar.factor"
+    ]
+  },
   "exercises": {
     "concept": [],
     "practice": [
