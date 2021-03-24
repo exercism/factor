@@ -1,6 +1,11 @@
 {
   "blurb": "Given a year, report if it is a leap year.",
-  "authors": [],
+  "authors": [
+    "catb0t"
+  ],
+  "contributors": [
+    "sjwarner-bp"
+  ],
   "files": {
     "solution": [],
     "test": [],
