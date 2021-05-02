@@ -9,15 +9,13 @@ Given the collection of numbers:
 
 - 1, 2, 3, 4, 5
 
-And the operation:
+And a quotation that performs:
 
 - square a number (`[ sq ]`)
 
 Your code should be able to produce the collection of squares:
 
 - 1, 4, 9, 16, 25
-
-Check out the test suite to see the expected function signature.
 
 ## Restrictions
 

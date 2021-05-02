@@ -1,6 +1,6 @@
 USING: kernel ;
 IN: accumulate
 
-: accumulate ( seq xform: ( a -- b ) -- newseq )
+: accum ( seq xform: ( a -- b ) -- newseq )
   "unimplemented" throw ;
 
