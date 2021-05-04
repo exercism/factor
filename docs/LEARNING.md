@@ -1,4 +1,4 @@
-## Ways to learn Factor
+# Ways to learn Factor
 
 There are many great resources for learning Factor.
 
