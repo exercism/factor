@@ -9,7 +9,7 @@
       "hello-world-tests.factor"
     ],
     "example": [
-      "hello-world-example.factor"
+      ".meta/hello-world-example.factor"
     ]
   },
   "source": "This is an exercise to introduce users to using Exercism",
