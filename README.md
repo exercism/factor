@@ -2,7 +2,7 @@
 
 ---
 
-[![Build Status](https://travis-ci.org/exercism/factor.svg?branch=master)](https://travis-ci.org/exercism/factor)
+[![Configlet Status](https://github.com/exercism/factor/workflows/configlet/badge.svg)]
 
 Exercism problems in Factor.
 
