@@ -1,3 +1,5 @@
+# About
+
 Factor was originally designed by Slava Pestov in 2002, as a scripting language implemented on the JVM for game engines. The platform and ecosystem has come a long way since that time, as has the core of the language itself. Factor's standard library has grown enormous, and its implementation, including its self-hosting native code optimising compiler, is now written almost entirely in Factor.
 
 Factor can create standalone, and even GUI applications that behave exactly the same on Linux, Windows and Mac OS.
@@ -12,7 +14,7 @@ The Factor programming language is open source, and you can find it in active de
 
 If you're even a little bit new to Factor, it's highly recommended you read the [Factor cookbook](http://docs.factorcode.org/content/article-cookbook.html) and [Your first program](http://docs.factorcode.org/content/article-first-program.html) sections of the Factor documentation before continuing.
 
-#### Glossary of Factor terms
+## Glossary of Factor terms
 
 * **Word** Essentially a function, which takes its arguments from, and returns values to, the **stack**. All words must have a declared stack effect. All elements of Factor's syntax are **words**, which makes defining new syntax very easy.
 * **Vocabulary** A collection of **words** organised in a directory or source-file, like a module or library in other languages.
