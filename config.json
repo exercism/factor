@@ -23,7 +23,7 @@
       "%{kebab_slug}-tests.factor"
     ],
     "example": [
-      "%{kebab_slug}-example.factor"
+      ".meta/%{kebab_slug}-example.factor"
     ],
     "exemplar": [
       ".meta/%{kebab_slug}-exemplar.factor"

@@ -9,7 +9,7 @@
       "leap-tests.factor"
     ],
     "example": [
-      "leap-example.factor"
+      ".meta/leap-example.factor"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 3",

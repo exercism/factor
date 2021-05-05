@@ -9,7 +9,7 @@
       "isogram-tests.factor"
     ],
     "example": [
-      "isogram-example.factor"
+      ".meta/isogram-example.factor"
     ]
   },
   "source": "Wikipedia",
