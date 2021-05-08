@@ -86,6 +86,19 @@
           "quotations",
           "word_definition"
         ]
+      },
+      {
+        "slug": "accumulate",
+        "name": "Accumulate",
+        "uuid": "8a373305-98c9-4b19-9011-085abe19cfed",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5,
+        "topics": [
+          "quotations",
+          "collections",
+          "combinators"
+        ]
       }
     ]
   },
