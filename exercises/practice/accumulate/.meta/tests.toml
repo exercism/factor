@@ -1,0 +1,16 @@
+[canonical-tests]
+
+# accumulate empty
+"64d97c14-36dd-44a8-9621-2cecebd6ed23" = true
+
+# accumulate squares
+"00008ed2-4651-4929-8c08-8b4dbd70872e" = true
+
+# accumulate upcase
+"551016da-4396-4cae-b0ec-4c3a1a264125" = true
+
+# accumulate reversed strings
+"cdf95597-b6ec-4eac-a838-3480d13d0d05" = true
+
+# accumulate recursively
+"bee8e9b6-b16f-4cd2-be3b-ccf7457e50bb" = true

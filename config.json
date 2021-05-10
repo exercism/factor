@@ -38,40 +38,37 @@
         "slug": "hello-world",
         "name": "Hello World",
         "uuid": "c81c4175-f06b-404d-8c01-c4a6dba661d3",
-        "practices": [],
+        "practices": [
+          "stack-effect",
+          "word-definition"
+        ],
         "prerequisites": [],
-        "difficulty": 1,
-        "topics": [
-          "stack_effect",
-          "word_definition"
-        ]
+        "difficulty": 1
       },
       {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "d3afeeb3-8c4e-4a31-81a2-fb039ab3c5af",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 1,
-        "topics": [
-          "stack_effect",
+        "practices": [
+          "stack-effect",
           "strings",
-          "word_definition"
-        ]
+          "word-definition"
+        ],
+        "prerequisites": [],
+        "difficulty": 1
       },
       {
         "slug": "two-fer",
         "name": "Two Fer",
         "uuid": "22c5c529-07bb-4df2-8d2f-e470d1ed48da",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2,
-        "topics": [
+        "practices": [
           "quotations",
-          "stack_effect",
-          "text_formatting",
-          "word_definition"
-        ]
+          "stack-effect",
+          "text-formatting",
+          "word-definition"
+        ],
+        "prerequisites": [],
+        "difficulty": 2
       },
       {
         "slug": "leap",
@@ -82,10 +79,22 @@
         "difficulty": 3,
         "topics": [
           "conditionals",
-          "logical_operators",
+          "logical-operators",
           "quotations",
-          "word_definition"
+          "word-definition"
         ]
+      },
+      {
+        "slug": "accumulate",
+        "name": "Accumulate",
+        "uuid": "8a373305-98c9-4b19-9011-085abe19cfed",
+        "practices": [
+          "quotations",
+          "collections",
+          "combinators"
+        ],
+        "prerequisites": [],
+        "difficulty": 5
       }
     ]
   },
