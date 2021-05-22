@@ -1,0 +1,16 @@
+{
+  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base.",
+  "authors": ["hiljusti"],
+  "contributors": [],
+  "files": {
+    "solution": [
+      "all-your-base.factor"
+    ],
+    "test": [
+      "all-your-base-tests.factor"
+    ],
+    "example": [
+      ".meta/all-your-base-example.factor"
+    ]
+  }
+}

@@ -71,6 +71,17 @@
         "difficulty": 2
       },
       {
+        "slug": "all-your-base",
+        "name": "All Your Base",
+        "uuid": "c5a7ddcd-74ff-4ecf-8ff7-9f871f56084d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "math"
+        ]
+      },
+      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "17fb2814-2164-4933-8f72-adeb9b2b5ccf",
