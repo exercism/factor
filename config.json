@@ -95,6 +95,17 @@
         ],
         "prerequisites": [],
         "difficulty": 5
+      },
+      {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "e8733850-cc86-4d29-8e5a-92078576e193",
+        "practices": [
+          "strings",
+          "collections"
+        ],
+        "prerequisites": [],
+        "difficulty": 3
       }
     ]
   },
