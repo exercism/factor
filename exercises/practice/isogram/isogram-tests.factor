@@ -29,3 +29,7 @@ IN: isogram.tests
 
 "duplicated character in the middle" print
 { f } [ "accentor" isogram? ] unit-test
+
+"word with duplicated character and with two hyphens" print
+{ f } [ "up-to-date" isogram? ] unit-test
+
