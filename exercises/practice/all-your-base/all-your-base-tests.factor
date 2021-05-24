@@ -40,33 +40,33 @@ IN: all-your-base.tests
 { { 4 2 } } [ { 0 6 0 } 7 10 rebase ] unit-test
 
 "input base is one" print
-[ { 0 } 1 10 rebase ] [ "input base must be >= 2" ] must-fail-with
+[ { 0 } 1 10 rebase ] [ "input base must be >= 2" = ] must-fail-with
 
 "input base is zero" print
-[ { } 0 10 rebase ] [ "input base must be >= 2" ] must-fail-with
+[ { } 0 10 rebase ] [ "input base must be >= 2" = ] must-fail-with
 
 "input base is negative" print
-[ { 1 } -2 10 rebase ] [ "input base must be >= 2" ] must-fail-with
+[ { 1 } -2 10 rebase ] [ "input base must be >= 2" = ] must-fail-with
 
 "negative digit" print
 [ { 1 -1 1 0 1 0 } 2 10 rebase ] [
-    "all digits must satisfy 0 <= d < input base"
+    "all digits must satisfy 0 <= d < input base" =
 ] must-fail-with
 
 "invalid positive digit" print
 [ { 1 2 1 0 1 0 } 2 10 rebase ] [
-    "all digits must satisfy 0 <= d < input base"
+    "all digits must satisfy 0 <= d < input base" =
 ] must-fail-with
 
 "output base is one" print
-[ { 1 0 1 0 1 0 } 2 1 rebase ] [ "output base must be >= 2" ] must-fail-with
+[ { 1 0 1 0 1 0 } 2 1 rebase ] [ "output base must be >= 2" = ] must-fail-with
 
 "output base is zero" print
-[ { 7 } 10 0 rebase ] [ "output base must be >= 2" ] must-fail-with
+[ { 7 } 10 0 rebase ] [ "output base must be >= 2" = ] must-fail-with
 
 "output base is negative" print
-[ { 1 } 2 -7 rebase ] [ "output base must be >= 2" ] must-fail-with
+[ { 1 } 2 -7 rebase ] [ "output base must be >= 2" = ] must-fail-with
 
 "both bases are negative" print
-[ { 1 } -2 -7 rebase ] [ "input base must be >= 2" ] must-fail-with
+[ { 1 } -2 -7 rebase ] [ "input base must be >= 2" = ] must-fail-with
 
