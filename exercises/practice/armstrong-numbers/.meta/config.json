@@ -4,13 +4,13 @@
   "contributors": [],
   "files": {
     "solution": [
-      "armstrong.factor"
+      "armstrong-numbers.factor"
     ],
     "test": [
-      "armstrong-tests.factor"
+      "armstrong-numbers-tests.factor"
     ],
     "example": [
-      ".meta/armstrong-example.factor"
+      ".meta/armstrong-numbers-example.factor"
     ]
   },
   "source": "Wikipedia",
