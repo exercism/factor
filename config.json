@@ -76,6 +76,21 @@
         "difficulty": 2
       },
       {
+        "slug": "resistor-color",
+        "name": "Resistor Color",
+        "uuid": "4bf98489-3318-45cd-a0df-309fd2ff4158",
+        "practices": [
+          "conditionals",
+          "stack-effect",
+          "word-definition"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "word-definition"
+        ],
+        "difficulty": 2
+      },
+      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "17fb2814-2164-4933-8f72-adeb9b2b5ccf",
