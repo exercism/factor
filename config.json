@@ -112,6 +112,23 @@
         ]
       },
       {
+        "slug": "raindrops",
+        "name": "Raindrops",
+        "uuid": "c4c768de-5852-40e7-ac90-d7a8e9bb4926",
+        "practices": [
+          "conditionals",
+          "quotations",
+          "stack-effect",
+          "strings",
+          "word-definition"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "word-definition"
+        ],
+        "difficulty": 3
+      },
+      {
         "slug": "acronym",
         "name": "Acronym",
         "uuid": "e8733850-cc86-4d29-8e5a-92078576e193",
