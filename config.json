@@ -91,6 +91,20 @@
         "difficulty": 2
       },
       {
+        "slug": "reverse-string",
+        "name": "Reverse String",
+        "uuid": "5d28be8e-395e-4e2a-aab6-c5777bcb0668",
+        "practices": [
+          "stack-effect",
+          "strings"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "strings"
+        ],
+        "difficulty": 3
+      },
+      {
         "slug": "leap",
         "name": "Leap",
         "uuid": "17fb2814-2164-4933-8f72-adeb9b2b5ccf",
