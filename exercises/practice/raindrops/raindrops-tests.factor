@@ -1,4 +1,4 @@
-USING: raindrops kernel tools.test ;
+USING: io kernel raindrops tools.test ;
 IN: raindrops.test
 
 "Raindrops" print
@@ -7,7 +7,7 @@ IN: raindrops.test
 { "1" } [ 1 raindrops ] unit-test
 
 "the sound for 3 is Pling" print
-{ "Pling" } [ 1 raindrops ] unit-test
+{ "Pling" } [ 3 raindrops ] unit-test
 
 "the sound for 5 is Plang" print
 { "Plang" } [ 5 raindrops ] unit-test
