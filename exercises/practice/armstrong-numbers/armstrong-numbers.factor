@@ -1,8 +1,8 @@
-USING: kernel locals math math.functions math.order sequences ;
+USING: assocs kernel locals math math.functions math.order sequences ;
 IN: armstrong
 
-:: digits ( xs -- seq )
-  xs 10 /mod :> x! :> xs!
+:: digits ( x -- digits )
+  x 10 /mod :> x! :> xs!
   1 { } new-resizable :> digits
   x digits push
 
@@ -12,8 +12,14 @@ IN: armstrong
     x digits push
   ] while
 
-  digits ;
+  digits reverse ;
+
+:: powsum ( x -- powsum )
+  x digits :> digs
+  digs length :> len
+
+  digs [ len ^ ] map sum ;
 
 : armstrong? ( x -- ? )
-  "unimplemented" throw ;
+  [ ] [ powsum ] bi = ;
 
