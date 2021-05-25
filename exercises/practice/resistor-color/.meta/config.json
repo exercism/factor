@@ -1,0 +1,18 @@
+{
+  "blurb": "Convert a resistor band's color to its numeric representation.",
+  "authors": ["hiljusti"],
+  "contributors": [],
+  "files": {
+    "solution": [
+      "resistor-color.factor"
+    ],
+    "test": [
+      "resistor-color-tests.factor"
+    ],
+    "example": [
+      ".meta/resistor-color-example.factor"
+    ]
+  },
+  "source": "Maud de Vries, Erik Schierboom",
+  "source_url": "https://github.com/exercism/problem-specifications/issues/1458"
+}
