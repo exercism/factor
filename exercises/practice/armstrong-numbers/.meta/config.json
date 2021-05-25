@@ -1,0 +1,18 @@
+{
+  "blurb": "Determine if a number is an Armstrong number.",
+  "authors": ["hiljusti"],
+  "contributors": [],
+  "files": {
+    "solution": [
+      "armstrong.factor"
+    ],
+    "test": [
+      "armstrong-tests.factor"
+    ],
+    "example": [
+      ".meta/armstrong-example.factor"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Narcissistic_number"
+}
