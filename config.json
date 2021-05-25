@@ -54,7 +54,9 @@
           "strings",
           "word-definition"
         ],
-        "prerequisites": [],
+        "prerequisites": [
+          "word-definition"
+        ],
         "difficulty": 1
       },
       {
@@ -64,18 +66,28 @@
         "practices": [
           "quotations",
           "stack-effect",
-          "text-formatting",
+          "strings",
           "word-definition"
         ],
-        "prerequisites": [],
+        "prerequisites": [
+          "stack-effect",
+          "word-definition"
+        ],
         "difficulty": 2
       },
       {
         "slug": "leap",
         "name": "Leap",
         "uuid": "17fb2814-2164-4933-8f72-adeb9b2b5ccf",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "conditionals",
+          "math",
+          "quotations"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "word-definition"
+        ],
         "difficulty": 3,
         "topics": [
           "conditionals",
@@ -93,7 +105,11 @@
           "quotations",
           "collections"
         ],
-        "prerequisites": [],
+        "prerequisites": [
+          "stack-effect",
+          "quotations",
+          "word-definition"
+        ],
         "difficulty": 3
       },
       {
@@ -105,7 +121,11 @@
           "collections",
           "combinators"
         ],
-        "prerequisites": [],
+        "prerequisites": [
+          "stack-effect",
+          "quotations",
+          "word-definition"
+        ],
         "difficulty": 5
       },
       {
@@ -119,9 +139,11 @@
           "quotations"
         ],
         "prerequisites": [
+          "stack-effect",
           "collections",
           "combinators",
-          "quotations"
+          "quotations",
+          "word-definition"
         ],
         "difficulty": 6,
         "topics": [
