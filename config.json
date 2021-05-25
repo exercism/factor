@@ -97,6 +97,22 @@
         "difficulty": 3
       },
       {
+        "slug": "armstrong-numbers",
+        "name": "Armstrong Numbers",
+        "uuid": "61681eb1-b68b-40b3-9bc1-11904d4940e6",
+        "practices": [
+          "quotations",
+          "collections",
+          "combinators",
+          "math"
+        ],
+        "prerequisites": [
+          "logical-operators",
+          "quotations"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "8a373305-98c9-4b19-9011-085abe19cfed",
