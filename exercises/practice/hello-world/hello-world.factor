@@ -1,7 +1,5 @@
-! USEd vocabularies go here
-USING: ;
-! the vocab name goes here
+USING: formatting kernel sequences ;
 IN: hello-world
 
-! your implementation goes here
-! : say-hello ( -- ) ;
+: say-hello ( -- string )
+  "Goodbye, Mars!" ;
