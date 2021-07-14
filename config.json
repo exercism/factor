@@ -15,7 +15,6 @@
     "indent_size": 4,
     "highlightjs_language": "factor"
   },
-  "test_pattern": "-tests[.]factor",
   "files": {
     "solution": [
       "%{kebab_slug}.factor"
