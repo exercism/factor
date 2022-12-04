@@ -1,7 +1,7 @@
 {
-  "blurb": "Reverse a string.",
-  "authors": ["hiljusti"],
-  "contributors": [],
+  "authors": [
+    "hiljusti"
+  ],
   "files": {
     "solution": [
       "reverse-string.factor"
@@ -13,6 +13,7 @@
       ".meta/reverse-string-example.factor"
     ]
   },
+  "blurb": "Reverse a string.",
   "source": "Introductory challenge to reverse an input string",
   "source_url": "https://medium.freecodecamp.org/how-to-reverse-a-string-in-javascript-in-3-different-ways-75e4763c68cb"
 }

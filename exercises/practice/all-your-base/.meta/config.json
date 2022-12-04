@@ -1,7 +1,7 @@
 {
-  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base.",
-  "authors": ["hiljusti"],
-  "contributors": [],
+  "authors": [
+    "hiljusti"
+  ],
   "files": {
     "solution": [
       "all-your-base.factor"
@@ -12,5 +12,6 @@
     "example": [
       ".meta/all-your-base-example.factor"
     ]
-  }
+  },
+  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base."
 }

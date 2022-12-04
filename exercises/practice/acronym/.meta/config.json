@@ -1,7 +1,7 @@
 {
-  "blurb": "Convert a long phrase to its acronym.",
-  "authors": ["hiljusti"],
-  "contributors": [],
+  "authors": [
+    "hiljusti"
+  ],
   "files": {
     "solution": [
       "acronym.factor"
@@ -13,6 +13,7 @@
       ".meta/acronym-example.factor"
     ]
   },
+  "blurb": "Convert a long phrase to its acronym.",
   "source": "Julien Vanier",
   "source_url": "https://github.com/monkbroc"
 }
