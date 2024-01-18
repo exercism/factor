@@ -1,10 +1,9 @@
-# Description
+# Instructions
 
-Reverse a string
+Your task is to reverse a given string.
 
-For example:
-input: "cool"
-output: "looc"
+Some examples:
 
-Try to do this yourself! Avoid using built-ins like `sequences:reverse`, `sequences:<reversed>`, etc.
-
+- Turn `"stressed"` into `"desserts"`.
+- Turn `"strops"` into `"sports"`.
+- Turn `"racecar"` into `"racecar"`.
