@@ -213,10 +213,42 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+		{
+	    "icon": "interop",
+	    "title": "Concatenative",
+	    "content": "Factor is a language of the concatenative paradigm, like Forth or Postscript."
+		},
+		{
+	    "icon": "multi-paradigm",
+	    "title": "Multi-paradigm",
+	    "content": "Factor includes features from object-oriented programming and functional programming."
+		},
+		{
+	    "icon": "documentation",
+	    "title": "Embedded documentation",
+	    "content": "Factor has a very powerful documentation system available in its custom IDE and online."
+		},
+		{
+	    "icon": "expressive",
+	    "title": "Concise",
+	    "content": "Factor lets you describe complex programs with simple combinations of very short functions."
+		},
+		{
+	    "icon": "extensible",
+	    "title": "Extremely extensible",
+	    "content": "Most of Factor's syntax is actually defined with user-accessible features."
+		},
+		{
+	    "icon": "concurrency",
+	    "title": "Time-traveling debugger",
+	    "content": "Factor's debugger lets you reverse the course of execution from an error."
+		},
+  ],
   "tags": [
     "paradigm/functional",
     "paradigm/object_oriented",
+    "paradigm/declarative",
     "typing/dynamic",
     "typing/strong",
     "execution_mode/compiled",
