@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Synopsis:
+# Generate test files for practice exercises from canonical data.
+# Requires Julia to be installed.
+
+# Example: generate tests for a single exercise
+# bin/generate two-fer
+
+# Example: generate tests for all exercises that have a generator
+# bin/generate --all
+
+set -euo pipefail
+
+die() { echo >&2 "$*"; exit 1; }
+
+required_tool() {
+    command -v "${1}" >/dev/null 2>&1 ||
+        die "${1} is required but not installed. Please install it and make sure it's in your PATH."
+}
+
+required_tool julia
+
+[[ -f ./bin/fetch-configlet ]] || die "Run this script from the repo's root directory."
+
+exec julia --project=generator generator/generate.jl "$@"
