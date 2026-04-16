@@ -90,6 +90,7 @@ GENERATOR
 cat << NEXT_STEPS
 
 Your next steps are:
+
 - Edit the generator in '${exercise_dir}/.meta/generator.jl'
   - The tests should be based on the canonical data at 'https://github.com/exercism/problem-specifications/blob/main/exercises/${slug}/canonical-data.json'
   - Any test cases you don't implement, mark them in '${exercise_dir}/.meta/tests.toml' with "include = false"
@@ -99,4 +100,5 @@ Your next steps are:
 - Verify the example solution passes the tests by running 'bin/verify-exercises ${slug}'
 - Update the 'difficulty' value for the exercise's entry in the 'config.json' file in the repo's root
 - Validate CI using 'bin/configlet lint' and 'bin/configlet fmt'
+
 NEXT_STEPS
