@@ -13,7 +13,7 @@ To test a single exercise, run `./bin/verify-exercises <exercise-slug>`.
 
 ### Using Docker
 
-If your track has a working [test runner](https://exercism.org/docs/building/tooling/test-runners), the `./bin/verify-exercises-in-docker` script can also be used to test all exercises.
+The `./bin/verify-exercises-in-docker` script can also be used to test all exercises.
 This script pulls (_downloads_) the test runner's [Docker image](https://exercism.org/docs/building/tooling/test-runners/docker) and then uses Docker to run that image to test an exercise.
 
 ```exercism/note
