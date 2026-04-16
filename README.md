@@ -1,75 +1,69 @@
 # Exercism Factor Track
 
----
+[![Configlet](https://github.com/exercism/factor/actions/workflows/configlet.yml/badge.svg)](https://github.com/exercism/factor/actions/workflows/configlet.yml) [![Test](https://github.com/exercism/factor/actions/workflows/test.yml/badge.svg)](https://github.com/exercism/factor/actions/workflows/test.yml)
 
-[![Configlet Status](https://github.com/exercism/factor/workflows/configlet/badge.svg)]
+Exercism exercises in Factor.
 
-Exercism problems in Factor.
+## Testing
 
-We :heart: pull requests, issues and suggestions.
+To test all exercises, run `./bin/verify-exercises`.
+This command will iterate over all exercises and check to see if their exemplar/example implementation passes all the tests.
 
-## Contributing Guide
+To test a single exercise, run `./bin/verify-exercises <exercise-slug>`.
 
-Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data).
+### Using Docker
 
-## Working on the Exercises
+If your track has a working [test runner](https://exercism.org/docs/building/tooling/test-runners), the `./bin/verify-exercises-in-docker` script can also be used to test all exercises.
+This script pulls (_downloads_) the test runner's [Docker image](https://exercism.org/docs/building/tooling/test-runners/docker) and then uses Docker to run that image to test an exercise.
 
-We welcome both improvements to the existing exercises and new exercises.
-A pool of exercise ideas can be found in the [x-common repo](https://github.com/exercism/x-common).
+```exercism/note
+The main benefit of this approach is that it best mimics how exercises are tested in production (on the website).
+Another benefit is that you don't have to install track-specific dependencies (e.g. an SDK) locally, you just need Docker installed.
+```
 
-If you do contribute, please try to follow the guidelines for Factor code in this repo:
+To test a single exercise, run `./bin/verify-exercises-in-docker <exercise-slug>`.
 
-* Factor code should run in both the latest stable Factor as well as the latest nightly Factor. This is not a very hard requirement to meet, since Factor is very stable. If something only works in a certain version, find a different way.
+### Linting
 
-* Code should strictly follow the [Factor code conventions](http://docs.factorcode.org/content/article-conventions.html). This is also not a very hard task, and makes reading and writing code much easier.
+[`configlet`](https://exercism.org/docs/building/configlet) is an Exercism-wide tool for working with tracks. You can download it by running:
 
-* Code should compile and pass all of its unit tests, tested using [exercism.testing](https://github.com/catb0t/exercism.testing).
+```shell
+$ ./bin/fetch-configlet
+```
 
-## Get set up with using Factor to run and test the exercise code
+Run its [`lint` command](https://exercism.org/docs/building/configlet/lint) to verify if exercises have the required files and if config files are correct:
 
-Here's what you need to do to start working with the Factor code in the `exercises` directory.
+```shell
+$ ./bin/configlet lint
 
-1. Download [exercism.testing](https://github.com/catb0t/exercism.factor) and put it somewhere Factor can find it. Your `resource:work` directory is a good choice, so `testing.factor` is `resource:work/exercism/testing/testing.factor`.
+The lint command is under development.
+Please re-run this command regularly to see if your track passes the latest linting rules.
 
-2. Test an exercise's example code with:
-  ```
-  factor (master) $ factor -run=exericsm.testing hello-world
-  working directory OK: /home/you/git/factor is a dev-env
-  config.json and exercises OK
+Basic linting finished successfully:
+- config.json exists and is valid JSON
+- config.json has these valid fields:
+    language, slug, active, blurb, version, status, online_editor, key_features, tags
+- Every concept has the required .md files
+- Every concept has a valid links.json file
+- Every concept has a valid .meta/config.json file
+- Every concept exercise has the required .md files
+- Every concept exercise has a valid .meta/config.json file
+- Every practice exercise has the required .md files
+- Every practice exercise has a valid .meta/config.json file
+- Required track docs are present
+- Required shared exercise docs are present
+```
 
-  testing exercise: hello-world
+## Adding exercises
 
-  Unit Test: { { "Hello, World!" } [ say-hello ] }
-  ```
+New (practice) exercises can be added via:
 
-  Alternatively, to run all tests in all exercise directories:
+```shell
+bin/add-practice-exercise <exercise-slug>
+```
 
-  ```
-  factor (master) $ factor -run=exericsm.testing run-all
-  working directory OK: /home/you/git/factor is a dev-env
-  config.json and exercises OK
+Optionally, you can also specify the exercise's difficulty (via `-d`) and/or author's GitHub username (via `-a`):
 
-  testing exercise: hello-world
-
-  Unit Test: { { "Hello, World!" } [ say-hello ] }
-  ```
-
-  `config.json` is verified for logical integrity on each run. To only check `config.json`'s validity:
-  ```
-  factor (master) $ factor -run=exericsm.testing VERIFY
-  working directory OK: /home/you/git/factor is a dev-env
-  config.json and exercises OK
-  ```
-  If `config.json` is invalid, then an error will be thrown and tests will not run.
-
-  Check out `exercism-testing`'s documentation for more information.
-
-4. Find a bug, or have a question or comment about `exercism.testing`? [Open an issue](https://github.com/catb0t/exericsm.factor/issues) or [pull request](https://github.com/catb0t/exericsm.factor/pulls)!
-
-## Working on the Documentation
-
-If you think you've found a factual or technical error, or you just have a question or suggestion about some part of the Markdown or Factor documentation, we'd :heart: you to open an issue or pull request.
-
-### [Factor icon](https://github.com/exercism/factor/tree/master/img/icon.png)
-
-The Factor "Tyrannosaurus Rex" logo is owned by John Benediktsson. We have adapted it, changing the colour scheme, with his permission.
+```shell
+bin/add-practice-exercise -a foobar -d 3 <exercise-slug>
+```
