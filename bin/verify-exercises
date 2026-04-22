@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+# Synopsis:
+# Verify that each exercise's example/exemplar solution passes the tests.
+# You can either verify all exercises or a single exercise.
+
+# Example: verify all exercises
+# bin/verify-exercises
+
+# Example: verify single exercise
+# bin/verify-exercises two-fer
+
+set -eo pipefail
+
+die() { echo "$*" >&2; exit 1; }
+
+required_tool() {
+    command -v "${1}" >/dev/null 2>&1 ||
+        die "${1} is required but not installed. Please install it and make sure it's in your PATH."
+}
+
+required_tool jq
+
+FACTOR="${FACTOR:-factor}"
+"${FACTOR}" -e='1 2 +' >/dev/null 2>&1||
+    die "Factor is required but '${FACTOR}' does not appear to be the Factor language.
+Set the FACTOR environment variable to the path of the Factor executable."
+
+copy_example_or_examplar_to_solution() {
+    jq -c '[.files.solution, .files.exemplar // .files.example] | transpose | map({src: .[1], dst: .[0]}) | .[]' .meta/config.json \
+    | while read -r src_and_dst; do
+        cp "$(jq -r '.src' <<< "${src_and_dst}")" "$(jq -r '.dst' <<< "${src_and_dst}")"
+    done
+}
+
+unskip_tests() {
+    jq -r '.files.test[]' .meta/config.json | while read -r test_file; do
+        sed -i '/STOP-HERE/d' "${test_file}"
+    done
+}
+
+run_tests() {
+    local slug
+    slug="${1}"
+    "${FACTOR}" -e="USING: vocabs.loader tools.test tools.test.private namespaces kernel system ; \".\" add-vocab-root \"${slug}\" require \"${slug}\" test test-failures get empty? [ 0 exit ] [ :test-failures 1 exit ] if"
+}
+
+verify_exercise() {
+    local dir
+    local slug
+    local tmp_dir
+
+    dir=$(realpath "${1}")
+    slug=$(basename "${dir}")
+    tmp_dir="$(pwd)/test-exercises/${slug}"
+
+    echo "Verifying ${slug} exercise..."
+
+    rm -rf "${tmp_dir}" 2>/dev/null || true
+    mkdir -p "${tmp_dir}"
+    cp -r "${dir}/." "${tmp_dir}"
+    local rc=0
+    (
+        cd "${tmp_dir}"
+        copy_example_or_examplar_to_solution
+        unskip_tests
+        run_tests "${slug}"
+    ) || rc=$?
+    rm -rf "${tmp_dir}" 2>/dev/null || true
+    return "${rc}"
+}
+
+verify_exercises() {
+    local exercise_slug
+
+    exercise_slug="${1}"
+
+    local rc=0
+    local -a failed=()
+
+    shopt -s nullglob
+    count=0
+    for exercise_dir in ./exercises/{concept,practice}/${exercise_slug}/; do
+        if [[ -d "${exercise_dir}" ]]; then
+            slug=$(basename "${exercise_dir}")
+            if jq -e --arg s "${slug}" '.exercises.practice[] | select(.slug == $s) | .status == "wip"' config.json > /dev/null 2>&1; then
+                echo "Skipping ${slug} (wip)..."
+                ((++count))
+                continue
+            fi
+            if ! verify_exercise "${exercise_dir}"; then
+                rc=1
+                failed+=("$(basename "${exercise_dir}")")
+            fi
+            ((++count))
+        fi
+    done
+    ((count > 0)) || die 'no matching exercises found!'
+    if (( ${#failed[@]} > 0 )); then
+        echo >&2 ""
+        echo >&2 "FAILED: ${failed[*]}"
+    fi
+    return "${rc}"
+}
+
+exercise_slug="${1:-*}"
+verify_exercises "${exercise_slug}"

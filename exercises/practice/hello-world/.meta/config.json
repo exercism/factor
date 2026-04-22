@@ -8,13 +8,13 @@
   ],
   "files": {
     "solution": [
-      "hello-world.factor"
+      "hello-world/hello-world.factor"
     ],
     "test": [
-      "hello-world-tests.factor"
+      "hello-world/hello-world-tests.factor"
     ],
     "example": [
-      ".meta/hello-world-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",

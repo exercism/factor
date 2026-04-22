@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "raindrops.factor"
+      "raindrops/raindrops.factor"
     ],
     "test": [
-      "raindrops-tests.factor"
+      "raindrops/raindrops-tests.factor"
     ],
     "example": [
-      ".meta/raindrops-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Convert a number to a string, the content of which depends on the number's factors.",

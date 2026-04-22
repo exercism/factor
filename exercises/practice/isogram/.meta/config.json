@@ -5,13 +5,13 @@
   ],
   "files": {
     "solution": [
-      "isogram.factor"
+      "isogram/isogram.factor"
     ],
     "test": [
-      "isogram-tests.factor"
+      "isogram/isogram-tests.factor"
     ],
     "example": [
-      ".meta/isogram-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Determine if a word or phrase is an isogram.",

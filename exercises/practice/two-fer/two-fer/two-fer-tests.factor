@@ -1,0 +1,17 @@
+USING: io kernel lexer tools.test two-fer unicode ;
+IN: two-fer.tests
+
+: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
+
+"Two Fer:" print
+
+"no name given" print
+{ "One for you, one for me." } [ f 2-for-1 ] unit-test
+
+STOP-HERE
+
+"a name given" print
+{ "One for Alice, one for me." } [ "Alice" 2-for-1 ] unit-test
+
+"another name given" print
+{ "One for Bob, one for me." } [ "Bob" 2-for-1 ] unit-test

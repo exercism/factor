@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "reverse-string.factor"
+      "reverse-string/reverse-string.factor"
     ],
     "test": [
-      "reverse-string-tests.factor"
+      "reverse-string/reverse-string-tests.factor"
     ],
     "example": [
-      ".meta/reverse-string-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Reverse a given string.",

@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "resistor-color.factor"
+      "resistor-color/resistor-color.factor"
     ],
     "test": [
-      "resistor-color-tests.factor"
+      "resistor-color/resistor-color-tests.factor"
     ],
     "example": [
-      ".meta/resistor-color-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Convert a resistor band's color to its numeric representation.",

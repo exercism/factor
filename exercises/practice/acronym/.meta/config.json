@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "acronym.factor"
+      "acronym/acronym.factor"
     ],
     "test": [
-      "acronym-tests.factor"
+      "acronym/acronym-tests.factor"
     ],
     "example": [
-      ".meta/acronym-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Convert a long phrase to its acronym.",

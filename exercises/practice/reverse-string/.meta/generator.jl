@@ -1,8 +1,5 @@
 module ReverseString
 
-const HEADER = "USING: reverse-string tools.test ;"
-
-
 function gen_test_case(case)
     value = escape_factor(case["input"]["value"])
     expected = escape_factor(case["expected"])

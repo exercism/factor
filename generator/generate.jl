@@ -71,7 +71,7 @@ function filter_by_toml(cases, exercise)
     return filter(cases) do case
         uuid = case["uuid"]
         entry = get(toml, uuid, nothing)
-        entry === nothing && return true
+        entry === nothing && return false
         return get(entry, "include", true)
     end
 end
@@ -97,28 +97,31 @@ end
 
 const STOP_HERE_DEF = ": STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing"
 
-function render_test_file(mod, cases)
-    header = mod.HEADER
+title_of(slug) = join((uppercasefirst(w) for w in split(slug, '-')), ' ')
+
+function gen_header(cases, slug)
+    vocabs = [slug, "lexer", "kernel", "io", "tools.test", "unicode"]
+    sort!(vocabs)
+    return "USING: $(join(vocabs, " ")) ;\nIN: $(slug).tests"
+end
+
+function render_test_file(mod, cases, slug)
+    lines = String[gen_header(cases, slug), ""]
+    push!(lines, STOP_HERE_DEF, "")
     if length(cases) > 1
-        header = replace(header, "tools.test" => "kernel tools.test lexer")
-    else
-        header = replace(header, "tools.test" => "kernel tools.test")
+        push!(lines, """"$(title_of(slug)):" print""", "")
     end
-    lines = String[header]
-    if length(cases) > 1
-        push!(lines, "")
-        push!(lines, STOP_HERE_DEF)
-    end
-    push!(lines, "")
     for (i, case) in enumerate(cases)
+        if length(cases) > 1
+            push!(lines, """"$(case["description"])" print""")
+        end
         push!(lines, Base.invokelatest(mod.gen_test_case, case))
-        if i == 1 && length(cases) > 1
-            push!(lines, "")
-            push!(lines, "STOP-HERE")
+        if i == 1
+            push!(lines, "", "STOP-HERE", "")
+        else
             push!(lines, "")
         end
     end
-    push!(lines, "")
     return join(lines, "\n")
 end
 
@@ -129,7 +132,7 @@ function generate(exercise)
     extra = load_extra_cases(exercise)
     append!(cases, extra)
     mod = load_exercise_module(exercise)
-    content = render_test_file(mod, cases)
+    content = render_test_file(mod, cases, exercise)
     test_path = joinpath(TRACK_DIR, "exercises", "practice", exercise, exercise, "$(exercise)-tests.factor")
     mkpath(dirname(test_path))
     write(test_path, content)
