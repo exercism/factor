@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "list-ops/list-ops.factor"
+    ],
+    "test": [
+      "list-ops/list-ops-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Implement basic list operations."
+}

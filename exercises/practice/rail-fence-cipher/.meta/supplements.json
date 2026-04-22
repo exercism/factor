@@ -1,0 +1,11 @@
+[
+  {
+    "description": "decode with seven rails",
+    "property": "decode",
+    "input": {
+      "msg": "AGGWRHNAEROTOESTRADWETHCTTRENAAVOTHEAOECTRESIRMKEINNNEWOOENESANO",
+      "rails": 7
+    },
+    "expected": "ANANCIENTADAGEWARNSNEVERGOTOSEAWITHTWOCHRONOMETERSTAKEONEORTHREE"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "description": "Large deficient number with repeated prime factor is classified correctly",
+    "property": "classify",
+    "input": {"number": 8796027459974431},
+    "expected": "deficient"
+  }
+]

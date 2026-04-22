@@ -300,6 +300,46 @@
         "difficulty": 4
       },
       {
+        "slug": "luhn",
+        "name": "Luhn",
+        "uuid": "e83e333e-612a-4ec8-8d9f-da387327acdc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "robot-simulator",
+        "name": "Robot Simulator",
+        "uuid": "69868e6a-7e87-4cff-8f36-dd24c042e879",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "sieve",
+        "name": "Sieve",
+        "uuid": "8b1fc515-71c2-436c-98dc-8789d25c7ddb",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "92fc6937-1b33-49f1-b66e-7ec7e3786906",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "word-count",
+        "name": "Word Count",
+        "uuid": "f0a2b8f5-b244-4c35-86a7-9bf86843093c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "8a373305-98c9-4b19-9011-085abe19cfed",
@@ -313,6 +353,79 @@
           "quotations",
           "word-definition"
         ],
+        "difficulty": 5,
+        "status": "deprecated"
+      },
+      {
+        "slug": "affine-cipher",
+        "name": "Affine Cipher",
+        "uuid": "3e018380-7d24-403e-a951-b6f33ccc8afd",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "anagram",
+        "name": "Anagram",
+        "uuid": "ec107dbf-5123-4405-934e-3e0846433fd0",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "clock",
+        "name": "Clock",
+        "uuid": "2a606909-644b-4fd3-bd6c-bf0bb605a48d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "crypto-square",
+        "name": "Crypto Square",
+        "uuid": "c4b23be2-92e7-40ee-ad93-19f9f79eebc9",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "list-ops",
+        "name": "List Ops",
+        "uuid": "9eb1ed19-7c5a-4c8f-98e3-7d99826deb18",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "matching-brackets",
+        "name": "Matching Brackets",
+        "uuid": "afef364d-12dd-42fd-bbc8-f2c6228f0f53",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "run-length-encoding",
+        "name": "Run-Length Encoding",
+        "uuid": "009090ef-d7fd-4ba5-9942-c6e686069e12",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "square-root",
+        "name": "Square Root",
+        "uuid": "53cef38b-ad56-4462-bf37-48902fd3745c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 5
+      },
+      {
+        "slug": "yacht",
+        "name": "Yacht",
+        "uuid": "c94bbdbb-cdfe-4b53-913c-fc7f705cc0d0",
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 5
       },
       {
@@ -336,6 +449,62 @@
         "topics": [
           "math"
         ]
+      },
+      {
+        "slug": "game-of-life",
+        "name": "Conway's Game of Life",
+        "uuid": "36771f7d-aee3-44bd-a718-60efeaca3a8a",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
+        "slug": "ocr-numbers",
+        "name": "OCR Numbers",
+        "uuid": "725a35a9-b2ae-4c71-8dc9-a801a8699bd2",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
+        "slug": "rail-fence-cipher",
+        "name": "Rail Fence Cipher",
+        "uuid": "7f404c18-968e-41de-8067-7be5596a87ef",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
+        "slug": "say",
+        "name": "Say",
+        "uuid": "613a30e5-d545-40c7-b41e-f5ccb2c4ec88",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
+      },
+      {
+        "slug": "dominoes",
+        "name": "Dominoes",
+        "uuid": "cbbd1c5f-587b-4274-9889-1332d9446c63",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
+        "slug": "perfect-numbers",
+        "name": "Perfect Numbers",
+        "uuid": "0420eb1a-c607-4a65-8acb-aa3f60c01302",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
+      },
+      {
+        "slug": "rectangles",
+        "name": "Rectangles",
+        "uuid": "bfcd7856-38df-48e5-9bf1-438962ac44f8",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 7
       }
     ]
   },
