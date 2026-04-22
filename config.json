@@ -30,7 +30,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -58,19 +57,51 @@
         "difficulty": 1
       },
       {
-        "slug": "two-fer",
-        "name": "Two Fer",
-        "uuid": "22c5c529-07bb-4df2-8d2f-e470d1ed48da",
-        "practices": [
-          "quotations",
-          "stack-effect",
-          "strings",
-          "word-definition"
-        ],
-        "prerequisites": [
-          "stack-effect",
-          "word-definition"
-        ],
+        "slug": "collatz-conjecture",
+        "name": "Collatz Conjecture",
+        "uuid": "ecc6dd4e-f9fe-4435-b981-4806d7ba694c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "b104d555-6be9-4fcf-a225-2ac86560979c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "difference-of-squares",
+        "name": "Difference of Squares",
+        "uuid": "c4ac10c4-b848-4b10-a75c-44d034fc5f1e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "eliuds-eggs",
+        "name": "Eliud's Eggs",
+        "uuid": "bc478e3a-0d79-47ab-b529-d7c51c97817b",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "grains",
+        "name": "Grains",
+        "uuid": "9dc3a05d-1a65-487f-826f-02636d2bc9dc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "pangram",
+        "name": "Pangram",
+        "uuid": "b72e79d7-c229-4d7d-9abc-e304ce24dfed",
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 2
       },
       {
@@ -89,17 +120,83 @@
         "difficulty": 2
       },
       {
-        "slug": "reverse-string",
-        "name": "Reverse String",
-        "uuid": "5d28be8e-395e-4e2a-aab6-c5777bcb0668",
+        "slug": "rna-transcription",
+        "name": "RNA Transcription",
+        "uuid": "85e9ad19-d7e3-407d-8906-b8c69b09788e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "triangle",
+        "name": "Triangle",
+        "uuid": "8c14609c-7c39-4cba-b5d5-e41866503681",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "two-fer",
+        "name": "Two Fer",
+        "uuid": "22c5c529-07bb-4df2-8d2f-e470d1ed48da",
         "practices": [
+          "quotations",
           "stack-effect",
-          "strings"
+          "strings",
+          "word-definition"
         ],
         "prerequisites": [
           "stack-effect",
-          "strings"
+          "word-definition"
         ],
+        "difficulty": 2
+      },
+      {
+        "slug": "acronym",
+        "name": "Acronym",
+        "uuid": "e8733850-cc86-4d29-8e5a-92078576e193",
+        "practices": [
+          "strings",
+          "quotations",
+          "collections"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "quotations",
+          "word-definition"
+        ],
+        "difficulty": 3
+      },
+      {
+        "slug": "atbash-cipher",
+        "name": "Atbash Cipher",
+        "uuid": "8358ba48-a34b-4b9f-b4e7-f539e59d6d5d",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "bob",
+        "name": "Bob",
+        "uuid": "e0ae193c-1b63-4e64-9350-673760f4bccf",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "hamming",
+        "name": "Hamming",
+        "uuid": "c6b0ff72-b1c0-4589-8f70-a55fa386c99f",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "isbn-verifier",
+        "name": "ISBN Verifier",
+        "uuid": "6c77589b-5aaf-47c7-be19-f0c154ee9427",
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 3
       },
       {
@@ -124,6 +221,22 @@
         ]
       },
       {
+        "slug": "line-up",
+        "name": "Line Up",
+        "uuid": "aafcd21c-c1b9-4a1b-bf65-50251f466029",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "prime-factors",
+        "name": "Prime Factors",
+        "uuid": "baaca223-51bd-440b-a490-2775a363c743",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "raindrops",
         "name": "Raindrops",
         "uuid": "c4c768de-5852-40e7-ac90-d7a8e9bb4926",
@@ -141,19 +254,33 @@
         "difficulty": 3
       },
       {
-        "slug": "acronym",
-        "name": "Acronym",
-        "uuid": "e8733850-cc86-4d29-8e5a-92078576e193",
+        "slug": "reverse-string",
+        "name": "Reverse String",
+        "uuid": "5d28be8e-395e-4e2a-aab6-c5777bcb0668",
         "practices": [
-          "strings",
-          "quotations",
-          "collections"
+          "stack-effect",
+          "strings"
         ],
         "prerequisites": [
           "stack-effect",
-          "quotations",
-          "word-definition"
+          "strings"
         ],
+        "difficulty": 3
+      },
+      {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "dc8ef2d7-065e-4ea5-b613-6f4db433e925",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
+        "slug": "sum-of-multiples",
+        "name": "Sum of Multiples",
+        "uuid": "b78220d5-e06b-4476-916c-392140c9dcb5",
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 3
       },
       {
@@ -212,50 +339,49 @@
       }
     ]
   },
-  "concepts": [],
   "key_features": [
-		{
-	    "icon": "interop",
-	    "title": "Concatenative",
-	    "content": "Factor is a language of the concatenative paradigm, like Forth or Postscript."
-		},
-		{
-	    "icon": "multi-paradigm",
-	    "title": "Multi-paradigm",
-	    "content": "Factor includes features from object-oriented programming and functional programming."
-		},
-		{
-	    "icon": "documentation",
-	    "title": "Embedded documentation",
-	    "content": "Factor has a very powerful documentation system available in its custom IDE and online."
-		},
-		{
-	    "icon": "expressive",
-	    "title": "Concise",
-	    "content": "Factor lets you describe complex programs with simple combinations of very short functions."
-		},
-		{
-	    "icon": "extensible",
-	    "title": "Extremely extensible",
-	    "content": "Most of Factor's syntax is actually defined with user-accessible features."
-		},
-		{
-	    "icon": "concurrency",
-	    "title": "Time-traveling debugger",
-	    "content": "Factor's debugger lets you reverse the course of execution from an error."
-		}
+    {
+      "title": "Concatenative",
+      "content": "Factor is a language of the concatenative paradigm, like Forth or Postscript.",
+      "icon": "interop"
+    },
+    {
+      "title": "Multi-paradigm",
+      "content": "Factor includes features from object-oriented programming and functional programming.",
+      "icon": "multi-paradigm"
+    },
+    {
+      "title": "Embedded documentation",
+      "content": "Factor has a very powerful documentation system available in its custom IDE and online.",
+      "icon": "documentation"
+    },
+    {
+      "title": "Concise",
+      "content": "Factor lets you describe complex programs with simple combinations of very short functions.",
+      "icon": "expressive"
+    },
+    {
+      "title": "Extremely extensible",
+      "content": "Most of Factor's syntax is actually defined with user-accessible features.",
+      "icon": "extensible"
+    },
+    {
+      "title": "Time-traveling debugger",
+      "content": "Factor's debugger lets you reverse the course of execution from an error.",
+      "icon": "concurrency"
+    }
   ],
   "tags": [
-    "paradigm/functional",
-    "paradigm/object_oriented",
-    "paradigm/declarative",
-    "typing/dynamic",
-    "typing/strong",
     "execution_mode/compiled",
     "execution_mode/interpreted",
-    "platform/windows",
-    "platform/mac",
+    "paradigm/declarative",
+    "paradigm/functional",
+    "paradigm/object_oriented",
     "platform/linux",
-    "runtime/language_specific"
+    "platform/mac",
+    "platform/windows",
+    "runtime/language_specific",
+    "typing/dynamic",
+    "typing/strong"
   ]
 }

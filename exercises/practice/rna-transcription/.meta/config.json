@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "rna-transcription/rna-transcription.factor"
+    ],
+    "test": [
+      "rna-transcription/rna-transcription-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Given a DNA strand, return its RNA complement.",
+  "source": "Hyperphysics",
+  "source_url": "https://web.archive.org/web/20220408112140/http://hyperphysics.phy-astr.gsu.edu/hbase/Organic/transcription.html"
+}

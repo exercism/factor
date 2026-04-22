@@ -1,0 +1,8 @@
+[
+  {
+    "description": "rotate boundary characters",
+    "property": "rotate",
+    "input": {"text": "/09:@AMNZ[`amnz{", "shiftKey": 13},
+    "expected": "/09:@NZAM[`nzam{"
+  }
+]
