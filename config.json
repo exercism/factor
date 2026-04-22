@@ -17,16 +17,16 @@
   },
   "files": {
     "solution": [
-      "%{kebab_slug}.factor"
+      "%{kebab_slug}/%{kebab_slug}.factor"
     ],
     "test": [
-      "%{kebab_slug}-tests.factor"
+      "%{kebab_slug}/%{kebab_slug}-tests.factor"
     ],
     "example": [
-      ".meta/%{kebab_slug}-example.factor"
+      ".meta/example.factor"
     ],
     "exemplar": [
-      ".meta/%{kebab_slug}-exemplar.factor"
+      ".meta/exemplar.factor"
     ]
   },
   "exercises": {

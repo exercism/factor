@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "armstrong-numbers.factor"
+      "armstrong-numbers/armstrong-numbers.factor"
     ],
     "test": [
-      "armstrong-numbers-tests.factor"
+      "armstrong-numbers/armstrong-numbers-tests.factor"
     ],
     "example": [
-      ".meta/armstrong-numbers-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Determine if a number is an Armstrong number.",

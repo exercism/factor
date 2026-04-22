@@ -7,13 +7,13 @@
   ],
   "files": {
     "solution": [
-      "leap.factor"
+      "leap/leap.factor"
     ],
     "test": [
-      "leap-tests.factor"
+      "leap/leap-tests.factor"
     ],
     "example": [
-      ".meta/leap-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Determine whether a given year is a leap year.",

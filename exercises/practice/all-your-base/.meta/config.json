@@ -4,13 +4,13 @@
   ],
   "files": {
     "solution": [
-      "all-your-base.factor"
+      "all-your-base/all-your-base.factor"
     ],
     "test": [
-      "all-your-base-tests.factor"
+      "all-your-base/all-your-base-tests.factor"
     ],
     "example": [
-      ".meta/all-your-base-example.factor"
+      ".meta/example.factor"
     ]
   },
   "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base."

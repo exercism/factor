@@ -1,11 +1,9 @@
 module Accumulate
 
-const HEADER = "USING: accumulate math unicode tools.test ;\nEXCLUDE: sequences => accumulate ;"
-
 const ACCUMULATORS = Dict(
     "(x) => x * x" => "[ dup * ]",
     "(x) => upcase(x)" => "[ >upper ]",
-    "(x) => reverse(x)" => "[ reverse ]",
+    "(x) => reverse(x)" => "[ string-reverse ]",
     """(x) => accumulate(["1", "2", "3"], (y) => x + y)""" => """[ [ swap append ] curry { "1" "2" "3" } swap accumulate ]""",
 )
 
@@ -40,7 +38,7 @@ function gen_test_case(case)
     list = format_input_list(case["input"]["list"])
     acc = ACCUMULATORS[case["input"]["accumulator"]]
     expected = format_value(case["expected"])
-    return "{ $(expected) } [ $(list) $(acc) accumulate ] unit-test"
+    return "{ $(expected) }\n[ $(list) $(acc) accum ] unit-test"
 end
 
 end
