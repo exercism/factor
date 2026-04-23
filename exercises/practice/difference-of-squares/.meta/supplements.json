@@ -1,0 +1,20 @@
+[
+  {
+    "description": "square of sum 90000",
+    "property": "squareOfSum",
+    "input": {"number": 90000},
+    "expected": 16402864502025000000
+  },
+  {
+    "description": "sum of squares 90000",
+    "property": "sumOfSquares",
+    "input": {"number": 90000},
+    "expected": 243004050015000
+  },
+  {
+    "description": "difference of squares 90000",
+    "property": "differenceOfSquares",
+    "input": {"number": 90000},
+    "expected": 16402621497974985000
+  }
+]

@@ -2,7 +2,7 @@ USING: kernel ;
 IN: resistor-color
 
 : colors ( -- seq )
-  "unimplemented" throw ;
+    "unimplemented" throw ;
 
 : color>code ( color -- n )
-  "unimplemented" throw ;
+    "unimplemented" throw ;
