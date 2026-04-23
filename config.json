@@ -343,16 +343,8 @@
         "slug": "accumulate",
         "name": "Accumulate",
         "uuid": "8a373305-98c9-4b19-9011-085abe19cfed",
-        "practices": [
-          "quotations",
-          "collections",
-          "combinators"
-        ],
-        "prerequisites": [
-          "stack-effect",
-          "quotations",
-          "word-definition"
-        ],
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 5,
         "status": "deprecated"
       },
@@ -392,8 +384,16 @@
         "slug": "list-ops",
         "name": "List Ops",
         "uuid": "9eb1ed19-7c5a-4c8f-98e3-7d99826deb18",
-        "practices": [],
-        "prerequisites": [],
+        "practices": [
+          "quotations",
+          "collections",
+          "combinators"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "quotations",
+          "word-definition"
+        ],
         "difficulty": 5
       },
       {
