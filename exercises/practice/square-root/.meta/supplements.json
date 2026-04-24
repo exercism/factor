@@ -1,0 +1,8 @@
+[
+  {
+    "description": "root of 4905601600",
+    "property": "squareRoot",
+    "input": {"radicand": 4905601600},
+    "expected": 70040
+  }
+]

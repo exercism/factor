@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "sieve/sieve.factor"
+    ],
+    "test": [
+      "sieve/sieve-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Use the Sieve of Eratosthenes to find all the primes from 2 up to a given number.",
+  "source": "Sieve of Eratosthenes at Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes"
+}

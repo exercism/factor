@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "dominoes/dominoes.factor"
+    ],
+    "test": [
+      "dominoes/dominoes-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Make a chain of dominoes."
+}

@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "game-of-life/game-of-life.factor"
+    ],
+    "test": [
+      "game-of-life/game-of-life-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Implement Conway's Game of Life.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life"
+}

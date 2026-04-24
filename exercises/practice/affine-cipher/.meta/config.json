@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "affine-cipher/affine-cipher.factor"
+    ],
+    "test": [
+      "affine-cipher/affine-cipher-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Create an implementation of the Affine cipher, an ancient encryption algorithm from the Middle East.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Affine_cipher"
+}
