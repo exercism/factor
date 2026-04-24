@@ -1,4 +1,4 @@
-USING: io kernel lexer list-ops tools.test unicode ;
+USING: io kernel lexer list-ops math tools.test unicode ;
 IN: list-ops.tests
 
 : STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing

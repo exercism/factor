@@ -99,14 +99,15 @@ const STOP_HERE_DEF = ": STOP-HERE ( -- ) lexer get [ text>> length ] keep line<
 
 title_of(slug) = join((uppercasefirst(w) for w in split(slug, '-')), ' ')
 
-function gen_header(cases, slug)
-    vocabs = [slug, "lexer", "kernel", "io", "tools.test", "unicode"]
-    sort!(vocabs)
+function gen_header(mod, slug)
+    base = String["io", "kernel", "lexer", slug, "tools.test", "unicode"]
+    extra = isdefined(mod, :EXTRA_VOCABS) ? collect(mod.EXTRA_VOCABS) : String[]
+    vocabs = sort!(unique!(vcat(base, extra)))
     return "USING: $(join(vocabs, " ")) ;\nIN: $(slug).tests"
 end
 
 function render_test_file(mod, cases, slug)
-    lines = String[gen_header(cases, slug), ""]
+    lines = String[gen_header(mod, slug), ""]
     push!(lines, STOP_HERE_DEF, "")
     if length(cases) > 1
         push!(lines, """"$(title_of(slug)):" print""", "")

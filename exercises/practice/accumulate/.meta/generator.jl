@@ -1,5 +1,7 @@
 module Accumulate
 
+const EXTRA_VOCABS = ["math"]
+
 const ACCUMULATORS = Dict(
     "(x) => x * x" => "[ dup * ]",
     "(x) => upcase(x)" => "[ >upper ]",

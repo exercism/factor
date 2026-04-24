@@ -78,8 +78,6 @@ module_name=$(echo "${slug}" | sed -r 's/(^|-)(\w)/\U\2/g')
 cat > "${exercise_dir}/.meta/generator.jl" << GENERATOR
 module ${module_name}
 
-const HEADER = "USING: ${slug} tools.test ;"
-
 function gen_test_case(case)
     error("TODO: implement gen_test_case for ${slug}")
 end
