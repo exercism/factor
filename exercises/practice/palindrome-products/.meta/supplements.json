@@ -1,0 +1,14 @@
+[
+  {
+    "description": "find the smallest palindrome from six digit factors",
+    "property": "smallest",
+    "input": { "min": 223617, "max": 244818 },
+    "expected": { "value": 50067176005, "factors": [[223619, 223895]] }
+  },
+  {
+    "description": "find the largest palindrome from six digit factors",
+    "property": "largest",
+    "input": { "min": 223617, "max": 244818 },
+    "expected": { "value": 59842824895, "factors": [[244445, 244811]] }
+  }
+]

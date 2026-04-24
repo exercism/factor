@@ -1,0 +1,14 @@
+[
+  {
+    "description": "seventh prime",
+    "property": "prime",
+    "input": {"number": 7},
+    "expected": 17
+  },
+  {
+    "description": "very big prime",
+    "property": "prime",
+    "input": {"number": 65537},
+    "expected": 821647
+  }
+]

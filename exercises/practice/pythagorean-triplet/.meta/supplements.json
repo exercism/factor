@@ -1,0 +1,8 @@
+[
+  {
+    "description": "triplets for very large number",
+    "property": "tripletsWithSum",
+    "input": {"n": 238714},
+    "expected": [[68145, 71672, 98897]]
+  }
+]

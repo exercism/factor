@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "connect/connect.factor"
+    ],
+    "test": [
+      "connect/connect-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Compute the result for a game of Hex / Polygon."
+}

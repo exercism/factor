@@ -517,6 +517,38 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 7
+      },
+      {
+        "slug": "nth-prime",
+        "name": "Nth Prime",
+        "uuid": "cbd8dbf2-67da-49fe-a89b-db82e4a9f440",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
+        "slug": "palindrome-products",
+        "name": "Palindrome Products",
+        "uuid": "a8c0261a-53e9-48e6-baab-a0951e6ed5e3",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
+        "slug": "pythagorean-triplet",
+        "name": "Pythagorean Triplet",
+        "uuid": "45237b5d-1f62-43df-846c-fcc4631d9eef",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
+        "slug": "connect",
+        "name": "Connect",
+        "uuid": "aa62b866-3c6b-4804-9a62-dddc45ab5d17",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 9
       }
     ]
   },
