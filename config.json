@@ -30,6 +30,18 @@
     ]
   },
   "exercises": {
+    "concept": [
+      {
+        "slug": "annalyns-infiltration",
+        "name": "Annalyns Infiltration",
+        "uuid": "57a3408b-1c45-4860-9605-47eb6651fb81",
+        "concepts": [
+          "stack-effect"
+        ],
+        "prerequisites": [],
+        "status": "wip"
+      }
+    ],
     "practice": [
       {
         "slug": "hello-world",
