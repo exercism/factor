@@ -1,5 +1,5 @@
 USING: kernel ;
-IN: armstrong
+IN: armstrong-numbers
 
 : armstrong? ( n -- ? )
     "unimplemented" throw ;

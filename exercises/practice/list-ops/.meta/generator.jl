@@ -1,5 +1,7 @@
 module ListOps
 
+const EXTRA_VOCABS = ["math"]
+
 const WORD_NAMES = Dict(
     "append" => "list-append",
     "concat" => "list-concat",

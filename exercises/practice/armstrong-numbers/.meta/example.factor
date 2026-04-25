@@ -1,5 +1,5 @@
 USING: assocs kernel locals math math.functions math.order sequences ;
-IN: armstrong
+IN: armstrong-numbers
 
 :: digits ( x -- digits )
     x 10 /mod :> x! :> xs!
