@@ -52,6 +52,44 @@
           "stack-effect"
         ],
         "status": "wip"
+      },
+      {
+        "slug": "currency-exchange",
+        "name": "Currency Exchange",
+        "uuid": "380a2d4f-ea48-47a1-94f1-fc8ec0561136",
+        "concepts": [
+          "numbers"
+        ],
+        "prerequisites": [
+          "stack-effect"
+        ],
+        "status": "wip"
+      },
+      {
+        "slug": "cars-assemble",
+        "name": "Cars, Assemble!",
+        "uuid": "e5e68b1a-5445-4251-a56b-6a40fab662ed",
+        "concepts": [
+          "conditionals"
+        ],
+        "prerequisites": [
+          "booleans",
+          "numbers"
+        ],
+        "status": "wip"
+      },
+      {
+        "slug": "log-levels",
+        "name": "Log Levels",
+        "uuid": "2e436217-a007-438e-b553-451e10d9c459",
+        "concepts": [
+          "strings"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "conditionals"
+        ],
+        "status": "wip"
       }
     ],
     "practice": [

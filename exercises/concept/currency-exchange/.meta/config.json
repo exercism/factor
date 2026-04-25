@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "currency-exchange/currency-exchange.factor"
+    ],
+    "test": [
+      "currency-exchange/currency-exchange-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/currency-exchange"
+  ],
+  "blurb": "Learn about numbers in Factor by solving Chandler's currency exchange conundrums."
+}
