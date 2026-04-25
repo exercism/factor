@@ -32,13 +32,25 @@
   "exercises": {
     "concept": [
       {
-        "slug": "annalyns-infiltration",
-        "name": "Annalyns Infiltration",
-        "uuid": "57a3408b-1c45-4860-9605-47eb6651fb81",
+        "slug": "lasagna",
+        "name": "Leah's Luscious Lasagna",
+        "uuid": "a35d8564-a135-4930-9497-c47ae93857a5",
         "concepts": [
           "stack-effect"
         ],
         "prerequisites": [],
+        "status": "wip"
+      },
+      {
+        "slug": "annalyns-infiltration",
+        "name": "Annalyns Infiltration",
+        "uuid": "57a3408b-1c45-4860-9605-47eb6651fb81",
+        "concepts": [
+          "booleans"
+        ],
+        "prerequisites": [
+          "stack-effect"
+        ],
         "status": "wip"
       }
     ],
