@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "The math.bitwise vocabulary provides bitand, bitor, bitxor, bitnot, and shift on integers."
+}

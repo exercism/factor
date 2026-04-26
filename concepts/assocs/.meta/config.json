@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Hashtables (H{ }) and other associative collections share the assocs protocol — at, set-at, change-at, inc-at."
+}

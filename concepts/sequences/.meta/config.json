@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Arrays, vectors, and strings share the sequences protocol — length, first, head, sum, count."
+}

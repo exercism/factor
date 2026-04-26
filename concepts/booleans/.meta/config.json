@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor's boolean values are t and f; f is the only falsy value. Operators: and, or, not."
+}

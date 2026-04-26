@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "backyard-birdwatcher/backyard-birdwatcher.factor"
+    ],
+    "test": [
+      "backyard-birdwatcher/backyard-birdwatcher-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/backyard-birdwatcher"
+  ],
+  "blurb": "Learn about sequences in Factor by tracking the birds visiting your garden."
+}

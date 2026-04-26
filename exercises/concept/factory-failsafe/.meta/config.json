@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "factory-failsafe/factory-failsafe.factor"
+    ],
+    "test": [
+      "factory-failsafe/factory-failsafe-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/factory-failsafe"
+  ],
+  "blurb": "Learn about errors in Factor by monitoring machines in a newspaper factory."
+}

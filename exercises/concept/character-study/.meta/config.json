@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "character-study/character-study.factor"
+    ],
+    "test": [
+      "character-study/character-study-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "common-lisp/character-study"
+  ],
+  "blurb": "Learn about Unicode-aware character handling by helping a Lisp Alien with their alphabets project."
+}

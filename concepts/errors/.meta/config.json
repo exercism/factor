@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor signals errors with throw, recovers with recover, and defines error classes with ERROR:."
+}

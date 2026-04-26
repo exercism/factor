@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "case in combinators dispatches on a value via an alist of { value [ body ] } clauses."
+}

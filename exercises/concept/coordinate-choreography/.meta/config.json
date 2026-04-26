@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "coordinate-choreography/coordinate-choreography.factor"
+    ],
+    "test": [
+      "coordinate-choreography/coordinate-choreography-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "clojure/coordinate-choreography"
+  ],
+  "blurb": "Learn about curry, compose, and fry quotations by building reusable 2D coordinate transformations."
+}

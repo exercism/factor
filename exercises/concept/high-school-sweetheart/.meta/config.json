@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "high-school-sweetheart/high-school-sweetheart.factor"
+    ],
+    "test": [
+      "high-school-sweetheart/high-school-sweetheart-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/high-school-sweetheart"
+  ],
+  "blurb": "Learn about quotations in Factor by helping high school sweethearts profess their love on social media via unicode art."
+}
