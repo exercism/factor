@@ -13,7 +13,7 @@
   "online_editor": {
     "indent_style": "space",
     "indent_size": 4,
-    "highlightjs_language": "factor"
+    "highlightjs_language": "forth"
   },
   "files": {
     "solution": [
@@ -595,6 +595,8 @@
     "platform/windows",
     "runtime/language_specific",
     "typing/dynamic",
-    "typing/strong"
+    "typing/strong",
+    "used_for/backends",
+    "used_for/scripts"
   ]
 }
