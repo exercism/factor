@@ -1,26 +1,42 @@
-USING: arrays combinators kernel locals math sequences ;
+USING: accessors combinators kernel math sequences ;
 IN: robot-simulator
 
-: <robot> ( x y dir -- robot ) 3array ;
+SYMBOLS: north east south west ;
 
-: turn ( robot offset -- robot )
-    [ dup third { "north" "east" "south" "west" } index ] dip
-    + 4 + 4 mod { "north" "east" "south" "west" } nth
-    [ but-last ] dip suffix ;
+TUPLE: robot x y direction ;
 
-:: advance ( robot -- robot )
-    robot first3 :> ( x y dir )
-    dir {
-        { "north" [ x y 1 + ] }
-        { "east"  [ x 1 + y ] }
-        { "south" [ x y 1 - ] }
-        { "west"  [ x 1 - y ] }
-    } case dir <robot> ;
+: <robot> ( x y direction -- robot ) robot boa ;
+
+: turn-right ( direction -- direction' )
+    {
+        { north [ east  ] }
+        { east  [ south ] }
+        { south [ west  ] }
+        { west  [ north ] }
+    } case ;
+
+: turn-left ( direction -- direction' )
+    {
+        { north [ west  ] }
+        { east  [ north ] }
+        { south [ east  ] }
+        { west  [ south ] }
+    } case ;
+
+: advance ( robot -- robot )
+    dup direction>> {
+        { north [ [ 1 + ] change-y ] }
+        { east  [ [ 1 + ] change-x ] }
+        { south [ [ 1 - ] change-y ] }
+        { west  [ [ 1 - ] change-x ] }
+    } case ;
 
 : step ( robot char -- robot )
-    { { CHAR: R [ 1 turn ] }
-      { CHAR: L [ -1 turn ] }
-      { CHAR: A [ advance ] } } case ;
+    {
+        { CHAR: R [ [ turn-right ] change-direction ] }
+        { CHAR: L [ [ turn-left  ] change-direction ] }
+        { CHAR: A [ advance ] }
+    } case ;
 
 : move ( robot instructions -- robot )
     [ step ] each ;

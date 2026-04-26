@@ -4,23 +4,23 @@ IN: palindrome-products
 : palindrome? ( n -- ? )
     number>string dup reverse sequence= ;
 
-:: smallest ( mn mx -- result )
+:: smallest ( mn mx -- value factors )
     mn mx > [ "min must be <= max" throw ] when
-    f :> value!
-    V{ } clone :> factors
+    f :> v!
+    V{ } clone :> facs
     mn :> first!
     [ first mx <= ] [
         first :> second!
-        [ second mx <= value [ first second * < ] [ f ] if* not and ] [
+        [ second mx <= v [ first second * < ] [ f ] if* not and ] [
             first second * :> product
             product palindrome? [
-                value [ product > ] [ t ] if* [
-                    product value!
-                    factors delete-all
-                    first second 2array factors push
+                v [ product > ] [ t ] if* [
+                    product v!
+                    facs delete-all
+                    first second 2array facs push
                 ] [
-                    product value = [
-                        first second 2array factors push
+                    product v = [
+                        first second 2array facs push
                     ] when
                 ] if
             ] when
@@ -28,25 +28,25 @@ IN: palindrome-products
         ] while
         first 1 + first!
     ] while
-    value factors >array 2array ;
+    v facs >array ;
 
-:: largest ( mn mx -- result )
+:: largest ( mn mx -- value factors )
     mn mx > [ "min must be <= max" throw ] when
-    f :> value!
-    V{ } clone :> factors
+    f :> v!
+    V{ } clone :> facs
     mx :> second!
     [ second mn >= ] [
         second :> first!
-        [ first mn >= value [ first second * > ] [ f ] if* not and ] [
+        [ first mn >= v [ first second * > ] [ f ] if* not and ] [
             first second * :> product
             product palindrome? [
-                value [ product < ] [ t ] if* [
-                    product value!
-                    factors delete-all
-                    first second 2array factors push
+                v [ product < ] [ t ] if* [
+                    product v!
+                    facs delete-all
+                    first second 2array facs push
                 ] [
-                    product value = [
-                        first second 2array factors push
+                    product v = [
+                        first second 2array facs push
                     ] when
                 ] if
             ] when
@@ -54,4 +54,4 @@ IN: palindrome-products
         ] while
         second 1 - second!
     ] while
-    value factors >array 2array ;
+    v facs >array ;

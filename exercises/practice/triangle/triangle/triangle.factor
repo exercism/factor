@@ -1,11 +1,16 @@
 USING: kernel ;
 IN: triangle
 
-: equilateral? ( a b c -- ? )
+! Declare a `triangle` tuple with slots a, b, and c.
+
+: <triangle> ( a b c -- triangle )
     "unimplemented" throw ;
 
-: isosceles? ( a b c -- ? )
+: equilateral? ( triangle -- ? )
     "unimplemented" throw ;
 
-: scalene? ( a b c -- ? )
+: isosceles? ( triangle -- ? )
+    "unimplemented" throw ;
+
+: scalene? ( triangle -- ? )
     "unimplemented" throw ;

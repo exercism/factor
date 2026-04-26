@@ -18,7 +18,7 @@ function gen_test_case(case)
         factors = expected["factors"]
         val_str = isnothing(val) ? "f" : to_int_str(val)
         fac_str = format_factors(factors)
-        return "{ { $(val_str) $(fac_str) } }\n[ $(mn) $(mx) $(prop) ] unit-test"
+        return "{ $(val_str) $(fac_str) }\n[ $(mn) $(mx) $(prop) ] unit-test"
     end
 end
 

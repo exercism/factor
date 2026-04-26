@@ -11,7 +11,7 @@ function gen_test_case(case)
     sides = format_sides(case["input"]["sides"])
     prop = case["property"]
     expected = case["expected"] ? "t" : "f"
-    return "{ $(expected) } [ $(sides) $(prop)? ] unit-test"
+    return "{ $(expected) } [ $(sides) <triangle> $(prop)? ] unit-test"
 end
 
 end

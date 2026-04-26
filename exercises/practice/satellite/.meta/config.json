@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "satellite/satellite.factor"
+    ],
+    "test": [
+      "satellite/satellite-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Rebuild binary trees from pre-order and in-order traversals."
+}

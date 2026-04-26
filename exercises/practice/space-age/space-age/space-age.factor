@@ -1,26 +1,8 @@
 USING: kernel ;
 IN: space-age
 
-: on-earth ( seconds -- years )
-    "unimplemented" throw ;
+! Declare a symbol per planet (mercury, venus, earth, mars, jupiter,
+! saturn, uranus, neptune) so the tests can refer to them by name.
 
-: on-mercury ( seconds -- years )
-    "unimplemented" throw ;
-
-: on-venus ( seconds -- years )
-    "unimplemented" throw ;
-
-: on-mars ( seconds -- years )
-    "unimplemented" throw ;
-
-: on-jupiter ( seconds -- years )
-    "unimplemented" throw ;
-
-: on-saturn ( seconds -- years )
-    "unimplemented" throw ;
-
-: on-uranus ( seconds -- years )
-    "unimplemented" throw ;
-
-: on-neptune ( seconds -- years )
+: on-planet ( seconds planet -- years )
     "unimplemented" throw ;

@@ -4,7 +4,7 @@ function format_robot(obj)
     x = Int(obj["position"]["x"])
     y = Int(obj["position"]["y"])
     dir = obj["direction"]
-    return """{ $(x) $(y) "$(dir)" }"""
+    return "T{ robot { x $(x) } { y $(y) } { direction $(dir) } }"
 end
 
 function gen_test_case(case)
@@ -13,10 +13,10 @@ function gen_test_case(case)
     y = Int(case["input"]["position"]["y"])
     dir = case["input"]["direction"]
     if case["property"] == "create"
-        return """{ $(expected) }\n[ $(x) $(y) "$(dir)" <robot> ] unit-test"""
+        return "{ $(expected) }\n[ $(x) $(y) $(dir) <robot> ] unit-test"
     else
         instructions = case["input"]["instructions"]
-        return """{ $(expected) }\n[ $(x) $(y) "$(dir)" <robot> "$(instructions)" move ] unit-test"""
+        return """{ $(expected) }\n[ $(x) $(y) $(dir) <robot> "$(instructions)" move ] unit-test"""
     end
 end
 
