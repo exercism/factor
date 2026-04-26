@@ -3,7 +3,7 @@
 This exercise introduces conditionals — choosing between two or more
 courses of action based on a value. It builds on the booleans you met
 in [Annalyn's Infiltration][annalyns] and the integer arithmetic from
-[Currency Exchange][currency-exchange].
+[Currency Conversion][currency-conversion].
 
 ## Comparison words
 
@@ -75,7 +75,7 @@ A few details worth noting:
   result.
 
 [annalyns]: https://exercism.org/tracks/factor/exercises/annalyns-infiltration
-[currency-exchange]: https://exercism.org/tracks/factor/exercises/currency-exchange
+[currency-conversion]: https://exercism.org/tracks/factor/exercises/currency-conversion
 [math]: https://docs.factorcode.org/content/vocab-math.html
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [combinators]: https://docs.factorcode.org/content/vocab-combinators.html

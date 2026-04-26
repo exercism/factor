@@ -1,5 +1,5 @@
-USING: currency-exchange tools.test ;
-IN: currency-exchange.tests
+USING: currency-conversion tools.test ;
+IN: currency-conversion.tests
 
 ! TASK: 1 exchange-money
 { 125000.0 } [ 100000 0.8 exchange-money ] unit-test

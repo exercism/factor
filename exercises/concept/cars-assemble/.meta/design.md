@@ -28,4 +28,4 @@ Introduce Factor's conditional combinators by mapping a discrete input
 ## Prerequisites
 
 - `booleans` — taught in `annalyns-infiltration`.
-- `numbers` — taught in `currency-exchange`.
+- `numbers` — taught in `currency-conversion`.

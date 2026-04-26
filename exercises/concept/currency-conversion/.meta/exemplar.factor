@@ -1,5 +1,5 @@
 USING: kernel locals math math.functions ;
-IN: currency-exchange
+IN: currency-conversion
 
 : exchange-money ( budget exchange-rate -- exchanged )
     / ;

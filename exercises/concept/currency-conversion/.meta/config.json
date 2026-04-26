@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "currency-exchange/currency-exchange.factor"
+      "currency-conversion/currency-conversion.factor"
     ],
     "test": [
-      "currency-exchange/currency-exchange-tests.factor"
+      "currency-conversion/currency-conversion-tests.factor"
     ],
     "exemplar": [
       ".meta/exemplar.factor"

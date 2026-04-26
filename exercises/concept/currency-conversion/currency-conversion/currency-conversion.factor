@@ -1,5 +1,5 @@
 USING: kernel ;
-IN: currency-exchange
+IN: currency-conversion
 
 : exchange-money ( budget exchange-rate -- exchanged )
     "unimplemented" throw ;
