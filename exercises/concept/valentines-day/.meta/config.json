@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "valentines-day/valentines-day.factor"
+    ],
+    "test": [
+      "valentines-day/valentines-day-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "gleam/valentines-day"
+  ],
+  "blurb": "Learn about case and symbols by rating Valentine's Day plans."
+}

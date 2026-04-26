@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "garden-gathering/garden-gathering.factor"
+    ],
+    "test": [
+      "garden-gathering/garden-gathering-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "elixir/garden-gathering"
+  ],
+  "blurb": "Learn about dynamic variables in Factor by managing a community garden's plot registrations."
+}

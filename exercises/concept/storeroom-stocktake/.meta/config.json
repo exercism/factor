@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "storeroom-stocktake/storeroom-stocktake.factor"
+    ],
+    "test": [
+      "storeroom-stocktake/storeroom-stocktake-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/storeroom-stocktake"
+  ],
+  "blurb": "Learn about hashtables in Factor by managing the warehouse inventory."
+}

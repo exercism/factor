@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "joiners-journey/joiners-journey.factor"
+    ],
+    "test": [
+      "joiners-journey/joiners-journey-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Replace stack shuffling with combinators by helping a furniture workshop plan its cuts."
+}

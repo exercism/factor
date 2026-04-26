@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "TUPLE: declares a class with named slots; accessors slot>>, >>slot, and change-slot are auto-generated."
+}

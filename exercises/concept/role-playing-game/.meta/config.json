@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "role-playing-game/role-playing-game.factor"
+    ],
+    "test": [
+      "role-playing-game/role-playing-game-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/role-playing-game"
+  ],
+  "blurb": "Learn about tuples in Factor by building the mechanics for a role-playing game."
+}

@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor words declare a stack effect ( inputs -- outputs ) so the compiler can check the body matches."
+}

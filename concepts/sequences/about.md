@@ -1,0 +1,29 @@
+# About
+
+The [`sequences`][sequences] vocabulary defines a single protocol
+that arrays (`{ … }`), vectors (`V{ … }`), strings, ranges, and
+slices all implement. Anything you can do with one, you can do
+with the others.
+
+| word        | effect                            |
+|-------------|-----------------------------------|
+| `length`    | `( seq -- n )`                    |
+| `first`     | `( seq -- elt )`                  |
+| `last`      | `( seq -- elt )`                  |
+| `nth`       | `( n seq -- elt )` (0-based)      |
+| `head`      | `( seq n -- headseq )`            |
+| `tail`      | `( seq n -- tailseq )`            |
+| `prefix`    | `( seq elt -- newseq )`           |
+| `suffix`    | `( seq elt -- newseq )`           |
+| `unclip`    | `( seq -- rest first )`           |
+| `unclip-last` | `( seq -- butlast last )`       |
+| `empty?`    | `( seq -- ? )`                    |
+| `member?`   | `( elt seq -- ? )`                |
+| `reverse`   | `( seq -- newseq )`               |
+
+Arrays are immutable; the `prefix`/`suffix`/`append` operations all
+return new sequences without modifying the original. Vectors are
+mutable — `push` and `pop` work in place — but `clone` is the right
+starting point if you want a fresh copy.
+
+[sequences]: https://docs.factorcode.org/content/vocab-sequences.html

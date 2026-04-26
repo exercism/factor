@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "backyard-birdcount/backyard-birdcount.factor"
+    ],
+    "test": [
+      "backyard-birdcount/backyard-birdcount-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "elixir/backyard-birdcount"
+  ],
+  "blurb": "Learn about recursion in Factor by counting visits from your garden's birds."
+}

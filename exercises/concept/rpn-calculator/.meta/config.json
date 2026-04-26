@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "rpn-calculator/rpn-calculator.factor"
+    ],
+    "test": [
+      "rpn-calculator/rpn-calculator-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "elixir/rpn-calculator"
+  ],
+  "blurb": "Learn about quotations and call by building a small RPN calculator."
+}

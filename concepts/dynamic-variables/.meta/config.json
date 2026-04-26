@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "SYMBOL: declares a dynamic variable; set-global, get-global, and change-global access it."
+}

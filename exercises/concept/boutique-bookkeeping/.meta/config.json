@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "boutique-bookkeeping/boutique-bookkeeping.factor"
+    ],
+    "test": [
+      "boutique-bookkeeping/boutique-bookkeeping-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "elixir/boutique-bookkeeping"
+  ],
+  "blurb": "Learn about higher-order sequence words by stocking your fashion boutique."
+}

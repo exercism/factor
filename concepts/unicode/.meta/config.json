@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor characters are Unicode code points. The unicode vocabulary provides Unicode-aware predicates and case conversion."
+}

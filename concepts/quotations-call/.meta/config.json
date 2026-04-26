@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "call runs a quotation; declare a stack effect with call( a b -- c ) when it can't be inferred."
+}
