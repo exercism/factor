@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "log-levels/log-levels.factor"
+    ],
+    "test": [
+      "log-levels/log-levels-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/log-levels"
+  ],
+  "blurb": "Learn about strings in Factor by parsing log lines."
+}

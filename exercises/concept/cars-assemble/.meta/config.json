@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "cars-assemble/cars-assemble.factor"
+    ],
+    "test": [
+      "cars-assemble/cars-assemble-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/cars-assemble"
+  ],
+  "blurb": "Learn about conditionals in Factor by analyzing the production of an assembly line."
+}
