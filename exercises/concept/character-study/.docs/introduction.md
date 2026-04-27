@@ -44,4 +44,23 @@ CHAR: space .    ! => 32
 CHAR: \n .       ! => 10
 ```
 
+## Symbols
+
+When a word needs to return a tag rather than a value — say,
+`yes`/`no`/`maybe` instead of a boolean — declare each tag as a
+*symbol*. A symbol is a word that pushes itself when called, and
+two symbols compare equal only when they are the same name.
+
+```factor
+USING: kernel ;
+
+SYMBOLS: yes no maybe ;
+
+yes .    ! => yes
+yes yes = .    ! => t
+yes no = .     ! => f
+```
+
+`SYMBOL: name` declares one; `SYMBOLS: a b c ;` declares several.
+
 [unicode]: https://docs.factorcode.org/content/vocab-unicode.html

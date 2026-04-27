@@ -1,17 +1,22 @@
-USING: arrays grouping kernel math sequences sets sorting ;
+USING: accessors arrays combinators kernel math sequences sets sorting ;
 IN: triangle
 
-: sides ( a b c -- arr ) 3array ;
+TUPLE: triangle a b c ;
 
-: valid? ( arr -- ? )
-    dup [ 0 > ] all?
+: <triangle> ( a b c -- triangle ) triangle boa ;
+
+: sides ( triangle -- arr )
+    [ a>> ] [ b>> ] [ c>> ] tri 3array ;
+
+: valid? ( triangle -- ? )
+    sides dup [ 0 > ] all?
     [ sort first3 [ + ] dip > ] [ drop f ] if ;
 
-: equilateral? ( a b c -- ? )
-    sides dup valid? [ all-equal? ] [ drop f ] if ;
+: equilateral? ( triangle -- ? )
+    dup valid? [ sides all-equal? ] [ drop f ] if ;
 
-: isosceles? ( a b c -- ? )
-    sides dup valid? [ duplicates length 0 > ] [ drop f ] if ;
+: isosceles? ( triangle -- ? )
+    dup valid? [ sides duplicates length 0 > ] [ drop f ] if ;
 
-: scalene? ( a b c -- ? )
-    sides dup valid? [ all-unique? ] [ drop f ] if ;
+: scalene? ( triangle -- ? )
+    dup valid? [ sides all-unique? ] [ drop f ] if ;

@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "micro-blog/micro-blog.factor"
+    ],
+    "test": [
+      "micro-blog/micro-blog-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Given an input string, truncate it to 5 characters."
+}

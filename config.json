@@ -387,6 +387,47 @@
         "difficulty": 2
       },
       {
+        "slug": "high-scores",
+        "name": "High Scores",
+        "uuid": "81e1ea19-1c58-4b34-b3c4-d05e029032aa",
+        "practices": [
+          "tuples"
+        ],
+        "prerequisites": [
+          "sequences",
+          "higher-order-sequences",
+          "tuples"
+        ],
+        "difficulty": 2
+      },
+      {
+        "slug": "micro-blog",
+        "name": "Micro Blog",
+        "uuid": "5cef0fa1-06b4-4212-9a07-3b9ecb1c4249",
+        "practices": [
+          "unicode"
+        ],
+        "prerequisites": [
+          "strings",
+          "unicode"
+        ],
+        "difficulty": 2
+      },
+      {
+        "slug": "nucleotide-count",
+        "name": "Nucleotide Count",
+        "uuid": "23b64c13-1b0e-4179-bbed-71369c70a7c1",
+        "practices": [
+          "assocs"
+        ],
+        "prerequisites": [
+          "strings",
+          "errors",
+          "assocs"
+        ],
+        "difficulty": 2
+      },
+      {
         "slug": "pangram",
         "name": "Pangram",
         "uuid": "b72e79d7-c229-4d7d-9abc-e304ce24dfed",
@@ -434,7 +475,10 @@
         ],
         "prerequisites": [
           "conditionals",
-          "booleans"
+          "booleans",
+          "combinators",
+          "tuples",
+          "sequences"
         ],
         "difficulty": 2
       },
@@ -479,6 +523,21 @@
         "difficulty": 3
       },
       {
+        "slug": "binary-search",
+        "name": "Binary Search",
+        "uuid": "ea3a619c-0d03-4688-821a-22379470d7e1",
+        "practices": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "sequences",
+          "conditionals",
+          "locals",
+          "recursion"
+        ],
+        "difficulty": 3
+      },
+      {
         "slug": "bob",
         "name": "Bob",
         "uuid": "e0ae193c-1b63-4e64-9350-673760f4bccf",
@@ -516,7 +575,8 @@
         "prerequisites": [
           "strings",
           "numbers",
-          "unicode"
+          "unicode",
+          "sequences"
         ],
         "difficulty": 3
       },
@@ -546,6 +606,21 @@
         "difficulty": 3
       },
       {
+        "slug": "phone-number",
+        "name": "Phone Number",
+        "uuid": "7fa72ba9-5942-47aa-ae62-eba877d18905",
+        "practices": [
+          "strings"
+        ],
+        "prerequisites": [
+          "strings",
+          "conditionals",
+          "higher-order-sequences",
+          "errors"
+        ],
+        "difficulty": 3
+      },
+      {
         "slug": "prime-factors",
         "name": "Prime Factors",
         "uuid": "baaca223-51bd-440b-a490-2775a363c743",
@@ -567,7 +642,8 @@
         ],
         "prerequisites": [
           "conditionals",
-          "strings"
+          "strings",
+          "higher-order-sequences"
         ],
         "difficulty": 3
       },
@@ -596,6 +672,21 @@
           "curry-compose-fry",
           "strings",
           "unicode"
+        ],
+        "difficulty": 3
+      },
+      {
+        "slug": "scrabble-score",
+        "name": "Scrabble Score",
+        "uuid": "9fafa9b3-2ca6-44ac-af1c-f202572f94c8",
+        "practices": [
+          "assocs"
+        ],
+        "prerequisites": [
+          "strings",
+          "unicode",
+          "higher-order-sequences",
+          "assocs"
         ],
         "difficulty": 3
       },
@@ -630,6 +721,35 @@
         "difficulty": 4
       },
       {
+        "slug": "flatten-array",
+        "name": "Flatten Array",
+        "uuid": "27cb8df3-ed88-4b60-990e-eb0422123260",
+        "practices": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "sequences",
+          "conditionals",
+          "recursion"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "largest-series-product",
+        "name": "Largest Series Product",
+        "uuid": "d6d49ae0-5999-435c-902f-beb35e72aac9",
+        "practices": [
+          "higher-order-sequences"
+        ],
+        "prerequisites": [
+          "strings",
+          "numbers",
+          "higher-order-sequences",
+          "errors"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "luhn",
         "name": "Luhn",
         "uuid": "e83e333e-612a-4ec8-8d9f-da387327acdc",
@@ -638,7 +758,23 @@
         ],
         "prerequisites": [
           "strings",
-          "numbers"
+          "numbers",
+          "higher-order-sequences",
+          "unicode",
+          "locals"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "pascals-triangle",
+        "name": "Pascal's Triangle",
+        "uuid": "95dc30b1-af57-4c4c-af4d-64c53cfea619",
+        "practices": [
+          "higher-order-sequences"
+        ],
+        "prerequisites": [
+          "sequences",
+          "higher-order-sequences"
         ],
         "difficulty": 4
       },
@@ -653,7 +789,8 @@
           "case",
           "combinators",
           "sequences",
-          "dynamic-variables"
+          "dynamic-variables",
+          "tuples"
         ],
         "difficulty": 4
       },
@@ -679,7 +816,8 @@
         ],
         "prerequisites": [
           "numbers",
-          "tuples"
+          "case",
+          "dynamic-variables"
         ],
         "difficulty": 4
       },
@@ -758,7 +896,26 @@
           "strings"
         ],
         "prerequisites": [
-          "strings"
+          "strings",
+          "higher-order-sequences",
+          "unicode",
+          "locals"
+        ],
+        "difficulty": 5
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "0c991751-e9a9-4291-a0fd-65af4263a65e",
+        "practices": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "tuples",
+          "sequences",
+          "conditionals",
+          "locals",
+          "recursion"
         ],
         "difficulty": 5
       },
@@ -940,6 +1097,22 @@
           "higher-order-sequences",
           "sequences",
           "strings"
+        ],
+        "difficulty": 7
+      },
+      {
+        "slug": "satellite",
+        "name": "Satellite",
+        "uuid": "65d091e3-0d2f-4f69-a088-069f799d0109",
+        "practices": [
+          "recursion"
+        ],
+        "prerequisites": [
+          "sequences",
+          "errors",
+          "tuples",
+          "locals",
+          "recursion"
         ],
         "difficulty": 7
       },

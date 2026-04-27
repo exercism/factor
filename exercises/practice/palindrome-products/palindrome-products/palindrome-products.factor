@@ -1,8 +1,8 @@
 USING: kernel ;
 IN: palindrome-products
 
-: smallest ( mn mx -- result )
+: smallest ( mn mx -- value factors )
     "unimplemented" throw ;
 
-: largest ( mn mx -- result )
+: largest ( mn mx -- value factors )
     "unimplemented" throw ;
