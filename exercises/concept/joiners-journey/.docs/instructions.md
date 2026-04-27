@@ -86,24 +86,3 @@ the kerf allowance for each (in the same order).
 ! => 2
 ```
 
-## 6. A scoped kerf factor
-
-The shop wants the kerf factor to be configurable per job without
-threading it through every call. Define a SYMBOL `kerf-factor`, then
-`current-kerf` to return `length * kerf-factor`, falling back to
-`1/50` when `kerf-factor` is unbound.
-
-```factor
-100 current-kerf .
-! => 2
-```
-
-Callers bind a custom factor with `with-variable`:
-
-```factor
-1/100 kerf-factor [ 100 current-kerf ] with-variable .
-! => 1
-
-1/20 kerf-factor [ 100 current-kerf ] with-variable .
-! => 5
-```

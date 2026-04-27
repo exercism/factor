@@ -13,7 +13,7 @@ CONSTANT: base-speed 221
     } cond ;
 
 : production-rate-per-hour ( speed -- rate )
-    [ base-speed * ] [ success-rate ] bi * ;
+    dup base-speed * swap success-rate * ;
 
 : working-items-per-minute ( speed -- count )
     production-rate-per-hour 60 / floor >integer ;

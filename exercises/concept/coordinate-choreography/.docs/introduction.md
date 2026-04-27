@@ -84,16 +84,5 @@ multiply two same-length sequences element-wise. Both `{ a b }` and
 { 2 5 } { 3 -1 } v* .  ! => { 6 -5 }
 ```
 
-## `2array` — pairing two values
-
-`2array` (in [`arrays`][arrays]) turns the top two stack values into
-a 2-element array, handy for building a vector to feed to `v+` or
-`v*`:
-
-```factor
-7 9 2array .   ! => { 7 9 }
-```
-
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
-[arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 [math.vectors]: https://docs.factorcode.org/content/vocab-math.vectors.html

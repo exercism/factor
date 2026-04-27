@@ -46,6 +46,38 @@ producing empty pieces:
 ! => { "ERROR" ": Stack overflow" }
 ```
 
+## Picking out a piece
+
+Once a string is split into an array of pieces, `first` and
+`second` (in [`sequences`][sequences]) return the first and
+second piece respectively:
+
+```factor
+"apple,bee,carrot" "," split first .    ! => "apple"
+"apple,bee,carrot" "," split second .   ! => "bee"
+```
+
+When you want all the leading pieces on the stack at once,
+`first2` and `first3` unpack two or three of them in one step:
+
+```factor
+"apple,bee,carrot" "," split first2 .s
+! => "apple"
+! => "bee"
+
+"apple,bee,carrot" "," split first3 .s
+! => "apple"
+! => "bee"
+! => "carrot"
+```
+
+On a string itself, `first` returns the first **character** — a
+code point — rather than a substring:
+
+```factor
+"hello" first .                         ! => 104   (CHAR: h)
+```
+
 ## Trimming
 
 `[ blank? ] trim` (from [`sequences`][sequences], with `blank?` from

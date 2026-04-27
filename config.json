@@ -118,6 +118,20 @@
         "status": "beta"
       },
       {
+        "slug": "joiners-journey",
+        "name": "Joiner's Journey",
+        "uuid": "9c984827-ea8a-47a2-b308-70acc64cd2e1",
+        "concepts": [
+          "combinators"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "numbers",
+          "quotations"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "secrets",
         "name": "Secrets",
         "uuid": "b50cc329-a4fa-496e-aafd-3278c162c367",
@@ -125,7 +139,8 @@
           "bitwise-operations"
         ],
         "prerequisites": [
-          "stack-effect"
+          "stack-effect",
+          "combinators"
         ],
         "status": "beta"
       },
@@ -158,6 +173,18 @@
         "status": "beta"
       },
       {
+        "slug": "mosaic-making",
+        "name": "Mosaic Making",
+        "uuid": "d8ab489e-d1c2-4389-9daf-d55cde0a3eaf",
+        "concepts": [
+          "arrays"
+        ],
+        "prerequisites": [
+          "sequences"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "boutique-bookkeeping",
         "name": "Boutique Bookkeeping",
         "uuid": "49a95ee7-eb30-4102-a33c-9b8258e30c55",
@@ -167,7 +194,24 @@
         "prerequisites": [
           "sequences",
           "quotations",
-          "strings"
+          "strings",
+          "combinators",
+          "arrays"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "coordinate-choreography",
+        "name": "Coordinate Choreography",
+        "uuid": "70a6ecaf-b898-48ad-a388-1b3583ba95a4",
+        "concepts": [
+          "curry-compose-fry"
+        ],
+        "prerequisites": [
+          "combinators",
+          "quotations",
+          "sequences",
+          "higher-order-sequences"
         ],
         "status": "beta"
       },
@@ -180,7 +224,9 @@
         ],
         "prerequisites": [
           "conditionals",
-          "numbers"
+          "numbers",
+          "combinators",
+          "curry-compose-fry"
         ],
         "status": "beta"
       },
@@ -194,7 +240,8 @@
         "prerequisites": [
           "tuples",
           "conditionals",
-          "higher-order-sequences"
+          "higher-order-sequences",
+          "combinators"
         ],
         "status": "beta"
       },
@@ -207,7 +254,10 @@
         ],
         "prerequisites": [
           "sequences",
-          "quotations"
+          "quotations",
+          "higher-order-sequences",
+          "combinators",
+          "curry-compose-fry"
         ],
         "status": "beta"
       },
@@ -222,7 +272,9 @@
           "sequences",
           "quotations",
           "assocs",
-          "errors"
+          "errors",
+          "combinators",
+          "curry-compose-fry"
         ],
         "status": "beta"
       },
@@ -249,7 +301,8 @@
         "prerequisites": [
           "conditionals",
           "sequences",
-          "higher-order-sequences"
+          "higher-order-sequences",
+          "combinators"
         ],
         "status": "beta"
       },
@@ -278,37 +331,8 @@
           "tuples",
           "sequences",
           "locals",
-          "higher-order-sequences"
-        ],
-        "status": "beta"
-      },
-      {
-        "slug": "joiners-journey",
-        "name": "Joiner's Journey",
-        "uuid": "9c984827-ea8a-47a2-b308-70acc64cd2e1",
-        "concepts": [
+          "higher-order-sequences",
           "combinators"
-        ],
-        "prerequisites": [
-          "stack-effect",
-          "numbers",
-          "quotations",
-          "dynamic-variables"
-        ],
-        "status": "beta"
-      },
-      {
-        "slug": "coordinate-choreography",
-        "name": "Coordinate Choreography",
-        "uuid": "70a6ecaf-b898-48ad-a388-1b3583ba95a4",
-        "concepts": [
-          "curry-compose-fry"
-        ],
-        "prerequisites": [
-          "combinators",
-          "quotations",
-          "sequences",
-          "higher-order-sequences"
         ],
         "status": "beta"
       }
@@ -1238,6 +1262,11 @@
       "name": "Quotations"
     },
     {
+      "uuid": "91bfacf5-4628-4775-98e0-1a72697303b8",
+      "slug": "combinators",
+      "name": "Combinators"
+    },
+    {
       "uuid": "0580796a-5a19-404e-9a63-7691192fed5d",
       "slug": "bitwise-operations",
       "name": "Bitwise Operations"
@@ -1253,9 +1282,19 @@
       "name": "Sequences"
     },
     {
+      "uuid": "ab04964d-504e-4e2b-854d-c7e9fdbc9319",
+      "slug": "arrays",
+      "name": "Arrays"
+    },
+    {
       "uuid": "356c159b-b78d-40dc-b378-03cc548df719",
       "slug": "higher-order-sequences",
       "name": "Higher-Order Sequences"
+    },
+    {
+      "uuid": "0c9457be-37a3-4a08-85c8-44ee82925d55",
+      "slug": "curry-compose-fry",
+      "name": "Curry, Compose, and Fry"
     },
     {
       "uuid": "e5594192-3b54-40f3-ba35-e45ad2f7a007",
@@ -1296,16 +1335,6 @@
       "uuid": "c8a58a3d-d6e4-4325-b0c9-d2ee4bfc9df3",
       "slug": "dynamic-variables",
       "name": "Dynamic Variables"
-    },
-    {
-      "uuid": "91bfacf5-4628-4775-98e0-1a72697303b8",
-      "slug": "combinators",
-      "name": "Combinators"
-    },
-    {
-      "uuid": "0c9457be-37a3-4a08-85c8-44ee82925d55",
-      "slug": "curry-compose-fry",
-      "name": "Curry, Compose, and Fry"
     }
   ],
   "key_features": [

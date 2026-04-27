@@ -30,3 +30,13 @@ IN: currency-conversion.tests
 { 0 }             [ 470000 1050 30 10000000000 exchangeable-value ] unit-test
 { 4017094016600 } [ 470000 0.00000009 30 700 exchangeable-value ] unit-test
 { 363300 }        [ 425.33 0.0009 30 700 exchangeable-value ] unit-test
+
+! TASK: 7 safe-change
+{ 7.5 } [ 127.5 120 safe-change ] unit-test
+{ 0 }   [ 50 100 safe-change ] unit-test
+{ 0 }   [ 100 100 safe-change ] unit-test
+
+! TASK: 8 cap-spend
+{ 30 } [ 100 30 cap-spend ] unit-test
+{ 20 } [ 20 30 cap-spend ] unit-test
+{ 50 } [ 50 50 cap-spend ] unit-test

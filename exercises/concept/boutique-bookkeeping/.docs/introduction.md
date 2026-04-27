@@ -22,64 +22,89 @@ results.
 ```
 filter ( seq quot -- newseq )    ! keep elements where quot is truthy
 reject ( seq quot -- newseq )    ! drop them instead
+find   ( seq quot -- i/f elt/f ) ! first match: index and element, or f f
 ```
 
 ```factor
 { 1 2 3 4 5 } [ even? ] filter .    ! => { 2 4 }
 { 1 2 3 4 5 } [ even? ] reject .    ! => { 1 3 5 }
+{ 1 2 3 4 5 } [ 3 > ] find .s
+! => 3            (index)
+! => 4            (element)
 ```
 
-## Mapping
+## Mapping and iterating
 
 `map` (in [`sequences`][sequences]) applies a quotation to each
-element and returns the array of results:
+element and returns the array of results. `each` does the same
+walk but discards the results — useful when the quotation runs
+purely for its side effects:
 
 ```
-map ( seq quot -- newseq )
+map  ( seq quot -- newseq )
+each ( seq quot -- )
 ```
 
 ```factor
-{ 1 2 3 } [ sq ] map .    ! => { 1 4 9 }
+{ 1 2 3 } [ sq ] map .       ! => { 1 4 9 }
+{ 1 2 3 } [ . ] each         ! prints 1, then 2, then 3
 ```
 
 ## Sorting
 
-`sort-by` (in [`sorting`][sorting]) sorts a sequence by a key
-extracted from each element:
+`sort` returns a sorted copy in natural order; `sort-by` (in
+[`sorting`][sorting]) sorts by a key extracted from each element:
 
 ```
+sort    ( seq      -- sortedseq )
 sort-by ( seq quot -- sortedseq )
 ```
 
 ```factor
+{ 3 1 4 1 5 9 2 6 } sort .
+! => { 1 1 2 3 4 5 6 9 }
+
 { -3 5 -1 4 } [ abs ] sort-by .
 ! => { -1 -3 4 5 }
 ```
 
 ## Aggregating
 
-`map-sum` (in [`math.statistics`][math.statistics]) maps a quotation
-over a sequence and sums the results in one pass:
+`reduce` folds a sequence with a starting value and a
+two-argument quotation; it is the general form of `sum`,
+`map-sum`, and friends. `map-sum` (in
+[`math.statistics`][math.statistics]) maps a quotation across the
+sequence and sums the results in one pass.
 
 ```
-map-sum ( seq quot -- n )
+reduce  ( seq init quot -- result )
+map-sum ( seq      quot -- n      )
 ```
 
 ```factor
-{ 1 2 3 4 } [ sq ] map-sum .   ! => 30
+{ 1 2 3 4 } 0 [ + ] reduce .       ! => 10
+{ 1 2 3 4 } 1 [ * ] reduce .       ! => 24
+{ 1 2 3 4 }   [ sq ] map-sum .     ! => 30
 ```
 
-## Min and max by key
+## Min and max
 
-`infimum-by` and `supremum-by` (also in `math.statistics`) return the
-element whose extracted key is smallest or largest:
+`infimum` and `supremum` return the smallest or largest element
+of a sequence outright. `infimum-by` and `supremum-by` (all in
+[`math.statistics`][math.statistics]) return the element whose
+extracted key is smallest or largest:
 
 ```
+infimum     ( seq      -- elt )
+supremum    ( seq      -- elt )
 infimum-by  ( seq quot -- elt )
 supremum-by ( seq quot -- elt )
 ```
 
 ```factor
+{ 3 1 4 1 5 9 2 6 } infimum .       ! => 1
+{ 3 1 4 1 5 9 2 6 } supremum .      ! => 9
+
 { -3 5 -1 4 } [ abs ] infimum-by .
 ! => -1
 ```
@@ -89,7 +114,18 @@ supremum-by ( seq quot -- elt )
 For a 2-element array, `second` returns its second element. `first`
 returns the first. Both are in [`sequences`][sequences].
 
+## Numbers to strings
+
+`number>string ( n -- str )` (in [`math.parser`][math.parser])
+turns a number into its decimal-string form:
+
+```factor
+42 number>string .     ! => "42"
+3.5 number>string .    ! => "3.5"
+```
+
 [backyard-birdwatcher]: https://exercism.org/tracks/factor/exercises/backyard-birdwatcher
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html
 [math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html
+[math.parser]: https://docs.factorcode.org/content/vocab-math.parser.html

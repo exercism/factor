@@ -1,0 +1,215 @@
+#!/usr/bin/env python3
+
+# Synopsis:
+# Regenerate exercises/concept/<slug>/.meta/known-words.md for every
+# concept exercise. The known-words list is built from words that are
+# explained in the exercise's own .docs/introduction.md plus the
+# introductions of every transitive prerequisite (walked via
+# config.json's `concepts` -> `prerequisites` graph).
+#
+# Usage: bin/extract-known-words
+
+import re, json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CFG = json.load(open(ROOT/'config.json'))
+
+# Stack-effect placeholders / story-specific parameter names that appear
+# in `( ... -- ... )` blocks. Tokens listed here are NEVER treated as
+# Factor words. Only put a name here if it never appears as a real word
+# in any intro — `length`, `first`, `last`, `count`, `name`, etc. are
+# real Factor words and must NOT be listed.
+PLACEHOLDERS = set("""
+x y z w m k i j p q r s u v n
+seq seq1 seq2 quot quot1 quot2 quot3 quot: quot:: assoc
+key value old new elt elt1 elt2 bool string str
+old-x new-x 3x 2x n+1 n+10% n+1% length+kerf length+10%
+days new-days new-days-or-f symbol direction direction'
+amount rate years seconds planet period arr sortedstr count/f
+p' dx dy sx sy points transformed
+price prices item items base-speed
+finish bolt-length pieces per-piece length-a length-b kerf-a kerf-b
+minutes-per-layer mn mx timer
+sauce portions new-recipe my-list friends-list new-list
+ingredient ingredients message plot/symbol plots registered-to
+plain cipher phrase isbn sides triangle approval activity activities
+cuisine genre km approval-counts m1 m2
+event events history input output
+emptyquot nonemptyquot cleanupname recovery XXXX key/value
+expected-bake-time lowercase-kebab-case preparation-time initial
+recipe-step depth >>slot slot>> change-slot
+test
+n*x n*y n+x n+y newseq newkey newvalue sortedseq headseq tailseq padded
+inputs outputs difference label
+hour minute hours minutes word words
+phrase\'
+""".split())
+
+VOCABS = set("""
+kernel math sequences strings splitting ascii unicode formatting
+combinators arrays sorting assocs locals namespaces math.statistics
+math.functions math.ranges math.parser math.vectors math.bitwise math.order
+tools.test io lexer sets grouping accessors classes.tuple classes
+fry generic strings.parser sequences.deep tools.test.private continuations
+""".split())
+
+PUNCT = set("[ ] { } ( ) [| | : ; :: -- ... T{ H{ V{ ` ' \" #".split())
+
+USER_DEFINED_RE = re.compile(r'^::?\s+([^\s(]+)\s*\(', re.M)
+CONSTANT_RE     = re.compile(r'^\s*CONSTANT:\s+(\S+)', re.M)
+SYMBOL_RE       = re.compile(r'^\s*SYMBOL:\s+(\S+)', re.M)
+SYMBOLS_RE      = re.compile(r'^\s*SYMBOLS:\s+([^;]+);', re.M)
+TUPLE_RE        = re.compile(r'^\s*TUPLE:\s+(\S+)\s*([^;]*);?', re.M)
+SPEC_LINE_RE    = re.compile(r'(?:^|\s|`)([A-Za-z<>!?+\-*/=][\S]*?)\s*\(\s*[^)]*--[^)]*\)')
+BACKTICK_RE     = re.compile(r'`([^`]+)`')
+CODE_BLOCK_RE   = re.compile(r'```(?:factor)?\n(.*?)```', re.S)
+CODE_FENCE_RE   = re.compile(r'```.*?```', re.S)
+
+
+def normalize(tok):
+    return tok.strip('`').strip()
+
+
+def is_word_candidate(tok):
+    if not tok: return False
+    if tok in PLACEHOLDERS or tok in VOCABS or tok in PUNCT: return False
+    if re.fullmatch(r"[A-Za-z]'$", tok): return False
+    if re.fullmatch(r"-?\d[\d_]*(\.\d+)?(/\d+)?(e-?\d+)?", tok): return False
+    if re.fullmatch(r'"[^"]*"', tok): return False
+    if re.fullmatch(r'0x[0-9a-fA-F]+|0b[01]+', tok): return False
+    if tok.startswith('!') or tok.startswith('"'): return False
+    if tok == "'": return False  # standalone apostrophe; '[ (fry quotation) is allowed
+    if tok in {'an', 'the', 'to', 'it'}: return False  # English filler only
+    if re.fullmatch(r'\\[a-zA-Z\\"\'{}]', tok): return False
+    if re.fullmatch(r'\\[uU]\{[^}]*\}', tok): return False
+    if re.fullmatch(r'[A-Z]', tok): return False  # CHAR: A literal
+    return True
+
+
+def extract_words(intro_path):
+    """Extract Factor words explained in a single introduction.md."""
+    if not intro_path.exists():
+        return set()
+    text = intro_path.read_text()
+
+    user_defined = set(USER_DEFINED_RE.findall(text))
+    user_defined |= set(CONSTANT_RE.findall(text))
+    user_defined |= set(SYMBOL_RE.findall(text))
+
+    for m in TUPLE_RE.finditer(text):
+        user_defined.add(m.group(1))
+        sig = m.group(2)
+        # `{ slot-name ... }` blocks: only the slot name is "user-defined"
+        for slot_block in re.finditer(r'\{\s*(\S+)[^}]*\}', sig):
+            user_defined.add(slot_block.group(1))
+        # Bare slot names (those not inside `{ ... }`)
+        depth = 0
+        for tok in sig.split():
+            if tok == '{':
+                depth += 1; continue
+            if tok == '}':
+                depth -= 1; continue
+            if depth == 0:
+                user_defined.add(tok)
+
+    for m in SYMBOLS_RE.finditer(text):
+        user_defined.update(m.group(1).split())
+
+    extra_vocabs = set()
+    for m in re.finditer(r'USING:\s+(.*?);', text):
+        extra_vocabs.update(m.group(1).split())
+
+    words = set()
+
+    # 1) Spec lines anywhere (`word ( ... -- ... )`)
+    for line in text.splitlines():
+        s = line.strip()
+        if re.match(r'^::?\s', s):
+            continue
+        for m in SPEC_LINE_RE.finditer(line):
+            w = normalize(m.group(1))
+            if is_word_candidate(w) and w not in user_defined and w not in extra_vocabs:
+                words.add(w)
+
+    # 2) Backticked single tokens in prose (code fences stripped first)
+    prose = CODE_FENCE_RE.sub('', text)
+    for m in BACKTICK_RE.finditer(prose):
+        tok = normalize(m.group(1))
+        if ' ' in tok or '\n' in tok:
+            continue
+        if not is_word_candidate(tok):
+            continue
+        if tok in user_defined or tok in extra_vocabs:
+            continue
+        if re.fullmatch(r'[\dxyz]+[\dxyz*+\-]*', tok):
+            continue
+        words.add(tok)
+
+    # 3) Tokens inside ```factor code blocks
+    for m in CODE_BLOCK_RE.finditer(text):
+        block = m.group(1)
+        block = re.sub(r'!\s.*', '', block)
+        block = re.sub(r'"[^"\n]*"', '', block)
+        block = re.sub(r'\([^)]*--[^)]*\)', '', block)
+        for tok in block.split():
+            t = normalize(tok)
+            if not is_word_candidate(t):
+                continue
+            if t in user_defined or t in extra_vocabs:
+                continue
+            if re.fullmatch(r'[\dxyz]+[\dxyz*+\-]*', t):
+                continue
+            words.add(t)
+
+    return words
+
+
+def main():
+    intros = {}
+    for ex in CFG['exercises']['concept']:
+        slug = ex['slug']
+        intros[slug] = extract_words(ROOT / 'exercises' / 'concept' / slug / '.docs' / 'introduction.md')
+
+    # Concept slug -> exercise slug that teaches it
+    concept_to_ex = {}
+    ex_meta = {ex['slug']: ex for ex in CFG['exercises']['concept']}
+    for ex in CFG['exercises']['concept']:
+        for c in ex['concepts']:
+            concept_to_ex[c] = ex['slug']
+
+    def transitive_prereq_exercises(slug):
+        seen = set()
+        queue = list(ex_meta[slug]['prerequisites'])
+        while queue:
+            c = queue.pop(0)
+            if c in concept_to_ex:
+                ex = concept_to_ex[c]
+                if ex not in seen:
+                    seen.add(ex)
+                    queue.extend(ex_meta[ex]['prerequisites'])
+        return seen
+
+    for slug in intros:
+        pre = transitive_prereq_exercises(slug)
+        total = set(intros[slug])
+        for p in pre:
+            total |= intros[p]
+        # Sort case-insensitively, but break ties by the actual string so
+        # case-only variants like LETTER?/Letter?/letter? always come in a
+        # stable order (uppercase before lowercase by ASCII).
+        sorted_words = sorted(total, key=lambda s: (s.lower(), s))
+        out_path = ROOT / 'exercises' / 'concept' / slug / '.meta' / 'known-words.md'
+        lines = ['# Known words', '',
+                 "Words explained in this exercise's introduction or in the introduction of any of its prerequisites.",
+                 '']
+        for w in sorted_words:
+            lines.append(f'- `{w}`')
+        lines.append('')
+        out_path.write_text('\n'.join(lines))
+
+    print(f'Wrote {len(intros)} files.')
+
+
+if __name__ == '__main__':
+    main()
