@@ -30,8 +30,8 @@ change-global ( variable quot: ( old -- new ) -- )
 ```factor
 0 counter set-global
 counter get-global .         ! => 0
-counter [ 1 + ] change-global
-counter get-global .         ! => 1
+counter [ 10 + ] change-global
+counter get-global .         ! => 10
 ```
 
 (`set` / `get` / `change` operate on the *current* dynamic scope —

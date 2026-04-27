@@ -32,5 +32,12 @@
 - `count` takes a sequence and a predicate, like `any?` does, but
   returns *how many* elements matched.
 
+## 6. Pad missing days
+
+- `pad-tail` takes a sequence, a target length, and a fill element,
+  and extends the sequence to that length by appending copies of
+  the element. If the sequence is already long enough, it is
+  returned unchanged.
+
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

@@ -80,8 +80,8 @@ multiply two same-length sequences element-wise. Both `{ a b }` and
 `{ c d }` give back a 2-array:
 
 ```factor
-{ 4 8 } { 2 0 } v+ .   ! => { 6 8 }
-{ 6 -3 } { 2 2 } v* .  ! => { 12 -6 }
+{ 1 1 } { 3 4 } v+ .   ! => { 4 5 }
+{ 2 5 } { 3 -1 } v* .  ! => { 6 -5 }
 ```
 
 ## `2array` — pairing two values
@@ -91,7 +91,7 @@ a 2-element array, handy for building a vector to feed to `v+` or
 `v*`:
 
 ```factor
-2 0 2array .   ! => { 2 0 }
+7 9 2array .   ! => { 7 9 }
 ```
 
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html

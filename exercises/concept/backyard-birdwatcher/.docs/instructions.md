@@ -56,3 +56,20 @@ return the number of busy days in the array.
 { 2 5 0 7 4 1 } busy-days .
 ! => 2
 ```
+
+## 6. Pad missing days
+
+If you didn't watch on every day of an `n`-day stretch, fill the
+missing trailing days with `0`. Define `pad-missing-days` to take
+an array of counts and a target length `n`, and return an array
+of length at least `n` whose extra slots are `0`. Existing counts
+must be preserved unchanged; if the input is already at least `n`
+long, return it unchanged.
+
+```factor
+{ 2 5 0 } 7 pad-missing-days .
+! => { 2 5 0 0 0 0 0 }
+
+{ 4 1 6 8 } 3 pad-missing-days .
+! => { 4 1 6 8 }
+```

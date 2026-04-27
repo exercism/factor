@@ -23,3 +23,8 @@ IN: backyard-birdwatcher.tests
 { 2 } [ { 2 5 0 7 4 1 } busy-days ] unit-test
 { 0 } [ { 2 4 0 } busy-days ] unit-test
 { 4 } [ { 6 7 8 9 } busy-days ] unit-test
+
+! TASK: 6 pad-missing-days
+{ { 2 5 0 0 0 0 0 } } [ { 2 5 0 } 7 pad-missing-days ] unit-test
+{ { 4 1 6 8 } } [ { 4 1 6 8 } 3 pad-missing-days ] unit-test
+{ { 0 0 0 } } [ { } 3 pad-missing-days ] unit-test

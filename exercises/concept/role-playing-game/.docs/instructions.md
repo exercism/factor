@@ -1,6 +1,6 @@
 # Instructions
 
-Josh is working on a new role-playing game and needs your help with
+Sarah is working on a new role-playing game and needs your help with
 the player mechanics.
 
 ## 1. Define the `player` tuple

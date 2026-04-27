@@ -9,6 +9,7 @@ counts.
 
 - Index into a sequence with `first`, `last`, and `nth`.
 - Slice with `head` and `tail`.
+- Pad to a target length with `pad-tail` (and `pad-head`).
 - Aggregate with `sum` (from `math.statistics`).
 - Filter-count with `count` and test with `any?`.
 - Build a new sequence with `unclip-last` and `suffix`.

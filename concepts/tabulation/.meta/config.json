@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Build a sequence index by index using <iota> + map, and turn it into a string with >string."
+}

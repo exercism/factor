@@ -81,8 +81,8 @@ prefix ( seq elt -- newseq )
 ```
 
 ```factor
-{ 0 2 } 5 prefix .
-! => { 5 0 2 }
+{ 7 9 } 3 prefix .
+! => { 3 7 9 }
 ```
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html

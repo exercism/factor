@@ -44,6 +44,32 @@ tail ( seq n -- tailseq )    ! drop first n
 { 1 2 3 4 5 } 3 tail .   ! => { 4 5 }
 ```
 
+## Padding
+
+```
+pad-head ( seq n elt -- padded )    ! prepend copies of elt
+pad-tail ( seq n elt -- padded )    ! append copies of elt
+```
+
+Both extend `seq` until its length is at least `n`. If `seq` is
+already that long, it is returned unchanged.
+
+```factor
+{ 2 5 0 } 6 0 pad-tail .   ! => { 2 5 0 0 0 0 }
+{ 4 1 } 5 9 pad-head .     ! => { 9 9 9 4 1 }
+```
+
+## The same words work on strings
+
+A string is a sequence of characters, so everything above works on
+strings too — the result is just another string instead of an array:
+
+```factor
+"hello" length .            ! => 5
+"hello" 3 head .             ! => "hel"
+"abc" 6 CHAR: . pad-tail .   ! => "abc..."
+```
+
 ## Aggregating
 
 `sum` (in [`math.statistics`][math.statistics]) adds the elements of
@@ -61,7 +87,7 @@ count ( seq quot -- n )
 ```
 
 ```factor
-{ 2 5 0 7 4 1 } [ 5 >= ] count .    ! => 2
+{ 2 5 0 7 4 1 } [ even? ] count .    ! => 3
 ```
 
 ## Predicates over the whole sequence
@@ -73,7 +99,7 @@ empty? ( seq -- ? )
 ```
 
 ```factor
-{ 2 5 0 7 } [ zero? ] any? .    ! => t
+{ 2 5 0 7 } [ 4 > ] any? .      ! => t
 { 2 5 0 7 } [ 0 > ] all? .      ! => f
 ```
 
@@ -89,8 +115,8 @@ suffix      ( seq elt -- newseq )
 ```
 
 ```factor
-{ 2 5 0 7 4 1 } unclip-last 1 + suffix .
-! => { 2 5 0 7 4 2 }
+{ 10 20 30 } unclip-last 2 * suffix .
+! => { 10 20 60 }
 ```
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
