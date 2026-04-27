@@ -130,6 +130,20 @@
         "status": "beta"
       },
       {
+        "slug": "bunting-builder",
+        "name": "Brooke's Bunting Builder",
+        "uuid": "f7c75218-7eb2-4985-9efe-f6cfd5a04b45",
+        "concepts": [
+          "tabulation"
+        ],
+        "prerequisites": [
+          "quotations",
+          "strings",
+          "conditionals"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "backyard-birdwatcher",
         "name": "Backyard Birdwatcher",
         "uuid": "bda83fdb-d251-4526-994b-f45081235637",
@@ -138,7 +152,8 @@
         ],
         "prerequisites": [
           "stack-effect",
-          "conditionals"
+          "conditionals",
+          "tabulation"
         ],
         "status": "beta"
       },
@@ -899,7 +914,8 @@
           "strings",
           "higher-order-sequences",
           "unicode",
-          "locals"
+          "locals",
+          "quotations-call"
         ],
         "difficulty": 5
       },
@@ -1225,6 +1241,11 @@
       "uuid": "0580796a-5a19-404e-9a63-7691192fed5d",
       "slug": "bitwise-operations",
       "name": "Bitwise Operations"
+    },
+    {
+      "uuid": "0e95ebe8-0b9c-4b52-8f84-f3f04fc2fd83",
+      "slug": "tabulation",
+      "name": "Tabulation"
     },
     {
       "uuid": "638e8893-fd14-4448-87c8-13029851f225",

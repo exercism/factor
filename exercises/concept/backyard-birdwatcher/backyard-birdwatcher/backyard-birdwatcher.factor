@@ -15,3 +15,6 @@ IN: backyard-birdwatcher
 
 : busy-days ( days -- count )
     "unimplemented" throw ;
+
+: pad-missing-days ( days n -- new-days )
+    "unimplemented" throw ;

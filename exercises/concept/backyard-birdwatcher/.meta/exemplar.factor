@@ -15,3 +15,6 @@ IN: backyard-birdwatcher
 
 : busy-days ( days -- count )
     [ 5 >= ] count ;
+
+: pad-missing-days ( days n -- new-days )
+    0 pad-tail ;

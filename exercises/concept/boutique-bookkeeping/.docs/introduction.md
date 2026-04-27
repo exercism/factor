@@ -52,8 +52,8 @@ sort-by ( seq quot -- sortedseq )
 ```
 
 ```factor
-{ { "a" 5 } { "b" 2 } { "c" 8 } } [ second ] sort-by .
-! => { { "b" 2 } { "a" 5 } { "c" 8 } }
+{ -3 5 -1 4 } [ abs ] sort-by .
+! => { -1 -3 4 5 }
 ```
 
 ## Aggregating
@@ -66,8 +66,7 @@ map-sum ( seq quot -- n )
 ```
 
 ```factor
-{ { "a" 5 } { "b" 2 } { "c" 8 } } [ second ] map-sum .
-! => 15
+{ 1 2 3 4 } [ sq ] map-sum .   ! => 30
 ```
 
 ## Min and max by key
@@ -81,8 +80,8 @@ supremum-by ( seq quot -- elt )
 ```
 
 ```factor
-{ { "a" 5 } { "b" 2 } { "c" 8 } } [ second ] infimum-by .
-! => { "b" 2 }
+{ -3 5 -1 4 } [ abs ] infimum-by .
+! => -1
 ```
 
 ## Pulling the second element

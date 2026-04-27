@@ -13,6 +13,8 @@ with the others.
 | `nth`       | `( n seq -- elt )` (0-based)      |
 | `head`      | `( seq n -- headseq )`            |
 | `tail`      | `( seq n -- tailseq )`            |
+| `pad-head`  | `( seq n elt -- padded )`         |
+| `pad-tail`  | `( seq n elt -- padded )`         |
 | `prefix`    | `( seq elt -- newseq )`           |
 | `suffix`    | `( seq elt -- newseq )`           |
 | `unclip`    | `( seq -- rest first )`           |
