@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Combine a sequence into a single value with reduce, or build running summaries with cum-sum, cum-product, cum-min, cum-max."
+}

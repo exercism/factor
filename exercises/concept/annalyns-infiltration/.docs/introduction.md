@@ -10,9 +10,11 @@ The most common shuffle words live in [`kernel`][kernel]:
 
 ```
 dup    ( x -- x x )
+dupd   ( x y -- x x y )
 drop   ( x -- )
 swap   ( x y -- y x )
 over   ( x y -- x y x )
+pick   ( x y z -- x y z x )
 rot    ( x y z -- y z x )
 -rot   ( x y z -- z x y )
 nip    ( x y -- y )

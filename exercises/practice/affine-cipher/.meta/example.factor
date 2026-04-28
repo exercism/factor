@@ -2,8 +2,12 @@ USING: combinators grouping kernel locals math math.functions
 ranges sequences sets strings unicode ;
 IN: affine-cipher
 
+! highest common factor (Euclidean algorithm)
+: hcf ( a b -- gcd )
+    dup 0 = [ drop ] [ [ mod ] keep swap hcf ] if ;
+
 : check-coprime ( a -- a )
-    dup 26 gcd nip 1 = [ "a and m must be coprime." throw ] unless ;
+    dup 26 hcf 1 = [ "a and m must be coprime." throw ] unless ;
 
 : mmi ( a -- a^-1 )
     26 [1..b] [ over * 26 mod 1 = ] find nip nip ;

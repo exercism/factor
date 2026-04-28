@@ -44,26 +44,60 @@ mod  ( x y -- r   )    ! remainder
 or a `float` if either input is a float. `/i` always rounds toward
 negative infinity.
 
-## Testing for zero
+## Testing for zero, parity, range
 
-`zero? ( x -- ? )` (in [`math`][math]) returns `t` when its argument
-is `0`, `0.0`, or any other zero-valued number, and `f` otherwise:
+Number predicates from [`math`][math] and
+[`math.order`][math.order]:
+
+```
+zero?    ( x       -- ? )
+even?    ( x       -- ? )
+odd?     ( x       -- ? )
+between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
+```
 
 ```factor
-0 zero? .       ! => t
-0.0 zero? .     ! => t
-3 zero? .       ! => f
+0 zero? .            ! => t
+0.0 zero? .          ! => t
+3 zero? .            ! => f
+
+4 even? .            ! => t
+7 even? .            ! => f
+7 odd? .             ! => t
+
+5 1 10 between? .    ! => t
+0 1 10 between? .    ! => f
+10 1 10 between? .   ! => t   (inclusive at both ends)
 ```
 
 ## Float to integer
 
-`floor`, `ceil`, and `round` from the
+`floor`, `ceiling`, and `round` from the
 [`math.functions`][math.functions] vocabulary all return a float
 (`3.0`, not `3`). To get a true integer, chain `>integer`:
 
 ```factor
-3.7 floor >integer .    ! => 3
-3.2 ceil >integer .     ! => 4
+3.7 floor >integer .       ! => 3
+3.2 ceiling >integer .     ! => 4
+```
+
+## Powers and absolute value
+
+`sq`, `^`, and `abs` (in [`math.functions`][math.functions])
+compute squares, arbitrary powers, and absolute values:
+
+```
+sq  ( x   -- x*x )
+^   ( x y -- x^y )
+abs ( x   -- |x| )
+```
+
+```factor
+5 sq .          ! => 25
+2 10 ^ .        ! => 1024
+2 0.5 ^ .       ! => 1.4142135623730951
+-7 abs .        ! => 7
+3 abs .         ! => 3
 ```
 
 ## Min and max

@@ -20,10 +20,20 @@ IN: boutique-bookkeeping.tests
 ! TASK: 3 expensive-items
 { 2 } [
     { { "Skirt" 50 } { "Coat" 120 } { "Hat" 25 } { "Dress" 80 } }
-    expensive-items
+    50 expensive-items
 ] unit-test
 
-{ 0 } [ { { "Hat" 25 } { "Sock" 5 } } expensive-items ] unit-test
+{ 4 } [
+    { { "Skirt" 50 } { "Coat" 120 } { "Hat" 25 } { "Dress" 80 } }
+    0 expensive-items
+] unit-test
+
+{ 0 } [
+    { { "Skirt" 50 } { "Coat" 120 } { "Hat" 25 } { "Dress" 80 } }
+    200 expensive-items
+] unit-test
+
+{ 0 } [ { { "Hat" 25 } { "Sock" 5 } } 25 expensive-items ] unit-test
 
 ! TASK: 4 cheapest-item
 { { "Hat" 25 } } [

@@ -1,0 +1,31 @@
+name: Learning checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  prereq-check:
+    name: bin/prereq-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - name: Run bin/prereq-check
+        run: bin/prereq-check
+
+  known-words:
+    name: bin/extract-known-words + bin/detect-unknown-words concept
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - name: Generate .meta/known-words.md
+        run: bin/extract-known-words
+      - name: Detect unknown words in concept exemplars
+        run: bin/detect-unknown-words concept

@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "ledger-loop/ledger-loop.factor"
+    ],
+    "test": [
+      "ledger-loop/ledger-loop-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Tally a co-op's books with reduce and the cumulative family of reductions."
+}

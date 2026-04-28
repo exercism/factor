@@ -26,15 +26,20 @@ then look up or rearrange their contents.
 ## Joining
 
 `concat` (in [`sequences`][sequences]) takes a sequence whose
-elements are themselves sequences and flattens them by one level:
+elements are themselves sequences and flattens them by one level.
+`join` does the same with a separator inserted between each pair:
 
 ```
-concat ( seqs -- seq )
+concat ( seqs     -- seq )
+join   ( seqs sep -- seq )
 ```
 
 ```factor
 { { 1 2 } { 3 4 } { 5 } } concat .
 ! => { 1 2 3 4 5 }
+
+{ "alpha" "beta" "gamma" } ", " join .
+! => "alpha, beta, gamma"
 ```
 
 ## Reversing
@@ -55,11 +60,16 @@ reverse ( seq -- newseq )
 `index` returns the position of the first element equal to the
 input value, or `f` if it isn't present. `member?` returns just a
 boolean. Both take the **element first** and the **sequence
-second**:
+second**. `members` (in [`sets`][sets]) returns the *unique*
+elements of a sequence — the deduplication operation —
+and `all-unique?` (also in `sets`) tests whether the sequence
+already has no duplicates:
 
 ```
-index   ( elt seq -- i/f )
-member? ( elt seq -- ? )
+index       ( elt seq -- i/f )
+member?     ( elt seq -- ? )
+members     ( seq     -- uniques )
+all-unique? ( seq     -- ? )
 ```
 
 ```factor
@@ -67,7 +77,11 @@ member? ( elt seq -- ? )
 "z" { "a" "b" "c" } index .       ! => f
 "b" { "a" "b" "c" } member? .     ! => t
 "z" { "a" "b" "c" } member? .     ! => f
+{ 1 2 3 2 1 } members .           ! => { 1 2 3 }
+{ 1 2 3 } all-unique? .           ! => t
+{ 1 2 1 } all-unique? .           ! => f
 ```
 
 [arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
+[sets]: https://docs.factorcode.org/content/vocab-sets.html

@@ -34,13 +34,18 @@ with-missing-price .
 
 ## 3. Count expensive items
 
-Define `expensive-items` to return how many items cost strictly more
-than `50`.
+Define `expensive-items` to take an inventory and a price
+threshold, and return how many items cost strictly more than the
+threshold.
 
 ```factor
 { { "Skirt" 50 } { "Coat" 120 } { "Hat" 25 } { "Dress" 80 } }
-expensive-items .
+50 expensive-items .
 ! => 2
+
+{ { "Skirt" 50 } { "Coat" 120 } { "Hat" 25 } { "Dress" 80 } }
+0 expensive-items .
+! => 4
 ```
 
 ## 4. Find the cheapest item

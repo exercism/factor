@@ -14,9 +14,13 @@ result you use `1.0 2 /`.
 ```
 
 Most arithmetic lives in [`math`][math]: `+`, `-`, `*`, `/`, `mod`,
-`/i`, `gcd`, `abs`, `neg`, `sq`. Predicates: `zero?`, `even?`,
-`odd?`, `positive?`, `negative?`. Comparison: `<`, `<=`, `>`, `>=`,
-`=`. Constructors and conversions like `>integer`, `>float`,
-`>fraction` are nearby.
+`/i`, `/mod`, `gcd`, `abs`, `neg`, `sq`, `^`. Predicates: `zero?`,
+`even?`, `odd?`, `positive?`, `negative?`. Comparison: `<`, `<=`,
+`>`, `>=`, `=`. From [`math.order`][math.order]: `min`, `max`,
+`between?`. From [`math.functions`][math.functions]: `floor`,
+`ceiling`, `round`. Constructors and conversions like `>integer`,
+`>float`, `>fraction` are nearby.
 
 [math]: https://docs.factorcode.org/content/vocab-math.html
+[math.order]: https://docs.factorcode.org/content/vocab-math.order.html
+[math.functions]: https://docs.factorcode.org/content/vocab-math.functions.html

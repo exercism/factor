@@ -20,3 +20,6 @@ IN: bunting-builder.tests
 { "|....|....|" } [ 11 marker-bunting ] unit-test
 { "|" } [ 1 marker-bunting ] unit-test
 { "" } [ 0 marker-bunting ] unit-test
+
+! TASK: 5 valley-bunting
+{ "5432101234" } [ valley-bunting ] unit-test

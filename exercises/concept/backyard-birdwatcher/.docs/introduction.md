@@ -72,11 +72,12 @@ strings too — the result is just another string instead of an array:
 
 ## Aggregating
 
-`sum` (in [`math.statistics`][math.statistics]) adds the elements of
-a numeric sequence:
+`sum` and `product` (in [`math.statistics`][math.statistics])
+add or multiply the elements of a numeric sequence:
 
 ```factor
-{ 2 5 0 7 } sum .    ! => 14
+{ 2 5 0 7 } sum .        ! => 14
+{ 2 5 3 7 } product .    ! => 210
 ```
 
 `count` runs a predicate over the sequence and returns how many

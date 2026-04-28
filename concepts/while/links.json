@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-kernel.html",
+    "description": "kernel vocabulary reference (while/until live here)"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-locals.html",
+    "description": "Locals — for multi-state loop bodies"
+  }
+]

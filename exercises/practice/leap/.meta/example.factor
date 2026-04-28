@@ -1,7 +1,10 @@
-USING: formatting kernel math ;
+USING: combinators kernel math ;
 IN: leap
 
 : leap-year? ( year -- ? )
-    dup odd? [ drop f ] [
-        [ 4 mod zero? ] [ 100 mod 0 > ] [ 400 mod zero? ] tri or and
-    ] if ;
+    {
+        { [ dup 400 mod zero? ] [ drop t ] }
+        { [ dup 100 mod zero? ] [ drop f ] }
+        { [ dup   4 mod zero? ] [ drop t ] }
+        [ drop f ]
+    } cond ;
