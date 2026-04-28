@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "mosaic-mischief/mosaic-mischief.factor"
+    ],
+    "test": [
+      "mosaic-mischief/mosaic-mischief-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Help log Magpie Marg's mischief by mutating arrays and vectors in place."
+}

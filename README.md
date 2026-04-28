@@ -53,17 +53,3 @@ Basic linting finished successfully:
 - Required track docs are present
 - Required shared exercise docs are present
 ```
-
-## Adding exercises
-
-New (practice) exercises can be added via:
-
-```shell
-bin/add-practice-exercise <exercise-slug>
-```
-
-Optionally, you can also specify the exercise's difficulty (via `-d`) and/or author's GitHub username (via `-a`):
-
-```shell
-bin/add-practice-exercise -a foobar -d 3 <exercise-slug>
-```

@@ -201,6 +201,21 @@
         "status": "beta"
       },
       {
+        "slug": "mosaic-mischief",
+        "name": "Mosaic Mischief",
+        "uuid": "009bf653-43e2-4e9d-97a5-5d1ed4b579f1",
+        "concepts": [
+          "mutation"
+        ],
+        "prerequisites": [
+          "arrays",
+          "sequences",
+          "combinators",
+          "higher-order-sequences"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "mixed-juices",
         "name": "Mixed Juices",
         "uuid": "d8a20e2e-c1b1-4bd3-aca0-c942ad5a465b",
@@ -598,7 +613,9 @@
         ],
         "prerequisites": [
           "strings",
-          "unicode"
+          "unicode",
+          "higher-order-sequences",
+          "tabulation"
         ],
         "difficulty": 3
       },
@@ -658,7 +675,8 @@
           "numbers",
           "unicode",
           "sequences",
-          "higher-order-sequences"
+          "higher-order-sequences",
+          "case"
         ],
         "difficulty": 3
       },
@@ -713,7 +731,9 @@
         ],
         "prerequisites": [
           "numbers",
-          "sequences"
+          "sequences",
+          "while",
+          "mutation"
         ],
         "difficulty": 3
       },
@@ -802,7 +822,9 @@
           "curry-compose-fry",
           "higher-order-sequences",
           "numbers",
-          "sequences"
+          "sequences",
+          "while",
+          "mutation"
         ],
         "difficulty": 4
       },
@@ -816,7 +838,8 @@
         "prerequisites": [
           "sequences",
           "conditionals",
-          "recursion"
+          "recursion",
+          "arrays"
         ],
         "difficulty": 4
       },
@@ -892,7 +915,8 @@
         "prerequisites": [
           "higher-order-sequences",
           "sequences",
-          "locals"
+          "locals",
+          "mutation"
         ],
         "difficulty": 4
       },
@@ -1024,7 +1048,8 @@
           "quotations",
           "quotations-call",
           "recursion",
-          "sequences"
+          "sequences",
+          "mutation"
         ],
         "difficulty": 5
       },
@@ -1039,7 +1064,8 @@
           "combinators",
           "recursion",
           "strings",
-          "case"
+          "case",
+          "mutation"
         ],
         "difficulty": 5
       },
@@ -1053,7 +1079,8 @@
         "prerequisites": [
           "strings",
           "recursion",
-          "unicode"
+          "unicode",
+          "arrays"
         ],
         "difficulty": 5
       },
@@ -1066,7 +1093,8 @@
         ],
         "prerequisites": [
           "numbers",
-          "recursion"
+          "recursion",
+          "while"
         ],
         "difficulty": 5
       },
@@ -1081,7 +1109,8 @@
           "combinators",
           "higher-order-sequences",
           "sequences",
-          "case"
+          "case",
+          "curry-compose-fry"
         ],
         "difficulty": 5
       },
@@ -1139,7 +1168,10 @@
         ],
         "prerequisites": [
           "strings",
-          "sequences"
+          "sequences",
+          "arrays",
+          "higher-order-sequences",
+          "mutation"
         ],
         "difficulty": 6
       },
@@ -1166,7 +1198,8 @@
         "prerequisites": [
           "combinators",
           "sequences",
-          "dynamic-variables"
+          "dynamic-variables",
+          "mutation"
         ],
         "difficulty": 7
       },
@@ -1181,7 +1214,8 @@
           "combinators",
           "conditionals",
           "errors",
-          "numbers"
+          "numbers",
+          "while"
         ],
         "difficulty": 7
       },
@@ -1247,7 +1281,8 @@
           "sequences",
           "higher-order-sequences",
           "combinators",
-          "errors"
+          "errors",
+          "mutation"
         ],
         "difficulty": 8
       },
@@ -1263,7 +1298,8 @@
           "numbers",
           "conditionals",
           "sequences",
-          "higher-order-sequences"
+          "higher-order-sequences",
+          "mutation"
         ],
         "difficulty": 8
       },
@@ -1280,7 +1316,9 @@
           "conditionals",
           "tuples",
           "recursion",
-          "locals"
+          "locals",
+          "while",
+          "mutation"
         ],
         "difficulty": 9
       }
@@ -1351,6 +1389,11 @@
       "uuid": "356c159b-b78d-40dc-b378-03cc548df719",
       "slug": "higher-order-sequences",
       "name": "Higher-Order Sequences"
+    },
+    {
+      "uuid": "9f73bea3-1576-4e42-ac6b-f66a1140c10c",
+      "slug": "mutation",
+      "name": "Mutation"
     },
     {
       "uuid": "e6daff41-60a4-4b82-a245-411150d56dfa",

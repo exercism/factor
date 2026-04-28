@@ -6,9 +6,14 @@
 
 - If nobody is yet adding the exercise, [open a conversation](https://forum.exercism.org/c/programming/factor) and indicate you'd like to add the exercise.
 
-- Follow the [Add a Practice Exercise docs](https://exercism.org/docs/building/tracks/practice-exercises/add).
-
 - Examplar solutions must only use words taught in their `introduction.md`, or taught by their transitive dependencies.
+This is enforced by the "Learning checks" workflow.
+
+- Follow the [Add a Practice Exercise docs](https://exercism.org/docs/building/tracks/practice-exercises/add), and use
+
+```shell
+bin/add-practice-exercise <exercise-slug>
+```
 
 #### **Do you want to report a bug?**
 
