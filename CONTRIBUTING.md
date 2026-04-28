@@ -8,6 +8,8 @@
 
 - Follow the [Add a Practice Exercise docs](https://exercism.org/docs/building/tracks/practice-exercises/add).
 
+- Examplar solutions must only use words taught in their `introduction.md`, or taught by their transitive dependencies.
+
 #### **Do you want to report a bug?**
 
 - **Ensure the bug was not already reported** by searching the [forum](https://forum.exercism.org/c/programming/factor).

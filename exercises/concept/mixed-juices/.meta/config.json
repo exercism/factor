@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "mixed-juices/mixed-juices.factor"
+    ],
+    "test": [
+      "mixed-juices/mixed-juices-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/mixed-juices"
+  ],
+  "blurb": "Help Li Mei manage her juice bar and learn the while combinator."
+}

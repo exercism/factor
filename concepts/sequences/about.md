@@ -22,6 +22,10 @@ with the others.
 | `empty?`    | `( seq -- ? )`                    |
 | `member?`   | `( elt seq -- ? )`                |
 | `reverse`   | `( seq -- newseq )`               |
+| `index`     | `( elt seq -- i/f )`              |
+| `concat`    | `( seqs -- seq )`                 |
+| `sum`       | `( seq -- n )`                    |
+| `product`   | `( seq -- n )`                    |
 
 Arrays are immutable; the `prefix`/`suffix`/`append` operations all
 return new sequences without modifying the original. Vectors are

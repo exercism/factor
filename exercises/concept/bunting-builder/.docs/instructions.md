@@ -54,3 +54,18 @@ that positions `0`, `5`, `10`, … get `|` and the rest get `.`.
 11 marker-bunting .
 ! => "|....|....|"
 ```
+
+## 5. Valley bunting
+
+Brooke is hanging a fixed-size 10-flag bunting that anchors on a
+hook at the centre. Counting from the leftmost flag at position
+`-5` up to (but not including) `5`, each flag's character is the
+distance from the centre, written as a digit.
+
+Define `valley-bunting` (taking no inputs) to return that fixed
+string.
+
+```factor
+valley-bunting .
+! => "5432101234"
+```

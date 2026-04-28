@@ -21,5 +21,5 @@ ERROR: invalid-traversals ;
 :: tree-from-traversals ( preorder inorder -- tree )
     preorder length inorder length = [ invalid-traversals ] unless
     preorder all-unique? [ invalid-traversals ] unless
-    preorder natural-sort inorder natural-sort = [ invalid-traversals ] unless
+    preorder sort inorder sort = [ invalid-traversals ] unless
     preorder inorder build ;

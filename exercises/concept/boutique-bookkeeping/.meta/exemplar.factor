@@ -7,8 +7,8 @@ IN: boutique-bookkeeping
 : with-missing-price ( inventory -- filtered )
     [ second ] reject ;
 
-: expensive-items ( inventory -- count )
-    [ second 50 > ] count ;
+: expensive-items ( inventory threshold -- count )
+    swap [ second < ] with count ;
 
 : cheapest-item ( inventory -- item )
     [ second ] infimum-by ;

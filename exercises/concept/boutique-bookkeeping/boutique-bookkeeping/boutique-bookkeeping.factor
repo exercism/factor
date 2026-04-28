@@ -7,7 +7,7 @@ IN: boutique-bookkeeping
 : with-missing-price ( inventory -- filtered )
     "unimplemented" throw ;
 
-: expensive-items ( inventory -- count )
+: expensive-items ( inventory threshold -- count )
     "unimplemented" throw ;
 
 : cheapest-item ( inventory -- item )

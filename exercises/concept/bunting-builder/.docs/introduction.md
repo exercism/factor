@@ -20,6 +20,43 @@ USING: math sequences ;
 The quotation receives one integer — the index — and leaves the
 value for that position on the stack.
 
+## Bounded ranges
+
+When the index range doesn't start at `0`, or you want it
+inclusive at both ends, the [`ranges`][ranges]
+vocabulary provides bracket-notation literals. Square brackets
+include the endpoint; round brackets exclude it.
+
+```
+[a..b]    ! a, a+1, …, b      (inclusive)
+[a..b)    ! a, a+1, …, b-1    (half-open at the top)
+```
+
+```factor
+USING: math ranges sequences ;
+
+3 7 [a..b] [ 2 * ] map .   ! => { 6 8 10 12 14 }
+3 7 [a..b) [ 2 * ] map .   ! => { 6 8 10 12 }
+```
+
+A few common one-arg shorthands:
+
+```
+[1..b]    ! 1, 2, …, b        (same as 1 b [a..b])
+[1..b)    ! 1, 2, …, b-1      (same as 1 b [a..b))
+[0..b)    ! 0, 1, …, b-1      (same as 0 b [a..b), and same as `b <iota>`)
+```
+
+```factor
+6 [1..b] [ sq ] map .      ! => { 1 4 9 16 25 36 }
+6 [1..b) [ sq ] map .      ! => { 1 4 9 16 25 }
+4 [0..b) [ 1 + ] map .     ! => { 1 2 3 4 }
+```
+
+`<iota>` is the most common form; `[a..b]` and friends are the
+right tool when the range starts somewhere other than `0` or
+needs an inclusive upper bound.
+
 ## Building a string by position
 
 `map` yields whatever shape its quotation returns. If the
@@ -58,3 +95,4 @@ if ]` — covers parity tests with `even?` / `odd?` (in
 [sequences]: https://docs.factorcode.org/content/article-sequences.html
 [strings]: https://docs.factorcode.org/content/article-strings.html
 [math]: https://docs.factorcode.org/content/vocab-math.html
+[ranges]: https://docs.factorcode.org/content/vocab-ranges.html

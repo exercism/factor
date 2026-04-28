@@ -1,7 +1,7 @@
 USING: kernel sequences sorting unicode ;
 IN: anagram
 
-: sorted-lower ( str -- str' ) >lower natural-sort ;
+: sorted-lower ( str -- str' ) >lower sort ;
 
 : anagram? ( subject candidate -- ? )
     2dup [ >lower ] bi@ = not

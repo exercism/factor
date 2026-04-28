@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Loop until a predicate flips with `while` and `until` from `kernel`."
+}

@@ -201,6 +201,32 @@
         "status": "beta"
       },
       {
+        "slug": "mixed-juices",
+        "name": "Mixed Juices",
+        "uuid": "d8a20e2e-c1b1-4bd3-aca0-c942ad5a465b",
+        "concepts": [
+          "while"
+        ],
+        "prerequisites": [
+          "combinators",
+          "higher-order-sequences",
+          "conditionals"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "ledger-loop",
+        "name": "Ledger Loop",
+        "uuid": "825a4a26-8c4c-46b4-a63a-b9a2457bbf5e",
+        "concepts": [
+          "reductions"
+        ],
+        "prerequisites": [
+          "higher-order-sequences"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "coordinate-choreography",
         "name": "Coordinate Choreography",
         "uuid": "70a6ecaf-b898-48ad-a388-1b3583ba95a4",
@@ -358,7 +384,9 @@
         "prerequisites": [
           "strings",
           "bitwise-operations",
-          "sequences"
+          "sequences",
+          "unicode",
+          "higher-order-sequences"
         ],
         "difficulty": 1
       },
@@ -372,7 +400,9 @@
         "prerequisites": [
           "conditionals",
           "numbers",
-          "recursion"
+          "recursion",
+          "errors",
+          "while"
         ],
         "difficulty": 2
       },
@@ -397,7 +427,8 @@
           "numbers"
         ],
         "prerequisites": [
-          "numbers"
+          "numbers",
+          "higher-order-sequences"
         ],
         "difficulty": 2
       },
@@ -409,7 +440,8 @@
           "bitwise-operations"
         ],
         "prerequisites": [
-          "bitwise-operations"
+          "bitwise-operations",
+          "recursion"
         ],
         "difficulty": 2
       },
@@ -421,7 +453,9 @@
           "numbers"
         ],
         "prerequisites": [
-          "numbers"
+          "numbers",
+          "errors",
+          "bitwise-operations"
         ],
         "difficulty": 2
       },
@@ -448,7 +482,8 @@
         ],
         "prerequisites": [
           "strings",
-          "unicode"
+          "unicode",
+          "sequences"
         ],
         "difficulty": 2
       },
@@ -476,7 +511,9 @@
         "prerequisites": [
           "strings",
           "bitwise-operations",
-          "sequences"
+          "sequences",
+          "unicode",
+          "higher-order-sequences"
         ],
         "difficulty": 2
       },
@@ -488,7 +525,8 @@
           "sequences"
         ],
         "prerequisites": [
-          "sequences"
+          "sequences",
+          "arrays"
         ],
         "difficulty": 2
       },
@@ -501,7 +539,8 @@
         ],
         "prerequisites": [
           "strings",
-          "sequences"
+          "sequences",
+          "case"
         ],
         "difficulty": 2
       },
@@ -529,7 +568,9 @@
           "strings"
         ],
         "prerequisites": [
-          "strings"
+          "strings",
+          "sequences",
+          "quotations"
         ],
         "difficulty": 2
       },
@@ -600,7 +641,8 @@
         ],
         "prerequisites": [
           "strings",
-          "sequences"
+          "sequences",
+          "errors"
         ],
         "difficulty": 3
       },
@@ -615,7 +657,8 @@
           "strings",
           "numbers",
           "unicode",
-          "sequences"
+          "sequences",
+          "higher-order-sequences"
         ],
         "difficulty": 3
       },
@@ -640,7 +683,8 @@
           "sequences"
         ],
         "prerequisites": [
-          "sequences"
+          "sequences",
+          "case"
         ],
         "difficulty": 3
       },
@@ -655,7 +699,8 @@
           "strings",
           "conditionals",
           "higher-order-sequences",
-          "errors"
+          "errors",
+          "unicode"
         ],
         "difficulty": 3
       },
@@ -696,7 +741,8 @@
         "prerequisites": [
           "strings",
           "recursion",
-          "sequences"
+          "sequences",
+          "reductions"
         ],
         "difficulty": 3
       },
@@ -739,7 +785,8 @@
         "prerequisites": [
           "higher-order-sequences",
           "numbers",
-          "sequences"
+          "sequences",
+          "tabulation"
         ],
         "difficulty": 3
       },
@@ -784,7 +831,8 @@
           "strings",
           "numbers",
           "higher-order-sequences",
-          "errors"
+          "errors",
+          "unicode"
         ],
         "difficulty": 4
       },
@@ -813,7 +861,8 @@
         ],
         "prerequisites": [
           "sequences",
-          "higher-order-sequences"
+          "higher-order-sequences",
+          "recursion"
         ],
         "difficulty": 4
       },
@@ -842,7 +891,8 @@
         ],
         "prerequisites": [
           "higher-order-sequences",
-          "sequences"
+          "sequences",
+          "locals"
         ],
         "difficulty": 4
       },
@@ -869,7 +919,8 @@
         ],
         "prerequisites": [
           "strings",
-          "assocs"
+          "assocs",
+          "unicode"
         ],
         "difficulty": 4
       },
@@ -893,7 +944,9 @@
           "combinators",
           "curry-compose-fry",
           "numbers",
-          "strings"
+          "strings",
+          "unicode",
+          "errors"
         ],
         "difficulty": 5
       },
@@ -985,7 +1038,8 @@
         "prerequisites": [
           "combinators",
           "recursion",
-          "strings"
+          "strings",
+          "case"
         ],
         "difficulty": 5
       },
@@ -998,7 +1052,8 @@
         ],
         "prerequisites": [
           "strings",
-          "recursion"
+          "recursion",
+          "unicode"
         ],
         "difficulty": 5
       },
@@ -1025,7 +1080,8 @@
         "prerequisites": [
           "combinators",
           "higher-order-sequences",
-          "sequences"
+          "sequences",
+          "case"
         ],
         "difficulty": 5
       },
@@ -1054,7 +1110,8 @@
         ],
         "prerequisites": [
           "higher-order-sequences",
-          "sequences"
+          "sequences",
+          "bitwise-operations"
         ],
         "difficulty": 6
       },
@@ -1068,7 +1125,8 @@
         "prerequisites": [
           "strings",
           "sequences",
-          "assocs"
+          "assocs",
+          "errors"
         ],
         "difficulty": 6
       },
@@ -1095,7 +1153,8 @@
         "prerequisites": [
           "numbers",
           "recursion",
-          "strings"
+          "strings",
+          "errors"
         ],
         "difficulty": 6
       },
@@ -1169,7 +1228,8 @@
           "conditionals",
           "sequences",
           "higher-order-sequences",
-          "curry-compose-fry"
+          "curry-compose-fry",
+          "errors"
         ],
         "difficulty": 8
       },
@@ -1186,7 +1246,8 @@
           "conditionals",
           "sequences",
           "higher-order-sequences",
-          "combinators"
+          "combinators",
+          "errors"
         ],
         "difficulty": 8
       },
@@ -1290,6 +1351,16 @@
       "uuid": "356c159b-b78d-40dc-b378-03cc548df719",
       "slug": "higher-order-sequences",
       "name": "Higher-Order Sequences"
+    },
+    {
+      "uuid": "e6daff41-60a4-4b82-a245-411150d56dfa",
+      "slug": "while",
+      "name": "While"
+    },
+    {
+      "uuid": "fbd0d673-64ba-4de7-aa4d-23654172a252",
+      "slug": "reductions",
+      "name": "Reductions"
     },
     {
       "uuid": "0c9457be-37a3-4a08-85c8-44ee82925d55",

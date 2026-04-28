@@ -33,6 +33,14 @@
 
 - `5 mod zero?` is `t` exactly at positions `0`, `5`, `10`, … .
 
+## 5. Valley bunting
+
+- `-5 5 [a..b)` (in [`ranges`][ranges]) is the half-
+  open range `-5, -4, …, 4`.
+- `abs` (in [`math`][math]) flips a negative integer to its
+  positive counterpart, leaving non-negative integers alone.
+
 [sequences]: https://docs.factorcode.org/content/article-sequences.html
 [strings]: https://docs.factorcode.org/content/article-strings.html
 [math]: https://docs.factorcode.org/content/vocab-math.html
+[ranges]: https://docs.factorcode.org/content/vocab-ranges.html

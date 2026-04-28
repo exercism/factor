@@ -1,0 +1,154 @@
+#!/usr/bin/env python3
+
+# Synopsis:
+# Run static consistency checks on config.json that go beyond what
+# `bin/configlet lint` covers:
+#
+#   1. Every concept exercise's prereq is a concept taught at an
+#      earlier position in `exercises.concept[]`.
+#   2. The two ordering lists -- `exercises.concept[].concepts[0]`
+#      and the top-level `concepts[]` -- agree on the relative
+#      order of every concept that has a concept exercise.
+#   3. Every concept slug referenced (taught or as a prereq) exists
+#      in the top-level `concepts[]` list.
+#   4. Every top-level concept is taught by exactly one concept
+#      exercise (or warned if taught by zero).
+#   5. UUIDs are unique across all exercises and concepts.
+#   6. Every practice exercise's prereq is a known concept.
+#
+# Exits 0 if everything is clean, 1 otherwise.
+#
+# Usage: bin/prereq-check
+
+import json
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CFG_PATH = ROOT / 'config.json'
+
+
+def main():
+    cfg = json.loads(CFG_PATH.read_text())
+    errors = []
+    warnings = []
+
+    concept_exes = cfg['exercises']['concept']
+    practice_exes = cfg.get('exercises', {}).get('practice', [])
+    top_concepts = cfg.get('concepts', [])
+
+    # Concept slug -> exercise position (in `exercises.concept[]`)
+    concept_taught_at = {}
+    concept_taught_by = {}
+    for i, ex in enumerate(concept_exes):
+        for c in ex['concepts']:
+            if c in concept_taught_at:
+                errors.append(
+                    f'concept "{c}" taught by both '
+                    f'{concept_taught_by[c]} (pos {concept_taught_at[c]}) '
+                    f'and {ex["slug"]} (pos {i})'
+                )
+            else:
+                concept_taught_at[c] = i
+                concept_taught_by[c] = ex['slug']
+
+    top_concept_slugs = {c['slug'] for c in top_concepts}
+    top_concept_order = [c['slug'] for c in top_concepts]
+
+    # Check 1: prereq order is forward-only
+    for i, ex in enumerate(concept_exes):
+        for req in ex.get('prerequisites', []):
+            if req not in concept_taught_at:
+                errors.append(
+                    f'{ex["slug"]} (pos {i}) requires concept "{req}" '
+                    f'which is not taught by any concept exercise'
+                )
+            elif concept_taught_at[req] >= i:
+                errors.append(
+                    f'{ex["slug"]} (pos {i}) requires "{req}" '
+                    f'taught at pos {concept_taught_at[req]} (not earlier)'
+                )
+
+    # Check 2: ordering-list agreement
+    ex_concept_order = [ex['concepts'][0] for ex in concept_exes if ex['concepts']]
+    top_taught_filtered = [c for c in top_concept_order if c in concept_taught_at]
+    if ex_concept_order != top_taught_filtered:
+        errors.append(
+            'exercises.concept[] and top-level concepts[] disagree on '
+            'the relative order of taught concepts:\n'
+            f'  exercises:    {ex_concept_order}\n'
+            f'  top-level:    {top_taught_filtered}'
+        )
+
+    # Check 3: every referenced concept exists in the top-level list
+    referenced = set()
+    for ex in concept_exes:
+        referenced.update(ex.get('concepts', []))
+        referenced.update(ex.get('prerequisites', []))
+    for ex in practice_exes:
+        referenced.update(ex.get('prerequisites', []))
+        referenced.update(ex.get('practices', []))
+    for slug in referenced - top_concept_slugs:
+        errors.append(
+            f'concept "{slug}" referenced by an exercise but not in '
+            f'the top-level concepts[] list'
+        )
+
+    # Check 4: every top-level concept is taught
+    for slug in top_concept_slugs - set(concept_taught_at):
+        warnings.append(
+            f'concept "{slug}" is in the top-level list but not '
+            f'taught by any concept exercise'
+        )
+
+    # Check 5: UUID uniqueness
+    seen_uuids = {}
+    for ex in concept_exes:
+        kind = f'concept exercise {ex["slug"]}'
+        u = ex['uuid']
+        if u in seen_uuids:
+            errors.append(f'duplicate UUID {u}: {seen_uuids[u]} and {kind}')
+        else:
+            seen_uuids[u] = kind
+    for ex in practice_exes:
+        kind = f'practice exercise {ex["slug"]}'
+        u = ex['uuid']
+        if u in seen_uuids:
+            errors.append(f'duplicate UUID {u}: {seen_uuids[u]} and {kind}')
+        else:
+            seen_uuids[u] = kind
+    for c in top_concepts:
+        kind = f'concept {c["slug"]}'
+        u = c['uuid']
+        if u in seen_uuids:
+            errors.append(f'duplicate UUID {u}: {seen_uuids[u]} and {kind}')
+        else:
+            seen_uuids[u] = kind
+
+    # Check 6: practice prereqs reference known concepts
+    for ex in practice_exes:
+        for req in ex.get('prerequisites', []):
+            if req not in concept_taught_at and req not in top_concept_slugs:
+                errors.append(
+                    f'practice exercise {ex["slug"]} requires concept '
+                    f'"{req}" which is not taught and not in the '
+                    f'top-level concepts list'
+                )
+
+    # Report
+    for w in warnings:
+        print(f'warning: {w}')
+    for e in errors:
+        print(f'error: {e}')
+
+    if errors:
+        print(f'\n{len(errors)} error(s), {len(warnings)} warning(s)')
+        sys.exit(1)
+    if warnings:
+        print(f'\n{len(warnings)} warning(s)')
+    print('OK')
+    sys.exit(0)
+
+
+if __name__ == '__main__':
+    main()

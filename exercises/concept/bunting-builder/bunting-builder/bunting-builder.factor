@@ -12,3 +12,6 @@ IN: bunting-builder
 
 : marker-bunting ( n -- str )
     "unimplemented" throw ;
+
+: valley-bunting ( -- str )
+    "unimplemented" throw ;

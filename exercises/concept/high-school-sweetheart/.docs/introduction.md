@@ -80,5 +80,39 @@ Unicode characters can be written as `\u{XXXX}` inside a string, where
 `XXXX` is the codepoint in hex. The heart `\u{2764}` (❤) appears in
 this exercise.
 
+## Formatted output
+
+When `append`/`glue`/`surround` aren't expressive enough,
+[`formatting`][formatting] provides the printf-style `sprintf`:
+
+```
+sprintf ( inputs... format-string -- str )
+```
+
+`%s` interpolates a string, `%d` an integer, `%f` a float;
+optional width, precision, and padding modifiers come between
+`%` and the type letter:
+
+```factor
+USING: formatting ;
+
+"Alice" "Bob" "%s & %s" sprintf .   ! => "Alice & Bob"
+3.14159 "%.2f" sprintf .             ! => "3.14"
+42 "%05d" sprintf .                  ! => "00042"
+```
+
+For round-tripping between numbers and strings,
+[`math.parser`][math.parser] has `number>string` and
+`string>number`:
+
+```factor
+USING: math.parser ;
+
+42 number>string .       ! => "42"
+"3.14" string>number .   ! => 3.14
+```
+
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [splitting]: https://docs.factorcode.org/content/vocab-splitting.html
+[formatting]: https://docs.factorcode.org/content/vocab-formatting.html
+[math.parser]: https://docs.factorcode.org/content/vocab-math.parser.html

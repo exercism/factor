@@ -20,17 +20,45 @@ results.
 ## Filtering and rejecting
 
 ```
-filter ( seq quot -- newseq )    ! keep elements where quot is truthy
-reject ( seq quot -- newseq )    ! drop them instead
-find   ( seq quot -- i/f elt/f ) ! first match: index and element, or f f
+find    ( seq quot    -- i/f elt/f ) ! first match: index and element, or f f
+filter  ( seq quot    -- newseq )    ! keep elements where quot is truthy
+reject  ( seq quot    -- newseq )    ! drop them instead
+without ( seq exclude -- newseq )    ! drop every element that's in `exclude`
 ```
 
 ```factor
-{ 1 2 3 4 5 } [ even? ] filter .    ! => { 2 4 }
-{ 1 2 3 4 5 } [ even? ] reject .    ! => { 1 3 5 }
 { 1 2 3 4 5 } [ 3 > ] find .s
 ! => 3            (index)
 ! => 4            (element)
+{ 1 2 3 4 5 } [ even? ] filter .    ! => { 2 4 }
+{ 1 2 3 4 5 } [ even? ] reject .    ! => { 1 3 5 }
+"hello world" " ld" without .       ! => "heowor"
+```
+
+`without` treats its second argument as a set: any element of
+`seq` that's `=` to *any* element of `exclude` is dropped.
+
+## Threading a fixed value with `with`
+
+Sometimes the predicate needs a value that's the same on every
+call — a threshold, a divisor, a target string. `with` (in
+[`kernel`][kernel]) bakes that fixed value into the quotation,
+turning a two-argument quotation `( value elt -- ? )` into the
+one-argument quotation that `filter`, `count`, `map`, and `each`
+expect:
+
+```
+with ( value seq quot -- seq curry )
+```
+
+Every per-element call sees `( value elt )` on the stack —
+fixed value first, current element second:
+
+```factor
+USING: kernel sequences ;
+
+! Count elements greater than 5 — value=5 is threaded in
+5 { 2 7 4 9 1 8 } [ < ] with count .   ! => 3
 ```
 
 ## Mapping and iterating
@@ -38,17 +66,30 @@ find   ( seq quot -- i/f elt/f ) ! first match: index and element, or f f
 `map` (in [`sequences`][sequences]) applies a quotation to each
 element and returns the array of results. `each` does the same
 walk but discards the results — useful when the quotation runs
-purely for its side effects:
+purely for its side effects. `2map` walks *two* sequences in
+lockstep and combines corresponding elements; `zip` is the
+shorthand for "pair them up without combining":
 
 ```
-map  ( seq quot -- newseq )
-each ( seq quot -- )
+map  ( seq       quot -- newseq )
+each ( seq       quot -- )
+2map ( seq1 seq2 quot -- newseq )
+zip  ( seq1 seq2      -- pairs )
 ```
 
 ```factor
-{ 1 2 3 } [ sq ] map .       ! => { 1 4 9 }
-{ 1 2 3 } [ . ] each         ! prints 1, then 2, then 3
+USING: formatting math sequences ;
+
+{ 1 2 3 } [ sq ] map .                         ! => { 1 4 9 }
+{ 1 2 3 } [ . ] each                           ! prints 1, then 2, then 3
+{ 1 2 3 } { 10 20 30 } [ + ] 2map .            ! => { 11 22 33 }
+{ "x" "y" } { 1 2 } [ "%s%d" sprintf ] 2map .  ! => { "x1" "y2" }
+{ "a" "b" "c" } { 1 2 3 } zip .                ! => { { "a" 1 } { "b" 2 } { "c" 3 } }
 ```
+
+Both two-sequence forms stop at the length of the shorter
+input. `zip` is the same as `[ 2array ] 2map` — pair-keeping
+rather than pair-collapsing.
 
 ## Sorting
 
@@ -70,21 +111,15 @@ sort-by ( seq quot -- sortedseq )
 
 ## Aggregating
 
-`reduce` folds a sequence with a starting value and a
-two-argument quotation; it is the general form of `sum`,
-`map-sum`, and friends. `map-sum` (in
-[`math.statistics`][math.statistics]) maps a quotation across the
-sequence and sums the results in one pass.
+`map-sum` (in [`math.statistics`][math.statistics]) maps a
+quotation across the sequence and sums the results in one pass:
 
 ```
-reduce  ( seq init quot -- result )
-map-sum ( seq      quot -- n      )
+map-sum ( seq quot -- n )
 ```
 
 ```factor
-{ 1 2 3 4 } 0 [ + ] reduce .       ! => 10
-{ 1 2 3 4 } 1 [ * ] reduce .       ! => 24
-{ 1 2 3 4 }   [ sq ] map-sum .     ! => 30
+{ 1 2 3 4 } [ sq ] map-sum .   ! => 30
 ```
 
 ## Min and max
@@ -125,6 +160,7 @@ turns a number into its decimal-string form:
 ```
 
 [backyard-birdwatcher]: https://exercism.org/tracks/factor/exercises/backyard-birdwatcher
+[kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html
 [math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html
