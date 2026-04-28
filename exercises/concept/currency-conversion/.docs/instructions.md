@@ -81,3 +81,32 @@ The returned value is an integer.
 127.25 1.20 10 5 exchangeable-value .
 ! => 95
 ```
+
+## 7. Safe change
+
+Like `get-change`, but if Chandler accidentally typed an
+exchanging value larger than his budget, return `0` instead of
+a negative number. Define `safe-change` taking a `budget` and an
+`exchanging-value`.
+
+```factor
+127.5 120 safe-change .
+! => 7.5
+
+50 100 safe-change .
+! => 0
+```
+
+## 8. Cap by budget
+
+Chandler is haggling for a souvenir. Define `cap-spend` taking a
+`budget` and a `price`, and returning whichever is smaller — the
+most he can actually pay.
+
+```factor
+100 30 cap-spend .
+! => 30
+
+20 30 cap-spend .
+! => 20
+```

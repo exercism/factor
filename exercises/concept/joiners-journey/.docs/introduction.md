@@ -9,7 +9,7 @@ This exercise walks you through Factor's standard fix: combinators.
 
 ## Shuffle words
 
-The four most common shuffle words live in [`kernel`][kernel]:
+The most common shuffle words live in [`kernel`][kernel]:
 
 ```
 dup    ( x -- x x )
@@ -17,7 +17,12 @@ drop   ( x -- )
 swap   ( x y -- y x )
 over   ( x y -- x y x )
 rot    ( x y z -- y z x )
+-rot   ( x y z -- z x y )
 nip    ( x y -- y )
+
+2dup   ( x y -- x y x y )
+2drop  ( x y -- )
+2swap  ( x y z w -- z w x y )
 ```
 
 You'll already have used `dup` and `swap`. `over` makes a copy of
@@ -47,13 +52,9 @@ keep ( x quot: ( x -- y ) -- y x )
 ! => 5
 ```
 
-That replaces a `dup`-followed-by-something-then-shuffle pattern.
-"Add ten percent" reads naturally as:
-
-```factor
-: with-tenth ( n -- n+10% )
-    [ 1/10 * ] keep + ;
-```
+That replaces a `dup`-followed-by-something-then-shuffle
+pattern: anywhere you'd write `dup [ something ] dip`, you can
+just say `[ something ] keep`.
 
 ## `bi` — two functions of one input
 

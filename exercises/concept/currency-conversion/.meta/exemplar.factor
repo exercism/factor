@@ -1,4 +1,4 @@
-USING: kernel locals math math.functions ;
+USING: kernel locals math math.functions math.order ;
 IN: currency-conversion
 
 : exchange-money ( budget exchange-rate -- exchanged )
@@ -10,8 +10,8 @@ IN: currency-conversion
 : value-of-bills ( denomination number-of-bills -- value )
     * ;
 
-: number-of-bills ( amount denomination -- bills )
-    [ floor >integer ] dip /i ;
+:: number-of-bills ( amount denomination -- bills )
+    amount floor >integer denomination /i ;
 
 : leftover-of-bills ( amount denomination -- leftover )
     mod ;
@@ -22,3 +22,9 @@ IN: currency-conversion
     exchange-money
     denomination number-of-bills
     denomination swap value-of-bills ;
+
+: safe-change ( budget exchanging-value -- change )
+    - 0 max ;
+
+: cap-spend ( budget price -- spend )
+    min ;

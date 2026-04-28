@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "mosaic-making/mosaic-making.factor"
+    ],
+    "test": [
+      "mosaic-making/mosaic-making-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Help build a community mosaic and learn the small toolkit of array constructors and lookups."
+}

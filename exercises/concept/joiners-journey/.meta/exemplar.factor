@@ -1,4 +1,4 @@
-USING: combinators kernel math namespaces ;
+USING: combinators kernel math ;
 IN: joiners-journey
 
 : with-kerf ( length -- length+kerf )
@@ -15,8 +15,3 @@ IN: joiners-journey
 
 : compare-bolts ( length-a length-b -- kerf-a kerf-b )
     [ 1/50 * ] bi@ ;
-
-SYMBOL: kerf-factor
-
-: current-kerf ( length -- kerf )
-    kerf-factor get [ 1/50 ] unless* * ;

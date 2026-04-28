@@ -18,3 +18,9 @@ IN: currency-conversion
 
 : exchangeable-value ( budget exchange-rate spread denomination -- value )
     "unimplemented" throw ;
+
+: safe-change ( budget exchanging-value -- change )
+    "unimplemented" throw ;
+
+: cap-spend ( budget price -- spend )
+    "unimplemented" throw ;

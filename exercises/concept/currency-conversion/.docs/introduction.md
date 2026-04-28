@@ -24,21 +24,36 @@ Factor has separate division words. They all live in the [`math`][math]
 vocabulary.
 
 ```
-/   ( x y -- x/y )    ! float (or rational) result
-/i  ( x y -- q   )    ! integer division (truncates toward negative infinity)
-mod ( x y -- r   )    ! remainder
+/    ( x y -- x/y )    ! float (or rational) result
+/i   ( x y -- q   )    ! integer division (truncates toward negative infinity)
+mod  ( x y -- r   )    ! remainder
+/mod ( x y -- q r )    ! quotient and remainder together
 ```
 
 ```factor
-10 3 / .    ! => 10/3   (a rational; print as a fraction)
-10 3 /i .   ! => 3      (truncated)
-10 3 mod .  ! => 1
-10.0 3 / .  ! => 3.3333333333333335
+16 3 / .       ! => 16/3   (a rational; print as a fraction)
+16 3 /i .      ! => 5      (truncated)
+16 3 mod .     ! => 1
+16 3 /mod .s   ! quotient and remainder in one pass
+! => 5
+! => 1
+16.0 3 / .     ! => 5.333333333333333
 ```
 
 `/` produces a `ratio` (Factor's exact rational type) for two integers,
 or a `float` if either input is a float. `/i` always rounds toward
 negative infinity.
+
+## Testing for zero
+
+`zero? ( x -- ? )` (in [`math`][math]) returns `t` when its argument
+is `0`, `0.0`, or any other zero-valued number, and `f` otherwise:
+
+```factor
+0 zero? .       ! => t
+0.0 zero? .     ! => t
+3 zero? .       ! => f
+```
 
 ## Float to integer
 
@@ -51,6 +66,22 @@ negative infinity.
 3.2 ceil >integer .     ! => 4
 ```
 
+## Min and max
+
+`min ( x y -- z )` and `max ( x y -- z )` (in
+[`math.order`][math.order]) return the lesser or greater of two
+numbers:
+
+```factor
+3 7 min .       ! => 3
+3 7 max .       ! => 7
+```
+
+The most common use is *clamping* — pinning a value to a floor
+with `max` (e.g., `0 max` keeps a value non-negative) or to a
+ceiling with `min`.
+
 [lasagna]: https://exercism.org/tracks/factor/exercises/lasagna
 [math]: https://docs.factorcode.org/content/vocab-math.html
 [math.functions]: https://docs.factorcode.org/content/vocab-math.functions.html
+[math.order]: https://docs.factorcode.org/content/vocab-math.order.html

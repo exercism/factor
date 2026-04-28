@@ -29,12 +29,13 @@ quotation leaves a character code on the stack, `>string` (in
 ```factor
 USING: math sequences strings ;
 
-5 <iota> [ CHAR: a + ] map >string .   ! => "abcde"
+4 <iota> [ 2 * CHAR: A + ] map >string .   ! => "ACEG"
 ```
 
-`CHAR: a` parses to the integer `97`. Adding the index gives
-`97`, `98`, `99`, …, which `>string` reads as the characters
-`a`, `b`, `c`, …. Index `0` becomes `a`, index `25` becomes `z`.
+`CHAR: A` parses to the integer `65`. The quotation here doubles
+the index and adds that base, which lands on every other capital
+letter. Any arithmetic you stack on top of the index decides
+what character ends up at that position.
 
 ## Choosing per position
 
@@ -44,17 +45,15 @@ the choosing inside the quotation:
 ```factor
 USING: kernel math sequences strings ;
 
-8 <iota> [ even? [ CHAR: O ] [ CHAR: . ] if ] map >string .
-! => "O.O.O.O."
+5 <iota> [ 3 < [ CHAR: a ] [ CHAR: b ] if ] map >string .
+! => "aaabb"
 ```
 
-`mod` (in [`math`][math]) is the usual companion when "every
-k-th position" matters:
-
-```factor
-9 <iota> [ 3 mod zero? [ CHAR: | ] [ CHAR: - ] if ] map >string .
-! => "|--|--|--"
-```
+The first three positions test `i 3 <` as `t`, so they get `a`;
+the rest get `b`. The same shape — `[ <test> [ <yes> ] [ <no> ]
+if ]` — covers parity tests with `even?` / `odd?` (in
+[`math`][math]) and "every k-th position" tests with `mod` and
+`zero?`.
 
 [sequences]: https://docs.factorcode.org/content/article-sequences.html
 [strings]: https://docs.factorcode.org/content/article-strings.html

@@ -15,8 +15,3 @@ IN: joiners-journey
 
 : compare-bolts ( length-a length-b -- kerf-a kerf-b )
     "unimplemented" throw ;
-
-! TASK 6: Define SYMBOL: kerf-factor here.
-
-: current-kerf ( length -- kerf )
-    "unimplemented" throw ;

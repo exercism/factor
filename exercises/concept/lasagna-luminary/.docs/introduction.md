@@ -41,8 +41,8 @@ higher-order words like `assoc-map`, whose quotation receives `key`
 USING: assocs locals ;
 
 H{ { "a" 1 } { "b" 2 } }
-[| key value | key value 10 * ] assoc-map .
-! => H{ { "a" 10 } { "b" 20 } }
+[| key value | key value neg ] assoc-map .
+! => H{ { "a" -1 } { "b" -2 } }
 ```
 
 The lambda's stack effect is determined by the input list and what

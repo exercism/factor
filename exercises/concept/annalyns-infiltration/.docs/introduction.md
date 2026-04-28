@@ -4,6 +4,24 @@ This exercise builds on the data stack and stack-effect notation you
 met in [Leah's Luscious Lasagna][lasagna]. Here you will write words
 that combine boolean values.
 
+## Shuffle words
+
+The most common shuffle words live in [`kernel`][kernel]:
+
+```
+dup    ( x -- x x )
+drop   ( x -- )
+swap   ( x y -- y x )
+over   ( x y -- x y x )
+rot    ( x y z -- y z x )
+-rot   ( x y z -- z x y )
+nip    ( x y -- y )
+
+2dup   ( x y -- x y x y )
+2drop  ( x y -- )
+2swap  ( x y z w -- z w x y )
+```
+
 ## Booleans
 
 The two boolean literals are `t` and `f`. `f` is Factor's only falsy
@@ -35,10 +53,7 @@ t not .      ! => f
 
 The `?` in each output is the stack-effect convention for "a boolean".
 
-## Swapping the top two values
-
-If two values are on the stack in the wrong order for the next word,
-`swap ( x y -- y x )` flips the top two. You will need it for one of
-the tasks below.
+You'll need `swap` for one of the tasks below.
 
 [lasagna]: https://exercism.org/tracks/factor/exercises/lasagna
+[kernel]: https://docs.factorcode.org/content/vocab-kernel.html

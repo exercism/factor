@@ -8,4 +8,4 @@ IN: log-levels
     "[]" split harvest first >lower ;
 
 : reformat ( log-line -- formatted )
-    [ message ] [ log-level ] bi "(" ")" surround " " glue ;
+    dup message swap log-level "(" ")" surround " " glue ;

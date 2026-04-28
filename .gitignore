@@ -5,3 +5,4 @@ bin/latest-configlet.tar.gz
 bin/latest-configlet.zip
 bin/configlet.zip
 test-exercises/
+known-words.md

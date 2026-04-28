@@ -1,0 +1,221 @@
+#!/usr/bin/env python3
+
+# Synopsis:
+# Report words that an exercise's reference solution uses but that
+# haven't been taught yet -- either in the exercise's own
+# .docs/introduction.md (concept exercise) or in any transitive
+# prereq's introduction (concept and practice exercises).
+#
+# Reads the per-exercise .meta/known-words.md files written by
+# bin/extract-known-words; run that first whenever introductions
+# change.
+#
+# Usage:
+#   bin/detect-unknown-words              # both concept and practice
+#   bin/detect-unknown-words concept      # only concept exercises
+#   bin/detect-unknown-words practice     # only practice exercises
+
+import re, sys, json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+CFG = json.loads((ROOT / 'config.json').read_text())
+
+SYNTAX = set("[ ] { } ( ) [| | ; T{ H{ V{".split())
+SYNTAX |= set("USING: IN: CONSTANT: SYMBOL: SYMBOLS: TUPLE: ERROR: PREDICATE: FROM: BUILTIN: HOOK: DEFER:".split())
+SYNTAX |= set("PRIVATE> <PRIVATE QUALIFIED:".split())
+PRIMITIVES = set(":: : ; -- :>".split())
+
+
+# Map: concept slug -> exercise slug that teaches it (concept exercises only)
+CONCEPT_TO_EX = {}
+EX_META = {ex['slug']: ex for ex in CFG['exercises']['concept']}
+for ex in CFG['exercises']['concept']:
+    for c in ex['concepts']:
+        CONCEPT_TO_EX[c] = ex['slug']
+
+
+def known_words_for_concept_ex(slug):
+    """Read the concept exercise's known-words.md and return the word set."""
+    p = ROOT / 'exercises' / 'concept' / slug / '.meta' / 'known-words.md'
+    if not p.exists():
+        return set()
+    return {m.group(1) for m in re.finditer(r'^- `([^`]+)`', p.read_text(), re.M)}
+
+
+def transitive_prereq_concept_exes(prereq_concepts):
+    """Walk the concept-prereq graph; return concept-exercise slugs."""
+    seen = set()
+    queue = list(prereq_concepts)
+    while queue:
+        c = queue.pop(0)
+        if c in CONCEPT_TO_EX:
+            ex = CONCEPT_TO_EX[c]
+            if ex not in seen:
+                seen.add(ex)
+                queue.extend(EX_META[ex]['prerequisites'])
+    return seen
+
+
+def parse_solution(path):
+    """Return (defined, locals, used) for a Factor solution file."""
+    text = path.read_text()
+    defined, locals_ = set(), set()
+
+    # Top-level word definitions
+    for m in re.finditer(r'^::?\s+(\S+)\s*\(', text, re.M):
+        defined.add(m.group(1))
+    # Locals from :: (locals) input list
+    for m in re.finditer(r'^::\s+\S+\s*\(([^)]*)--[^)]*\)', text, re.M):
+        for tok in m.group(1).split():
+            if not tok.endswith(':') and not tok.startswith('('):
+                locals_.add(tok)
+                # Mutable variant: a! is the setter for local a, but the local itself is a
+                if tok.endswith('!'):
+                    locals_.add(tok[:-1])
+    # Locals lambda [| a b | ... ]
+    for m in re.finditer(r'\[\|\s*([^|]+?)\|', text):
+        for tok in m.group(1).split():
+            locals_.add(tok)
+            if tok.endswith('!'):
+                locals_.add(tok[:-1])
+    # `:> { a b c }` introduces multiple locals
+    for m in re.finditer(r':>\s+\{([^}]+)\}', text):
+        for tok in m.group(1).split():
+            locals_.add(tok)
+            if tok.endswith('!'):
+                locals_.add(tok[:-1])
+    # `:> name` or `:> name!` introduces a single local (mutable variant adds both name and name!)
+    for m in re.finditer(r':>\s+(\S+)', text):
+        n = m.group(1)
+        if n.startswith('{'):
+            continue
+        locals_.add(n)
+        if n.endswith('!'):
+            locals_.add(n[:-1])
+
+    for m in re.finditer(r'^\s*CONSTANT:\s+(\S+)', text, re.M):
+        defined.add(m.group(1))
+    for m in re.finditer(r'^\s*SYMBOL:\s+(\S+)', text, re.M):
+        defined.add(m.group(1))
+    for m in re.finditer(r'^\s*SYMBOLS:\s+([^;]+);', text, re.M):
+        defined.update(m.group(1).split())
+    for m in re.finditer(r'^\s*DEFER:\s+(\S+)', text, re.M):
+        defined.add(m.group(1))
+    for m in re.finditer(r'^\s*TUPLE:\s+(\S+)\s*([^;]*);?', text, re.M):
+        defined.add(m.group(1))
+        sig = m.group(2)
+        for sb in re.finditer(r'\{\s*(\S+)[^}]*\}', sig):
+            slot = sb.group(1)
+            defined.update([slot, f'{slot}>>', f'>>{slot}', f'change-{slot}'])
+        depth = 0
+        for tok in sig.split():
+            if tok == '{':
+                depth += 1; continue
+            if tok == '}':
+                depth -= 1; continue
+            if depth == 0:
+                defined.update([tok, f'{tok}>>', f'>>{tok}', f'change-{tok}'])
+    for m in re.finditer(r'^\s*ERROR:\s+(\S+)\s*([^;]*);?', text, re.M):
+        defined.add(m.group(1))
+        for tok in m.group(2).split():
+            defined.update([tok, f'{tok}>>', f'>>{tok}', f'change-{tok}'])
+
+    # USING: vocabulary names — multi-line aware
+    imports = set()
+    for m in re.finditer(r'USING:\s+(.*?);', text, re.S):
+        imports.update(m.group(1).split())
+
+    body = re.sub(r'\(\s*(?:[^()]|\([^)]*\))*\s*\)', '', text)
+    body = re.sub(r'!\s.*', '', body)
+    body = re.sub(r'"[^"\n]*"', '', body)
+    body = re.sub(r'CHAR:\s+\S+', '', body)
+    body = re.sub(r'^\s*USING:.*?;', '', body, flags=re.M | re.S)
+    body = re.sub(r'^\s*IN:.*$', '', body, flags=re.M)
+    body = re.sub(r'\[\|[^|]*\|', '', body)
+
+    used = set()
+    for tok in body.split():
+        if not tok:
+            continue
+        if tok in defined or tok in locals_:
+            continue
+        if tok in SYNTAX or tok in PRIMITIVES:
+            continue
+        if re.fullmatch(r"-?\d[\d_]*(\.\d+)?(/-?\d+)?(e-?\d+)?", tok):
+            continue
+        if re.fullmatch(r'0x[0-9a-fA-F]+|0b[01]+', tok):
+            continue
+        if tok in imports:
+            continue
+        if re.fullmatch(r'[()\[\]{}|;]+', tok):
+            continue
+        used.add(tok)
+    return defined, locals_, used
+
+
+def check_concept(slug, sol_path):
+    """Concept exercise: known = its own known-words.md (which already
+    includes own intro plus transitive prereq intros)."""
+    known = known_words_for_concept_ex(slug)
+    defined, locals_, used = parse_solution(sol_path)
+    return sorted(used - known - defined - locals_)
+
+
+def check_practice(prereqs, sol_path):
+    """Practice exercise: known = union over each prereq concept's
+    known-words.md (which itself transitively folds in its own prereqs)."""
+    known = set()
+    for cx in transitive_prereq_concept_exes(prereqs):
+        known |= known_words_for_concept_ex(cx)
+    defined, locals_, used = parse_solution(sol_path)
+    return sorted(used - known - defined - locals_)
+
+
+def main():
+    args = sys.argv[1:]
+    if not args:
+        kinds = ('concept', 'practice')
+    elif args[0] in ('concept', 'practice'):
+        kinds = (args[0],)
+    else:
+        sys.exit(f'Usage: {sys.argv[0]} [concept|practice]')
+
+    issues = 0
+    if 'concept' in kinds:
+        print('=== concept exercises ===')
+        any_concept = False
+        for ex in CFG['exercises']['concept']:
+            slug = ex['slug']
+            sol = ROOT / 'exercises' / 'concept' / slug / '.meta' / 'exemplar.factor'
+            if not sol.exists():
+                continue
+            unknowns = check_concept(slug, sol)
+            if unknowns:
+                any_concept = True
+                issues += 1
+                print(f'{slug}: {unknowns}')
+        if not any_concept:
+            print('(none)')
+
+    if 'practice' in kinds:
+        print('=== practice exercises ===')
+        any_practice = False
+        for ex in CFG['exercises'].get('practice', []):
+            slug = ex['slug']
+            sol = ROOT / 'exercises' / 'practice' / slug / '.meta' / 'example.factor'
+            if not sol.exists():
+                continue
+            unknowns = check_practice(ex.get('prerequisites', []), sol)
+            if unknowns:
+                any_practice = True
+                issues += 1
+                print(f'{slug}: {unknowns}')
+        if not any_practice:
+            print('(none)')
+
+    sys.exit(1 if issues else 0)
+
+
+if __name__ == '__main__':
+    main()
