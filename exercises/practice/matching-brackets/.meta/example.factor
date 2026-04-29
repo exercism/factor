@@ -14,9 +14,9 @@ IN: matching-brackets
         ok [
             ch "([{" member? [ ch stack push ] [
                 ch opener [| expected |
-                    stack empty? not stack ?last expected = and
+                    stack empty? [ f ] [ stack last expected = ] if
                     [ stack pop* ] [ f ok! ] if
-                ] when*
+                ] [ ] if*
             ] if
         ] when
     ] each

@@ -44,15 +44,17 @@ mod  ( x y -- r   )    ! remainder
 or a `float` if either input is a float. `/i` always rounds toward
 negative infinity.
 
-## Testing for zero, parity, range
+## Checking
 
-Number predicates from [`math`][math] and
-[`math.order`][math.order]:
+Number predicates from [`math`][math],
+[`math.order`][math.order], and [`math.primes`][math.primes]:
 
 ```
 zero?    ( x       -- ? )
 even?    ( x       -- ? )
 odd?     ( x       -- ? )
+prime?   ( x       -- ? )
+divisor? ( m n     -- ? )    ! true when n divides m
 between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
 ```
 
@@ -64,6 +66,12 @@ between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
 4 even? .            ! => t
 7 even? .            ! => f
 7 odd? .             ! => t
+
+7 prime? .           ! => t
+9 prime? .           ! => f
+
+15 5 divisor? .      ! => t   (5 divides 15)
+15 4 divisor? .      ! => f
 
 5 1 10 between? .    ! => t
 0 1 10 between? .    ! => f
@@ -119,3 +127,4 @@ ceiling with `min`.
 [math]: https://docs.factorcode.org/content/vocab-math.html
 [math.functions]: https://docs.factorcode.org/content/vocab-math.functions.html
 [math.order]: https://docs.factorcode.org/content/vocab-math.order.html
+[math.primes]: https://docs.factorcode.org/content/vocab-math.primes.html

@@ -13,10 +13,10 @@ TUPLE: triangle a b c ;
     [ sort first3 [ + ] dip > ] [ drop f ] if ;
 
 : equilateral? ( triangle -- ? )
-    dup valid? [ sides all-equal? ] [ drop f ] if ;
+    dup valid? [ sides members length 1 = ] [ drop f ] if ;
 
 : isosceles? ( triangle -- ? )
-    dup valid? [ sides duplicates length 0 > ] [ drop f ] if ;
+    dup valid? [ sides members length 3 < ] [ drop f ] if ;
 
 : scalene? ( triangle -- ? )
     dup valid? [ sides all-unique? ] [ drop f ] if ;

@@ -9,7 +9,7 @@ IN: list-ops
     V{ } clone seq [| x | x quot call [ x over push ] when ] each >array ; inline
 
 :: collect ( seq quot: ( x -- y ) -- seq' )
-    seq length seq new-sequence seq [| x i |
+    seq length f <array> seq [| x i |
         x quot call i pick set-nth
     ] each-index ; inline
 
@@ -17,7 +17,7 @@ IN: list-ops
 
 :: list-reverse ( seq -- seq' )
     seq list-length :> len
-    len seq new-sequence
+    len f <array>
     seq [| x i | x len 1 - i - pick set-nth ] each-index ;
 
 :: foldl ( seq init quot: ( acc el -- acc' ) -- result )

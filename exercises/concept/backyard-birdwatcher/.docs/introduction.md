@@ -19,17 +19,21 @@ a *new* sequence rather than mutating the original.
 ## Length and indexing
 
 ```
-length ( seq -- n )
-first  ( seq -- elt )
-last   ( seq -- elt )
-nth    ( n seq -- elt )    ! 0-based
+length   ( seq -- n   )
+first    ( seq -- elt )
+rest     ( seq -- tailseq )    ! everything but the first element
+last     ( seq -- elt )
+but-last ( seq -- headseq )    ! everything but the last element
+nth      ( n seq -- elt )      ! 0-based
 ```
 
 ```factor
-{ 10 20 30 } length .    ! => 3
-{ 10 20 30 } first .     ! => 10
-{ 10 20 30 } last .      ! => 30
-1 { 10 20 30 } nth .     ! => 20
+{ 10 20 30 } length .       ! => 3
+{ 10 20 30 } first .        ! => 10
+{ 10 20 30 } rest .         ! => { 20 30 }
+{ 10 20 30 } last .         ! => 30
+{ 10 20 30 } but-last .     ! => { 10 20 }
+1 { 10 20 30 } nth .        ! => 20
 ```
 
 ## Slicing

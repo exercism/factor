@@ -18,7 +18,7 @@ ERROR: invalid-phone-number ;
 
 : validate-area-exchange ( digits -- digits )
     dup [ first ] [ fourth ] bi
-    [ CHAR: 2 < ] either? [ invalid-phone-number ] when ;
+    [ CHAR: 2 < ] bi@ or [ invalid-phone-number ] when ;
 
 : clean ( phrase -- digits )
     strip-punctuation

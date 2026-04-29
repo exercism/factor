@@ -17,4 +17,4 @@ is straightforward: `f` is the *only* falsy value. Everything
 else — including the empty string `""`, the number `0`, and the
 empty array `{ }` — counts as truthy. That makes `f` an unambiguous
 "missing value" in patterns like `at` (returns `f` if a key isn't
-in a hashtable) and `unless*` (push a default if the value is `f`).
+in a hashtable) and `if*` (the truthy branch keeps the value).

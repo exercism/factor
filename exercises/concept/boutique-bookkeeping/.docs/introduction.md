@@ -20,16 +20,20 @@ results.
 ## Filtering and rejecting
 
 ```
-find    ( seq quot    -- i/f elt/f ) ! first match: index and element, or f f
-filter  ( seq quot    -- newseq )    ! keep elements where quot is truthy
-reject  ( seq quot    -- newseq )    ! drop them instead
-without ( seq exclude -- newseq )    ! drop every element that's in `exclude`
+find      ( seq quot    -- i/f elt/f ) ! first match: index and element, or f f
+find-last ( seq quot    -- i/f elt/f ) ! same, but searches from the end
+filter    ( seq quot    -- newseq )    ! keep elements where quot is truthy
+reject    ( seq quot    -- newseq )    ! drop them instead
+without   ( seq exclude -- newseq )    ! drop every element that's in `exclude`
 ```
 
 ```factor
 { 1 2 3 4 5 } [ 3 > ] find .s
 ! => 3            (index)
 ! => 4            (element)
+{ 1 2 3 4 5 } [ 3 > ] find-last .s
+! => 4            (index)
+! => 5            (element)
 { 1 2 3 4 5 } [ even? ] filter .    ! => { 2 4 }
 { 1 2 3 4 5 } [ even? ] reject .    ! => { 1 3 5 }
 "hello world" " ld" without .       ! => "heowor"

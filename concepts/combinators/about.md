@@ -25,8 +25,6 @@ control-flow variants that propagate `f` cleanly:
 | word        | effect                                              |
 |-------------|-----------------------------------------------------|
 | `if*`       | true branch sees the value; false branch doesn't    |
-| `when*`     | one-branch form of `if*`                            |
-| `unless*`   | keep the value if truthy, else compute a default    |
 | `?last`     | last element of a sequence, or `f` if empty         |
 | `pop*`      | discarding variant of `pop` (mutates a vector)      |
 | `dupd`      | duplicate the *second*-from-top                     |

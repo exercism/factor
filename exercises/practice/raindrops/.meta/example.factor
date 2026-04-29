@@ -1,4 +1,4 @@
-USING: combinators kernel math.functions math.parser sequences ;
+USING: arrays combinators kernel math.functions math.parser sequences ;
 IN: raindrops
 
 : convert ( n -- str )
@@ -6,5 +6,5 @@ IN: raindrops
     [ 3 divisor? "Pling" and ]
     [ 5 divisor? "Plang" and ]
     [ 7 divisor? "Plong" and ] tri
-    { } 3sequence sift
+    3array sift
     [ number>string ] [ concat swap drop ] if-empty ;

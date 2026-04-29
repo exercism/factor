@@ -92,6 +92,14 @@ USING: kernel ;
 V{ "a" "b" "c" } clone .    ! => V{ "a" "b" "c" }   (a fresh copy)
 ```
 
+The same precaution applies to `V{ }` and other empty
+literals. In some languages, `[]` or `vec![]` allocates a fresh
+container each time the expression is evaluated. In Factor, the
+literal `V{ }` written in your source is *one* object, shared by
+every call site that mentions it. If you `push` onto `V{ }`
+directly, the next call sees the leftovers. `V{ } clone` makes
+the fresh copy you almost always want.
+
 [arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 [vectors]: https://docs.factorcode.org/content/vocab-vectors.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html

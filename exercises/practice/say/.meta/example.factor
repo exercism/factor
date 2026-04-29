@@ -20,8 +20,8 @@ CONSTANT: tens { f f "twenty" "thirty" "forty" "fifty" "sixty" "seventy" "eighty
 
 :: say-chunk ( str n scale name -- str' remainder )
     n scale /mod :> ( q r )
-    q say-below-1000 " " name 3append
-    str empty? [ ] [ str " " rot 3append ] if
+    q say-below-1000 name " " glue
+    str empty? [ ] [ str swap " " glue ] if
     r ;
 
 : say-positive ( n -- str )
@@ -29,7 +29,7 @@ CONSTANT: tens { f f "twenty" "thirty" "forty" "fifty" "sixty" "seventy" "eighty
     dup 1000000000 >= [ 1000000000 "billion" say-chunk ] when
     dup 1000000 >= [ 1000000 "million" say-chunk ] when
     dup 1000 >= [ 1000 "thousand" say-chunk ] when
-    dup 0 > [ say-below-1000 swap dup empty? [ drop ] [ " " rot 3append ] if ] [ drop ] if ;
+    dup 0 > [ say-below-1000 swap dup empty? [ drop ] [ swap " " glue ] if ] [ drop ] if ;
 
 : say ( n -- str )
     dup 0 999999999999 between? [ "input out of range" throw ] unless

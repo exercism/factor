@@ -39,7 +39,7 @@ dup pop drop           ! removes "bob"
 | `new-sequence`  | `( n exemplar -- newseq )` — fresh sequence of same class as `exemplar` |
 | `new-resizable` | `( n exemplar -- newseq )` — fresh resizable variant |
 
-A subtle but important rule: when a word is going to mutate a
-sequence it received from a caller, it should `clone` first if
-it might surprise that caller. The "no aliasing" guarantee is
-the caller's responsibility to negotiate.
+When you mutate a sequence the caller passed in, the change is
+visible to the caller — they're holding the same object. If
+that's not what you want, `clone` first to get an independent
+copy.

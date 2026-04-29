@@ -2,7 +2,7 @@ USING: arrays kernel locals math math.parser sequences ;
 IN: palindrome-products
 
 : palindrome? ( n -- ? )
-    number>string dup reverse sequence= ;
+    number>string dup reverse = ;
 
 :: smallest ( mn mx -- value factors )
     mn mx > [ "min must be <= max" throw ] when
