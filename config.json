@@ -418,6 +418,20 @@
           "combinators"
         ],
         "status": "beta"
+      },
+      {
+        "slug": "quayside-crew",
+        "name": "Quayside Crew",
+        "uuid": "e520b985-797e-42b6-a366-990db2d58796",
+        "concepts": [
+          "concurrency"
+        ],
+        "prerequisites": [
+          "higher-order-sequences",
+          "tuples",
+          "locals"
+        ],
+        "status": "beta"
       }
     ],
     "practice": [
@@ -1253,6 +1267,18 @@
         "difficulty": 6
       },
       {
+        "slug": "parallel-letter-frequency",
+        "name": "Parallel Letter Frequency",
+        "uuid": "ebcacb36-d583-4e3e-ac27-c72fc1a1b4c4",
+        "practices": [],
+        "prerequisites": [
+          "concurrency",
+          "unicode",
+          "assocs"
+        ],
+        "difficulty": 6
+      },
+      {
         "slug": "rail-fence-cipher",
         "name": "Rail Fence Cipher",
         "uuid": "7f404c18-968e-41de-8067-7be5596a87ef",
@@ -1565,6 +1591,11 @@
       "uuid": "c8a58a3d-d6e4-4325-b0c9-d2ee4bfc9df3",
       "slug": "dynamic-variables",
       "name": "Dynamic Variables"
+    },
+    {
+      "uuid": "4b136c82-48c0-4dd6-859d-e5e76c898540",
+      "slug": "concurrency",
+      "name": "Concurrency"
     }
   ],
   "key_features": [

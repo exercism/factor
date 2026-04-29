@@ -16,6 +16,19 @@ a compile-time error, which catches a class of bugs that would be
 runtime errors in a dynamically-typed language without this kind of
 declaration.
 
+The handful of `kernel` shuffle words that come up in the very first
+exercises:
+
+```
+dup  ( x   -- x x   )
+swap ( x y -- y x   )
+over ( x y -- x y x )
+```
+
+The full `kernel` shuffle family (`pick`, `rot`, `-rot`, `nip`,
+`tuck`, etc.) and the larger `2`-prefixed cousins are covered in
+`booleans` and `combinators`.
+
 By convention:
 
 - Predicates end in `?` and produce a boolean (`even?`, `empty?`).
