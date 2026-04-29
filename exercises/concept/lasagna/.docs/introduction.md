@@ -58,6 +58,21 @@ top, the stack effect is `( x y -- difference )`, and the result is
 A trailing `?` in the outputs is the convention for "a boolean", but
 the lasagna exercise uses only numbers.
 
+## Rearranging the top of the stack
+
+Three small shuffle words from the `kernel` vocabulary handle the
+most common rearrangements:
+
+```
+dup  ( x   -- x x   )    ! duplicate the top
+swap ( x y -- y x   )    ! flip the top two
+over ( x y -- x y x )    ! copy the second-from-top onto the top
+```
+
+Use `dup` when one input value needs to feed two operations,
+`swap` when two values are in the wrong order for the next word,
+and `over` when you need to *keep* a value while still using it.
+
 ## Defining a word
 
 `:` starts a word definition, the stack effect comes next, then the
@@ -100,17 +115,6 @@ defined earlier in the same file:
 ```
 
 This is how the last task in the exercise reuses an earlier one.
-
-## Swapping the top two values
-
-If two values are on the stack in the wrong order for the next word,
-`swap` flips the top two:
-
-```
-swap ( x y -- y x )
-```
-
-`swap` lives in the `kernel` vocabulary.
 
 ## Naming conventions
 

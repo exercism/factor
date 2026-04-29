@@ -9,3 +9,6 @@ IN: ledger-loop
 
 : least-balance-so-far ( transactions -- worsts )
     cum-sum cum-min ;
+
+: halve-until ( principal target -- balances )
+    swap [ 2dup < ] [ 2 /i dup ] produce 2nip ;

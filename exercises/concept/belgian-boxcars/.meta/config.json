@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "belgian-boxcars/belgian-boxcars.factor"
+    ],
+    "test": [
+      "belgian-boxcars/belgian-boxcars-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Run the Antwerp marshalling yard by chunking, sliding, and splitting freight-car sequences with group/clump/split-when/monotonic-split."
+}

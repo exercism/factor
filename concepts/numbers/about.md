@@ -18,9 +18,11 @@ Most arithmetic lives in [`math`][math]: `+`, `-`, `*`, `/`, `mod`,
 `even?`, `odd?`, `positive?`, `negative?`. Comparison: `<`, `<=`,
 `>`, `>=`, `=`. From [`math.order`][math.order]: `min`, `max`,
 `between?`. From [`math.functions`][math.functions]: `floor`,
-`ceiling`, `round`. Constructors and conversions like `>integer`,
-`>float`, `>fraction` are nearby.
+`ceiling`, `round`, `divisor?`. From [`math.primes`][math.primes]:
+`prime?`. Constructors and conversions like `>integer`, `>float`,
+`>fraction` are nearby.
 
 [math]: https://docs.factorcode.org/content/vocab-math.html
 [math.order]: https://docs.factorcode.org/content/vocab-math.order.html
 [math.functions]: https://docs.factorcode.org/content/vocab-math.functions.html
+[math.primes]: https://docs.factorcode.org/content/vocab-math.primes.html

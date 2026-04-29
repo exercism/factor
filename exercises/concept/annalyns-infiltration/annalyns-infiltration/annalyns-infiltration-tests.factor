@@ -21,18 +21,19 @@ IN: annalyns-infiltration.tests
 { f } [ t t can-signal-prisoner ] unit-test
 
 ! TASK: 4 freeing prisoner
+! Args are ( archer-awake dog-present prisoner-awake knight-awake ).
 { f } [ f f f f can-free-prisoner ] unit-test
-{ t } [ f f f t can-free-prisoner ] unit-test
+{ f } [ f f f t can-free-prisoner ] unit-test
 { t } [ f f t f can-free-prisoner ] unit-test
-{ t } [ f f t t can-free-prisoner ] unit-test
-{ f } [ f t f f can-free-prisoner ] unit-test
-{ f } [ f t f t can-free-prisoner ] unit-test
-{ f } [ f t t f can-free-prisoner ] unit-test
-{ f } [ f t t t can-free-prisoner ] unit-test
+{ f } [ f f t t can-free-prisoner ] unit-test
+{ t } [ f t f f can-free-prisoner ] unit-test
+{ t } [ f t f t can-free-prisoner ] unit-test
+{ t } [ f t t f can-free-prisoner ] unit-test
+{ t } [ f t t t can-free-prisoner ] unit-test
 { f } [ t f f f can-free-prisoner ] unit-test
-{ t } [ t f f t can-free-prisoner ] unit-test
+{ f } [ t f f t can-free-prisoner ] unit-test
 { f } [ t f t f can-free-prisoner ] unit-test
-{ t } [ t f t t can-free-prisoner ] unit-test
+{ f } [ t f t t can-free-prisoner ] unit-test
 { f } [ t t f f can-free-prisoner ] unit-test
 { f } [ t t f t can-free-prisoner ] unit-test
 { f } [ t t t f can-free-prisoner ] unit-test

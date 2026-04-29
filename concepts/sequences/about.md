@@ -9,7 +9,12 @@ with the others.
 |-------------|-----------------------------------|
 | `length`    | `( seq -- n )`                    |
 | `first`     | `( seq -- elt )`                  |
+| `second`    | `( seq -- elt )`                  |
+| `third`     | `( seq -- elt )`                  |
+| `fourth`    | `( seq -- elt )`                  |
 | `last`      | `( seq -- elt )`                  |
+| `rest`      | `( seq -- tailseq )`              |
+| `but-last`  | `( seq -- headseq )`              |
 | `nth`       | `( n seq -- elt )` (0-based)      |
 | `head`      | `( seq n -- headseq )`            |
 | `tail`      | `( seq n -- tailseq )`            |
@@ -20,12 +25,16 @@ with the others.
 | `unclip`    | `( seq -- rest first )`           |
 | `unclip-last` | `( seq -- butlast last )`       |
 | `empty?`    | `( seq -- ? )`                    |
+| `if-empty`  | `( seq emptyquot nonemptyquot -- … )` |
 | `member?`   | `( elt seq -- ? )`                |
 | `reverse`   | `( seq -- newseq )`               |
 | `index`     | `( elt seq -- i/f )`              |
 | `concat`    | `( seqs -- seq )`                 |
 | `sum`       | `( seq -- n )`                    |
 | `product`   | `( seq -- n )`                    |
+| `find`      | `( seq quot -- i/f elt/f )`       |
+| `find-last` | `( seq quot -- i/f elt/f )`       |
+| `produce`   | `( pred quot -- seq )`            |
 
 Arrays are immutable; the `prefix`/`suffix`/`append` operations all
 return new sequences without modifying the original. Vectors are

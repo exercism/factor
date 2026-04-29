@@ -1,4 +1,4 @@
-USING: kernel locals ;
+USING: kernel ;
 IN: annalyns-infiltration
 
 : can-do-fast-attack ( knight-awake -- ? )
@@ -10,7 +10,5 @@ IN: annalyns-infiltration
 : can-signal-prisoner ( archer-awake prisoner-awake -- ? )
     swap not and ;
 
-:: can-free-prisoner ( knight-awake archer-awake prisoner-awake dog-present -- ? )
-    dog-present archer-awake not and
-    prisoner-awake knight-awake not and archer-awake not and
-    or ;
+: can-free-prisoner ( archer-awake dog-present prisoner-awake knight-awake -- ? )
+    not and or swap not and ;

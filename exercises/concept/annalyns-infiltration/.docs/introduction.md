@@ -13,15 +13,18 @@ dup    ( x -- x x )
 dupd   ( x y -- x x y )
 drop   ( x -- )
 swap   ( x y -- y x )
+swapd  ( x y z -- y x z )
 over   ( x y -- x y x )
 pick   ( x y z -- x y z x )
 rot    ( x y z -- y z x )
 -rot   ( x y z -- z x y )
+rotd   ( w x y z -- w y z x )
 spin   ( x y z -- z y x )
 nip    ( x y -- y )
 
 2dup   ( x y -- x y x y )
 2drop  ( x y -- )
+2nip   ( x y z -- z )
 2swap  ( x y z w -- z w x y )
 ```
 

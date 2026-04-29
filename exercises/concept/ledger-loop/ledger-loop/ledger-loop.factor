@@ -9,3 +9,6 @@ IN: ledger-loop
 
 : least-balance-so-far ( transactions -- worsts )
     "unimplemented" throw ;
+
+: halve-until ( principal target -- balances )
+    "unimplemented" throw ;

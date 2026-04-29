@@ -62,8 +62,8 @@ Return the leftover amount that cannot be returned as whole bills.
 
 ## 6. Calculate value after exchange
 
-Define `exchangeable-value` taking a `budget`, `exchange-rate`,
-`spread`, and `denomination`.
+Define `exchangeable-value` taking a `denomination`, `budget`,
+`spread`, and `exchange-rate`.
 
 `spread` is the *percentage* taken as an exchange fee, written as an
 integer. It needs to be added to the exchange rate as a fraction. If
@@ -75,10 +75,10 @@ plus spread, rounded down to whole bills of the given `denomination`.
 The returned value is an integer.
 
 ```factor
-127.25 1.20 10 20 exchangeable-value .
+20 127.25 10 1.20 exchangeable-value .
 ! => 80
 
-127.25 1.20 10 5 exchangeable-value .
+5 127.25 10 1.20 exchangeable-value .
 ! => 95
 ```
 

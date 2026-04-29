@@ -16,15 +16,18 @@ dup    ( x -- x x )
 dupd   ( x y -- x x y )
 drop   ( x -- )
 swap   ( x y -- y x )
+swapd  ( x y z -- y x z )
 over   ( x y -- x y x )
 pick   ( x y z -- x y z x )
 rot    ( x y z -- y z x )
 -rot   ( x y z -- z x y )
+rotd   ( w x y z -- w y z x )
 spin   ( x y z -- z y x )
 nip    ( x y -- y )
 
 2dup   ( x y -- x y x y )
 2drop  ( x y -- )
+2nip   ( x y z -- z )
 2swap  ( x y z w -- z w x y )
 ```
 
@@ -98,23 +101,31 @@ tri ( x q1 q2 q3 -- r1 r2 r3 )
 The empty quotation `[ ]` acts as the identity — useful when one of
 the slots in the cut card should be the input itself.
 
-## `dip` — operate underneath
+## `dip` and `2dip` — operate underneath
 
 `dip` (in [`kernel`][kernel]) calls a quotation on the values *under*
-the top of stack, leaving the top untouched:
+the top of stack, leaving the top untouched. `2dip` does the same
+but protects the top *two* values:
 
 ```
-dip ( x quot -- x )
+dip  ( x   quot -- x   )
+2dip ( x y quot -- x y )
 ```
 
 ```factor
-1 2 3 [ + ] dip .s
-! => 3
-! => 3
+9 10 11 [ + ] dip .s
+! => 19      (9 + 10)
+! => 11      (the protected top, restored)
+
+9 10 11 12 [ + ] 2dip .s
+! => 19      (9 + 10)
+! => 11      (the protected y, originally 11)
+! => 12      (the protected x, originally 12)
 ```
 
-Here `3` was hidden, `1 2 +` ran below it, and `3` was put back on
-top.
+Here `dip` hid `11`, ran `9 10 +`, and put `11` back on top.
+`2dip` hid `11 12`, ran `9 10 +` underneath, then restored
+`11 12`.
 
 `dip` is the right tool when the natural argument order leaves the
 "pass-through" value on top of the stack. Reach for it instead of

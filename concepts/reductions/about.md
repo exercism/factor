@@ -17,15 +17,32 @@ USING: math sequences ;
 ```
 
 A custom seed lets `reduce` express folds that `sum` or `product`
-cannot. For example, applying a per-step floor:
+cannot. For example, the largest value in a sequence with a
+default if every element loses:
 
 ```factor
-100 { 50 -200 30 } [ + 0 max ] reduce .   ! => 30
+USING: math.order ;
+
+{ 3 1 -4 5 -2 } 0 [ max ] reduce .   ! => 5
+{ -3 -1 -4 }    0 [ max ] reduce .   ! => 0
 ```
 
-(`100 + 50 = 150`; `150 + (-200) = -50`, floored to `0`;
-`0 + 30 = 30`.) The floor at each step matters — `sum +` would
-produce `-20`.
+The seed `0` participates in the comparison, so an all-negative
+sequence still produces `0` rather than its smallest value.
+
+## `produce` — the unfold
+
+The dual of `reduce` is `produce` (in [`sequences`][sequences]):
+where `reduce` *consumes* a sequence, `produce` *generates*
+one. A predicate quotation tests the running state; while it
+returns truthy, a body quotation produces the next element.
+
+```
+produce ( pred quot -- seq )
+```
+
+Used together, `reduce` and `produce` form Factor's fold/unfold
+pair.
 
 ## Cumulative reductions
 
@@ -50,7 +67,9 @@ USING: math.statistics ;
 ```
 
 Cumulative reductions are useful when you want to inspect *how*
-a quantity evolved across the sequence, not only its final value
-— running balances, peak watermarks, low watermarks, and so on.
+a quantity evolved across the sequence, not only its final
+value. Chaining them is also useful: the output of one
+cumulative is itself a sequence, ready to feed into another.
 
 [math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html
+[sequences]: https://docs.factorcode.org/content/vocab-sequences.html

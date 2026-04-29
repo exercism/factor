@@ -18,3 +18,10 @@ IN: ledger-loop.tests
 { { 200 150 50 -150 } } [ { 200 -50 -100 -200 } least-balance-so-far ] unit-test
 { { } }                 [ { } least-balance-so-far ] unit-test
 { { 7 } }               [ { 7 } least-balance-so-far ] unit-test
+
+! TASK: 4 halve-until
+{ { 50 25 12 6 3 } } [ 100 5 halve-until ] unit-test
+{ { 32 16 8 4 2 1 } } [ 64 1 halve-until ] unit-test
+{ { } } [ 3 5 halve-until ] unit-test
+{ { 5 } } [ 10 5 halve-until ] unit-test
+{ { } } [ 5 5 halve-until ] unit-test

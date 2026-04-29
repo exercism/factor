@@ -59,11 +59,13 @@ Annalyn can try sneaking into the camp to free her friend. This is a risky thing
   If the prisoner is sleeping, she can't be rescued: she would be startled by Annalyn's sudden appearance and wake up the knight and archer.
 
 Implement a word named `can-free-prisoner` that takes four boolean values.
-The first three parameters indicate whether the knight, archer and prisoner, respectively, are awake.
-The last parameter indicates whether Annalyn's pet dog is present.
+The parameters, in order, indicate whether the archer is awake, whether the dog is present, whether the prisoner is awake, and whether the knight is awake.
 It returns `t` if the 'Free Prisoner' action is available, otherwise `f`:
 
 ```factor
-f t f f can-free-prisoner .
-! => f
+f t t f can-free-prisoner .
+! => t      (archer asleep, dog present, prisoner awake, knight asleep)
+
+t t f f can-free-prisoner .
+! => f      (archer is awake, so no rescue possible)
 ```

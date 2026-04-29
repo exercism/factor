@@ -23,6 +23,7 @@ The full common cast:
 | `filter`     | `( seq quot -- newseq )`                   |
 | `reject`     | `( seq quot -- newseq )`                   |
 | `find`       | `( seq quot -- i/f elt/f )`                |
+| `find-last`  | `( seq quot -- i/f elt/f )`                |
 | `reduce`     | `( seq init quot -- result )`              |
 | `count`      | `( seq quot -- n )`                        |
 | `any?`       | `( seq quot -- ? )`                        |
@@ -32,6 +33,12 @@ The full common cast:
 | `sort`       | `( seq -- sortedseq )`                     |
 | `infimum`    | `( seq -- elt )`                           |
 | `supremum`   | `( seq -- elt )`                           |
+
+When *your* word forwards a runtime quotation to one of these
+combinators, declare your word with `; inline` so the
+combinator's effect inference can see the quotation's shape at
+the call site. Words built only from literal quotations don't
+need it.
 
 Beyond the core sequence ops:
 

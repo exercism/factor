@@ -62,3 +62,25 @@ days when the account looked risky.
 { 200 -50 -100 -200 } least-balance-so-far .
 ! => { 200 150 50 -150 }
 ```
+
+## 4. Halve until target
+
+The board is depreciating an asset on the ledger by halving its
+recorded value each quarter. Define `halve-until` to take a
+`principal` and a `target`, and return the sequence of halved
+values (using integer division) starting from the first halving,
+continuing as long as the running value is still strictly above
+`target`. The last emitted value will be the first one that
+drops to or below `target`.
+
+```factor
+100 5 halve-until .
+! => { 50 25 12 6 3 }
+
+64 1 halve-until .
+! => { 32 16 8 4 2 1 }
+
+3 5 halve-until .
+! => { }
+```
+

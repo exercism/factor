@@ -27,5 +27,5 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
       - name: Generate .meta/known-words.md
         run: bin/extract-known-words
-      - name: Detect unknown words in concept exemplars
-        run: bin/detect-unknown-words concept
+      - name: Detect unknown words in exemplars and examples
+        run: bin/detect-unknown-words
