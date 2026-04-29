@@ -25,7 +25,8 @@ The string-specific words live mostly in `splitting`, `ascii`, and
 | `>lower`     | `ascii`       | lowercase (ASCII)                     |
 | `>upper`     | `ascii`       | uppercase (ASCII)                     |
 | `[ blank? ] trim` | `sequences` | strip leading/trailing whitespace |
-| `first`, `second`, `first2`, `first3` | `sequences` | unpack the leading element(s) |
+| `first`, `second`, `third`, `fourth` | `sequences` | the leading slot |
+| `first2`, `first3`         | `sequences`   | unpack two or three leading slots |
 | `>string`    | `strings`     | turn a sequence of chars into a string |
 
 For numeric ↔ string round-tripping, [`math.parser`][math.parser]

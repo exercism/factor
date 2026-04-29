@@ -16,8 +16,9 @@ need to `dup`, then run F, then keep the original" and just write
 | different ops on two values        | `swap F swap G`               | `[ F ] [ G ] bi*`|
 
 The `2`-prefixed family (`2bi`, `2dip`, `2tri`, `2dup`, `2drop`,
-`2swap`) does the same when each operation needs *two* inputs.
-The `n*`-suffixed family scales arbitrarily.
+`2nip`, `2swap`) does the same when each operation needs *two*
+inputs; `3dup` and `4dup` extend the duplicating idiom to three
+or four top-of-stack values.
 
 Beyond the cleave/dip/bi family, [`kernel`][kernel] also offers
 control-flow variants that propagate `f` cleanly:
@@ -29,6 +30,9 @@ control-flow variants that propagate `f` cleanly:
 | `pop*`      | discarding variant of `pop` (mutates a vector)      |
 | `dupd`      | duplicate the *second*-from-top                     |
 | `pick`      | copy the *third*-from-top to the top                |
+| `swapd`     | swap the second and third from the top              |
+| `rotd`      | rotate the bottom three of a four-deep stack        |
+| `tuck`      | copy the top under the second-from-top              |
 | `with`      | bake a fixed value into a quotation for HOS         |
 | `while`     | loop while a predicate holds                        |
 | `until`     | loop until a predicate holds                        |

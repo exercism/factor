@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "quayside-crew/quayside-crew.factor"
+    ],
+    "test": [
+      "quayside-crew/quayside-crew-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Run the quayside night shift with cooperative threads, parallel-map, promises, and a lock-protected tonnage tally."
+}

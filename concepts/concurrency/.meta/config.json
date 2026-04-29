@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Run cooperative threads, fork-join with parallel-map and promises, and protect shared state with locks."
+}

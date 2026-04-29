@@ -12,6 +12,7 @@ LETTER?  ( c -- ? )    ! uppercase letter
 letter?  ( c -- ? )    ! lowercase letter
 Letter?  ( c -- ? )    ! letter, either case
 digit?   ( c -- ? )    ! decimal digit
+digit>   ( c -- n )    ! the integer value of a digit char
 blank?   ( c -- ? )    ! whitespace
 alpha?   ( c -- ? )    ! letter or decimal digit
 ```
