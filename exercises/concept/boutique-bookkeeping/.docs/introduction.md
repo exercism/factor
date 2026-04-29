@@ -144,6 +144,27 @@ supremum-by ( seq quot -- elt )
 ! => -1
 ```
 
+## Writing your own higher-order word
+
+When *your* word takes a quotation as a runtime argument and
+forwards it to `map`, `filter`, `each`, etc., declare your word
+with `; inline`. That tells the compiler to inline your word at
+each call site, where the quotation is a known literal — without
+it, the compiler has no way to know the quotation's stack effect.
+
+```factor
+USING: math.statistics sequences ;
+
+: tax-on ( inventory quot -- total )
+    map-sum ; inline
+
+{ { "shirt" 20 } { "hat" 15 } } [ second 1/10 * ] tax-on .
+! => 7/2
+```
+
+Words built only from literal quotations don't need `inline` —
+just the ones that pass an *incoming* quotation through.
+
 ## Pulling the second element
 
 For a 2-element array, `second` returns its second element. `first`

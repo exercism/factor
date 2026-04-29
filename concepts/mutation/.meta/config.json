@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Modify arrays in place with set-nth/change-nth, and grow vectors with push/pop."
+}

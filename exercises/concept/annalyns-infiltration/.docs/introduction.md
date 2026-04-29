@@ -17,6 +17,7 @@ over   ( x y -- x y x )
 pick   ( x y z -- x y z x )
 rot    ( x y z -- y z x )
 -rot   ( x y z -- z x y )
+spin   ( x y z -- z y x )
 nip    ( x y -- y )
 
 2dup   ( x y -- x y x y )

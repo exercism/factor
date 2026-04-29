@@ -203,6 +203,11 @@ def main():
         any_practice = False
         for ex in CFG['exercises'].get('practice', []):
             slug = ex['slug']
+            # Deprecated exercises can't carry prerequisites (configlet
+            # rejects it), so they will always trip detect-unknown-words.
+            # Skip them.
+            if ex.get('status') == 'deprecated':
+                continue
             sol = ROOT / 'exercises' / 'practice' / slug / '.meta' / 'example.factor'
             if not sol.exists():
                 continue
