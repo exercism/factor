@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "furlong-finish/furlong-finish.factor"
+    ],
+    "test": [
+      "furlong-finish/furlong-finish-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Steward a horse race by walking finish-line ledgers with each-index, map-index, enumerate, and times."
+}

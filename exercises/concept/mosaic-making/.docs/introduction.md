@@ -55,6 +55,23 @@ reverse ( seq -- newseq )
 { 1 2 3 4 } reverse .   ! => { 4 3 2 1 }
 ```
 
+## Is it an array?
+
+`array?` (in [`arrays`][arrays]) is the type predicate. It's
+true for any value built by `<array>`, `1array`/`2array`/...,
+or an array literal `{ … }`, and false for everything else
+(including vectors, strings, and other sequences):
+
+```
+array? ( obj -- ? )
+```
+
+```factor
+{ 1 2 3 } array? .         ! => t
+"hello" array? .           ! => f
+V{ 1 2 3 } array? .        ! => f
+```
+
 ## Looking up
 
 `index` returns the position of the first element equal to the

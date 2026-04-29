@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Walk a sequence with the index in scope using each-index/map-index, or run a counted loop with times."
+}

@@ -257,6 +257,20 @@
         "status": "beta"
       },
       {
+        "slug": "furlong-finish",
+        "name": "Furlong Finish",
+        "uuid": "431e56e5-956c-4383-9380-8fe5907081ae",
+        "concepts": [
+          "indexed-iteration"
+        ],
+        "prerequisites": [
+          "higher-order-sequences",
+          "mutation",
+          "curry-compose-fry"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "role-playing-game",
         "name": "Role Playing Game",
         "uuid": "79b2342f-feaf-4fc9-9b72-55ddf01ab6b3",
@@ -676,7 +690,8 @@
           "unicode",
           "sequences",
           "higher-order-sequences",
-          "case"
+          "case",
+          "indexed-iteration"
         ],
         "difficulty": 3
       },
@@ -718,7 +733,8 @@
           "conditionals",
           "higher-order-sequences",
           "errors",
-          "unicode"
+          "unicode",
+          "recursion"
         ],
         "difficulty": 3
       },
@@ -871,7 +887,8 @@
           "numbers",
           "higher-order-sequences",
           "unicode",
-          "locals"
+          "locals",
+          "indexed-iteration"
         ],
         "difficulty": 4
       },
@@ -885,7 +902,8 @@
         "prerequisites": [
           "sequences",
           "higher-order-sequences",
-          "recursion"
+          "recursion",
+          "indexed-iteration"
         ],
         "difficulty": 4
       },
@@ -1049,7 +1067,9 @@
           "quotations-call",
           "recursion",
           "sequences",
-          "mutation"
+          "mutation",
+          "reductions",
+          "indexed-iteration"
         ],
         "difficulty": 5
       },
@@ -1199,7 +1219,8 @@
           "combinators",
           "sequences",
           "dynamic-variables",
-          "mutation"
+          "mutation",
+          "bitwise-operations"
         ],
         "difficulty": 7
       },
@@ -1263,7 +1284,8 @@
           "sequences",
           "higher-order-sequences",
           "curry-compose-fry",
-          "errors"
+          "errors",
+          "indexed-iteration"
         ],
         "difficulty": 8
       },
@@ -1409,6 +1431,11 @@
       "uuid": "0c9457be-37a3-4a08-85c8-44ee82925d55",
       "slug": "curry-compose-fry",
       "name": "Curry, Compose, and Fry"
+    },
+    {
+      "uuid": "3a7292bd-a725-464e-9bce-4a9762a9d98c",
+      "slug": "indexed-iteration",
+      "name": "Indexed Iteration"
     },
     {
       "uuid": "e5594192-3b54-40f3-ba35-e45ad2f7a007",

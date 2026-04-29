@@ -1,9 +1,9 @@
-USING: assocs kernel locals math math.functions math.order sequences ;
+USING: assocs kernel locals math math.functions math.order sequences vectors ;
 IN: armstrong-numbers
 
 :: digits ( x -- digits )
     x 10 /mod :> x! :> xs!
-    1 { } new-resizable :> digits
+    V{ } clone :> digits
     x digits push
 
     [ xs 0 = not ]

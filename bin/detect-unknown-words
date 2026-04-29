@@ -24,6 +24,9 @@ CFG = json.loads((ROOT / 'config.json').read_text())
 SYNTAX = set("[ ] { } ( ) [| | ; T{ H{ V{".split())
 SYNTAX |= set("USING: IN: CONSTANT: SYMBOL: SYMBOLS: TUPLE: ERROR: PREDICATE: FROM: BUILTIN: HOOK: DEFER:".split())
 SYNTAX |= set("PRIVATE> <PRIVATE QUALIFIED:".split())
+# Parser/protocol words from `make` blocks. `,` and `%` only have meaning
+# inside `[ ... ] make` and aren't called as ordinary Factor words.
+SYNTAX |= set(", %".split())
 PRIMITIVES = set(":: : ; -- :>".split())
 
 
@@ -68,19 +71,25 @@ def parse_solution(path):
     # Locals from :: (locals) input list
     for m in re.finditer(r'^::\s+\S+\s*\(([^)]*)--[^)]*\)', text, re.M):
         for tok in m.group(1).split():
-            if not tok.endswith(':') and not tok.startswith('('):
-                locals_.add(tok)
-                # Mutable variant: a! is the setter for local a, but the local itself is a
-                if tok.endswith('!'):
-                    locals_.add(tok[:-1])
+            if tok.startswith('('):
+                continue
+            # `name:` declares an inline-effect local (e.g. `quot: ( x -- y )`);
+            # strip the trailing colon and register the bare name.
+            if tok.endswith(':'):
+                locals_.add(tok[:-1])
+                continue
+            locals_.add(tok)
+            # Mutable variant: a! is the setter for local a, but the local itself is a
+            if tok.endswith('!'):
+                locals_.add(tok[:-1])
     # Locals lambda [| a b | ... ]
     for m in re.finditer(r'\[\|\s*([^|]+?)\|', text):
         for tok in m.group(1).split():
             locals_.add(tok)
             if tok.endswith('!'):
                 locals_.add(tok[:-1])
-    # `:> { a b c }` introduces multiple locals
-    for m in re.finditer(r':>\s+\{([^}]+)\}', text):
+    # `:> ( a b c )` or `:> { a b c }` introduces multiple locals
+    for m in re.finditer(r':>\s+[({]([^)}]+)[)}]', text):
         for tok in m.group(1).split():
             locals_.add(tok)
             if tok.endswith('!'):
@@ -88,7 +97,7 @@ def parse_solution(path):
     # `:> name` or `:> name!` introduces a single local (mutable variant adds both name and name!)
     for m in re.finditer(r':>\s+(\S+)', text):
         n = m.group(1)
-        if n.startswith('{'):
+        if n.startswith('{') or n.startswith('('):
             continue
         locals_.add(n)
         if n.endswith('!'):

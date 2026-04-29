@@ -31,6 +31,7 @@ bitor  ( x y -- z )   ! 1 in either operand
 bitand ( x y -- z )   ! 1 in both operands
 bitxor ( x y -- z )   ! 1 in exactly one operand
 bitnot ( x   -- z )   ! flip every bit
+bit?   ( x n -- ? )   ! true when bit at position n is set
 ```
 
 ```factor
@@ -42,6 +43,8 @@ bitnot ( x   -- z )   ! flip every bit
                          !          0b1011 into "all ones with the
                          !          low four flipped to 0100", which
                          !          read as a signed bignum is -12.)
+0b1011 0 bit? .          ! => t   (low bit is set)
+0b1011 2 bit? .          ! => f   (bit 2 is clear)
 ```
 
 ## Treating a value as N bits

@@ -48,24 +48,26 @@ producing empty pieces:
 
 ## Picking out a piece
 
-Once a string is split into an array of pieces, `first` and
-`second` (in [`sequences`][sequences]) return the first and
-second piece respectively:
+Once a string is split into an array of pieces, `first`,
+`second`, `third`, and `fourth` (in [`sequences`][sequences])
+return the piece at that position:
 
 ```factor
-"apple,bee,carrot" "," split first .    ! => "apple"
-"apple,bee,carrot" "," split second .   ! => "bee"
+"apple,bee,carrot,duck" "," split first .    ! => "apple"
+"apple,bee,carrot,duck" "," split second .   ! => "bee"
+"apple,bee,carrot,duck" "," split third .    ! => "carrot"
+"apple,bee,carrot,duck" "," split fourth .   ! => "duck"
 ```
 
 When you want all the leading pieces on the stack at once,
 `first2` and `first3` unpack two or three of them in one step:
 
 ```factor
-"apple,bee,carrot" "," split first2 .s
+"apple,bee,carrot,duck" "," split first2 .s
 ! => "apple"
 ! => "bee"
 
-"apple,bee,carrot" "," split first3 .s
+"apple,bee,carrot,duck" "," split first3 .s
 ! => "apple"
 ! => "bee"
 ! => "carrot"

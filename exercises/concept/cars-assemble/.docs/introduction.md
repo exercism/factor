@@ -45,6 +45,22 @@ when   ( ? quot -- )
 unless ( ? quot -- )
 ```
 
+## `if*`
+
+`if*` is a variant of `if` that treats the boolean as a *value*
+worth keeping when it's truthy — useful when a word returns "the
+thing, or `f`". The truthy branch is called with the value still
+on the stack; the falsy branch is called without it:
+
+```
+if* ( ? true false -- )
+```
+
+```factor
+42 [ ] [ "nothing" ] if* .   ! prints 42
+f  [ ] [ "nothing" ] if* .   ! prints "nothing"
+```
+
 ## `cond`
 
 When you have several alternative actions to choose between, `cond`
