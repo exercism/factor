@@ -6,5 +6,5 @@ IN: raindrops
     [ 3 divisor? "Pling" and ]
     [ 5 divisor? "Plang" and ]
     [ 7 divisor? "Plong" and ] tri
-    3array sift
+    3array [ ] filter
     [ number>string ] [ concat swap drop ] if-empty ;

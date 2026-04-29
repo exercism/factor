@@ -1,4 +1,4 @@
-USING: grouping kernel locals math math.parser sequences
+USING: arrays grouping kernel locals math math.parser sequences
 splitting.monotonic strings unicode ;
 IN: run-length-encoding
 
@@ -17,7 +17,7 @@ IN: run-length-encoding
             n 10 * ch CHAR: 0 - + n!
         ] [
             n 0 = [ 1 n! ] when
-            acc n ch 1string <repetition> concat append acc!
+            acc n ch <array> >string append acc!
             0 n!
         ] if
     ] each

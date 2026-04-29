@@ -45,20 +45,32 @@ when   ( ? quot -- )
 unless ( ? quot -- )
 ```
 
-## `if*`
+## `if*` and `unless*`
 
-`if*` is a variant of `if` that treats the boolean as a *value*
-worth keeping when it's truthy — useful when a word returns "the
-thing, or `f`". The truthy branch is called with the value still
-on the stack; the falsy branch is called without it:
+Two kernel variants treat the boolean as a *value* worth keeping
+when it's truthy — useful when a word returns "the thing, or `f`":
 
 ```
-if* ( ? true false -- )
+if*     ( ? true false -- )    ! truthy: true is called WITH ? on stack
+unless* ( ? false      -- )    ! falsy: false runs and pushes a default
 ```
+
+`if*` is the two-branch form. The truthy branch is called with
+the value still on the stack; the falsy branch is called
+without it:
 
 ```factor
 42 [ ] [ "nothing" ] if* .   ! prints 42
 f  [ ] [ "nothing" ] if* .   ! prints "nothing"
+```
+
+`unless*` is the canonical "value or default" idiom. If the value
+is truthy, it's left alone; if it's `f`, the value is dropped and
+the quotation runs to push a substitute:
+
+```factor
+"hello" [ "anonymous" ] unless* .   ! => "hello"
+f       [ "anonymous" ] unless* .   ! => "anonymous"
 ```
 
 ## `cond`

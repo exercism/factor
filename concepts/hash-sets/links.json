@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-sets.html",
+    "description": "sets vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-hash-sets.html",
+    "description": "hash-sets vocabulary reference"
+  }
+]

@@ -163,12 +163,40 @@ def parse_solution(path):
     return defined, locals_, used
 
 
+# Syntactic features that don't tokenise as ordinary words but still
+# require a concept be in the prereq chain. The detector filters these
+# tokens (so they never appear in the per-word "unknown" list), so we
+# need an explicit presence check.
+LOCALS_SYNTAX = re.compile(r'(?:^|\s)(?:::|:>|\[\|)(?:\s|$)')
+
+
+def reachable_concepts(prereqs):
+    """Return the set of concept slugs reachable through the prereq chain."""
+    concepts = set()
+    for ex_slug in transitive_prereq_concept_exes(prereqs):
+        concepts.update(EX_META[ex_slug].get('concepts', []))
+    return concepts
+
+
+def syntax_violations(sol_path, reachable):
+    """Return concept slugs whose syntactic features appear in the source
+    but whose teaching exercise is not reachable through the prereq chain."""
+    text = sol_path.read_text()
+    violations = []
+    if LOCALS_SYNTAX.search(text) and 'locals' not in reachable:
+        violations.append('<missing locals prereq>')
+    return violations
+
+
 def check_concept(slug, sol_path):
     """Concept exercise: known = its own known-words.md (which already
     includes own intro plus transitive prereq intros)."""
     known = known_words_for_concept_ex(slug)
     defined, locals_, used = parse_solution(sol_path)
-    return sorted(used - known - defined - locals_)
+    unknowns = sorted(used - known - defined - locals_)
+    own_concepts = set(EX_META[slug].get('concepts', []))
+    reachable = own_concepts | reachable_concepts(EX_META[slug].get('prerequisites', []))
+    return unknowns + syntax_violations(sol_path, reachable)
 
 
 def check_practice(prereqs, sol_path):
@@ -178,7 +206,8 @@ def check_practice(prereqs, sol_path):
     for cx in transitive_prereq_concept_exes(prereqs):
         known |= known_words_for_concept_ex(cx)
     defined, locals_, used = parse_solution(sol_path)
-    return sorted(used - known - defined - locals_)
+    unknowns = sorted(used - known - defined - locals_)
+    return unknowns + syntax_violations(sol_path, reachable_concepts(prereqs))
 
 
 def main():

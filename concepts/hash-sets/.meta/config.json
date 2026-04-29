@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Track unique values with mutable hash-sets — the canonical visited set for graph traversals."
+}

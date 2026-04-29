@@ -10,5 +10,5 @@ IN: annalyns-infiltration
 : can-signal-prisoner ( archer-awake prisoner-awake -- ? )
     "unimplemented" throw ;
 
-: can-free-prisoner ( knight-awake archer-awake prisoner-awake dog-present -- ? )
+: can-free-prisoner ( archer-awake dog-present prisoner-awake knight-awake -- ? )
     "unimplemented" throw ;

@@ -79,20 +79,5 @@ new one:
 `change-x` is also mutating, so `clone` before calling it if you want
 to preserve the original.
 
-## `unless*`
-
-`unless*` (in [`kernel`][kernel]) is the "default value" idiom: if
-the top of the stack is truthy, leave it alone; otherwise drop it
-and run the quotation:
-
-```
-unless* ( value/f quot -- value )
-```
-
-```factor
-"hello" [ "default" ] unless* .   ! => "hello"
-f       [ "default" ] unless* .   ! => "default"
-```
-
 [accessors]: https://docs.factorcode.org/content/vocab-accessors.html
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html

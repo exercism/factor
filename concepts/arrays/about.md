@@ -10,6 +10,7 @@ the stack:
 | `1array` | `( a     -- { a } )`                |
 | `2array` | `( a b   -- { a b } )`              |
 | `3array` | `( a b c -- { a b c } )`            |
+| `array?` | `( obj   -- ? )` — type predicate   |
 
 A few protocol words from `sequences` come up so often with
 arrays that they are worth knowing as a unit:

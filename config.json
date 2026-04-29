@@ -216,20 +216,6 @@
         "status": "beta"
       },
       {
-        "slug": "mixed-juices",
-        "name": "Mixed Juices",
-        "uuid": "d8a20e2e-c1b1-4bd3-aca0-c942ad5a465b",
-        "concepts": [
-          "while"
-        ],
-        "prerequisites": [
-          "combinators",
-          "higher-order-sequences",
-          "conditionals"
-        ],
-        "status": "beta"
-      },
-      {
         "slug": "ledger-loop",
         "name": "Ledger Loop",
         "uuid": "825a4a26-8c4c-46b4-a63a-b9a2457bbf5e",
@@ -267,6 +253,18 @@
           "higher-order-sequences",
           "mutation",
           "curry-compose-fry"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "belgian-boxcars",
+        "name": "Belgian Boxcars",
+        "uuid": "ba63576a-4d1a-49a1-aa14-07e6a4bfbbc1",
+        "concepts": [
+          "windows"
+        ],
+        "prerequisites": [
+          "higher-order-sequences"
         ],
         "status": "beta"
       },
@@ -372,6 +370,36 @@
           "sequences",
           "assocs",
           "conditionals"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "mixed-juices",
+        "name": "Mixed Juices",
+        "uuid": "d8a20e2e-c1b1-4bd3-aca0-c942ad5a465b",
+        "concepts": [
+          "while"
+        ],
+        "prerequisites": [
+          "combinators",
+          "higher-order-sequences",
+          "conditionals",
+          "locals"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "lighthouse-logbook",
+        "name": "Lighthouse Logbook",
+        "uuid": "616f2c19-8267-4a6e-97dd-cc777e71f0ae",
+        "concepts": [
+          "hash-sets"
+        ],
+        "prerequisites": [
+          "assocs",
+          "mutation",
+          "locals",
+          "while"
         ],
         "status": "beta"
       },
@@ -629,7 +657,8 @@
           "strings",
           "unicode",
           "higher-order-sequences",
-          "tabulation"
+          "tabulation",
+          "windows"
         ],
         "difficulty": 3
       },
@@ -691,7 +720,8 @@
           "sequences",
           "higher-order-sequences",
           "case",
-          "indexed-iteration"
+          "indexed-iteration",
+          "locals"
         ],
         "difficulty": 3
       },
@@ -749,7 +779,8 @@
           "numbers",
           "sequences",
           "while",
-          "mutation"
+          "mutation",
+          "locals"
         ],
         "difficulty": 3
       },
@@ -763,7 +794,8 @@
         "prerequisites": [
           "conditionals",
           "strings",
-          "higher-order-sequences"
+          "higher-order-sequences",
+          "recursion"
         ],
         "difficulty": 3
       },
@@ -792,7 +824,8 @@
         "prerequisites": [
           "curry-compose-fry",
           "strings",
-          "unicode"
+          "unicode",
+          "locals"
         ],
         "difficulty": 3
       },
@@ -827,6 +860,18 @@
         "difficulty": 3
       },
       {
+        "slug": "allergies",
+        "name": "Allergies",
+        "uuid": "fbe640a0-d4d1-4cf4-8a8d-60c1c604b57a",
+        "practices": [],
+        "prerequisites": [
+          "hash-sets",
+          "bitwise-operations",
+          "indexed-iteration"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "armstrong-numbers",
         "name": "Armstrong Numbers",
         "uuid": "61681eb1-b68b-40b3-9bc1-11904d4940e6",
@@ -840,7 +885,8 @@
           "numbers",
           "sequences",
           "while",
-          "mutation"
+          "mutation",
+          "locals"
         ],
         "difficulty": 4
       },
@@ -871,7 +917,8 @@
           "numbers",
           "higher-order-sequences",
           "errors",
-          "unicode"
+          "unicode",
+          "windows"
         ],
         "difficulty": 4
       },
@@ -962,7 +1009,9 @@
         "prerequisites": [
           "strings",
           "assocs",
-          "unicode"
+          "unicode",
+          "windows",
+          "locals"
         ],
         "difficulty": 4
       },
@@ -988,7 +1037,9 @@
           "numbers",
           "strings",
           "unicode",
-          "errors"
+          "errors",
+          "windows",
+          "locals"
         ],
         "difficulty": 5
       },
@@ -1034,7 +1085,8 @@
           "higher-order-sequences",
           "unicode",
           "locals",
-          "quotations-call"
+          "quotations-call",
+          "windows"
         ],
         "difficulty": 5
       },
@@ -1069,7 +1121,8 @@
           "sequences",
           "mutation",
           "reductions",
-          "indexed-iteration"
+          "indexed-iteration",
+          "locals"
         ],
         "difficulty": 5
       },
@@ -1085,7 +1138,8 @@
           "recursion",
           "strings",
           "case",
-          "mutation"
+          "mutation",
+          "locals"
         ],
         "difficulty": 5
       },
@@ -1100,7 +1154,9 @@
           "strings",
           "recursion",
           "unicode",
-          "arrays"
+          "arrays",
+          "windows",
+          "locals"
         ],
         "difficulty": 5
       },
@@ -1130,7 +1186,8 @@
           "higher-order-sequences",
           "sequences",
           "case",
-          "curry-compose-fry"
+          "curry-compose-fry",
+          "locals"
         ],
         "difficulty": 5
       },
@@ -1146,7 +1203,20 @@
           "errors",
           "higher-order-sequences",
           "numbers",
-          "sequences"
+          "sequences",
+          "reductions",
+          "locals"
+        ],
+        "difficulty": 6
+      },
+      {
+        "slug": "change",
+        "name": "Change",
+        "uuid": "2de1df4d-c793-4db8-b6fb-e10484fe7ec8",
+        "practices": [],
+        "prerequisites": [
+          "hash-sets",
+          "tabulation"
         ],
         "difficulty": 6
       },
@@ -1160,7 +1230,8 @@
         "prerequisites": [
           "higher-order-sequences",
           "sequences",
-          "bitwise-operations"
+          "bitwise-operations",
+          "locals"
         ],
         "difficulty": 6
       },
@@ -1175,7 +1246,9 @@
           "strings",
           "sequences",
           "assocs",
-          "errors"
+          "errors",
+          "windows",
+          "locals"
         ],
         "difficulty": 6
       },
@@ -1191,7 +1264,8 @@
           "sequences",
           "arrays",
           "higher-order-sequences",
-          "mutation"
+          "mutation",
+          "locals"
         ],
         "difficulty": 6
       },
@@ -1206,7 +1280,8 @@
           "numbers",
           "recursion",
           "strings",
-          "errors"
+          "errors",
+          "locals"
         ],
         "difficulty": 6
       },
@@ -1236,7 +1311,8 @@
           "conditionals",
           "errors",
           "numbers",
-          "while"
+          "while",
+          "locals"
         ],
         "difficulty": 7
       },
@@ -1250,7 +1326,8 @@
         "prerequisites": [
           "higher-order-sequences",
           "sequences",
-          "strings"
+          "strings",
+          "locals"
         ],
         "difficulty": 7
       },
@@ -1304,7 +1381,8 @@
           "higher-order-sequences",
           "combinators",
           "errors",
-          "mutation"
+          "mutation",
+          "locals"
         ],
         "difficulty": 8
       },
@@ -1321,7 +1399,8 @@
           "conditionals",
           "sequences",
           "higher-order-sequences",
-          "mutation"
+          "mutation",
+          "locals"
         ],
         "difficulty": 8
       },
@@ -1418,11 +1497,6 @@
       "name": "Mutation"
     },
     {
-      "uuid": "e6daff41-60a4-4b82-a245-411150d56dfa",
-      "slug": "while",
-      "name": "While"
-    },
-    {
       "uuid": "fbd0d673-64ba-4de7-aa4d-23654172a252",
       "slug": "reductions",
       "name": "Reductions"
@@ -1436,6 +1510,11 @@
       "uuid": "3a7292bd-a725-464e-9bce-4a9762a9d98c",
       "slug": "indexed-iteration",
       "name": "Indexed Iteration"
+    },
+    {
+      "uuid": "1d81f2d0-a8fe-472a-b9ff-b64cd09335a4",
+      "slug": "windows",
+      "name": "Windows"
     },
     {
       "uuid": "e5594192-3b54-40f3-ba35-e45ad2f7a007",
@@ -1471,6 +1550,16 @@
       "uuid": "e34fa82f-78e8-45a8-9095-520ab3f5b81d",
       "slug": "locals",
       "name": "Locals"
+    },
+    {
+      "uuid": "e6daff41-60a4-4b82-a245-411150d56dfa",
+      "slug": "while",
+      "name": "While"
+    },
+    {
+      "uuid": "fa730f6b-2c32-4890-8b11-3103615e41b4",
+      "slug": "hash-sets",
+      "name": "Hash Sets"
     },
     {
       "uuid": "c8a58a3d-d6e4-4325-b0c9-d2ee4bfc9df3",

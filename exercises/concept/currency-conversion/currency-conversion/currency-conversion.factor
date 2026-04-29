@@ -16,7 +16,7 @@ IN: currency-conversion
 : leftover-of-bills ( amount denomination -- leftover )
     "unimplemented" throw ;
 
-: exchangeable-value ( budget exchange-rate spread denomination -- value )
+: exchangeable-value ( denomination budget spread exchange-rate -- value )
     "unimplemented" throw ;
 
 : safe-change ( budget exchanging-value -- change )

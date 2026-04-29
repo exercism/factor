@@ -25,11 +25,12 @@ IN: currency-conversion.tests
 { 1.14 1e-8 } [ 3.14 2 leftover-of-bills ] unit-test~
 
 ! TASK: 6 exchangeable-value
-{ 8568 }          [ 100000 10.61 10 1 exchangeable-value ] unit-test
-{ 1400 }          [ 1500 0.84 25 40 exchangeable-value ] unit-test
-{ 0 }             [ 470000 1050 30 10000000000 exchangeable-value ] unit-test
-{ 4017094016600 } [ 470000 0.00000009 30 700 exchangeable-value ] unit-test
-{ 363300 }        [ 425.33 0.0009 30 700 exchangeable-value ] unit-test
+! Args are ( denomination budget spread exchange-rate ).
+{ 8568 }          [ 1 100000 10 10.61 exchangeable-value ] unit-test
+{ 1400 }          [ 40 1500 25 0.84 exchangeable-value ] unit-test
+{ 0 }             [ 10000000000 470000 30 1050 exchangeable-value ] unit-test
+{ 4017094016600 } [ 700 470000 30 0.00000009 exchangeable-value ] unit-test
+{ 363300 }        [ 700 425.33 30 0.0009 exchangeable-value ] unit-test
 
 ! TASK: 7 safe-change
 { 7.5 } [ 127.5 120 safe-change ] unit-test
