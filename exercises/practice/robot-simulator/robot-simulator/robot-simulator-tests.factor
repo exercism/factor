@@ -1,7 +1,5 @@
-USING: io kernel lexer robot-simulator tools.test unicode ;
+USING: exercism-tools io kernel robot-simulator tools.test unicode ;
 IN: robot-simulator.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Robot Simulator:" print
 

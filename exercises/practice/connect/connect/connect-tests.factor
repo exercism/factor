@@ -1,7 +1,5 @@
-USING: connect io kernel lexer tools.test unicode ;
+USING: connect exercism-tools io kernel tools.test unicode ;
 IN: connect.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Connect:" print
 

@@ -1,7 +1,5 @@
-USING: io kernel lexer nth-prime tools.test unicode ;
+USING: exercism-tools io kernel nth-prime tools.test unicode ;
 IN: nth-prime.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Nth Prime:" print
 

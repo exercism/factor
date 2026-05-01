@@ -1,7 +1,5 @@
-USING: io kernel lexer parallel-letter-frequency tools.test unicode ;
+USING: exercism-tools io kernel parallel-letter-frequency tools.test unicode ;
 IN: parallel-letter-frequency.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Parallel Letter Frequency:" print
 

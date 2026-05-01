@@ -1,7 +1,5 @@
-USING: io kernel lexer tools.test unicode word-count ;
+USING: exercism-tools io kernel tools.test unicode word-count ;
 IN: word-count.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Word Count:" print
 

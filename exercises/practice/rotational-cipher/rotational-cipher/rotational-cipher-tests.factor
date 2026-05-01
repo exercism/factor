@@ -1,7 +1,5 @@
-USING: io kernel lexer rotational-cipher tools.test unicode ;
+USING: exercism-tools io kernel rotational-cipher tools.test unicode ;
 IN: rotational-cipher.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Rotational Cipher:" print
 

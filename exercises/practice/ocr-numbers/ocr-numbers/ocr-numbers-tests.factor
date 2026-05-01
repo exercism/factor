@@ -1,7 +1,5 @@
-USING: io kernel lexer ocr-numbers tools.test unicode ;
+USING: exercism-tools io kernel ocr-numbers tools.test unicode ;
 IN: ocr-numbers.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Ocr Numbers:" print
 

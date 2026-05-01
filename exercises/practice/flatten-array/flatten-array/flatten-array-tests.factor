@@ -1,7 +1,5 @@
-USING: flatten-array io kernel lexer tools.test unicode ;
+USING: exercism-tools flatten-array io kernel tools.test unicode ;
 IN: flatten-array.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Flatten Array:" print
 

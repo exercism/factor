@@ -1,7 +1,5 @@
-USING: io kernel lexer pascals-triangle tools.test unicode ;
+USING: exercism-tools io kernel pascals-triangle tools.test unicode ;
 IN: pascals-triangle.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Pascals Triangle:" print
 

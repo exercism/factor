@@ -1,7 +1,5 @@
-USING: io kernel lexer line-up tools.test unicode ;
+USING: exercism-tools io kernel line-up tools.test unicode ;
 IN: line-up.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Line Up:" print
 

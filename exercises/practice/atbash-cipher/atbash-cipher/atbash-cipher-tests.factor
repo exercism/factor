@@ -1,7 +1,5 @@
-USING: atbash-cipher io kernel lexer tools.test unicode ;
+USING: atbash-cipher exercism-tools io kernel tools.test unicode ;
 IN: atbash-cipher.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Atbash Cipher:" print
 

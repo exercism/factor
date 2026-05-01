@@ -1,7 +1,5 @@
-USING: dominoes io kernel lexer tools.test unicode ;
+USING: dominoes exercism-tools io kernel tools.test unicode ;
 IN: dominoes.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Dominoes:" print
 

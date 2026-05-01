@@ -1,7 +1,5 @@
-USING: accumulate io kernel lexer math tools.test unicode ;
+USING: accumulate exercism-tools io kernel math tools.test unicode ;
 IN: accumulate.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Accumulate:" print
 

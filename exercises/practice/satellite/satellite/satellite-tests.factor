@@ -1,7 +1,5 @@
-USING: io kernel lexer satellite tools.test unicode ;
+USING: exercism-tools io kernel satellite tools.test unicode ;
 IN: satellite.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Satellite:" print
 

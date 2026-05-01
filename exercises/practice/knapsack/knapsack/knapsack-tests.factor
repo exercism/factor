@@ -1,7 +1,5 @@
-USING: io kernel knapsack lexer tools.test unicode ;
+USING: exercism-tools io kernel knapsack tools.test unicode ;
 IN: knapsack.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Knapsack:" print
 

@@ -1,7 +1,5 @@
-USING: all-your-base io kernel lexer tools.test unicode ;
+USING: all-your-base exercism-tools io kernel tools.test unicode ;
 IN: all-your-base.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "All Your Base:" print
 

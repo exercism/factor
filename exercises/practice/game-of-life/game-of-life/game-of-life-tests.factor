@@ -1,7 +1,5 @@
-USING: game-of-life io kernel lexer tools.test unicode ;
+USING: exercism-tools game-of-life io kernel tools.test unicode ;
 IN: game-of-life.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Game Of Life:" print
 

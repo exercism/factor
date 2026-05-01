@@ -1,7 +1,5 @@
-USING: io kernel lexer phone-number tools.test unicode ;
+USING: exercism-tools io kernel phone-number tools.test unicode ;
 IN: phone-number.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Phone Number:" print
 

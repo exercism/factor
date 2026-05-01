@@ -2,6 +2,12 @@
 
 There are many great resources for learning Factor.
 
+* [Andrea Ferretti's Factor tutorial][ferretti-tutorial] is a thorough walk-through of the language, progressing from stack basics through metaprogramming, distributed computing, and web development with Furnace. <br /> <https://andreaferretti.github.io/factor-tutorial/>
+
+* "[Factor in 2022][factor-in-2022]" is a 2022 talk by John Benediktsson and Doug Coleman that gives a tour of the language and what it's like to use it today. <br /> <https://www.youtube.com/watch?v=OLh61q4c4XE>
+
+* *[Thinking Forth][thinking-forth]* by Leo Brodie is a classic on the design philosophy and habits of mind behind Forth. Factor is not Forth, but it inherits the concatenative, stack-oriented mindset, and Brodie's book is the best introduction to that way of thinking.
+
 * Documentation is an important part of every good Factor vocabulary. Consequently, Factor's amazing and extensive docs are available offline, searchable right from the GUI Listener, or on the command line. These same docs, equally searchable, can be found online. <br /> <https://docs.factorcode.org>
 
 * Factor's GitHub repository hosts a Wiki. <br /> <https://github.com/factor/factor/wiki>
@@ -44,3 +50,6 @@ Finally, Factor is written almost entirely in Factor. So, read the source code, 
 [clos]: https://enwp.org/Common_Lisp_Object_System
 [scheme]: https://schemers.org
 [racket]: https://racket-lang.org
+[ferretti-tutorial]: https://andreaferretti.github.io/factor-tutorial/
+[factor-in-2022]: https://www.youtube.com/watch?v=OLh61q4c4XE
+[thinking-forth]: https://thinking-forth.sourceforge.net/

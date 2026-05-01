@@ -1,7 +1,5 @@
-USING: acronym io kernel lexer tools.test unicode ;
+USING: acronym exercism-tools io kernel tools.test unicode ;
 IN: acronym.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Acronym:" print
 

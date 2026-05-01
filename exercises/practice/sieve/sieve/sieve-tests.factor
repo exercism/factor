@@ -1,7 +1,5 @@
-USING: io kernel lexer sieve tools.test unicode ;
+USING: exercism-tools io kernel sieve tools.test unicode ;
 IN: sieve.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Sieve:" print
 

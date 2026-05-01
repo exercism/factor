@@ -1,7 +1,5 @@
-USING: io kernel lexer palindrome-products tools.test unicode ;
+USING: exercism-tools io kernel palindrome-products tools.test unicode ;
 IN: palindrome-products.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Palindrome Products:" print
 

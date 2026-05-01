@@ -1,7 +1,7 @@
-USING: belgian-boxcars tools.test ;
+USING: belgian-boxcars exercism-tools tools.test ;
 IN: belgian-boxcars.tests
 
-! TASK: 1 couple
+TASK: 1 couple
 { { { "coal" "coal" "coke" } { "ore" "ore" "timber" } { "timber" } } }
 [ { "coal" "coal" "coke" "ore" "ore" "timber" "timber" } 3 couple ]
 unit-test
@@ -14,7 +14,7 @@ unit-test
 { { { "a" } { "b" } { "c" } } }
 [ { "a" "b" "c" } 1 couple ] unit-test
 
-! TASK: 2 peek-couplings
+TASK: 2 peek-couplings
 { { { "coal" "ore" } { "ore" "timber" } { "timber" "crates" } } }
 [ { "coal" "ore" "timber" "crates" } peek-couplings ] unit-test
 
@@ -24,7 +24,7 @@ unit-test
 
 { { { "a" "b" } } } [ { "a" "b" } peek-couplings ] unit-test
 
-! TASK: 3 split-at-junctions
+TASK: 3 split-at-junctions
 { { { "coal" "coal" } { "ore" } { "timber" } } }
 [ { "coal" "coal" "switch" "ore" "switch" "timber" }
   { "switch" } split-at-junctions ] unit-test
@@ -45,7 +45,7 @@ unit-test
 { { { } { "coal" } { } } }
 [ { "switch" "coal" "switch" } { "switch" } split-at-junctions ] unit-test
 
-! TASK: 4 coalesce-cargo
+TASK: 4 coalesce-cargo
 { { { "coal" "coal" } { "ore" "ore" "ore" } { "timber" } { "coal" } } }
 [ { "coal" "coal" "ore" "ore" "ore" "timber" "coal" } coalesce-cargo ]
 unit-test

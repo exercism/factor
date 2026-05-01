@@ -1,7 +1,5 @@
-USING: high-scores io kernel lexer tools.test unicode ;
+USING: exercism-tools high-scores io kernel tools.test unicode ;
 IN: high-scores.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "High Scores:" print
 

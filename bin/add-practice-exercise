@@ -73,6 +73,9 @@ jq "${filter}" config.json > config.sorted && mv config.sorted config.json
 exercise_dir="exercises/practice/${slug}"
 files=$(jq -r --arg dir "${exercise_dir}" '.files | to_entries | map({key: .key, value: (.value | map("'"'"'" + $dir + "/" + . + "'"'"'") | join(" and "))}) | from_entries' "${exercise_dir}/.meta/config.json")
 
+mkdir -p "${exercise_dir}/exercism-tools"
+cp lib/exercism-tools/exercism-tools.factor "${exercise_dir}/exercism-tools/exercism-tools.factor"
+
 # Create skeleton generator module
 module_name=$(echo "${slug}" | sed -r 's/(^|-)(\w)/\U\2/g')
 cat > "${exercise_dir}/.meta/generator.jl" << GENERATOR

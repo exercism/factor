@@ -1,7 +1,5 @@
-USING: io kernel lexer pythagorean-triplet tools.test unicode ;
+USING: exercism-tools io kernel pythagorean-triplet tools.test unicode ;
 IN: pythagorean-triplet.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Pythagorean Triplet:" print
 

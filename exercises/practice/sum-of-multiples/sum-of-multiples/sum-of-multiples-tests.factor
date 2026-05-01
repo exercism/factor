@@ -1,7 +1,5 @@
-USING: io kernel lexer sum-of-multiples tools.test unicode ;
+USING: exercism-tools io kernel sum-of-multiples tools.test unicode ;
 IN: sum-of-multiples.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Sum Of Multiples:" print
 

@@ -1,7 +1,5 @@
-USING: eliuds-eggs io kernel lexer tools.test unicode ;
+USING: eliuds-eggs exercism-tools io kernel tools.test unicode ;
 IN: eliuds-eggs.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Eliuds Eggs:" print
 

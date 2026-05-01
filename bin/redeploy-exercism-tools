@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Synopsis:
+# Re-deploy lib/exercism-tools/exercism-tools.factor into every exercise.
+# Run this whenever lib/exercism-tools/exercism-tools.factor changes.
+
+set -euo pipefail
+
+[[ -f lib/exercism-tools/exercism-tools.factor ]] ||
+    { echo >&2 "Run this script from the repo's root directory."; exit 1; }
+
+src=lib/exercism-tools/exercism-tools.factor
+
+shopt -s nullglob
+for exercise_dir in exercises/concept/*/ exercises/practice/*/; do
+    dst_dir="${exercise_dir}exercism-tools"
+    mkdir -p "${dst_dir}"
+    cp "${src}" "${dst_dir}/exercism-tools.factor"
+done
+
+echo "Redeployed ${src} to all exercises."

@@ -1,7 +1,5 @@
-USING: allergies io kernel lexer tools.test unicode ;
+USING: allergies exercism-tools io kernel tools.test unicode ;
 IN: allergies.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Allergies:" print
 

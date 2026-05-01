@@ -1,7 +1,5 @@
-USING: io kernel lexer run-length-encoding tools.test unicode ;
+USING: exercism-tools io kernel run-length-encoding tools.test unicode ;
 IN: run-length-encoding.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Run Length Encoding:" print
 

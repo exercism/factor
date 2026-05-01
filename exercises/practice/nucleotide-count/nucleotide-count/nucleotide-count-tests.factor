@@ -1,7 +1,5 @@
-USING: io kernel lexer nucleotide-count tools.test unicode ;
+USING: exercism-tools io kernel nucleotide-count tools.test unicode ;
 IN: nucleotide-count.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Nucleotide Count:" print
 

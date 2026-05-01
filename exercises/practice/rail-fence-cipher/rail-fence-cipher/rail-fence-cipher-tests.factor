@@ -1,7 +1,5 @@
-USING: io kernel lexer rail-fence-cipher tools.test unicode ;
+USING: exercism-tools io kernel rail-fence-cipher tools.test unicode ;
 IN: rail-fence-cipher.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Rail Fence Cipher:" print
 
