@@ -1,14 +1,10 @@
-# Installing Factor, and making Factor and Exercism play nice
+# Installing Factor
 
-[**Even if you already have Factor 0.98 installed, you still need to read the last section of this document for important information about testing Factor code in the Exercism environment.**](#play-nice)
+The Factor track uses **Factor 0.101**. Earlier versions are not supported.
 
----
+You can either install a [nightly](#nightly) build (which tracks 0.101+ from `master`) or [build from source](#autobuild-from-source).
 
-## Installing Factor
-
-To install Factor, you need a [nightly](#nightly) or [bleeding-edge](#autobuild-from-source) build.
-
-***The last stable release of Factor ([0.97 released 2 Nov 2014](https://re-factor.blogspot.com/2014/11/factor-097-now-available.html)) is too old for use with Exercism.***
+Verify your installation by running `factor -e='vm-version print'` — it should print `0.101` or higher.
 
 ---
 ### Nightly
@@ -74,26 +70,4 @@ If *that* fails, open an issue on [factor/factor](https://github.com/factor/fact
 
 #### Stable (not recommended)
 
-**Note that Exercism and [the `exercism` vocabulary for Factor exercises on Exercism][ef] both require at least a [nightly build](#nightly)**.
-
-Only use a stable release if you plan to skip automated testing or thousands of new features and bugfixes, and you do not plan to contribute to [Factor exercises on Exercism](https://github.com/exercism/factor).
-
-To develop Factor exercises for Exercism, you need to be able to build and run the [`exercism` vocabulary][ef].
-
-Download a Stable release binary for your platform from the "Stable release" section on <http://factorcode.org>, and run the installer.
-
----
-
-## Making Exercism and Factor work together <a name="play-nice"> </a>
-
-
-Due to limitations like name clashes and filename disagreements, it's rather difficult to use Factor's `tools.test` on Exercism exercises out of the box.
-
-Instead, there is a [wrapper testing vocabulary][et] for the Factor workflow in an Exercism context. Users and Exercism maintainers alike can write and run tests in a familiar way, with much less overhead.
-
-To test your Factor solutions in your `exercism/factor` folder, follow the directions in [the README](https://github.com/catb0t/exercism.factor#getting-started).
-
-For information on using the `exercism.testing` vocabulary, refer to the [testing documentation](exercism.io/languages/factor#test), or to `exercism.testing`'s documentation by running `"exercism.testing" help` in Factor, after [installing `exercism.testing`](https://github.com/catb0t/exercism.factor/tree/master/README.md).
-
-[ef]: https://github.com/catb0t/exercism.factor
-[et]: https://github.com/catb0t/exercism.factor/tree/master/exercism/testing
+**Stable releases predate Factor 0.101 and are not supported.** Use a [nightly build](#nightly) or build from source.

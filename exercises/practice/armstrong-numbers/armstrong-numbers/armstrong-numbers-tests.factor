@@ -1,7 +1,5 @@
-USING: armstrong-numbers io kernel lexer tools.test unicode ;
+USING: armstrong-numbers exercism-tools io kernel tools.test unicode ;
 IN: armstrong-numbers.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Armstrong Numbers:" print
 

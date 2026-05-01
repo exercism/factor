@@ -1,7 +1,5 @@
-USING: io kernel lexer tools.test triangle unicode ;
+USING: exercism-tools io kernel tools.test triangle unicode ;
 IN: triangle.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Triangle:" print
 

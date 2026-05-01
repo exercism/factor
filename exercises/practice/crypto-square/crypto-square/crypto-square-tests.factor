@@ -1,7 +1,5 @@
-USING: crypto-square io kernel lexer tools.test unicode ;
+USING: crypto-square exercism-tools io kernel tools.test unicode ;
 IN: crypto-square.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Crypto Square:" print
 

@@ -1,7 +1,5 @@
-USING: io kernel lexer space-age tools.test unicode ;
+USING: exercism-tools io kernel space-age tools.test unicode ;
 IN: space-age.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Space Age:" print
 

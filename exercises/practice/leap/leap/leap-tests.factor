@@ -1,7 +1,5 @@
-USING: io kernel leap lexer tools.test unicode ;
+USING: exercism-tools io kernel leap tools.test unicode ;
 IN: leap.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Leap:" print
 

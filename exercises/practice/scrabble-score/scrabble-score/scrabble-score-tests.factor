@@ -1,7 +1,5 @@
-USING: io kernel lexer scrabble-score tools.test unicode ;
+USING: exercism-tools io kernel scrabble-score tools.test unicode ;
 IN: scrabble-score.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Scrabble Score:" print
 

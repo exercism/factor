@@ -1,7 +1,5 @@
-USING: io kernel lexer micro-blog tools.test unicode ;
+USING: exercism-tools io kernel micro-blog tools.test unicode ;
 IN: micro-blog.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Micro Blog:" print
 

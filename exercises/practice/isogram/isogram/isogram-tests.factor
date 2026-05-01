@@ -1,7 +1,5 @@
-USING: io isogram kernel lexer tools.test unicode ;
+USING: exercism-tools io isogram kernel tools.test unicode ;
 IN: isogram.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Isogram:" print
 

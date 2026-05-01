@@ -1,7 +1,5 @@
-USING: grains io kernel lexer tools.test unicode ;
+USING: exercism-tools grains io kernel tools.test unicode ;
 IN: grains.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Grains:" print
 

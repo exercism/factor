@@ -1,7 +1,5 @@
-USING: anagram io kernel lexer tools.test unicode ;
+USING: anagram exercism-tools io kernel tools.test unicode ;
 IN: anagram.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Anagram:" print
 

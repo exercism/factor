@@ -1,7 +1,5 @@
-USING: io kernel lexer raindrops tools.test unicode ;
+USING: exercism-tools io kernel raindrops tools.test unicode ;
 IN: raindrops.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Raindrops:" print
 

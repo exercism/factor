@@ -1,7 +1,5 @@
-USING: io kernel lexer rectangles tools.test unicode ;
+USING: exercism-tools io kernel rectangles tools.test unicode ;
 IN: rectangles.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Rectangles:" print
 

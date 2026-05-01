@@ -1,7 +1,5 @@
-USING: io kernel largest-series-product lexer tools.test unicode ;
+USING: exercism-tools io kernel largest-series-product tools.test unicode ;
 IN: largest-series-product.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Largest Series Product:" print
 

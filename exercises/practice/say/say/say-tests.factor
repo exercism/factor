@@ -1,7 +1,5 @@
-USING: io kernel lexer say tools.test unicode ;
+USING: exercism-tools io kernel say tools.test unicode ;
 IN: say.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Say:" print
 

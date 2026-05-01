@@ -1,7 +1,5 @@
-USING: io kernel lexer perfect-numbers tools.test unicode ;
+USING: exercism-tools io kernel perfect-numbers tools.test unicode ;
 IN: perfect-numbers.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Perfect Numbers:" print
 

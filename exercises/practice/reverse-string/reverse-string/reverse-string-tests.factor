@@ -1,7 +1,5 @@
-USING: io kernel lexer reverse-string tools.test unicode ;
+USING: exercism-tools io kernel reverse-string tools.test unicode ;
 IN: reverse-string.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Reverse String:" print
 

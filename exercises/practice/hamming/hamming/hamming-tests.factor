@@ -1,7 +1,5 @@
-USING: hamming io kernel lexer tools.test unicode ;
+USING: exercism-tools hamming io kernel tools.test unicode ;
 IN: hamming.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Hamming:" print
 

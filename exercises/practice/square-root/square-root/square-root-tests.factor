@@ -1,7 +1,5 @@
-USING: io kernel lexer square-root tools.test unicode ;
+USING: exercism-tools io kernel square-root tools.test unicode ;
 IN: square-root.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Square Root:" print
 

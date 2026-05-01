@@ -1,7 +1,5 @@
-USING: io kernel lexer tools.test unicode yacht ;
+USING: exercism-tools io kernel tools.test unicode yacht ;
 IN: yacht.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Yacht:" print
 

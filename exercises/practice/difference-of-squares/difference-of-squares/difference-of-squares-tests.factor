@@ -1,7 +1,5 @@
-USING: difference-of-squares io kernel lexer tools.test unicode ;
+USING: difference-of-squares exercism-tools io kernel tools.test unicode ;
 IN: difference-of-squares.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Difference Of Squares:" print
 

@@ -1,7 +1,5 @@
-USING: binary-search io kernel lexer tools.test unicode ;
+USING: binary-search exercism-tools io kernel tools.test unicode ;
 IN: binary-search.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Binary Search:" print
 

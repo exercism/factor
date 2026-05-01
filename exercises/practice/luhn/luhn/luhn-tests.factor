@@ -1,7 +1,5 @@
-USING: io kernel lexer luhn tools.test unicode ;
+USING: exercism-tools io kernel luhn tools.test unicode ;
 IN: luhn.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Luhn:" print
 

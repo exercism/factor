@@ -1,7 +1,7 @@
-USING: mixed-juices tools.test ;
+USING: exercism-tools mixed-juices tools.test ;
 IN: mixed-juices.tests
 
-! TASK: 1 time-to-mix-juice
+TASK: 1 time-to-mix-juice
 { 0.5 } [ "Pure Strawberry Joy" time-to-mix-juice ] unit-test
 { 1.5 } [ "Energizer" time-to-mix-juice ] unit-test
 { 1.5 } [ "Green Garden" time-to-mix-juice ] unit-test
@@ -11,7 +11,7 @@ IN: mixed-juices.tests
 { 2.5 } [ "Manic Organic" time-to-mix-juice ] unit-test
 { 2.5 } [ "Papaya & Peach" time-to-mix-juice ] unit-test
 
-! TASK: 2 wedges-from-lime / limes-to-cut
+TASK: 2 wedges-from-lime / limes-to-cut
 { 6 }  [ "small" wedges-from-lime ] unit-test
 { 8 }  [ "medium" wedges-from-lime ] unit-test
 { 10 } [ "large" wedges-from-lime ] unit-test
@@ -29,7 +29,7 @@ unit-test
 { 0 } [ 0 { "small" "large" "medium" } limes-to-cut ] unit-test
 { 0 } [ 10 { } limes-to-cut ] unit-test
 
-! TASK: 3 order-times
+TASK: 3 order-times
 { { 3 1.5 2.5 5 0.5 } }
 [ { "Tropical Island" "Energizer" "Limetime" "All or Nothing" "Pure Strawberry Joy" } order-times ]
 unit-test
@@ -40,7 +40,7 @@ unit-test
 
 { { } } [ { } order-times ] unit-test
 
-! TASK: 4 remaining-orders
+TASK: 4 remaining-orders
 { { "All or Nothing" "Pure Strawberry Joy" } }
 [ 7 { "Tropical Island" "Energizer" "Limetime" "All or Nothing" "Pure Strawberry Joy" } remaining-orders ]
 unit-test

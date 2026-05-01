@@ -1,7 +1,5 @@
-USING: io kernel lexer matching-brackets tools.test unicode ;
+USING: exercism-tools io kernel matching-brackets tools.test unicode ;
 IN: matching-brackets.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Matching Brackets:" print
 

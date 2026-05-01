@@ -1,7 +1,5 @@
-USING: io kernel lexer prime-factors tools.test unicode ;
+USING: exercism-tools io kernel prime-factors tools.test unicode ;
 IN: prime-factors.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Prime Factors:" print
 

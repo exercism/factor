@@ -16,11 +16,19 @@ Words written in this way will implicitly be easily `unit-test`able.
 
 Unit tests (usually a bunch of assertions like above) go in a file called `vocab-name-tests.factor` beside your implementation `vocab-name.factor`. This file is already created for you by Exercism, but would normally need to be created by hand, or by `"exercise" scaffold-tests`.
 
-Get the [`tools.test` wrapper library for Exercism](https://github.com/catb0t/exercism.factor), and put its `exercism` subfolder inside Factor's `work` folder, such that `testing.factor` is located at `resource:work/exercism/testing/testing.factor`.
+The Factor track uses **Factor 0.101**. Each exercise ships with a small bundled `exercism-tools` vocabulary that defines `STOP-HERE` and `TASK:` parsing words and a test runner. To run an exercise's tests, change into the exercise directory and run:
 
-When the current directory is your `exercism/factor` exercises folder:
+```
+factor -roots=. -run=exercism-tools <exercise-slug>
+```
 
-* Run a vocabulary's tests from the listener with `USE: exercism.testing "exercise-name" run-exercism-test`, or from the command-line with `factor -run=exercism.testing exercise-name`.
-* Run all tests for all exercises with `USE: exercism.testing run-all-exercism-tests` or from the command-line with `factor -run=exercism.testing run-all`.
+For example, to run the `annalyns-infiltration` tests:
 
-For more information, see the Factor documentation on [Unit testing](http://docs.factorcode.org/content/article-tools.test.html), and [`exercism.testing`](https://github.com/catb0t/exercism.factor/tree/HEAD/exercism/testing)'s documentation with `"exercism.testing" help`.
+```
+cd annalyns-infiltration
+factor -roots=. -run=exercism-tools annalyns-infiltration
+```
+
+The runner exits with status 0 when all tests pass, and non-zero with diagnostic output when any test fails.
+
+For more information, see the Factor documentation on [Unit testing](http://docs.factorcode.org/content/article-tools.test.html).

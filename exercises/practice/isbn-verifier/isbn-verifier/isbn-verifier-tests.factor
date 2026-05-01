@@ -1,7 +1,5 @@
-USING: io isbn-verifier kernel lexer tools.test unicode ;
+USING: exercism-tools io isbn-verifier kernel tools.test unicode ;
 IN: isbn-verifier.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Isbn Verifier:" print
 

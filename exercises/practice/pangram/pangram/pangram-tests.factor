@@ -1,7 +1,5 @@
-USING: io kernel lexer pangram tools.test unicode ;
+USING: exercism-tools io kernel pangram tools.test unicode ;
 IN: pangram.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Pangram:" print
 

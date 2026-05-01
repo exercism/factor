@@ -1,7 +1,5 @@
-USING: affine-cipher io kernel lexer tools.test unicode ;
+USING: affine-cipher exercism-tools io kernel tools.test unicode ;
 IN: affine-cipher.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Affine Cipher:" print
 

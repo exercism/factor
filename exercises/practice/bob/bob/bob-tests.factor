@@ -1,7 +1,5 @@
-USING: bob io kernel lexer tools.test unicode ;
+USING: bob exercism-tools io kernel tools.test unicode ;
 IN: bob.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Bob:" print
 

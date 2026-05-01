@@ -1,7 +1,5 @@
-USING: clock io kernel lexer tools.test unicode ;
+USING: clock exercism-tools io kernel tools.test unicode ;
 IN: clock.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Clock:" print
 

@@ -1,7 +1,5 @@
-USING: change io kernel lexer tools.test unicode ;
+USING: change exercism-tools io kernel tools.test unicode ;
 IN: change.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Change:" print
 

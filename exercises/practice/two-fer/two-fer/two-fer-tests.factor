@@ -1,7 +1,5 @@
-USING: io kernel lexer tools.test two-fer unicode ;
+USING: exercism-tools io kernel tools.test two-fer unicode ;
 IN: two-fer.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Two Fer:" print
 

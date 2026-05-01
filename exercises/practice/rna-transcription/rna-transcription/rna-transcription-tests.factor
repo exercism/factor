@@ -1,7 +1,5 @@
-USING: io kernel lexer rna-transcription tools.test unicode ;
+USING: exercism-tools io kernel rna-transcription tools.test unicode ;
 IN: rna-transcription.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Rna Transcription:" print
 

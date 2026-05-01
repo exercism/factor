@@ -1,7 +1,5 @@
-USING: io kernel lexer resistor-color tools.test unicode ;
+USING: exercism-tools io kernel resistor-color tools.test unicode ;
 IN: resistor-color.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Resistor Color:" print
 

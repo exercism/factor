@@ -1,7 +1,5 @@
-USING: darts io kernel lexer tools.test unicode ;
+USING: darts exercism-tools io kernel tools.test unicode ;
 IN: darts.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Darts:" print
 

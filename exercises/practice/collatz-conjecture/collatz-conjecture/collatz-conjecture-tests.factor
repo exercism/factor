@@ -1,7 +1,5 @@
-USING: collatz-conjecture io kernel lexer tools.test unicode ;
+USING: collatz-conjecture exercism-tools io kernel tools.test unicode ;
 IN: collatz-conjecture.tests
-
-: STOP-HERE ( -- ) lexer get [ text>> length ] keep line<< ; parsing
 
 "Collatz Conjecture:" print
 
