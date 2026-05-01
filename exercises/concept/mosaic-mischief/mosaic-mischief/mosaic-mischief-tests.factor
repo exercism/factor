@@ -3,6 +3,9 @@ IN: mosaic-mischief.tests
 
 TASK: 1 fresh-mosaic
 { { f f f f } } [ 4 fresh-mosaic ] unit-test
+
+STOP-HERE
+
 { { } }         [ 0 fresh-mosaic ] unit-test
 { { f } }       [ 1 fresh-mosaic ] unit-test
 

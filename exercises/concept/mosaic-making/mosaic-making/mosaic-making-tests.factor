@@ -3,6 +3,9 @@ IN: mosaic-making.tests
 
 TASK: 1 tile-strip
 { { "sky-blue" } } [ "sky-blue" tile-strip ] unit-test
+
+STOP-HERE
+
 { { "red" } }      [ "red" tile-strip ] unit-test
 
 TASK: 2 row-of-three

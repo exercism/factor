@@ -4,6 +4,8 @@ IN: lasagna.tests
 TASK: 1 expected bake time
 { 40 } [ expected-bake-time ] unit-test
 
+STOP-HERE
+
 TASK: 2 preparation time
 { 2 } [ 1 preparation-time ] unit-test
 { 8 } [ 4 preparation-time ] unit-test

@@ -1,4 +1,4 @@
-USING: arrays sequences ;
+USING: arrays kernel sequences ;
 IN: mosaic-making
 
 : tile-strip ( colour -- strip )

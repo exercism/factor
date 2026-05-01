@@ -7,8 +7,10 @@
 # prereq's introduction (concept and practice exercises).
 #
 # Reads the per-exercise .meta/known-words.md files written by
-# bin/extract-known-words; run that first whenever introductions
-# change.
+# bin/extract-known-words. Each known-words.md lists only the words
+# from that exercise's own introduction; this script walks the prereq
+# graph to build the transitive set. Run extract-known-words first
+# whenever introductions change.
 #
 # Usage:
 #   bin/detect-unknown-words              # both concept and practice
@@ -21,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / 'config.json').read_text())
 
-SYNTAX = set("[ ] { } ( ) [| | ; T{ H{ V{".split())
+SYNTAX = set("[ ] { } ( ) [| | ; T{ H{ V{ B{".split())
 SYNTAX |= set("USING: IN: CONSTANT: SYMBOL: SYMBOLS: TUPLE: ERROR: PREDICATE: FROM: BUILTIN: HOOK: DEFER:".split())
 SYNTAX |= set("PRIVATE> <PRIVATE QUALIFIED:".split())
 # Parser/protocol words from `make` blocks. `,` and `%` only have meaning
@@ -60,48 +62,60 @@ def transitive_prereq_concept_exes(prereq_concepts):
     return seen
 
 
-def parse_solution(path):
-    """Return (defined, locals, used) for a Factor solution file."""
-    text = path.read_text()
+def _add_local(locals_, tok):
+    """Register a token from a locals-bearing parameter list."""
+    if tok.startswith('('):
+        return
+    # `name:` declares an inline-effect local (e.g. `quot: ( x -- y )`);
+    # strip the trailing colon and register the bare name.
+    if tok.endswith(':'):
+        locals_.add(tok[:-1])
+        return
+    locals_.add(tok)
+    # Mutable variant: a! is the setter for local a, but the local itself is a.
+    if tok.endswith('!'):
+        locals_.add(tok[:-1])
+
+
+def parse_solution(paths):
+    """Return (defined, locals, used, text) parsed across one or more files.
+
+    `paths` may be a single Path or a list — multi-file exercises pass
+    every solution file so a word defined in one file is visible in
+    another."""
+    if isinstance(paths, Path):
+        paths = [paths]
+    text = '\n'.join(p.read_text() for p in paths if p.exists())
     defined, locals_ = set(), set()
 
-    # Top-level word definitions
+    # Top-level word definitions: `:` and `::`.
     for m in re.finditer(r'^::?\s+(\S+)\s*\(', text, re.M):
         defined.add(m.group(1))
-    # Locals from :: (locals) input list
-    for m in re.finditer(r'^::\s+\S+\s*\(([^)]*)--[^)]*\)', text, re.M):
+    # Locals-bearing definitions:
+    #   `:: <word> ( ... -- ... )`
+    #   `M:: <class> <word> ( ... -- ... )`
+    # The names aren't "defined" by `M::` (the generic was declared
+    # elsewhere), but the parameter list does introduce locals.
+    for m in re.finditer(
+        r'^(?:::\s+\S+|M::\s+\S+\s+\S+)\s*\(([^)]*)--[^)]*\)',
+        text, re.M,
+    ):
         for tok in m.group(1).split():
-            if tok.startswith('('):
-                continue
-            # `name:` declares an inline-effect local (e.g. `quot: ( x -- y )`);
-            # strip the trailing colon and register the bare name.
-            if tok.endswith(':'):
-                locals_.add(tok[:-1])
-                continue
-            locals_.add(tok)
-            # Mutable variant: a! is the setter for local a, but the local itself is a
-            if tok.endswith('!'):
-                locals_.add(tok[:-1])
+            _add_local(locals_, tok)
     # Locals lambda [| a b | ... ]
     for m in re.finditer(r'\[\|\s*([^|]+?)\|', text):
         for tok in m.group(1).split():
-            locals_.add(tok)
-            if tok.endswith('!'):
-                locals_.add(tok[:-1])
+            _add_local(locals_, tok)
     # `:> ( a b c )` or `:> { a b c }` introduces multiple locals
     for m in re.finditer(r':>\s+[({]([^)}]+)[)}]', text):
         for tok in m.group(1).split():
-            locals_.add(tok)
-            if tok.endswith('!'):
-                locals_.add(tok[:-1])
-    # `:> name` or `:> name!` introduces a single local (mutable variant adds both name and name!)
+            _add_local(locals_, tok)
+    # `:> name` or `:> name!` introduces a single local
     for m in re.finditer(r':>\s+(\S+)', text):
         n = m.group(1)
         if n.startswith('{') or n.startswith('('):
             continue
-        locals_.add(n)
-        if n.endswith('!'):
-            locals_.add(n[:-1])
+        _add_local(locals_, n)
 
     for m in re.finditer(r'^\s*CONSTANT:\s+(\S+)', text, re.M):
         defined.add(m.group(1))
@@ -111,9 +125,19 @@ def parse_solution(path):
         defined.update(m.group(1).split())
     for m in re.finditer(r'^\s*DEFER:\s+(\S+)', text, re.M):
         defined.add(m.group(1))
-    for m in re.finditer(r'^\s*TUPLE:\s+(\S+)\s*([^;]*);?', text, re.M):
+    # GENERIC:/GENERIC#:/HOOK: declare a new word; the body of the
+    # method on each class lives in `M:`/`M::` and doesn't redeclare.
+    for m in re.finditer(r'^\s*(?:GENERIC|GENERIC#|HOOK):\s+(\S+)', text, re.M):
         defined.add(m.group(1))
+    for m in re.finditer(r'^\s*TUPLE:\s+(\S+)\s*([^;]*);?', text, re.M):
+        cls = m.group(1)
+        # Tuple definitions auto-generate the class name and a `<class>?`
+        # predicate. Slot accessors come below.
+        defined.update([cls, f'{cls}?'])
         sig = m.group(2)
+        # Strip optional `< parent` so we don't mis-treat `<` and the
+        # parent name as slots.
+        sig = re.sub(r'^\s*<\s*\S+', '', sig, count=1)
         for sb in re.finditer(r'\{\s*(\S+)[^}]*\}', sig):
             slot = sb.group(1)
             defined.update([slot, f'{slot}>>', f'>>{slot}', f'change-{slot}'])
@@ -126,7 +150,9 @@ def parse_solution(path):
             if depth == 0:
                 defined.update([tok, f'{tok}>>', f'>>{tok}', f'change-{tok}'])
     for m in re.finditer(r'^\s*ERROR:\s+(\S+)\s*([^;]*);?', text, re.M):
-        defined.add(m.group(1))
+        cls = m.group(1)
+        # Same auto-generated predicate as TUPLE:.
+        defined.update([cls, f'{cls}?'])
         for tok in m.group(2).split():
             defined.update([tok, f'{tok}>>', f'>>{tok}', f'change-{tok}'])
 
@@ -141,6 +167,12 @@ def parse_solution(path):
     body = re.sub(r'CHAR:\s+\S+', '', body)
     body = re.sub(r'^\s*USING:.*?;', '', body, flags=re.M | re.S)
     body = re.sub(r'^\s*IN:.*$', '', body, flags=re.M)
+    # Declarative headers — slot/error metadata are not code.
+    body = re.sub(r'^\s*(?:TUPLE|ERROR):.*?;', '', body, flags=re.M | re.S)
+    body = re.sub(r'^\s*(?:SYMBOL|CONSTANT|DEFER):.*$', '', body, flags=re.M)
+    body = re.sub(r'^\s*SYMBOLS:.*?;', '', body, flags=re.M | re.S)
+    body = re.sub(r'^\s*INSTANCE:.*$', '', body, flags=re.M)
+    body = re.sub(r'^\s*(?:GENERIC|GENERIC#|HOOK):.*$', '', body, flags=re.M)
     body = re.sub(r'\[\|[^|]*\|', '', body)
 
     used = set()
@@ -160,7 +192,7 @@ def parse_solution(path):
         if re.fullmatch(r'[()\[\]{}|;]+', tok):
             continue
         used.add(tok)
-    return defined, locals_, used
+    return defined, locals_, used, text
 
 
 # Syntactic features that don't tokenise as ordinary words but still
@@ -178,36 +210,44 @@ def reachable_concepts(prereqs):
     return concepts
 
 
-def syntax_violations(sol_path, reachable):
+def syntax_violations(text, reachable):
     """Return concept slugs whose syntactic features appear in the source
     but whose teaching exercise is not reachable through the prereq chain."""
-    text = sol_path.read_text()
     violations = []
     if LOCALS_SYNTAX.search(text) and 'locals' not in reachable:
         violations.append('<missing locals prereq>')
     return violations
 
 
-def check_concept(slug, sol_path):
-    """Concept exercise: known = its own known-words.md (which already
-    includes own intro plus transitive prereq intros)."""
+def solution_files(exercise_dir, kind):
+    """Return all solution files for an exercise per its .meta/config.json."""
+    cfg = json.loads((exercise_dir / '.meta' / 'config.json').read_text())
+    key = 'exemplar' if kind == 'concept' else 'example'
+    return [exercise_dir / f for f in cfg.get('files', {}).get(key, [])]
+
+
+def check_concept(slug, exercise_dir):
+    """Concept exercise: known = its own intro plus the intros of every
+    transitive prereq concept-exercise."""
     known = known_words_for_concept_ex(slug)
-    defined, locals_, used = parse_solution(sol_path)
+    for cx in transitive_prereq_concept_exes(EX_META[slug].get('prerequisites', [])):
+        known |= known_words_for_concept_ex(cx)
+    defined, locals_, used, text = parse_solution(solution_files(exercise_dir, 'concept'))
     unknowns = sorted(used - known - defined - locals_)
     own_concepts = set(EX_META[slug].get('concepts', []))
     reachable = own_concepts | reachable_concepts(EX_META[slug].get('prerequisites', []))
-    return unknowns + syntax_violations(sol_path, reachable)
+    return unknowns + syntax_violations(text, reachable)
 
 
-def check_practice(prereqs, sol_path):
-    """Practice exercise: known = union over each prereq concept's
-    known-words.md (which itself transitively folds in its own prereqs)."""
+def check_practice(prereqs, exercise_dir):
+    """Practice exercise: known = union over each transitively-reachable
+    concept-exercise's own intro."""
     known = set()
     for cx in transitive_prereq_concept_exes(prereqs):
         known |= known_words_for_concept_ex(cx)
-    defined, locals_, used = parse_solution(sol_path)
+    defined, locals_, used, text = parse_solution(solution_files(exercise_dir, 'practice'))
     unknowns = sorted(used - known - defined - locals_)
-    return unknowns + syntax_violations(sol_path, reachable_concepts(prereqs))
+    return unknowns + syntax_violations(text, reachable_concepts(prereqs))
 
 
 def main():
@@ -225,10 +265,10 @@ def main():
         any_concept = False
         for ex in CFG['exercises']['concept']:
             slug = ex['slug']
-            sol = ROOT / 'exercises' / 'concept' / slug / '.meta' / 'exemplar.factor'
-            if not sol.exists():
+            ex_dir = ROOT / 'exercises' / 'concept' / slug
+            if not (ex_dir / '.meta' / 'config.json').exists():
                 continue
-            unknowns = check_concept(slug, sol)
+            unknowns = check_concept(slug, ex_dir)
             if unknowns:
                 any_concept = True
                 issues += 1
@@ -246,10 +286,10 @@ def main():
             # Skip them.
             if ex.get('status') == 'deprecated':
                 continue
-            sol = ROOT / 'exercises' / 'practice' / slug / '.meta' / 'example.factor'
-            if not sol.exists():
+            ex_dir = ROOT / 'exercises' / 'practice' / slug
+            if not (ex_dir / '.meta' / 'config.json').exists():
                 continue
-            unknowns = check_practice(ex.get('prerequisites', []), sol)
+            unknowns = check_practice(ex.get('prerequisites', []), ex_dir)
             if unknowns:
                 any_practice = True
                 issues += 1

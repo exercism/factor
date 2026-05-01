@@ -16,5 +16,6 @@
   "forked_from": [
     "elixir/boutique-bookkeeping"
   ],
+  "icon": "boutique-inventory",
   "blurb": "Learn about higher-order sequence words by stocking your fashion boutique."
 }

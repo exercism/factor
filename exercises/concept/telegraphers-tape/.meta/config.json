@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "telegraphers-tape/telegraphers-tape.factor"
+    ],
+    "test": [
+      "telegraphers-tape/telegraphers-tape-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "international-calling-connoisseur",
+  "blurb": "Build a custom input stream that filters noise out of a wireless line — your first taste of Factor's stream protocol and disposable cleanup."
+}

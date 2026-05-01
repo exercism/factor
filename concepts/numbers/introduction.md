@@ -9,11 +9,15 @@ Factor's numeric tower includes integers, ratios, and floats:
 ```
 
 The arithmetic words `+`, `-`, `*`, `/` live in [`math`][math];
-comparison words `<`, `<=`, `>`, `>=` are also there.
+comparison words `<`, `<=`, `>`, `>=` are also there. Division
+splits three ways: `/` is exact (integer-by-integer keeps a
+ratio, never rounds), `/i` truncates to an integer, and `/f`
+forces a float result.
 
-`mod`, `/i` (integer division), `gcd`, `lcm`, `sq`, `neg`, `abs`,
-`zero?` are also part of `math`. Float-specific helpers like
-`floor`, `ceiling`, and `>integer` live in
+`mod`, `sq`, `neg`, `abs`, `zero?` round out the basics. The
+class predicates `integer?`, `float?`, `number?` are handy when
+branching on the kind of number you hold. Float-specific helpers
+like `floor`, `ceiling`, and `>integer` live in
 [`math.functions`][math.functions] and `math` respectively.
 
 [math]: https://docs.factorcode.org/content/vocab-math.html

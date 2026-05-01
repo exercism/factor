@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "forth/forth.factor",
+      "forth/builtins/builtins.factor"
+    ],
+    "test": [
+      "forth/forth-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor",
+      ".meta/builtins.factor"
+    ]
+  },
+  "blurb": "Implement an evaluator for a very simple subset of Forth."
+}

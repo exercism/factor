@@ -3,6 +3,9 @@ IN: currency-conversion.tests
 
 TASK: 1 exchange-money
 { 125000.0 } [ 100000 0.8 exchange-money ] unit-test
+
+STOP-HERE
+
 { 70000.0 }  [ 700000 10.0 exchange-money ] unit-test
 
 TASK: 2 get-change

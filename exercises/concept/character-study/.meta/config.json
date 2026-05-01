@@ -16,5 +16,6 @@
   "forked_from": [
     "common-lisp/character-study"
   ],
+  "icon": "character-study",
   "blurb": "Learn about Unicode-aware character handling by helping a Forth Alien with her alphabets project."
 }

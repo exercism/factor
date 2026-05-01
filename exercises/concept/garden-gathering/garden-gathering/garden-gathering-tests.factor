@@ -4,6 +4,8 @@ IN: garden-gathering.tests
 TASK: 1 + 2 open-garden + list-registrations
 { V{ } } [ open-garden list-registrations ] unit-test
 
+STOP-HERE
+
 TASK: 3 register
 { T{ plot { id 1 } { registered-to "Emma Balan" } } } [
     open-garden "Emma Balan" register

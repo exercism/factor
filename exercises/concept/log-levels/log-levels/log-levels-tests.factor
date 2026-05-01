@@ -3,6 +3,9 @@ IN: log-levels.tests
 
 TASK: 1 message
 { "Stack overflow" }   [ "[ERROR]: Stack overflow" message ] unit-test
+
+STOP-HERE
+
 { "Disk almost full" } [ "[WARNING]: Disk almost full" message ] unit-test
 { "File moved" }       [ "[INFO]: File moved" message ] unit-test
 { "Timezone not set" } [ "[WARNING]:   \tTimezone not set  \r\n" message ] unit-test

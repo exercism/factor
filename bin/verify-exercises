@@ -42,7 +42,7 @@ unskip_tests() {
 run_tests() {
     local slug
     slug="${1}"
-    "${FACTOR}" -e="USING: vocabs.loader tools.test tools.test.private namespaces kernel system ; \".\" add-vocab-root \"${slug}\" require \"${slug}\" test test-failures get empty? [ 0 exit ] [ :test-failures 1 exit ] if"
+    "${FACTOR}" -roots=. -run=exercism-tools "${slug}"
 }
 
 verify_exercise() {

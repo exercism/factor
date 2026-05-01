@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/cars-assemble"
   ],
+  "icon": "cars-assemble",
   "blurb": "Learn about conditionals in Factor by analyzing the production of an assembly line."
 }

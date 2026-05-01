@@ -3,6 +3,9 @@ IN: cars-assemble.tests
 
 TASK: 1 success-rate
 { 0.0 }  [ 0 success-rate ] unit-test
+
+STOP-HERE
+
 { 1.0 }  [ 1 success-rate ] unit-test
 { 1.0 }  [ 4 success-rate ] unit-test
 { 0.9 }  [ 5 success-rate ] unit-test

@@ -3,6 +3,9 @@ IN: joiners-journey.tests
 
 TASK: 1 with-kerf
 { 102 } [ 100 with-kerf ] unit-test
+
+STOP-HERE
+
 { 51 } [ 50 with-kerf ] unit-test
 { 0 } [ 0 with-kerf ] unit-test
 

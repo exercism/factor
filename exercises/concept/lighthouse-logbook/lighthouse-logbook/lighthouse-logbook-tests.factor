@@ -4,6 +4,8 @@ IN: lighthouse-logbook.tests
 TASK: 1 empty-log
 { HS{ } } [ empty-log ] unit-test
 
+STOP-HERE
+
 ! a fresh log each call (not the shared HS{ } literal)
 { HS{ "x" } } [ empty-log dup "x" sight ] unit-test
 { HS{ } } [ empty-log ] unit-test

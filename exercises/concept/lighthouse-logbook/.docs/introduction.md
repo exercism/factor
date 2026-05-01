@@ -61,11 +61,17 @@ my-log cardinality .     ! => 2
 union     ( set1 set2 -- set )
 intersect ( set1 set2 -- set )
 diff      ( set1 set2 -- set )
+set-like  ( set exemplar -- set' )
 ```
 
 `union` is "all elements from either"; `intersect` is "elements
 in both"; `diff` is "in `set1` but not `set2`". Each returns a
 new set without mutating its inputs.
+
+`set-like` coerces `set` to the type of `exemplar`. The default
+implementations of `union`/`intersect`/`diff` use it to make the
+result match the type of the receiver — `<my-set> <hash-set>
+union` returns a `my-set`, not a hash-set.
 
 ## Why this matters
 

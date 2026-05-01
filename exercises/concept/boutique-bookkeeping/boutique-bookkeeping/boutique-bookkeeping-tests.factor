@@ -9,6 +9,8 @@ TASK: 1 sort-by-price
     sort-by-price
 ] unit-test
 
+STOP-HERE
+
 TASK: 2 with-missing-price
 { { { "Denim Pants" f } { "Denim Skirt" f } } } [
     { { "Black T-shirt" 40 } { "Denim Pants" f } { "Denim Skirt" f } { "Orange T-shirt" 40 } }

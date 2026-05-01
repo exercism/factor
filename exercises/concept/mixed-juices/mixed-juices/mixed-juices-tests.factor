@@ -3,6 +3,9 @@ IN: mixed-juices.tests
 
 TASK: 1 time-to-mix-juice
 { 0.5 } [ "Pure Strawberry Joy" time-to-mix-juice ] unit-test
+
+STOP-HERE
+
 { 1.5 } [ "Energizer" time-to-mix-juice ] unit-test
 { 1.5 } [ "Green Garden" time-to-mix-juice ] unit-test
 { 3 }   [ "Tropical Island" time-to-mix-juice ] unit-test

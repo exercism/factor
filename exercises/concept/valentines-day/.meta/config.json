@@ -16,5 +16,6 @@
   "forked_from": [
     "gleam/valentines-day"
   ],
+  "icon": "valentines-day",
   "blurb": "Learn about case and symbols by rating Valentine's Day plans."
 }

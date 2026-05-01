@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/article-streams.html",
+    "description": "Streams: official Factor documentation"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-stream-protocol.html",
+    "description": "The stream protocol"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-destructors.html",
+    "description": "Disposable resources and destructors"
+  }
+]

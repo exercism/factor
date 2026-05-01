@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/role-playing-game"
   ],
+  "icon": "role-playing-game",
   "blurb": "Learn about tuples in Factor by building the mechanics for a role-playing game."
 }

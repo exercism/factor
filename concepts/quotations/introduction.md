@@ -18,3 +18,11 @@ Most higher-order words take a quotation as their second argument:
 
 The body of a quotation is just regular Factor code — the same
 operators and stack effects you use everywhere else.
+
+When you build code from data — concatenating fragments, mapping
+tokens to operations — the result is a sequence; pass it through
+`>quotation` to make it callable:
+
+```factor
+{ 1 [ 2 + ] [ 3 * ] } concat >quotation call .   ! => 9
+```

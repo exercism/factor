@@ -3,6 +3,9 @@ IN: secrets.tests
 
 TASK: 1 shift-back
 { 2 }         [ 8 2 shift-back ] unit-test
+
+STOP-HERE
+
 { 268829204 } [ -2144333657 3 shift-back ] unit-test
 
 TASK: 2 set-bits

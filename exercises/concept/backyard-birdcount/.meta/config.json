@@ -16,5 +16,6 @@
   "forked_from": [
     "elixir/backyard-birdcount"
   ],
+  "icon": "bird-count",
   "blurb": "Learn about recursion in Factor by counting visits from your garden's birds."
 }

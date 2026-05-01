@@ -24,7 +24,8 @@ Factor has separate division words. They all live in the [`math`][math]
 vocabulary.
 
 ```
-/    ( x y -- x/y )    ! float (or rational) result
+/    ( x y -- x/y )    ! exact: ratio for two integers, float if either is a float
+/f   ( x y -- f   )    ! always a float
 /i   ( x y -- q   )    ! integer division (truncates toward negative infinity)
 mod  ( x y -- r   )    ! remainder
 /mod ( x y -- q r )    ! quotient and remainder together
@@ -32,6 +33,7 @@ mod  ( x y -- r   )    ! remainder
 
 ```factor
 16 3 / .       ! => 16/3   (a rational; print as a fraction)
+16 3 /f .      ! => 5.333333333333333
 16 3 /i .      ! => 5      (truncated)
 16 3 mod .     ! => 1
 16 3 /mod .s   ! quotient and remainder in one pass
@@ -41,8 +43,8 @@ mod  ( x y -- r   )    ! remainder
 ```
 
 `/` produces a `ratio` (Factor's exact rational type) for two integers,
-or a `float` if either input is a float. `/i` always rounds toward
-negative infinity.
+or a `float` if either input is a float. `/f` forces a float result
+even for two integers. `/i` always rounds toward negative infinity.
 
 ## Checking
 
@@ -56,6 +58,9 @@ odd?     ( x       -- ? )
 prime?   ( x       -- ? )
 divisor? ( m n     -- ? )    ! true when n divides m
 between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
+integer? ( x       -- ? )    ! true for ints (fixnum or bignum)
+float?   ( x       -- ? )    ! true for floats
+number?  ( x       -- ? )    ! true for any numeric kind
 ```
 
 ```factor

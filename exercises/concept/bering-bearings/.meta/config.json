@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "bering-bearings/bering-bearings.factor"
+    ],
+    "test": [
+      "bering-bearings/bering-bearings-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "tisbury-treasure-hunt",
+  "blurb": "Plot bearings reported in three different forms onto a single chart with generic words and per-class methods."
+}

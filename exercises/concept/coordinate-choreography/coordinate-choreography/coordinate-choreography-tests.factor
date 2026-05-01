@@ -3,6 +3,9 @@ IN: coordinate-choreography.tests
 
 TASK: 1 translate-2d
 { { 6 8 } } [ { 4 8 } 2 0 translate-2d apply-transformation ] unit-test
+
+STOP-HERE
+
 { { 4 8 } } [ { 4 8 } 0 0 translate-2d apply-transformation ] unit-test
 { { -3 5 } } [ { 0 0 } -3 5 translate-2d apply-transformation ] unit-test
 

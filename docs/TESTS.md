@@ -16,7 +16,7 @@ Words written in this way will implicitly be easily `unit-test`able.
 
 Unit tests (usually a bunch of assertions like above) go in a file called `vocab-name-tests.factor` beside your implementation `vocab-name.factor`. This file is already created for you by Exercism, but would normally need to be created by hand, or by `"exercise" scaffold-tests`.
 
-The Factor track uses **Factor 0.101**. Each exercise ships with a small bundled `exercism-tools` vocabulary that defines `STOP-HERE` and `TASK:` parsing words and a test runner. To run an exercise's tests, change into the exercise directory and run:
+The Factor track uses **Factor 0.101**. Each exercise ships with a small bundled `exercism-tools` vocabulary that defines `STOP-HERE` and `TASK:` parsing words and a test runner. From the exercise's directory, run:
 
 ```
 factor -roots=. -run=exercism-tools <exercise-slug>
@@ -25,7 +25,6 @@ factor -roots=. -run=exercism-tools <exercise-slug>
 For example, to run the `annalyns-infiltration` tests:
 
 ```
-cd annalyns-infiltration
 factor -roots=. -run=exercism-tools annalyns-infiltration
 ```
 

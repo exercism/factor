@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "bosuns-bunting/bosuns-bunting.factor"
+    ],
+    "test": [
+      "bosuns-bunting/bosuns-bunting-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "amusement-park",
+  "blurb": "Help Brooke sew rows of festival bunting and learn how to build a string from index-driven decisions."
+}

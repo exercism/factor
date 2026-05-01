@@ -11,7 +11,12 @@ TUPLE: point
 
 T{ point { x 3 } { y 4 } } x>> .   ! => 3
 3 4 point boa .                    ! => T{ point { x 3 } { y 4 } }
+point new .                        ! => T{ point { x 0 } { y 0 } }
 ```
+
+`boa` ("by order of arguments") fills slots from the stack, in
+declaration order. `new` builds an instance with each slot at its
+declared `initial:` value (or `f` if none).
 
 Each slot's getter is `slot>>` and setter is `>>slot` — the setter
 *mutates*, so `clone` first if you need a non-destructive update:

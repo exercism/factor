@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/log-levels"
   ],
+  "icon": "log-levels",
   "blurb": "Learn about strings in Factor by parsing log lines."
 }

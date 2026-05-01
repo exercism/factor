@@ -3,6 +3,9 @@ IN: factory-failsafe.tests
 
 TASK: 1 check-humidity
 { } [ 50 check-humidity ] unit-test
+
+STOP-HERE
+
 { } [ 70 check-humidity ] unit-test
 [ 80 check-humidity ] [ "humidity too high" = ] must-fail-with
 

@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "lap-leaderboard/lap-leaderboard.factor"
+    ],
+    "test": [
+      "lap-leaderboard/lap-leaderboard-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "remote-control-competition",
+  "blurb": "Walk a list of finishers with each-index, map-index, and times to build the club race's leaderboard."
+}

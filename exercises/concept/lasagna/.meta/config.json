@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/lasagna"
   ],
+  "icon": "lasagna",
   "blurb": "Learn about stack effects in Factor by cooking delicious lasagna."
 }

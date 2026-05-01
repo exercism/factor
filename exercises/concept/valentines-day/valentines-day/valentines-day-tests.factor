@@ -3,6 +3,9 @@ IN: valentines-day.tests
 
 TASK: 1 rate-restaurant
 { yes } [ korean rate-restaurant ] unit-test
+
+STOP-HERE
+
 { maybe } [ turkish rate-restaurant ] unit-test
 
 TASK: 2 rate-movie
