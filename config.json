@@ -1385,29 +1385,6 @@
         "difficulty": 6
       },
       {
-        "slug": "forth",
-        "name": "Forth",
-        "uuid": "eb2343bc-2655-413b-a091-e3d5c1a0466b",
-        "practices": [
-          "vocabularies",
-          "assocs"
-        ],
-        "prerequisites": [
-          "vocabularies",
-          "assocs",
-          "strings",
-          "sequences",
-          "higher-order-sequences",
-          "case",
-          "errors",
-          "locals",
-          "quotations",
-          "windows",
-          "unicode"
-        ],
-        "difficulty": 6
-      },
-      {
         "slug": "ocr-numbers",
         "name": "OCR Numbers",
         "uuid": "725a35a9-b2ae-4c71-8dc9-a801a8699bd2",
