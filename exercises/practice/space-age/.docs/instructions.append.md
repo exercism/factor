@@ -2,7 +2,7 @@
 
 ## Words
 
-The exercise's vocabulary declares one symbol per planet:
+Declare one symbol per planet:
 `mercury`, `venus`, `earth`, `mars`, `jupiter`, `saturn`,
 `uranus`, `neptune`.
 

@@ -14,6 +14,27 @@ Strings are written in double quotes. The usual escapes are supported
 "first\nsecond" print            ! prints two lines
 ```
 
+## Length and indexing
+
+Because a string is a sequence, the [`sequences`][sequences] words
+`length` and `nth` work on it directly.
+
+`length` returns the number of characters:
+
+```factor
+"hello" length .    ! => 5
+```
+
+`nth` takes a 0-based index and the sequence, and returns the
+element at that position. For a string the element is a
+*character* — a code point (an integer), not a one-character
+substring:
+
+```factor
+0 "hello" nth .     ! => 104   (CHAR: h)
+4 "hello" nth .     ! => 111   (CHAR: o)
+```
+
 ## Splitting
 
 The [`splitting`][splitting] vocabulary cuts a string into pieces.

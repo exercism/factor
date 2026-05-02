@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - name: Check every exercise has the current exercism-tools vocab
+        run: bin/redeploy-exercism-tools
       - run: docker pull exercism/factor-test-runner
       - name: Run tests for all exercises
         run: sh ./bin/test
