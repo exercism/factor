@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "GENERIC: declares a multimethod; M: adds a method that dispatches on the class of the topmost argument."
+}

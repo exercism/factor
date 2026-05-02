@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "IN: declares the file's vocabulary; USING: imports others; the dotted name maps to the directory layout."
+}

@@ -2,10 +2,10 @@
 
 # Synopsis:
 # Regenerate exercises/concept/<slug>/.meta/known-words.md for every
-# concept exercise. The known-words list is built from words that are
-# explained in the exercise's own .docs/introduction.md plus the
-# introductions of every transitive prerequisite (walked via
-# config.json's `concepts` -> `prerequisites` graph).
+# concept exercise. The known-words list is the set of Factor words
+# explained in that exercise's own .docs/introduction.md -- nothing
+# from prerequisites. bin/detect-unknown-words walks the prereq graph
+# at check time to produce the transitive view.
 #
 # Usage: bin/extract-known-words
 
@@ -23,7 +23,7 @@ CFG = json.load(open(ROOT/'config.json'))
 PLACEHOLDERS = set("""
 x y z w m k i j p q r s u v n
 seq seq1 seq2 quot quot1 quot2 quot3 quot: quot:: assoc
-key value old new elt elt1 elt2 bool string str
+key value old elt elt1 elt2 bool string str
 old-x new-x 3x 2x n+1 n+10% n+1% length+kerf length+10%
 days new-days new-days-or-f symbol direction direction'
 amount rate years seconds planet period arr sortedstr count/f
@@ -166,49 +166,25 @@ def extract_words(intro_path):
 
 
 def main():
-    intros = {}
+    count = 0
     for ex in CFG['exercises']['concept']:
         slug = ex['slug']
-        intros[slug] = extract_words(ROOT / 'exercises' / 'concept' / slug / '.docs' / 'introduction.md')
-
-    # Concept slug -> exercise slug that teaches it
-    concept_to_ex = {}
-    ex_meta = {ex['slug']: ex for ex in CFG['exercises']['concept']}
-    for ex in CFG['exercises']['concept']:
-        for c in ex['concepts']:
-            concept_to_ex[c] = ex['slug']
-
-    def transitive_prereq_exercises(slug):
-        seen = set()
-        queue = list(ex_meta[slug]['prerequisites'])
-        while queue:
-            c = queue.pop(0)
-            if c in concept_to_ex:
-                ex = concept_to_ex[c]
-                if ex not in seen:
-                    seen.add(ex)
-                    queue.extend(ex_meta[ex]['prerequisites'])
-        return seen
-
-    for slug in intros:
-        pre = transitive_prereq_exercises(slug)
-        total = set(intros[slug])
-        for p in pre:
-            total |= intros[p]
+        words = extract_words(ROOT / 'exercises' / 'concept' / slug / '.docs' / 'introduction.md')
         # Sort case-insensitively, but break ties by the actual string so
         # case-only variants like LETTER?/Letter?/letter? always come in a
         # stable order (uppercase before lowercase by ASCII).
-        sorted_words = sorted(total, key=lambda s: (s.lower(), s))
+        sorted_words = sorted(words, key=lambda s: (s.lower(), s))
         out_path = ROOT / 'exercises' / 'concept' / slug / '.meta' / 'known-words.md'
         lines = ['# Known words', '',
-                 "Words explained in this exercise's introduction or in the introduction of any of its prerequisites.",
+                 "Words explained in this exercise's introduction.",
                  '']
         for w in sorted_words:
             lines.append(f'- `{w}`')
         lines.append('')
         out_path.write_text('\n'.join(lines))
+        count += 1
 
-    print(f'Wrote {len(intros)} files.')
+    print(f'Wrote {count} files.')
 
 
 if __name__ == '__main__':

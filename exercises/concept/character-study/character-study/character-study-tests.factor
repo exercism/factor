@@ -3,6 +3,9 @@ IN: character-study.tests
 
 TASK: 1 compare-chars
 { less } [ CHAR: A CHAR: B compare-chars ] unit-test
+
+STOP-HERE
+
 { greater } [ CHAR: B CHAR: A compare-chars ] unit-test
 { equal } [ CHAR: A CHAR: A compare-chars ] unit-test
 { less } [ CHAR: A CHAR: a compare-chars ] unit-test

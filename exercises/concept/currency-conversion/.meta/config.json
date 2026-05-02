@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/currency-exchange"
   ],
+  "icon": "hyperia-forex",
   "blurb": "Learn about numbers in Factor by solving Chandler's currency exchange conundrums."
 }

@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "librarians-ledger/librarians-ledger.factor"
+    ],
+    "test": [
+      "librarians-ledger/librarians-ledger-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "library-fees",
+  "blurb": "Tally a librarian's ledger with reduce and the cumulative family of reductions."
+}

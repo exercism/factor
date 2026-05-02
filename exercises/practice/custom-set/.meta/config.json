@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "custom-set/custom-set.factor"
+    ],
+    "test": [
+      "custom-set/custom-set-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Create a custom set type."
+}

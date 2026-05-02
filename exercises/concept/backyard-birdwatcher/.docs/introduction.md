@@ -124,5 +124,20 @@ suffix      ( seq elt -- newseq )
 ! => { 10 20 60 }
 ```
 
+## Coercing between sequence types
+
+`>array`, `>vector`, and `>string` (in [`arrays`][arrays] and
+the corresponding vocabularies) force a sequence into a
+particular concrete type. Useful when an operation returned a
+slice or generic sequence and you need an array (or string)
+back.
+
+```factor
+{ 1 2 3 } 1 tail >array .   ! => { 2 3 }
+"hello" >array .            ! => { 104 101 108 108 111 }
+{ 65 66 67 } >string .      ! => "ABC"
+```
+
+[arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

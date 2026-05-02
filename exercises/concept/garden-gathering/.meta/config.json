@@ -16,5 +16,6 @@
   "forked_from": [
     "elixir/garden-gathering"
   ],
+  "icon": "community-garden",
   "blurb": "Learn about dynamic variables in Factor by managing a community garden's plot registrations."
 }

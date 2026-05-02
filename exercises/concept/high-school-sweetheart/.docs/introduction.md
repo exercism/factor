@@ -44,7 +44,16 @@ running them in the order written:
 
 You'll usually find that defining a small word with `:` ... `;` reads
 better than `compose`, but `compose` is handy when you need to build
-quotations on the fly.
+quotations on the fly. When the building blocks aren't already
+quotations, `>quotation ( seq -- quot )` (from
+[`quotations`][quotations]) turns a sequence of values and word
+references into a callable quotation:
+
+```factor
+USING: quotations sequences ;
+
+{ 1 [ 2 + ] [ 3 * ] } concat >quotation call .   ! => 9
+```
 
 ## Applying one quotation to two inputs
 
@@ -116,3 +125,4 @@ USING: math.parser ;
 [splitting]: https://docs.factorcode.org/content/vocab-splitting.html
 [formatting]: https://docs.factorcode.org/content/vocab-formatting.html
 [math.parser]: https://docs.factorcode.org/content/vocab-math.parser.html
+[quotations]: https://docs.factorcode.org/content/vocab-quotations.html

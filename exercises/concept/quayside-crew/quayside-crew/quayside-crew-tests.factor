@@ -3,6 +3,9 @@ IN: quayside-crew.tests
 
 TASK: 1 weigh-crate
 { 35 } [ { 12 8 15 } weigh-crate ] unit-test
+
+STOP-HERE
+
 { 0 }  [ { } weigh-crate ] unit-test
 { 7 }  [ { 7 } weigh-crate ] unit-test
 

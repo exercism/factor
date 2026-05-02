@@ -3,6 +3,9 @@ IN: rpn-calculator.tests
 
 TASK: 1 add-op
 { { 7 } } [ { 3 4 } add-op ] unit-test
+
+STOP-HERE
+
 { { 1 2 7 } } [ { 1 2 3 4 } add-op ] unit-test
 { { 0 } } [ { -3 3 } add-op ] unit-test
 

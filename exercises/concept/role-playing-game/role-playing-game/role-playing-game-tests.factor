@@ -3,6 +3,9 @@ IN: role-playing-game.tests
 
 TASK: 1 player tuple defaults
 { f }   [ T{ player } name>> ] unit-test
+
+STOP-HERE
+
 { 0 }   [ T{ player } level>> ] unit-test
 { 100 } [ T{ player } health>> ] unit-test
 { f }   [ T{ player } mana>> ] unit-test

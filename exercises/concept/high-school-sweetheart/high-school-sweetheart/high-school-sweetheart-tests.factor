@@ -3,6 +3,9 @@ IN: high-school-sweetheart.tests
 
 TASK: 1 cleanupname
 { "John Doe" } [ "John-Doe" cleanupname ] unit-test
+
+STOP-HERE
+
 { "John Doe" } [ "-John-Doe-" cleanupname ] unit-test
 
 TASK: 2 firstletter

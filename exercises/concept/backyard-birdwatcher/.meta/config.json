@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/backyard-birdwatcher"
   ],
+  "icon": "bird-watcher",
   "blurb": "Learn about sequences in Factor by tracking the birds visiting your garden."
 }

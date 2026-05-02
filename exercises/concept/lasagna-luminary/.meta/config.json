@@ -16,5 +16,6 @@
   "forked_from": [
     "javascript/lasagna-master"
   ],
+  "icon": "lasagna-master",
   "blurb": "Learn about locals in Factor by mastering the lasagna recipe."
 }

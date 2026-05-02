@@ -3,6 +3,9 @@ IN: backyard-birdwatcher.tests
 
 TASK: 1 today
 { 1 } [ { 2 5 0 7 4 1 } today ] unit-test
+
+STOP-HERE
+
 { 4 } [ { 4 } today ] unit-test
 
 TASK: 2 increment-todays-count

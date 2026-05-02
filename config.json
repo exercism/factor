@@ -145,8 +145,8 @@
         "status": "beta"
       },
       {
-        "slug": "bunting-builder",
-        "name": "Brooke's Bunting Builder",
+        "slug": "bosuns-bunting",
+        "name": "Bosun's Bunting",
         "uuid": "f7c75218-7eb2-4985-9efe-f6cfd5a04b45",
         "concepts": [
           "tabulation"
@@ -216,8 +216,8 @@
         "status": "beta"
       },
       {
-        "slug": "ledger-loop",
-        "name": "Ledger Loop",
+        "slug": "librarians-ledger",
+        "name": "Librarian's Ledger",
         "uuid": "825a4a26-8c4c-46b4-a63a-b9a2457bbf5e",
         "concepts": [
           "reductions"
@@ -243,8 +243,8 @@
         "status": "beta"
       },
       {
-        "slug": "furlong-finish",
-        "name": "Furlong Finish",
+        "slug": "lap-leaderboard",
+        "name": "Lap Leaderboard",
         "uuid": "431e56e5-956c-4383-9380-8fe5907081ae",
         "concepts": [
           "indexed-iteration"
@@ -299,8 +299,8 @@
         "status": "beta"
       },
       {
-        "slug": "storeroom-stocktake",
-        "name": "Storeroom Stocktake",
+        "slug": "pursers-pantry",
+        "name": "Purser's Pantry",
         "uuid": "9e2b4530-20bc-45e7-95ac-1d93f94e258b",
         "concepts": [
           "assocs"
@@ -420,6 +420,38 @@
         "status": "beta"
       },
       {
+        "slug": "bering-bearings",
+        "name": "Bering Bearings",
+        "uuid": "377c3de1-a5ec-4a44-b06e-69aed2630f0f",
+        "concepts": [
+          "generics"
+        ],
+        "prerequisites": [
+          "tuples",
+          "locals",
+          "dynamic-variables",
+          "case",
+          "numbers"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "bosuns-briefing",
+        "name": "Bosun's Briefing",
+        "uuid": "20789ff9-130c-4ded-bbcc-567f23bffef3",
+        "concepts": [
+          "vocabularies"
+        ],
+        "prerequisites": [
+          "stack-effect",
+          "strings",
+          "sequences",
+          "higher-order-sequences",
+          "locals"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "quayside-crew",
         "name": "Quayside Crew",
         "uuid": "e520b985-797e-42b6-a366-990db2d58796",
@@ -430,6 +462,21 @@
           "higher-order-sequences",
           "tuples",
           "locals"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "telegraphers-tape",
+        "name": "Telegrapher's Tape",
+        "uuid": "d594600f-ee2c-456c-b4b0-e660b759deed",
+        "concepts": [
+          "streams"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "while",
+          "sequences"
         ],
         "status": "beta"
       }
@@ -905,6 +952,41 @@
         "difficulty": 4
       },
       {
+        "slug": "complex-numbers",
+        "name": "Complex Numbers",
+        "uuid": "8989aeb2-048d-4523-87b7-54573aa18f5f",
+        "practices": [
+          "tuples",
+          "locals"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "locals",
+          "numbers",
+          "sequences"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "custom-set",
+        "name": "Custom Set",
+        "uuid": "0d8b51a3-d695-4adc-bb37-2e74901b6cb0",
+        "practices": [
+          "generics",
+          "tuples"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "sequences",
+          "higher-order-sequences",
+          "mutation",
+          "hash-sets"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "flatten-array",
         "name": "Flatten Array",
         "uuid": "27cb8df3-ed88-4b60-990e-eb0422123260",
@@ -969,6 +1051,24 @@
         "difficulty": 4
       },
       {
+        "slug": "rational-numbers",
+        "name": "Rational Numbers",
+        "uuid": "b16f8927-46b6-4ad9-9bfa-561de3f2add8",
+        "practices": [
+          "tuples",
+          "locals"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "locals",
+          "numbers",
+          "sequences",
+          "while"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "robot-simulator",
         "name": "Robot Simulator",
         "uuid": "69868e6a-7e87-4cff-8f36-dd24c042e879",
@@ -996,6 +1096,25 @@
           "sequences",
           "locals",
           "mutation"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "simple-linked-list",
+        "name": "Simple Linked List",
+        "uuid": "cc4ec93a-45b5-440c-abea-4efb1658b616",
+        "practices": [
+          "generics",
+          "tuples"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "errors",
+          "higher-order-sequences",
+          "reductions",
+          "while",
+          "indexed-iteration"
         ],
         "difficulty": 4
       },
@@ -1154,6 +1273,22 @@
           "case",
           "mutation",
           "locals"
+        ],
+        "difficulty": 5
+      },
+      {
+        "slug": "paasio",
+        "name": "PaaS I/O",
+        "uuid": "52d4d9d6-a129-4b10-bffd-6a14ed2fb80b",
+        "practices": [
+          "generics",
+          "tuples"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "mutation",
+          "streams"
         ],
         "difficulty": 5
       },
@@ -1593,9 +1728,24 @@
       "name": "Dynamic Variables"
     },
     {
+      "uuid": "e9c2a584-0c03-467f-9781-38754f06dd1a",
+      "slug": "generics",
+      "name": "Generics"
+    },
+    {
+      "uuid": "7d0efe1a-289d-4882-a9ae-e18b0cd7b64e",
+      "slug": "vocabularies",
+      "name": "Vocabularies"
+    },
+    {
       "uuid": "4b136c82-48c0-4dd6-859d-e5e76c898540",
       "slug": "concurrency",
       "name": "Concurrency"
+    },
+    {
+      "uuid": "bc982157-d036-4d11-a42f-483e8dcf32e6",
+      "slug": "streams",
+      "name": "Streams"
     }
   ],
   "key_features": [

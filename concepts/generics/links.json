@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/article-generic.html",
+    "description": "Generic words: official Factor documentation"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-method-combination.html",
+    "description": "Method combination and dispatch class"
+  }
+]

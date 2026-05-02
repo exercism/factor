@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "bosuns-briefing/bosuns-briefing.factor",
+      "bosuns-briefing/helpers/helpers.factor"
+    ],
+    "test": [
+      "bosuns-briefing/bosuns-briefing-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor",
+      ".meta/helpers.factor"
+    ]
+  },
+  "icon": "football-match-reports",
+  "blurb": "Help the bosun assemble a watch briefing by factoring small named lines into a helpers vocabulary and composing them in the main file."
+}

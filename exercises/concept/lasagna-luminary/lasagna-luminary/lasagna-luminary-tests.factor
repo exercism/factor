@@ -3,6 +3,9 @@ IN: lasagna-luminary.tests
 
 TASK: 1 cooking-status
 { "Lasagna is done." } [ 0 cooking-status ] unit-test
+
+STOP-HERE
+
 { "Not done, please wait." } [ 12 cooking-status ] unit-test
 { "You forgot to set the timer." } [ f cooking-status ] unit-test
 

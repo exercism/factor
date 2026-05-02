@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/factory-failsafe"
   ],
+  "icon": "factory-sensors",
   "blurb": "Learn about errors in Factor by monitoring machines in a newspaper factory."
 }

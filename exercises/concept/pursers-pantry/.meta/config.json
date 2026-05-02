@@ -1,0 +1,21 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "pursers-pantry/pursers-pantry.factor"
+    ],
+    "test": [
+      "pursers-pantry/pursers-pantry-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "forked_from": [
+    "julia/storeroom-stocktake"
+  ],
+  "icon": "kitchen-calculator",
+  "blurb": "Learn about hashtables in Factor by managing the warehouse inventory."
+}

@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/mixed-juices"
   ],
+  "icon": "mixed-juices",
   "blurb": "Help Li Mei manage her juice bar and learn the while combinator."
 }

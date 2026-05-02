@@ -3,6 +3,9 @@ IN: backyard-birdcount.tests
 
 TASK: 1 today
 { 2 } [ { 2 5 1 } today ] unit-test
+
+STOP-HERE
+
 { f } [ { } today ] unit-test
 { 0 } [ { 0 } today ] unit-test
 

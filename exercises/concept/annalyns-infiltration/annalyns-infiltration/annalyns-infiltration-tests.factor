@@ -3,6 +3,9 @@ IN: annalyns-infiltration.tests
 
 TASK: 1 fast attack
 { t } [ f can-do-fast-attack ] unit-test
+
+STOP-HERE
+
 { f } [ t can-do-fast-attack ] unit-test
 
 TASK: 2 spying

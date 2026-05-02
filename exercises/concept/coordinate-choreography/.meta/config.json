@@ -16,5 +16,6 @@
   "forked_from": [
     "clojure/coordinate-choreography"
   ],
+  "icon": "coordinate-transformation",
   "blurb": "Learn about curry, compose, and fry quotations by building reusable 2D coordinate transformations."
 }

@@ -16,5 +16,6 @@
   "forked_from": [
     "julia/high-school-sweetheart"
   ],
+  "icon": "high-school-sweethearts",
   "blurb": "Learn about quotations in Factor by helping high school sweethearts profess their love on social media via unicode art."
 }

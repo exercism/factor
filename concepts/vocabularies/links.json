@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/article-vocabularies.html",
+    "description": "Vocabularies: official Factor documentation"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-vocab-search.html",
+    "description": "Vocabulary search path"
+  }
+]

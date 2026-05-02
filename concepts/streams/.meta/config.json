@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Streams are reading and writing endpoints; their protocol is a small set of generic words backed by the disposable mixin for cleanup."
+}

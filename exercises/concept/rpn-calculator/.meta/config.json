@@ -16,5 +16,6 @@
   "forked_from": [
     "elixir/rpn-calculator"
   ],
+  "icon": "rpn-calculator",
   "blurb": "Learn about quotations and call by building a small RPN calculator."
 }

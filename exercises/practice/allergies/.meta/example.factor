@@ -1,4 +1,4 @@
-USING: hash-sets kernel locals math.bitwise sequences sets ;
+USING: hash-sets kernel locals math math.bitwise sequences sets ;
 IN: allergies
 
 CONSTANT: ALLERGY-NAMES { "eggs" "peanuts" "shellfish" "strawberries"

@@ -13,5 +13,6 @@
       ".meta/exemplar.factor"
     ]
   },
+  "icon": "diamond",
   "blurb": "Help build a community mosaic and learn the small toolkit of array constructors and lookups."
 }

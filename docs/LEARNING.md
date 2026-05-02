@@ -36,7 +36,7 @@ Lastly and maybe leastly,
 
 Finally, Factor is written almost entirely in Factor. So, read the source code, and search the docs for words you don't know.
 
-[learn-x-in-y-minutes]: https://learnxinyminutes.com
+[learn-x-in-y-minutes]: https://learnxinyminutes.com/
 [rosetta-code]: https://rosettacode.org/wiki/Rosetta_Code
 [chrestomathy]: https://en.wikipedia.org/wiki/Chrestomathy
 [rosetta-code-factor]: https://rosettacode.org/wiki/Category:Factor
@@ -48,8 +48,8 @@ Finally, Factor is written almost entirely in Factor. So, read the source code, 
 [joy]: https://enwp.org/Joy_%28programming_language%29
 [forth]: https://enwp.org/Forth_%28programming_language%29
 [clos]: https://enwp.org/Common_Lisp_Object_System
-[scheme]: https://schemers.org
-[racket]: https://racket-lang.org
+[scheme]: https://www.scheme.org/schemers/
+[racket]: https://racket-lang.org/
 [ferretti-tutorial]: https://andreaferretti.github.io/factor-tutorial/
 [factor-in-2022]: https://www.youtube.com/watch?v=OLh61q4c4XE
 [thinking-forth]: https://thinking-forth.sourceforge.net/
