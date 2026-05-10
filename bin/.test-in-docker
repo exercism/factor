@@ -17,12 +17,18 @@ for slug in $all_slugs; do
   # their solution.
   cp /tmp/solution/.meta/example.factor "/tmp/solution/${slug}/${slug}.factor"
   bin/run.sh "${slug}" /tmp/solution /tmp/solution > /dev/null
-  solution_pattern=$(jq -r tostring /tmp/solution/results.json | grep "{\"version\":1,\"status\":\"pass\"")
+  top_status=$(jq -r '.status' /tmp/solution/results.json)
 
   errors=""
 
-  if [ -z "$solution_pattern" ]; then
-    errors="${errors}\n\nSolution is incorrect:\n$(jq -r '.message' /tmp/solution/results.json)"
+  if [ "$top_status" != "pass" ]; then
+    msg=$(jq -r '
+      if .message then .message
+      else (.tests // [] | map(select(.status != "pass")
+              | "  \(.name): \(.message // "no message")")
+            | join("\n"))
+      end' /tmp/solution/results.json)
+    errors="${errors}\n\nSolution is incorrect:\n${msg}"
     local_exit_code=1;
   fi
 
