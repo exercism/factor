@@ -25,16 +25,15 @@ V{ } clone .    ! => V{ }
 ## Changing a slot
 
 These two work on either kind of sequence — both expect the
-sequence as the *last* input:
+sequence after the index:
 
 ```
 set-nth    ( elt n seq -- )
-change-nth ( i   seq quot -- )
+change-nth ( n seq quot -- )
 ```
 
-`set-nth` assigns; `change-nth` applies a quotation to the
-element at position `i`. Both return nothing on the stack — the
-mutation is the effect.
+`set-nth` assigns; `change-nth` applies a quotation to the element at position `n`.
+Both of these [`sequences`][sequences] words return nothing on the stack — the mutation is the effect.
 
 ```factor
 USING: arrays kernel math prettyprint sequences ;

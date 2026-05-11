@@ -53,3 +53,6 @@ STOP-HERE
 
 "cannot find negative change values" print
 [ HS{ 1 2 5 } -5 find-fewest-coins ] [ cannot-make-change? ] must-fail-with
+
+"no combination of 6, 9, and 20 can make 43" print
+[ HS{ 6 9 20 } 43 find-fewest-coins ] [ cannot-make-change? ] must-fail-with

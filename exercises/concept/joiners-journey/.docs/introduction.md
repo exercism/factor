@@ -49,7 +49,7 @@ That's fine for one use. But strung together, sequences of `dup`,
 ## `keep` — preserve the input
 
 `keep` (in [`kernel`][kernel]) calls a quotation on the top of the
-stack but leaves the original value below the result:
+stack but leaves the original value above the result:
 
 ```
 keep ( x quot: ( x -- y ) -- y x )

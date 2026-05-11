@@ -21,6 +21,7 @@ These all live in [`math`][math] (and `kernel` for `=`):
 3 3 = .     ! => t
 2 3 < .     ! => t
 3 3 <= .    ! => t
+3 4 = not . ! => t    (inequality: combine = with not)
 ```
 
 ## `if`, `when`, `unless`

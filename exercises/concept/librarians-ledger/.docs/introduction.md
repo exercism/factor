@@ -3,9 +3,9 @@
 Sometimes you want to combine a sequence into a single value;
 sometimes you want to see *every intermediate value* the
 combination produces along the way. Factor splits these into two
-tools: `reduce` for the single-value fold, and the cumulative
-family in [`math.statistics`][math.statistics] for the running
-form.
+tools: `reduce` (in [`sequences`][sequences]) for the single-value fold,
+and the cumulative family in [`math.statistics`][math.statistics]
+for the running form.
 
 ## `reduce` — the general fold
 

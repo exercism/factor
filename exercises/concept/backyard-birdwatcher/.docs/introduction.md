@@ -48,6 +48,27 @@ tail ( seq n -- tailseq )    ! drop first n
 { 1 2 3 4 5 } 3 tail .   ! => { 4 5 }
 ```
 
+For an arbitrary slice between two indices, `subseq` takes the
+*start* (inclusive) and *end* (exclusive):
+
+```
+subseq ( from to seq -- subseq )
+```
+
+```factor
+1 4 { 10 20 30 40 50 } subseq .   ! => { 20 30 40 }
+1 4 "hello" subseq .              ! => "ell"
+```
+
+When you have a *start and a length*, add them to get the end:
+
+```factor
+2 dup 3 + "hello world" subseq .  ! => "llo"
+```
+
+(That's the index range `[2, 5)` — three characters starting at
+position 2.)
+
 ## Padding
 
 ```

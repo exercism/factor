@@ -4,10 +4,6 @@ You're running an online fashion boutique. Each item in your
 inventory is a 2-element array `{ name price }`, and the whole
 inventory is an array of items.
 
-```factor
-{ "Bamboo Socks Cats" 20 }
-```
-
 A missing price is recorded as `f`.
 
 ## 1. Sort the inventory by price

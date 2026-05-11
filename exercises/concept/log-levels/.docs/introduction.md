@@ -35,6 +35,17 @@ substring:
 4 "hello" nth .     ! => 111   (CHAR: o)
 ```
 
+## From a character back to a string
+
+To turn a single code point into a one-character string, use
+`1string ( char -- str )` from the [`strings`][strings] vocabulary.
+`CHAR:` is the parser-time form of a literal code point:
+
+```factor
+CHAR: A 1string .                ! => "A"
+0 "hello" nth 1string .          ! => "h"
+```
+
 ## Splitting
 
 The [`splitting`][splitting] vocabulary cuts a string into pieces.
@@ -148,3 +159,4 @@ glue ( s1 s2 sep -- s )
 [splitting]: https://docs.factorcode.org/content/vocab-splitting.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [ascii]: https://docs.factorcode.org/content/vocab-ascii.html
+[strings]: https://docs.factorcode.org/content/vocab-strings.html
