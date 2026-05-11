@@ -1,0 +1,8 @@
+[
+  {
+    "description": "no combination of 6, 9, and 20 can make 43",
+    "property": "findFewestCoins",
+    "input": {"coins": [6, 9, 20], "target": 43},
+    "expected": {"error": "can't make target with given coins"}
+  }
+]

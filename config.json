@@ -493,22 +493,6 @@
         "difficulty": 1
       },
       {
-        "slug": "isogram",
-        "name": "Isogram",
-        "uuid": "d3afeeb3-8c4e-4a31-81a2-fb039ab3c5af",
-        "practices": [
-          "sequences"
-        ],
-        "prerequisites": [
-          "strings",
-          "bitwise-operations",
-          "sequences",
-          "unicode",
-          "higher-order-sequences"
-        ],
-        "difficulty": 1
-      },
-      {
         "slug": "collatz-conjecture",
         "name": "Collatz Conjecture",
         "uuid": "ecc6dd4e-f9fe-4435-b981-4806d7ba694c",
@@ -783,6 +767,22 @@
           "case",
           "indexed-iteration",
           "locals"
+        ],
+        "difficulty": 3
+      },
+      {
+        "slug": "isogram",
+        "name": "Isogram",
+        "uuid": "d3afeeb3-8c4e-4a31-81a2-fb039ab3c5af",
+        "practices": [
+          "sequences"
+        ],
+        "prerequisites": [
+          "strings",
+          "bitwise-operations",
+          "sequences",
+          "unicode",
+          "higher-order-sequences"
         ],
         "difficulty": 3
       },

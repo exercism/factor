@@ -49,7 +49,7 @@ even for two integers. `/i` always rounds toward negative infinity.
 
 ## Checking
 
-Number predicates from [`math`][math],
+Number predicates from [`math`][math], [`math.functions`][math.functions],
 [`math.order`][math.order], and [`math.primes`][math.primes]:
 
 ```
