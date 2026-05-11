@@ -62,7 +62,7 @@ keep ( x quot: ( x -- y ) -- y x )
 ```
 
 That replaces a `dup`-followed-by-something-then-shuffle
-pattern: anywhere you'd write `dup [ something ] dip`, you can
+pattern: anywhere you'd write `dup something swap`, you can
 just say `[ something ] keep`.
 
 ## `bi` — two functions of one input
@@ -149,8 +149,24 @@ bi@ ( x y quot -- r1 r2 )
 ! => 16
 ```
 
-Compare with `bi*`, which applies *different* quotations to the
-two values.
+## `bi*` — different operations on two values
+
+`bi*` (in [`kernel`][kernel]) applies *different* quotations to the
+two stack values — the first quotation to the lower value, the
+second to the top:
+
+```
+bi* ( x y q1 q2 -- r1 r2 )
+```
+
+```factor
+3 4 [ sq ] [ neg ] bi* .s
+! => 9
+! => -4
+```
+
+Reach for `bi@` when both values get the same treatment, and for
+`bi*` when each needs its own.
 
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [combinators]: https://docs.factorcode.org/content/vocab-combinators.html

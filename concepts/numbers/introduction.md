@@ -5,6 +5,7 @@ Factor's numeric tower includes integers, ratios, and floats:
 ```factor
 2 3 + .       ! => 5
 1 2 / .       ! => 1/2     (rational, not 0)
+5 2 / .       ! => 2+1/2   (improper ratios print as mixed numerals)
 2.0 3.0 + .   ! => 5.0
 ```
 

@@ -9,7 +9,7 @@ The previous apprentice left the till code in a jungle of `dup`,
 `over`, `swap`, and `rot`. Your job is to rewrite five small words
 using *combinators*.
 
-Each board enters the workflow with just its raw `length` (cm) on
+Each board enters the workflow with just its raw length (cm) on
 the stack.
 
 ## 1. Add the kerf allowance

@@ -32,7 +32,8 @@ mod  ( x y -- r   )    ! remainder
 ```
 
 ```factor
-16 3 / .       ! => 16/3   (a rational; print as a fraction)
+1 2 / .        ! => 1/2     (a proper ratio)
+16 3 / .       ! => 5+1/3   (an improper ratio, printed as a mixed numeral)
 16 3 /f .      ! => 5.333333333333333
 16 3 /i .      ! => 5      (truncated)
 16 3 mod .     ! => 1

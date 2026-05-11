@@ -163,7 +163,7 @@ USING: math.statistics sequences ;
     map-sum ; inline
 
 { { "shirt" 20 } { "hat" 15 } } [ second 1/10 * ] tax-on .
-! => 7/2
+! => 3+1/2
 ```
 
 Words built only from literal quotations don't need `inline` —
