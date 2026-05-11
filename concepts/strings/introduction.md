@@ -5,11 +5,15 @@ Strings in Factor are sequences of characters. Most words from the
 words in [`splitting`][splitting], [`ascii`][ascii], and friends.
 
 ```factor
-"hello, world" .              ! => "hello, world"
-"foo: bar" ": " split1 .s     ! => "foo" / "bar"
-"WARNING" >lower .            ! => "warning"
-"  spaced  " [ blank? ] trim . ! => "spaced"
-"a" "b" "(" ")" surround .    ! => "(b)"... err, surround takes 3
+USING: ascii sequences splitting ;
+
+"hello, world" .                  ! => "hello, world"
+"foo: bar" ": " split1 .s
+! => "foo"
+! => "bar"
+"WARNING" >lower .                ! => "warning"
+"  spaced  " [ blank? ] trim .    ! => "spaced"
+"warning" "(" ")" surround .      ! => "(warning)"
 ```
 
 `split1` cuts a string on the first occurrence of a separator,

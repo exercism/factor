@@ -50,6 +50,8 @@ sequence. For a hash-set, `in?` is a hash lookup — O(1) average,
 the whole point of using a hash-set.
 
 ```factor
+: my-log ( -- set ) HS{ "NS-1024" "WB-203" } ;
+
 "NS-1024" my-log in? .   ! => t
 "X-99"    my-log in? .   ! => f
 my-log cardinality .     ! => 2

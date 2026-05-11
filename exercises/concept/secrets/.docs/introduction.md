@@ -38,14 +38,15 @@ bit?   ( x n -- ? )   ! true when bit at position n is set
 0b1011 0b0010 bitor .    ! => 11  (0b1011)
 0b1011 0b0010 bitand .   ! => 2   (0b0010)
 0b1011 0b0010 bitxor .   ! => 9   (0b1001)
-0b1011 bitnot .          ! => -12 (… because Factor uses arbitrary
-                         !          precision, so flipping turns
-                         !          0b1011 into "all ones with the
-                         !          low four flipped to 0100", which
-                         !          read as a signed bignum is -12.)
+0b1011 bitnot .          ! => -12
 0b1011 0 bit? .          ! => t   (low bit is set)
 0b1011 2 bit? .          ! => f   (bit 2 is clear)
 ```
+
+`bitnot` of `0b1011` is `-12` because Factor integers are arbitrary
+precision: flipping the bits of `0b1011` is conceptually "all ones
+with the low four flipped to `0100`", which read as a signed bignum
+is `-12`.
 
 ## Treating a value as N bits
 

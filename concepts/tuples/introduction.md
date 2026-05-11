@@ -11,7 +11,7 @@ TUPLE: point
 
 T{ point { x 3 } { y 4 } } x>> .   ! => 3
 3 4 point boa .                    ! => T{ point { x 3 } { y 4 } }
-point new .                        ! => T{ point { x 0 } { y 0 } }
+point new .                        ! => T{ point }
 ```
 
 `boa` ("by order of arguments") fills slots from the stack, in

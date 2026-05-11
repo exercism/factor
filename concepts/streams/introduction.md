@@ -33,6 +33,9 @@ Streams hold OS resources, so the protocol pairs with the
 the `disposable` parent class:
 
 ```factor
+! DOCTEST: SKIP   (illustrative class definition; no runnable assertion)
+USING: accessors destructors io kernel ;
+
 TUPLE: my-stream < disposable underlying ;
 INSTANCE: my-stream output-stream
 
@@ -56,7 +59,7 @@ run a quotation with the resource open and dispose it on exit:
 ```factor
 USING: io io.streams.string ;
 
-"hello" <string-reader> [ stream-contents ] with-input-stream
+"hello" <string-reader> [ read-contents . ] with-input-stream
 ! => "hello"   (the reader is disposed before this line returns)
 ```
 

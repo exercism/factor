@@ -11,6 +11,7 @@ class.
 error you can later inspect:
 
 ```factor
+! DOCTEST: SKIP
 "file not found" throw
 ```
 
@@ -29,10 +30,10 @@ If `try` finishes without throwing, `recovery` is ignored. If `try`
 throws, the error is pushed onto the stack and `recovery` is run:
 
 ```factor
-[ "boom" throw ] [ drop "caught" ] recover
+[ "boom" throw ] [ drop "caught" ] recover .
 ! => "caught"
 
-[ "ok" ] [ drop "never runs" ] recover
+[ "ok" ] [ drop "never runs" ] recover .
 ! => "ok"
 ```
 
@@ -50,6 +51,7 @@ quotation only when the top of stack is truthy:
 instance and throws it:
 
 ```factor
+! DOCTEST: SKIP
 ERROR: not-found path ;
 
 "/missing" not-found

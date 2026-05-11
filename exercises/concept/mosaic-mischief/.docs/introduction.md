@@ -16,7 +16,7 @@ time.
   [`vectors`][vectors]) preallocates capacity for `n` elements.
 
 ```factor
-USING: arrays kernel vectors ;
+USING: arrays kernel prettyprint vectors ;
 
 5 0 <array> .   ! => { 0 0 0 0 0 }
 V{ } clone .    ! => V{ }
@@ -37,11 +37,11 @@ element at position `i`. Both return nothing on the stack — the
 mutation is the effect.
 
 ```factor
-USING: arrays kernel math sequences ;
+USING: arrays kernel math prettyprint sequences ;
 
 5 0 <array>                 ! { 0 0 0 0 0 }
 7 2 pick set-nth            ! mutates: position 2 becomes 7
-[ 1 + ] 0 pick change-nth   ! mutates: position 0 += 1
+0 over [ 1 + ] change-nth   ! mutates: position 0 += 1
 .                           ! => { 1 0 7 0 0 }
 ```
 
@@ -73,7 +73,7 @@ array, `>array ( seq -- array )` (in [`arrays`][arrays]) returns a
 new array with the same elements:
 
 ```factor
-USING: arrays kernel sequences vectors ;
+USING: arrays kernel prettyprint sequences vectors ;
 
 V{ "alice" "bob" "carol" } >array .
 ! => { "alice" "bob" "carol" }
@@ -87,7 +87,7 @@ sequence and you're about to change it, `clone` (in
 caller's view doesn't shift under them:
 
 ```factor
-USING: kernel ;
+USING: kernel prettyprint ;
 
 V{ "a" "b" "c" } clone .    ! => V{ "a" "b" "c" }   (a fresh copy)
 ```

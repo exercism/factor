@@ -73,10 +73,12 @@ lock at a time. `with-lock` acquires, runs the quotation,
 releases — even if the quotation throws.
 
 ```factor
-USING: concurrency.locks kernel ;
+! DOCTEST: SKIP   (`:>` only works inside [let, [|, or :: forms)
+USING: concurrency.locks kernel locals ;
 
-<lock> :> guard
-guard [ ! exclusive section ! ] with-lock
+[let <lock> :> guard
+    guard [ ! exclusive section ! ] with-lock
+]
 ```
 
 Use a lock whenever a value is *read or written by more than one

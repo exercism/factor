@@ -22,6 +22,7 @@ USING: locals ;
 Compare with the stack-shuffling version:
 
 ```factor
+! DOCTEST: SKIP   (shown for comparison — would re-define hypotenuse)
 : hypotenuse ( a b -- c )
     [ sq ] bi@ + sqrt ;
 ```

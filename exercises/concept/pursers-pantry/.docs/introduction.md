@@ -8,11 +8,12 @@ Hashtables in Factor are *associative arrays* — collections of
 
 ```factor
 H{ { "coal" 1 } { "wood" 2 } } .
-! => H{ { "coal" 1 } { "wood" 2 } }
 ```
 
 `H{ }` is an empty hashtable. Unlike arrays, hashtables are *mutable*
-— `clone` first if you need to leave the original alone.
+— `clone` first if you need to leave the original alone. Printing a
+hashtable shows its entries, but the order isn't tied to insertion
+order — hashtables are unordered.
 
 ## Reading
 
@@ -41,7 +42,7 @@ change-at  ( key assoc quot: ( old -- new ) -- )
 ```
 
 ```factor
-H{ } clone "coal" over [ 5 swap set-at ] keep .
+H{ } clone 5 "coal" pick set-at .
 ! => H{ { "coal" 5 } }
 ```
 

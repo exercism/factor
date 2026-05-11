@@ -6,6 +6,7 @@ values from the stack and pushes its result, and the next word picks
 up where the previous left off. So defining
 
 ```factor
+! DOCTEST: SKIP   (cleanupname is hypothetical here — the exercise's job)
 : firstletter ( name -- letter ) cleanupname first 1string ;
 ```
 
@@ -52,7 +53,7 @@ references into a callable quotation:
 ```factor
 USING: quotations sequences ;
 
-{ 1 [ 2 + ] [ 3 * ] } concat >quotation call .   ! => 9
+{ [ 1 ] [ 2 + ] [ 3 * ] } concat >quotation call .   ! => 9
 ```
 
 ## Applying one quotation to two inputs

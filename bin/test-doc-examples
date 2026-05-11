@@ -1,0 +1,273 @@
+#!/usr/bin/env python3
+"""Doc-test for Factor introduction.md examples.
+
+Extracts ```factor blocks from concepts/*/introduction.md and
+exercises/concept/*/.docs/introduction.md, runs each *file*'s blocks
+back-to-back inside the test-runner's Factor, and checks that the
+`! => ...` lines appear as a subsequence of Factor's actual stdout.
+
+Lines look like:
+    "hello" length .       ! => 5            (inline)
+    5 [ 2 * ] keep .s
+    ! => 10                                   (multi-line .s output)
+    ! => 5
+
+Trailing prose separated by 2+ spaces and wrapped in `(...)` is
+stripped: `! => 1/2     (a proper ratio)` → expected output `1/2`.
+
+The subsequence check lets a block include unasserted demo lines
+(common: `H{ ... } .` with no `! =>`, since hashtable iteration order
+isn't pinned). Out-of-order or wrong output still fails.
+
+Blocks within a file are tested as one Factor session so that later
+blocks see earlier definitions (e.g. a TUPLE: in block 0, used in
+block 1). A sentinel print between blocks lets us localise failures.
+
+If *no* block in a file declares its own `USING:` we prepend a
+generous default. (Mixing the default with a per-block `USING:`
+provokes ambiguous-word errors — e.g. `ascii` and `unicode` both
+define `blank?` / `LETTER?` — so we trust the doc once it declares
+anything.) If no block declares `IN:` we inject `IN: doctest` so
+SYMBOL:/:/TUPLE: definitions work.
+
+To explicitly skip an untestable block (e.g. one that demonstrates a
+`throw` outside a `recover`), put `! DOCTEST: SKIP` anywhere in the
+block. Skipped blocks contribute neither setup nor assertions.
+"""
+from __future__ import annotations
+
+import argparse
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+from dataclasses import dataclass, field
+from pathlib import Path
+
+IMAGE = "exercism/factor-test-runner"
+
+DEFAULT_USING = (
+    "kernel math math.functions math.order math.parser math.statistics "
+    "math.bitwise math.primes sequences strings arrays vectors hashtables "
+    "assocs combinators continuations splitting ascii prettyprint "
+    "io io.streams.string namespaces quotations literals fry"
+)
+
+SENTINEL = "###BLOCK-END###"
+
+FACTOR_BLOCK_RE = re.compile(r"```factor\n(.*?)```", re.DOTALL)
+EXPECTED_RE = re.compile(r"^(?P<code>.*?)\s*!\s*=>\s*(?P<exp>.*)$")
+TRAILING_PROSE_RE = re.compile(r"\s{2,}\(.*\)\s*$")
+HAS_DIRECTIVE_RE = re.compile(r"^\s*(?:USING:|USE:|IN:)\s", re.MULTILINE)
+HAS_IN_RE = re.compile(r"^\s*IN:\s", re.MULTILINE)
+HAS_USING_RE = re.compile(r"^\s*(?:USING:|USE:)\s", re.MULTILINE)
+
+
+@dataclass
+class Block:
+    file_index: int
+    block_index: int
+    code: str
+    expected: list[str]
+    skip: bool = False
+
+
+@dataclass
+class IntroFile:
+    path: Path
+    blocks: list[Block] = field(default_factory=list)
+
+
+def iter_intro_files(repo: Path):
+    yield from sorted(repo.glob("concepts/*/introduction.md"))
+    yield from sorted(repo.glob("exercises/concept/*/.docs/introduction.md"))
+
+
+def split_block(body: str) -> tuple[str, list[str]]:
+    code_lines: list[str] = []
+    expected: list[str] = []
+    for line in body.splitlines():
+        stripped = line.strip()
+        if not stripped:
+            code_lines.append(line)
+            continue
+        m = EXPECTED_RE.match(line)
+        if m:
+            exp = m.group("exp").rstrip()
+            exp = TRAILING_PROSE_RE.sub("", exp).rstrip()
+            expected.append(exp)
+            code_part = m.group("code").rstrip()
+            if code_part:
+                code_lines.append(code_part)
+            continue
+        if stripped.startswith("!"):
+            continue
+        code_lines.append(line)
+    return "\n".join(code_lines).rstrip() + "\n", expected
+
+
+SKIP_RE = re.compile(r"^\s*!\s*DOCTEST:\s*SKIP\b", re.IGNORECASE | re.MULTILINE)
+
+
+def collect(repo: Path) -> list[IntroFile]:
+    files: list[IntroFile] = []
+    for path in iter_intro_files(repo):
+        intro = IntroFile(path=path.relative_to(repo))
+        txt = path.read_text()
+        for bi, m in enumerate(FACTOR_BLOCK_RE.finditer(txt)):
+            raw = m.group(1)
+            skip = bool(SKIP_RE.search(raw))
+            code, expected = split_block(raw)
+            intro.blocks.append(Block(
+                file_index=len(files),
+                block_index=bi,
+                code=code,
+                expected=expected,
+                skip=skip,
+            ))
+        # Only include the file if it has at least one testable (asserting) block
+        if any(b.expected and not b.skip for b in intro.blocks):
+            files.append(intro)
+    return files
+
+
+def compose_program(intro: IntroFile) -> str:
+    parts: list[str] = []
+    live_blocks = [b for b in intro.blocks if not b.skip]
+    # Only prepend default USING if no block declares its own — otherwise the
+    # default and the doc's declared imports can collide on ambiguous words
+    # (e.g. ascii + unicode both define `LETTER?` / `blank?`).
+    any_using = any(HAS_USING_RE.search(b.code) for b in live_blocks)
+    needs_in = any(not HAS_IN_RE.search(b.code) for b in live_blocks)
+    if any_using:
+        # We still need `print` for the sentinel. `io` rarely conflicts.
+        parts.append("USING: io ;")
+    else:
+        parts.append(f"USING: {DEFAULT_USING} ;")
+    if needs_in:
+        parts.append("IN: doctest")
+    parts.append("")
+    for b in intro.blocks:
+        if b.skip:
+            parts.append(f'"{SENTINEL}" print')  # placeholder so indices line up
+            continue
+        parts.append(b.code.rstrip())
+        parts.append(f'"{SENTINEL}" print')
+        parts.append("")
+    return "\n".join(parts)
+
+
+def write_programs(files: list[IntroFile], out_dir: Path) -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    for fi, intro in enumerate(files):
+        (out_dir / f"file-{fi:03d}.factor").write_text(compose_program(intro))
+
+
+RUNNER_SCRIPT = r"""#!/usr/bin/env bash
+set -u
+cd /doctest
+for prog in file-*.factor; do
+    n=${prog%.factor}
+    factor "${prog}" > "${n}.actual" 2> "${n}.stderr" || true
+done
+echo done
+"""
+
+
+def run_in_container(out_dir: Path, image: str) -> None:
+    (out_dir / "run.sh").write_text(RUNNER_SCRIPT)
+    (out_dir / "run.sh").chmod(0o755)
+    subprocess.run(
+        [
+            "docker", "run", "--rm",
+            "--mount", f"type=bind,src={out_dir},dst=/doctest",
+            "--entrypoint", "bash",
+            image, "/doctest/run.sh",
+        ],
+        check=True,
+    )
+
+
+def split_actual_by_sentinel(actual: str) -> list[list[str]]:
+    segments: list[list[str]] = [[]]
+    for line in actual.splitlines():
+        if line.strip() == SENTINEL:
+            segments.append([])
+        else:
+            if line.strip():
+                segments[-1].append(line.rstrip())
+    return segments
+
+
+def is_subsequence(expected: list[str], actual: list[str]) -> bool:
+    i = 0
+    for line in actual:
+        if i < len(expected) and line == expected[i]:
+            i += 1
+    return i == len(expected)
+
+
+def report(files: list[IntroFile], out_dir: Path) -> int:
+    failures = 0
+    total = 0
+    for fi, intro in enumerate(files):
+        actual_path = out_dir / f"file-{fi:03d}.actual"
+        stderr_path = out_dir / f"file-{fi:03d}.stderr"
+        actual_text = actual_path.read_text() if actual_path.exists() else ""
+        stderr_text = stderr_path.read_text() if stderr_path.exists() else ""
+        segments = split_actual_by_sentinel(actual_text)
+        for bi, block in enumerate(intro.blocks):
+            if block.skip or not block.expected:
+                continue
+            total += 1
+            expected = [e for e in block.expected if e.strip()]
+            seg = segments[bi] if bi < len(segments) else []
+            if is_subsequence(expected, seg):
+                print(f"PASS  {intro.path}  block #{block.block_index}")
+                continue
+            failures += 1
+            print(f"FAIL  {intro.path}  block #{block.block_index}")
+            print("  expected (subseq of actual):")
+            for line in expected:
+                print(f"    {line!r}")
+            print("  actual:")
+            for line in seg:
+                print(f"    {line!r}")
+            if stderr_text.strip():
+                print("  stderr (file):")
+                for line in stderr_text.splitlines()[:6]:
+                    print(f"    {line}")
+    print(f"\n{total - failures}/{total} blocks pass ({len(files)} files)")
+    return failures
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--repo", default=".", help="Path to track repo (default: cwd)")
+    ap.add_argument("--image", default=IMAGE, help="Docker image to use")
+    ap.add_argument("--keep", action="store_true", help="Keep tmp dir for debugging")
+    args = ap.parse_args()
+
+    repo = Path(args.repo).resolve()
+    files = collect(repo)
+    blocks = sum(len(f.blocks) for f in files)
+    print(f"collected {blocks} testable blocks across {len(files)} files")
+    if not blocks:
+        return 0
+
+    tmp = Path(tempfile.mkdtemp(prefix="doctest-"))
+    try:
+        write_programs(files, tmp)
+        run_in_container(tmp, args.image)
+        failures = report(files, tmp)
+    finally:
+        if args.keep:
+            print(f"kept artifacts in {tmp}")
+        else:
+            shutil.rmtree(tmp, ignore_errors=True)
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

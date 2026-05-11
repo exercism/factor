@@ -6,7 +6,7 @@ Factor's error system has three pieces: `throw` (in
 a tuple-typed error class.
 
 ```factor
-"file not found" throw         ! raises a string as the error
+! "file not found" throw          (raises a string as the error)
 
 [ "boom" throw ] [ drop "caught" ] recover .
 ! => "caught"
@@ -19,6 +19,7 @@ throws, the error is pushed and the *recovery* quotation runs.
 throws a fresh instance:
 
 ```factor
+! DOCTEST: SKIP
 ERROR: not-found path ;
 
 "/missing" not-found

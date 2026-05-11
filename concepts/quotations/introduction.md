@@ -24,5 +24,5 @@ tokens to operations — the result is a sequence; pass it through
 `>quotation` to make it callable:
 
 ```factor
-{ 1 [ 2 + ] [ 3 * ] } concat >quotation call .   ! => 9
+{ [ 1 ] [ 2 + ] [ 3 * ] } concat >quotation call .   ! => 9
 ```
