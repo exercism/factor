@@ -759,14 +759,10 @@
           "numbers"
         ],
         "prerequisites": [
-          "strings",
-          "numbers",
-          "unicode",
-          "sequences",
           "higher-order-sequences",
-          "case",
-          "indexed-iteration",
-          "locals"
+          "mutation",
+          "reductions",
+          "tabulation"
         ],
         "difficulty": 3
       },
