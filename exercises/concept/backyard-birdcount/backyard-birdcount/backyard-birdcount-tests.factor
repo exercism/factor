@@ -1,4 +1,4 @@
-USING: backyard-birdcount exercism-tools tools.test ;
+USING: backyard-birdcount exercism-tools kernel tools.test ;
 IN: backyard-birdcount.tests
 
 TASK: 1 today
@@ -13,6 +13,7 @@ TASK: 2 increment-day-count
 { { 5 0 2 } } [ { 4 0 2 } increment-day-count ] unit-test
 { { 1 } } [ { } increment-day-count ] unit-test
 { { 1 0 } } [ { 0 0 } increment-day-count ] unit-test
+{ { 4 0 2 } } [ { 4 0 2 } clone dup increment-day-count drop ] unit-test
 
 TASK: 3 has-day-without-birds?
 { t } [ { 2 0 4 } has-day-without-birds? ] unit-test
