@@ -24,7 +24,7 @@ Introduce a complete novice to Factor by way of a tiny cooking-themed exercise. 
 
 ## Concepts
 
-- `stack-effect`: every Factor word is documented as `( inputs -- outputs )` and its body must leave exactly that on the stack. This exercise is a student's first encounter with the notation and the calling convention behind it.
+- `basics`: every Factor word is documented as `( inputs -- outputs )` and its body must leave exactly that on the stack. This exercise is a student's first encounter with the notation and the calling convention behind it.
 
 ## Prerequisites
 

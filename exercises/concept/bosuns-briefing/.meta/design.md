@@ -16,7 +16,7 @@ ties vocabulary names to file paths.
 
 ## Prerequisite concepts
 
-- `stack-effect` — basic word definition syntax (`: ;`)
+- `basics` — basic word definition syntax (`: ;`)
 - `strings` — the helpers and main both work with strings
 - `sequences` — `map`, array literals
 - `higher-order-sequences` — `[ word ] map` pattern

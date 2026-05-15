@@ -27,4 +27,4 @@ twos-complement values.
 
 ## Prerequisites
 
-- `stack-effect` — taught in `lasagna`.
+- `basics` — taught in `lasagna`.

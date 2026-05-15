@@ -13,12 +13,13 @@ themselves with `unclip` to peel off one element at a time.
 - Use `cond` for multi-way branching inside a recursion.
 - Use `unclip` and `rest` to advance to the next sub-problem.
 - Build sequences with `prefix`.
+- Use `DEFER:` to forward-declare a word, enabling mutual recursion
+  or out-of-order definitions.
 
 ## Out of scope
 
 - The `recursive` modifier on inline words (these `:` definitions
   don't need it).
-- Mutual recursion.
 - Tail-call optimisation specifics.
 
 ## Concepts

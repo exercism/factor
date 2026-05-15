@@ -200,6 +200,7 @@ def parse_solution(paths):
 # tokens (so they never appear in the per-word "unknown" list), so we
 # need an explicit presence check.
 LOCALS_SYNTAX = re.compile(r'(?:^|\s)(?:::|:>|\[\|)(?:\s|$)')
+DEFER_SYNTAX = re.compile(r'(?:^|\s)DEFER:(?:\s|$)')
 
 
 def reachable_concepts(prereqs):
@@ -216,6 +217,8 @@ def syntax_violations(text, reachable):
     violations = []
     if LOCALS_SYNTAX.search(text) and 'locals' not in reachable:
         violations.append('<missing locals prereq>')
+    if DEFER_SYNTAX.search(text) and 'recursion' not in reachable:
+        violations.append('<missing recursion prereq for DEFER:>')
     return violations
 
 

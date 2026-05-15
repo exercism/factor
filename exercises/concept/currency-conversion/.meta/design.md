@@ -23,4 +23,4 @@ Introduce floating-point numbers, integer division, and remainder, building on t
 
 ## Prerequisites
 
-- `stack-effect` — taught in `lasagna`.
+- `basics` — taught in `lasagna`.

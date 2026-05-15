@@ -24,6 +24,6 @@ Introduce quotations and the everyday combinators (`call`, `compose`, `bi@`) by 
 
 ## Prerequisites
 
-- `stack-effect` — taught in `lasagna`.
+- `basics` — taught in `lasagna`.
 
 The exercise also leans on a few string words (`replace`, `[ blank? ] trim`, `1string`, `>upper`, `append`, `glue`, `surround`). These are introduced inline in the exercise's introduction — a dedicated `strings` concept exercise would naturally come first, but the words used here are simple enough to teach in passing.

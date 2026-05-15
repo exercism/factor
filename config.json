@@ -36,7 +36,7 @@
         "name": "Leah's Luscious Lasagna",
         "uuid": "a35d8564-a135-4930-9497-c47ae93857a5",
         "concepts": [
-          "stack-effect"
+          "basics"
         ],
         "prerequisites": [],
         "status": "beta"
@@ -49,7 +49,7 @@
           "booleans"
         ],
         "prerequisites": [
-          "stack-effect"
+          "basics"
         ],
         "status": "beta"
       },
@@ -61,7 +61,7 @@
           "numbers"
         ],
         "prerequisites": [
-          "stack-effect"
+          "basics"
         ],
         "status": "beta"
       },
@@ -86,7 +86,7 @@
           "strings"
         ],
         "prerequisites": [
-          "stack-effect",
+          "basics",
           "conditionals"
         ],
         "status": "beta"
@@ -112,7 +112,7 @@
           "quotations"
         ],
         "prerequisites": [
-          "stack-effect",
+          "basics",
           "strings"
         ],
         "status": "beta"
@@ -125,7 +125,7 @@
           "combinators"
         ],
         "prerequisites": [
-          "stack-effect",
+          "basics",
           "numbers",
           "quotations"
         ],
@@ -139,7 +139,7 @@
           "bitwise-operations"
         ],
         "prerequisites": [
-          "stack-effect",
+          "basics",
           "combinators"
         ],
         "status": "beta"
@@ -166,7 +166,7 @@
           "sequences"
         ],
         "prerequisites": [
-          "stack-effect",
+          "basics",
           "conditionals",
           "tabulation"
         ],
@@ -443,7 +443,7 @@
           "vocabularies"
         ],
         "prerequisites": [
-          "stack-effect",
+          "basics",
           "strings",
           "sequences",
           "higher-order-sequences",
@@ -487,7 +487,7 @@
         "name": "Hello World",
         "uuid": "c81c4175-f06b-404d-8c01-c4a6dba661d3",
         "practices": [
-          "stack-effect"
+          "basics"
         ],
         "prerequisites": [],
         "difficulty": 1
@@ -1585,8 +1585,8 @@
   "concepts": [
     {
       "uuid": "6e1147b6-2233-44b8-b482-c799b576b5c6",
-      "slug": "stack-effect",
-      "name": "Stack Effect"
+      "slug": "basics",
+      "name": "Basics"
     },
     {
       "uuid": "0d1fdab4-81f4-45dc-b09b-3ddd4f63f58f",

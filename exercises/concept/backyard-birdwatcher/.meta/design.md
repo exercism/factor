@@ -27,6 +27,6 @@ counts.
 
 ## Prerequisites
 
-- `stack-effect` — taught in `lasagna`.
+- `basics` — taught in `lasagna`.
 - `conditionals` — taught in `cars-assemble`. Needed for the `>=`
   predicate inside `count`.

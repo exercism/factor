@@ -85,5 +85,22 @@ prefix ( seq elt -- newseq )
 ! => { 3 7 9 }
 ```
 
+## Forward references with `DEFER:`
+
+A `:` definition can call itself directly, but when two words call
+*each other* the parser sees the first one before the second
+exists. `DEFER:` reserves a name so the first definition can
+compile:
+
+```factor
+DEFER: even?
+
+: odd? ( n -- ? ) dup 0 = [ drop f ] [ 1 - even? ] if ;
+: even? ( n -- ? ) dup 0 = [ drop t ] [ 1 - odd? ] if ;
+```
+
+`DEFER:` is also handy when a helper word is more naturally read
+*after* the word that uses it.
+
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [combinators]: https://docs.factorcode.org/content/vocab-combinators.html

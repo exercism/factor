@@ -26,7 +26,7 @@ joining — by parsing simple `[LEVEL]: message` log lines.
 
 ## Prerequisites
 
-- `stack-effect` — taught in `lasagna`.
+- `basics` — taught in `lasagna`.
 - `conditionals` — taught in `cars-assemble` (the student doesn't
   strictly need conditionals here, but the prereq pins this exercise
   later in the curriculum, after the easier numeric exercises).
