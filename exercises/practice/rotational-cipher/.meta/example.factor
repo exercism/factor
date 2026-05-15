@@ -1,14 +1,15 @@
-USING: kernel locals math math.order sequences strings unicode ;
+USING: combinators fry kernel math math.order sequences ;
 IN: rotational-cipher
 
-:: rotate-char ( ch key base -- ch' )
-    ch base - key + 26 mod base + ;
+: shift-from ( base ch shift -- ch' )
+    swap pick - + 26 mod + ;
 
-:: rotate ( text key -- cipher )
-    text [| ch |
-        ch CHAR: a CHAR: z between? [ ch key CHAR: a rotate-char ] [
-            ch CHAR: A CHAR: Z between? [ ch key CHAR: A rotate-char ] [
-                ch
-            ] if
-        ] if
-    ] map ;
+: shift-char ( ch shift -- ch' )
+    {
+        { [ over CHAR: a CHAR: z between? ] [ [ CHAR: a ] 2dip shift-from ] }
+        { [ over CHAR: A CHAR: Z between? ] [ [ CHAR: A ] 2dip shift-from ] }
+        [ drop ]
+    } cond ;
+
+: rotate ( text shift -- cipher )
+    '[ _ shift-char ] map ;

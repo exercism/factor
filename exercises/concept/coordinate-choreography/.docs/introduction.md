@@ -55,13 +55,22 @@ each `_` is replaced by a value taken off the data stack, in order:
 ! => [ 2 3 + + ]
 ```
 
+Both `curry` and fry *consume* their values from the stack the
+moment the closure is built. The line above leaves nothing on the
+stack and is a direct replacement for `[ + + ] curry curry`.
+
+Placeholders are filled left-to-right with stack values
+bottom-to-top: `2 3 '[ _ _ ]` is `[ 2 3 ]`, not `[ 3 2 ]`.
+
 Fry also reaches *into* nested quotations, which lets you place the
 captured values exactly where you want them:
 
 ```factor
-3 '[ [ _ + ] map ] { 1 2 3 } swap call( s -- s ) .
-! => { 4 5 6 }
+2 '[ [ _ > ] filter ] { 1 2 3 4 5 } swap call( s -- s ) .
+! => { 3 4 5 }
 ```
+
+The `_` sits inside the inner `[ … ]`, but fry still fills it.
 
 ## `call` with a declared effect
 
@@ -69,7 +78,10 @@ When you ultimately run a stored quotation, declare its stack effect
 on `call` so the compiler can type-check it:
 
 ```factor
-{ 1 2 } [ first2 + ] call( p -- n ) .
+{ 3 4 5 } [ first2 + ] call( p -- n ) .
+! => 7
+
+{ 3 4 5 } [ first ] call( p -- n ) .
 ! => 3
 ```
 

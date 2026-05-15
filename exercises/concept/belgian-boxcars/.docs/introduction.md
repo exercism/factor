@@ -1,9 +1,10 @@
 # Introduction
 
 Sometimes you need to view a sequence as a series of *pieces*
-rather than element-by-element. The
-[`grouping`][grouping] and [`splitting`][splitting] vocabularies
-give you four ways to do that.
+rather than element-by-element. The [`grouping`][grouping],
+[`splitting`][splitting], and
+[`splitting.monotonic`][splitting.monotonic] vocabularies give
+you four ways to do that.
 
 ## `group` — disjoint chunks of size *n*
 
@@ -79,3 +80,4 @@ non-decreasing runs; and so on.
 
 [grouping]: https://docs.factorcode.org/content/vocab-grouping.html
 [splitting]: https://docs.factorcode.org/content/vocab-splitting.html
+[splitting.monotonic]: https://docs.factorcode.org/content/vocab-splitting.monotonic.html

@@ -876,13 +876,13 @@
         "name": "Rotational Cipher",
         "uuid": "dc8ef2d7-065e-4ea5-b613-6f4db433e925",
         "practices": [
-          "strings"
+          "curry-compose-fry"
         ],
         "prerequisites": [
           "curry-compose-fry",
-          "strings",
-          "unicode",
-          "locals"
+          "mutation",
+          "reductions",
+          "tabulation"
         ],
         "difficulty": 3
       },

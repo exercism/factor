@@ -36,6 +36,17 @@
   to multiply each component by its coefficient. Wrap with `+` and
   `2array` to assemble the result.
 
+## 6. Transform many points at once
+
+- `map` (in [`sequences`][sequences]) walks the sequence and
+  applies a quotation to each element.
+- That per-element quotation needs to know which transformation
+  to use — same `curry`-or-fry capture you used in tasks 1 and 2,
+  just applied at the per-element level instead of the whole
+  transformation.
+- `apply-transformation` from task 4 is the natural body.
+
 [arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [math.vectors]: https://docs.factorcode.org/content/vocab-math.vectors.html
+[sequences]: https://docs.factorcode.org/content/vocab-sequences.html
