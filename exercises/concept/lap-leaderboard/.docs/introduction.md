@@ -37,15 +37,16 @@ into a new sequence of the same kind as the input.
 
 ## `times` — counted iteration
 
+`times` (in [`math`][math]) runs its quotation `n` times.
+
 ```
 times ( n quot: ( -- ) -- )
 ```
 
-`times` runs its quotation `n` times. The published `( -- )`
-shape is the *minimum* — because `times` is `inline`, an
-effect-balanced quotation like `( str -- str )` works fine, and
-the stack is threaded across iterations. That gives you a
-counted accumulator without any mutable state:
+The published `( -- )` shape is the *minimum* — because `times`
+is `inline`, an effect-balanced quotation like `( str -- str )`
+works fine, and the stack is threaded across iterations. That
+gives you a counted accumulator without any mutable state:
 
 ```factor
 USING: kernel sequences ;
@@ -58,4 +59,5 @@ and leaves the new string on the stack for the next iteration.
 The same trick works for `each-index` and `map-index` when you
 want to thread an accumulator through.
 
+[math]: https://docs.factorcode.org/content/vocab-math.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html

@@ -4,7 +4,7 @@
   "active": false,
   "status": {
     "concept_exercises": true,
-    "test_runner": true,
+    "test_runner": false,
     "representer": false,
     "analyzer": false
   },
@@ -281,7 +281,7 @@
         "prerequisites": [
           "conditionals",
           "numbers",
-          "combinators",
+          "mutation",
           "curry-compose-fry"
         ],
         "status": "beta"
