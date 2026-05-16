@@ -15,6 +15,7 @@
 #      exercise (or warned if taught by zero).
 #   5. UUIDs are unique across all exercises and concepts.
 #   6. Every practice exercise's prereq is a known concept.
+#   7. Every concept exercise has a .meta/design.md.
 #
 # Exits 0 if everything is clean, 1 otherwise.
 #
@@ -134,6 +135,12 @@ def main():
                     f'"{req}" which is not taught and not in the '
                     f'top-level concepts list'
                 )
+
+    # Check 7: every concept exercise has a .meta/design.md
+    for ex in concept_exes:
+        p = ROOT / 'exercises' / 'concept' / ex['slug'] / '.meta' / 'design.md'
+        if not p.exists():
+            errors.append(f'{ex["slug"]}: missing .meta/design.md')
 
     # Report
     for w in warnings:

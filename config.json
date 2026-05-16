@@ -299,6 +299,21 @@
         "status": "beta"
       },
       {
+        "slug": "bosuns-briefing",
+        "name": "Bosun's Briefing",
+        "uuid": "20789ff9-130c-4ded-bbcc-567f23bffef3",
+        "concepts": [
+          "vocabularies"
+        ],
+        "prerequisites": [
+          "basics",
+          "strings",
+          "sequences",
+          "higher-order-sequences"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "pursers-pantry",
         "name": "Purser's Pantry",
         "uuid": "9e2b4530-20bc-45e7-95ac-1d93f94e258b",
@@ -310,7 +325,8 @@
           "quotations",
           "higher-order-sequences",
           "combinators",
-          "curry-compose-fry"
+          "curry-compose-fry",
+          "vocabularies"
         ],
         "status": "beta"
       },
@@ -327,7 +343,8 @@
           "assocs",
           "errors",
           "combinators",
-          "curry-compose-fry"
+          "curry-compose-fry",
+          "vocabularies"
         ],
         "status": "beta"
       },
@@ -436,22 +453,6 @@
         "status": "beta"
       },
       {
-        "slug": "bosuns-briefing",
-        "name": "Bosun's Briefing",
-        "uuid": "20789ff9-130c-4ded-bbcc-567f23bffef3",
-        "concepts": [
-          "vocabularies"
-        ],
-        "prerequisites": [
-          "basics",
-          "strings",
-          "sequences",
-          "higher-order-sequences",
-          "locals"
-        ],
-        "status": "beta"
-      },
-      {
         "slug": "quayside-crew",
         "name": "Quayside Crew",
         "uuid": "e520b985-797e-42b6-a366-990db2d58796",
@@ -476,7 +477,8 @@
           "tuples",
           "generics",
           "while",
-          "sequences"
+          "sequences",
+          "vocabularies"
         ],
         "status": "beta"
       }
@@ -1684,6 +1686,11 @@
       "name": "Errors"
     },
     {
+      "uuid": "7d0efe1a-289d-4882-a9ae-e18b0cd7b64e",
+      "slug": "vocabularies",
+      "name": "Vocabularies"
+    },
+    {
       "uuid": "4005989e-fe6b-43d8-9406-b48e0212e8ea",
       "slug": "assocs",
       "name": "Assocs"
@@ -1727,11 +1734,6 @@
       "uuid": "e9c2a584-0c03-467f-9781-38754f06dd1a",
       "slug": "generics",
       "name": "Generics"
-    },
-    {
-      "uuid": "7d0efe1a-289d-4882-a9ae-e18b0cd7b64e",
-      "slug": "vocabularies",
-      "name": "Vocabularies"
     },
     {
       "uuid": "4b136c82-48c0-4dd6-859d-e5e76c898540",

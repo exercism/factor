@@ -26,3 +26,5 @@ inventory.
 
 - `sequences` — taught in `backyard-birdwatcher`.
 - `quotations` — introduced in `high-school-sweetheart`.
+- `vocabularies` — taught in `bosuns-briefing`. Reinforces the
+  factoring discipline before tackling a multi-task exercise.

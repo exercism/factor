@@ -39,8 +39,6 @@
   roster of the input names, and the closing.
 - `3array` (from `arrays`) packages the three values into a
   single array, ready for `"\n" join`.
-- Locals make this readable:
-  ```factor
-  :: briefing ( names -- str )
-      greeting names roster closing 3array "\n" join ;
-  ```
+- Use `[ greeting ] dip` to push the greeting *below* the names
+  already on the stack, then run `roster` on the names and
+  `closing` after — leaving three strings ready for `3array`.

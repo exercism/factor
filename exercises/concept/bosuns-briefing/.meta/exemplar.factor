@@ -1,8 +1,7 @@
-USING: arrays bosuns-briefing.helpers kernel locals sequences
-splitting ;
+USING: arrays bosuns-briefing.helpers kernel sequences splitting ;
 IN: bosuns-briefing
 
 : roster ( names -- str ) [ crew-line ] map "\n" join ;
 
-:: briefing ( names -- str )
-    greeting names roster closing 3array "\n" join ;
+: briefing ( names -- str )
+    [ greeting ] dip roster closing 3array "\n" join ;

@@ -22,6 +22,9 @@ mixins, and the `disposable` parent + `dispose*` cleanup hook.
 - `while` — the `stream-read1` body loops until it sees a Morse
   symbol or end-of-stream
 - `sequences` — `member?` to test the Morse alphabet
+- `vocabularies` — the stream protocol generics live in a
+  separate vocab from the tuple, so the student gets practice
+  picking the right `USING:` lines
 
 ## Why a filtering input stream
 

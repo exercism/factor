@@ -20,7 +20,6 @@ ties vocabulary names to file paths.
 - `strings` — the helpers and main both work with strings
 - `sequences` — `map`, array literals
 - `higher-order-sequences` — `[ word ] map` pattern
-- `locals` — `::` makes the briefing definition cleaner
 
 ## Why two files
 

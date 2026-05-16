@@ -27,3 +27,6 @@ represented as an array.
 
 - `sequences` — taught in `backyard-birdwatcher`.
 - `quotations` — introduced in `high-school-sweetheart`.
+- `vocabularies` — taught in `bosuns-briefing`. The calculator
+  benefits from factoring the dispatch table and stack-evaluator
+  into separate helper words.
