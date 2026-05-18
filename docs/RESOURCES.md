@@ -4,7 +4,6 @@
 * [Andrea Ferretti's Factor tutorial][ferretti-tutorial].
 * "[Factor in 2022][factor-in-2022]", a talk by John Benediktsson and Doug Coleman.
 * *[Thinking Forth][thinking-forth]* by Leo Brodie — on the concatenative, stack-oriented mindset.
-* The [Factor GitHub Repository Wiki][github-wiki].
 * [Björn Lindqvist's Factor Playground][playground-factor].
 * [Learn X in Y Minutes, where X = Factor][learn-x-in-y-minutes].
 * [Factor on RosettaCode][rosetta-code].
@@ -21,7 +20,6 @@
 [ferretti-tutorial]: https://andreaferretti.github.io/factor-tutorial/
 [factor-in-2022]: https://www.youtube.com/watch?v=OLh61q4c4XE
 [thinking-forth]: https://thinking-forth.sourceforge.net/
-[github-wiki]: https://github.com/factor/factor/wiki
 [playground-factor]: https://github.com/bjourne/playground-factor
 [learn-x-in-y-minutes]: https://learnxinyminutes.com/docs/factor
 [rosetta-code]: https://rosettacode.org/wiki/Category:Factor

@@ -10,10 +10,10 @@ run from this exercise's directory:
 factor -roots=. -run=exercism-tools <exercise-slug>
 ```
 
-For example, for `annalyns-infiltration`:
+For example, for `hello-world`:
 
 ```
-factor -roots=. -run=exercism-tools annalyns-infiltration
+factor -roots=. -run=exercism-tools hello-world
 ```
 
 Each exercise ships a small bundled `exercism-tools` vocabulary
@@ -49,7 +49,7 @@ exercism submit <exercise-slug>/<exercise-slug>.factor
 For example:
 
 ```
-exercism submit annalyns-infiltration/annalyns-infiltration.factor
+exercism submit hello-world/hello-world.factor
 ```
 
 If the exercise's `.meta/config.json` lists more than one
@@ -69,8 +69,7 @@ mentor feedback on whatever you have so far.
   is the best place for track-specific questions and feedback.
 - The [Exercism Discord](https://exercism.org/r/discord) has
   channels for both general help and individual tracks.
-- [Factor's official documentation](https://docs.factorcode.org/)
-  is searchable and exhaustive. Two good entry points:
+- Factor's official documentation is searchable and exhaustive. Two good entry points:
   - [The Factor handbook](https://docs.factorcode.org/content/article-handbook.html)
     — reference-style, organised by vocabulary.
   - [The Factor cookbook](https://docs.factorcode.org/content/article-cookbook.html)

@@ -10,8 +10,6 @@ There are many great resources for learning Factor.
 
 * Documentation is an important part of every good Factor vocabulary. Consequently, Factor's amazing and extensive docs are available offline, searchable right from the GUI Listener, or on the command line. These same docs, equally searchable, can be found online. <br /> <https://docs.factorcode.org>
 
-* Factor's GitHub repository hosts a Wiki. <br /> <https://github.com/factor/factor/wiki>
-
 * Björn Lindqvist, one of Factor's developers, has a repo full of interesting tips and tricks. It's not updated very often and is WIP (and much of its content is being moved to the GitHub Wiki), but it's still very cool stuff. <br /> <https://github.com/bjourne/playground-factor>
 
 * [Learn X in Y Minutes][learn-x-in-y-minutes] is a good resource for many languages, and Factor is no exception. Its tutorial is not *extensive* by any means, but it is a good reference and enough to get you started. <br /> <https://learnxinyminutes.com/docs/factor>
@@ -19,8 +17,6 @@ There are many great resources for learning Factor.
 * [Rosetta Code][rosetta-code] is a [programming chrestomathy ][chrestomathy] site. On it, among the hundreds of other languages, is [Rosetta Code:Factor][rosetta-code-factor], where you can find solutions to many problems, and compare with languages you know. It also serves as a good reference and starting point for solutions. <br /> <https://rosettacode.org/wiki/Category:Factor>
 
 Lastly and maybe leastly,
-
-* The [Concatenative Wiki][concatenative-wiki]. Note that while it has good content and it's not wrong by any means, it's not really updated and [is being phased out][phasing-out] in favour of the GitHub Wiki above.
 
 * [Stack Overflow][stack-overflow]. There's not a large community (okay, about three users including yours truly) but ask there if you're really, truly stuck and someone will surely help you out.
 
@@ -40,8 +36,6 @@ Finally, Factor is written almost entirely in Factor. So, read the source code, 
 [rosetta-code]: https://rosettacode.org/wiki/Rosetta_Code
 [chrestomathy]: https://en.wikipedia.org/wiki/Chrestomathy
 [rosetta-code-factor]: https://rosettacode.org/wiki/Category:Factor
-[concatenative-wiki]: https://concatenative.org/wiki/view/Factor
-[phasing-out]: https://github.com/factor/factor/issues/706
 [stack-overflow]: https://stackoverflow.com/questions/tagged/factor-lang
 [mailing-list]: https://concatenative.org/wiki/view/Factor/Mailing%20list
 [irc-channel]: https://concatenative.org/wiki/view/Concatenative%20IRC%20channel

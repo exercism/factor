@@ -2,9 +2,14 @@
 
 The Factor track uses **Factor 0.101**. Earlier versions are not supported.
 
-You can either install a [nightly](#nightly) build (which tracks 0.101+ from `master`) or [build from source](#autobuild-from-source).
+You can install a [stable](#stable) or [nightly](#nightly) build, or [build from source](#build-from-source).
 
 Verify your installation by running `factor -e='vm-version print'` — it should print `0.101` or higher.
+
+---
+### Stable
+
+<http://factorcode.org> provides stable binaries under the "Stable release" section.
 
 ---
 ### Nightly
@@ -12,8 +17,7 @@ Verify your installation by running `factor -e='vm-version print'` — it should
 <http://factorcode.org> provides nightly binaries under the "Development release" section. These binaries are built from git, but only builds that pass are shown.
 
 ---
-
-### (Auto)build from source
+### build from source
 
 If you want the bleeding edge and even nightly is too old for you, then you will need a modern C++ compiler (GCC >=4.8 or Clang >=3.5), `make`, and `curl`.
 
@@ -65,9 +69,3 @@ Clone the [repository](https://github.com/factor/factor) and use `make` in that 
 If `make` fails with an error about a non-present target, try `make factor` or, if you can read a Makefile, find the make target for your platform in `GNUmakefile`.
 
 If *that* fails, open an issue on [factor/factor](https://github.com/factor/factor) containing the error -- the friendly developers will be happy to help.
-
----
-
-#### Stable (not recommended)
-
-**Stable releases predate Factor 0.101 and are not supported.** Use a [nightly build](#nightly) or build from source.

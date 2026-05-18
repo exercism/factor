@@ -6,10 +6,10 @@ The Factor track uses **Factor 0.101**. Each exercise ships with a bundled `exer
 factor -roots=. -run=exercism-tools <exercise-slug>
 ```
 
-For example, for the `annalyns-infiltration` exercise:
+For example, for the `hello-world` exercise:
 
 ```
-factor -roots=. -run=exercism-tools annalyns-infiltration
+factor -roots=. -run=exercism-tools hello-world
 ```
 
 The runner exits with status 0 when all tests pass, and non-zero with diagnostic output when any test fails.
