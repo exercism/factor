@@ -63,10 +63,10 @@ last2 ( seq -- penultimate last )
 ```
 
 ```factor
-{ 1 2 3 4 } 2 head* .    ! => { 1 2 }
-{ 1 2 3 4 } last2 .s
-! => 3
+{ 1 2 3 4 5 } 2 head* .    ! => { 1 2 3 }
+{ 1 2 3 4 5 } last2 .s
 ! => 4
+! => 5
 ```
 
 Together with `suffix`, that's everything you need to write a

@@ -9,12 +9,12 @@ Verify your installation by running `factor -e='vm-version print'` — it should
 ---
 ### Stable
 
-<http://factorcode.org> provides stable binaries under the "Stable release" section.
+<https://factorcode.org#stable-release> provides stable binaries under the "Stable release" section.
 
 ---
 ### Nightly
 
-<https://factorcode.org> provides nightly binaries under the "Development release" section. These binaries are built from git, but only builds that pass are shown.
+<https://factorcode.org#development-release> provides nightly binaries under the "Development release" section. These binaries are built from git, but only builds that pass are shown.
 
 ---
 ### build from source
