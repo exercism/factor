@@ -60,11 +60,23 @@ H{ } clone "coal" over inc-at .
 ! => H{ { "coal" 1 } }
 ```
 
-## Iterating with `each`
+## Applying a hashtable update across a sequence of keys
 
-Just like sequences, an `each` over a hashtable iterates *and* gives
-you a way to do something with each element. For "do this with each
-key" you can stick to sequences and pass `seq` to `each` directly.
+When the input is a sequence of keys and you want to update the
+hashtable once per key, iterate the *sequence* with `each` and use
+a fried quotation `'[ _ … ]` (from [`fry`][fry]) to bake the
+hashtable into the loop body. For example, removing a list of keys:
+
+```factor
+{ "wood" "iron" } H{ { "coal" 5 } { "wood" 3 } { "iron" 2 } } clone
+[ '[ _ delete-at ] each ] keep .
+! => H{ { "coal" 5 } }
+```
+
+`'[ _ delete-at ]` captures the hashtable above it on the stack so
+that on every iteration `each` only needs to supply the key.
+`keep` runs the quotation while preserving the hashtable for the
+final `.`.
 
 ## Converting back to a sequence
 
@@ -78,4 +90,5 @@ H{ { "wood" 11 } { "coal" 7 } } sort-keys .
 ```
 
 [assocs]: https://docs.factorcode.org/content/vocab-assocs.html
+[fry]: https://docs.factorcode.org/content/article-fry.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html

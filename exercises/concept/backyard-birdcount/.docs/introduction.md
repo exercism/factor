@@ -18,29 +18,6 @@ modifier to ask it to assume self-consistency:
 ! prints 5 4 3 2 1
 ```
 
-## Splitting a sequence into head and tail
-
-`unclip` (in [`sequences`][sequences]) peels the first element off a
-sequence:
-
-```
-unclip ( seq -- rest first )
-```
-
-```factor
-{ 4 0 9 } unclip .s
-! => { 0 9 }
-! => 4
-```
-
-`first` and `rest` give you the same two pieces *without* destructuring
-in one step:
-
-```factor
-{ 4 0 9 } first .   ! => 4
-{ 4 0 9 } rest .    ! => { 0 9 }
-```
-
 ## Empty-or-not branching
 
 `if-empty` (in [`sequences`][sequences]) is the natural recursion
@@ -70,19 +47,6 @@ When your recursion has more than two cases, `cond` (in
         { [ dup 0 = ] [ drop "zero"     ] }
         [ drop "positive" ]
     } cond ;
-```
-
-## `prefix` — building a sequence
-
-`prefix` (in [`sequences`][sequences]) is `suffix` from the other end:
-
-```
-prefix ( seq elt -- newseq )
-```
-
-```factor
-{ 7 9 } 3 prefix .
-! => { 3 7 9 }
 ```
 
 ## Forward references with `DEFER:`

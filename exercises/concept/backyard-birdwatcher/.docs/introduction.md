@@ -131,14 +131,28 @@ empty? ( seq -- ? )
 
 ## Building a new sequence
 
-`unclip-last` peels the final element off a sequence; `suffix` adds
-one to the end. Combining them gives a non-destructive update of the
-last element:
+`suffix` adds an element to the end of a sequence; `prefix` adds one
+to the front. `unclip` peels off the first element and `unclip-last`
+peels off the last:
 
 ```
-unclip-last ( seq -- butlast last )
+prefix      ( seq elt -- newseq )
 suffix      ( seq elt -- newseq )
+unclip      ( seq -- rest first )
+unclip-last ( seq -- butlast last )
 ```
+
+```factor
+{ 7 9 } 3 prefix .             ! => { 3 7 9 }
+{ 7 9 } 3 suffix .             ! => { 7 9 3 }
+{ 4 0 9 } unclip .s
+! => { 0 9 }
+! => 4
+```
+
+Combining `unclip-last` and `suffix` gives a non-destructive update
+of the last element (and `unclip` + `prefix` does the same for the
+first):
 
 ```factor
 { 10 20 30 } unclip-last 2 * suffix .

@@ -48,10 +48,11 @@ from pathlib import Path
 IMAGE = "exercism/factor-test-runner"
 
 DEFAULT_USING = (
-    "kernel math math.functions math.order math.parser math.statistics "
-    "math.bitwise math.primes sequences strings arrays vectors hashtables "
-    "assocs combinators continuations splitting ascii prettyprint "
-    "io io.streams.string namespaces quotations literals fry"
+    "arrays ascii assocs combinators continuations fry hashtables "
+    "io io.streams.string kernel literals math math.bitwise "
+    "math.functions math.order math.parser math.primes math.statistics "
+    "namespaces prettyprint quotations sequences sorting splitting "
+    "strings vectors"
 )
 
 SENTINEL = "###BLOCK-END###"

@@ -1,4 +1,4 @@
-# [The `tools.test` framework](http://docs.factorcode.org/content/vocab-tools.test.html)
+# [The `tools.test` framework](https://docs.factorcode.org/content/vocab-tools.test.html)
 
 Factor's built-in testing framework, rather like Factor itself, marries simplicity with unbridled power.
 
@@ -30,4 +30,4 @@ factor -roots=. -run=exercism-tools annalyns-infiltration
 
 The runner exits with status 0 when all tests pass, and non-zero with diagnostic output when any test fails.
 
-For more information, see the Factor documentation on [Unit testing](http://docs.factorcode.org/content/article-tools.test.html).
+For more information, see the Factor documentation on [Unit testing](https://docs.factorcode.org/content/article-tools.test.html).

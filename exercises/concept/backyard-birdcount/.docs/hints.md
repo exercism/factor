@@ -4,9 +4,8 @@
 
 - `if-empty` from [`sequences`][sequences] is the right base case
   for recursion: empty sequence one branch, non-empty the other.
-- `unclip` returns `( seq -- rest first )` — exactly what a
-  recursive helper needs to consume one element and recurse on the
-  rest.
+- `unclip` is exactly what a recursive helper needs to consume one
+  element and recurse on the rest.
 
 ## 1. Today's count
 
@@ -16,7 +15,7 @@
 ## 2. Increment today's count
 
 - `unclip 1 + prefix` peels the first element, increments it, and
-  glues it back on. `prefix` lives in [`sequences`][sequences].
+  glues it back on.
 
 ## 3. Was there a day with no birds?
 

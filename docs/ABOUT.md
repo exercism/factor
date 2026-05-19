@@ -4,7 +4,7 @@ Factor was originally designed by Slava Pestov in 2002, as a scripting language 
 
 Factor can create standalone, and even GUI applications that behave exactly the same on Linux, Windows and Mac OS.
 
-Factor is a simple, yet powerful and expressive stack-oriented high-level language in the vein of Forth, Joy and Lisp. It proposes a concatenative (point-free and compositional) model of data flow, alongside extreme extensibility and a [CLOS](http://enwp.org/Common_Lisp_Object_System)-derived object system.
+Factor is a simple, yet powerful and expressive stack-oriented high-level language in the vein of Forth, Joy and Lisp. It proposes a concatenative (point-free and compositional) model of data flow, alongside extreme extensibility and a [CLOS](https://enwp.org/Common_Lisp_Object_System)-derived object system.
 
 Homoiconicity is a large part of Factor's programming model. All values, including functions and blocks of Factor code, go on the same stack and can be manipulated in the same way. This is a simple, yet powerful paradigm that invites interesting solutions to problems, and indefinite extensibility.
 
@@ -12,7 +12,7 @@ Factor requires from the reader a mindset apart from C or Python. Because of its
 
 The Factor programming language is open source, and you can find it in active development on [GitHub](https://github.com/factor/factor).
 
-If you're even a little bit new to Factor, it's highly recommended you read the [Factor cookbook](http://docs.factorcode.org/content/article-cookbook.html) and [Your first program](http://docs.factorcode.org/content/article-first-program.html) sections of the Factor documentation before continuing.
+If you're even a little bit new to Factor, it's highly recommended you read the [Factor cookbook](https://docs.factorcode.org/content/article-cookbook.html) and [Your first program](https://docs.factorcode.org/content/article-first-program.html) sections of the Factor documentation before continuing.
 
 ## Glossary of Factor terms
 

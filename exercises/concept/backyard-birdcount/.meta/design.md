@@ -11,8 +11,6 @@ themselves with `unclip` to peel off one element at a time.
   recursive step.
 - Use `if-empty` for the empty / non-empty split.
 - Use `cond` for multi-way branching inside a recursion.
-- Use `unclip` and `rest` to advance to the next sub-problem.
-- Build sequences with `prefix`.
 - Use `DEFER:` to forward-declare a word, enabling mutual recursion
   or out-of-order definitions.
 

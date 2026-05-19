@@ -9,7 +9,7 @@ Verify your installation by running `factor -e='vm-version print'` — it should
 ---
 ### Nightly
 
-<http://factorcode.org> provides nightly binaries under the "Development release" section. These binaries are built from git, but only builds that pass are shown.
+<https://factorcode.org> provides nightly binaries under the "Development release" section. These binaries are built from git, but only builds that pass are shown.
 
 ---
 
@@ -21,7 +21,7 @@ With those simple requirements fulfilled, you can:
 
 1. Download the `build` shell script: [**here** for Unix-likes / POSIX shells](https://raw.githubusercontent.com/factor/factor/master/build.sh) or [**here** for Windows](https://raw.githubusercontent.com/factor/factor/master/build.cmd). Put it in the directory under which Factor should be installed. A directory called `factor` containing the codebase will be created.
 
-2. Run it like `./build.sh install`, or `.\build.cmd install` on Windows. <sub>This will clone Factor's `git` repository, build it, and download a Factor VM image from <http://factorcode.org>. This process may take between 2 and 20 minutes, scaling with your link and clock speeds.</sub>
+2. Run it like `./build.sh install`, or `.\build.cmd install` on Windows. <sub>This will clone Factor's `git` repository, build it, and download a Factor VM image from <https://factorcode.org>. This process may take between 2 and 20 minutes, scaling with your link and clock speeds.</sub>
 
 3. You can now run the `factor` or `factor.exe` binary generated inside the `factor` subdirectory. Try `factor --help` for help. You can also access documentation from the command line, or by pressing <kbd>F1</kbd> in the GUI Listener, which will open the help browser.
 
