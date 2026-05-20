@@ -8,7 +8,8 @@ counts.
 ## Learning objectives
 
 - Index into a sequence with `first`, `last`, and `nth`.
-- Slice with `head` and `tail`.
+- Slice with `head` and `tail`, clamping with `index-or-length`
+  when the count may exceed the sequence.
 - Pad to a target length with `pad-tail` (and `pad-head`).
 - Aggregate with `sum` (from `math.statistics`).
 - Filter-count with `count` and test with `any?`.

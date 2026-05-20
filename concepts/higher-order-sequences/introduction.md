@@ -19,9 +19,11 @@ all?   ( seq quot -- ? )
 { 1 2 3 4 5 } [ 2 > ] count .      ! => 3
 ```
 
-Sorting and aggregation use the same pattern via
-[`sorting`][sorting] and [`math.statistics`][math.statistics]:
-`sort-by`, `infimum-by`, `supremum-by`, `map-sum`.
+`map-sum` (also in `sequences`) maps a quotation across the
+sequence and adds the results in one pass. Sorting and aggregation
+use the same pattern via [`sorting`][sorting] and
+[`math.statistics`][math.statistics]: `sort-by`, `infimum-by`,
+`supremum-by`.
 
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html
 [math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

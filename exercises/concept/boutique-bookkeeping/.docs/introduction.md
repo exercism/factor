@@ -115,7 +115,7 @@ sort-by ( seq quot -- sortedseq )
 
 ## Aggregating
 
-`map-sum` (in [`math.statistics`][math.statistics]) maps a
+`map-sum` (in [`sequences`][sequences]) maps a
 quotation across the sequence and sums the results in one pass:
 
 ```

@@ -30,8 +30,8 @@
 
 ## 5. Sum all the prices
 
-- `map-sum` (also in `math.statistics`) maps a quotation across the
-  sequence and sums the results.
+- `map-sum` (in [`sequences`][sequences]) maps a quotation across
+  the sequence and sums the results.
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html

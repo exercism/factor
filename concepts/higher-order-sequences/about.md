@@ -25,6 +25,7 @@ The full common cast:
 | `find`       | `( seq quot -- i/f elt/f )`                |
 | `find-last`  | `( seq quot -- i/f elt/f )`                |
 | `reduce`     | `( seq init quot -- result )`              |
+| `map-sum`    | `( seq quot -- n )`                        |
 | `count`      | `( seq quot -- n )`                        |
 | `any?`       | `( seq quot -- ? )`                        |
 | `all?`       | `( seq quot -- ? )`                        |
@@ -45,7 +46,7 @@ Beyond the core sequence ops:
 | vocab              | provides                                      |
 |--------------------|-----------------------------------------------|
 | `sorting`          | `sort`, `sort-by`                             |
-| `math.statistics`  | `sum`, `map-sum`, `infimum`, `supremum`, `infimum-by`, `supremum-by`, `cum-sum`, `cum-product`, `cum-min`, `cum-max` |
+| `math.statistics`  | `sum`, `infimum`, `supremum`, `infimum-by`, `supremum-by`, `cum-sum`, `cum-product`, `cum-min`, `cum-max` |
 | `grouping`         | `group`, `clump`, `monotonic-split`           |
 | `sets`             | `members`, `all-unique?`                      |
 
