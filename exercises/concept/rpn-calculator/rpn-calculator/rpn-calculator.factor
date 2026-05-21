@@ -1,6 +1,8 @@
 USING: kernel ;
 IN: rpn-calculator
 
+ERROR: zero-divisor-error ;
+
 : add-op ( stack -- new-stack )
     "unimplemented" throw ;
 
@@ -15,8 +17,6 @@ IN: rpn-calculator
 
 : evaluate-named ( stack ops names -- final-stack )
     "unimplemented" throw ;
-
-! TASK 6: Define a zero-divisor-error error class.
 
 : divide-op ( stack -- new-stack )
     "unimplemented" throw ;

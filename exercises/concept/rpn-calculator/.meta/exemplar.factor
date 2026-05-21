@@ -1,6 +1,8 @@
 USING: assocs fry kernel math sequences ;
 IN: rpn-calculator
 
+ERROR: zero-divisor-error ;
+
 : add-op ( stack -- new-stack )
     [ 2 head* ] [ last2 + ] bi suffix ;
 
@@ -15,8 +17,6 @@ IN: rpn-calculator
 
 : evaluate-named ( stack ops names -- final-stack )
     swap '[ _ at ] map evaluate ;
-
-ERROR: zero-divisor-error ;
 
 : divide-op ( stack -- new-stack )
     dup last 0 = [ drop zero-divisor-error ] [

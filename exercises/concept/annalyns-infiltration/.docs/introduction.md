@@ -44,8 +44,7 @@ f .    ! => f
 
 ## Boolean words
 
-Three boolean words live in the `kernel` vocabulary and are available
-without a `USING:` line:
+These three boolean words from the `kernel` vocabulary:
 
 ```
 and ( x y -- ? )    ! true when both inputs are truthy

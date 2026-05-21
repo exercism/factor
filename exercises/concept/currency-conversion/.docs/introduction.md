@@ -26,7 +26,7 @@ vocabulary.
 ```
 /    ( x y -- x/y )    ! exact: ratio for two integers, float if either is a float
 /f   ( x y -- f   )    ! always a float
-/i   ( x y -- q   )    ! integer division (truncates toward negative infinity)
+/i   ( x y -- q   )    ! integer division (truncates toward zero)
 mod  ( x y -- r   )    ! remainder
 /mod ( x y -- q r )    ! quotient and remainder together
 ```
@@ -45,7 +45,7 @@ mod  ( x y -- r   )    ! remainder
 
 `/` produces a `ratio` (Factor's exact rational type) for two integers,
 or a `float` if either input is a float. `/f` forces a float result
-even for two integers. `/i` always rounds toward negative infinity.
+even for two integers. `/i` always truncates toward zero.
 
 ## Checking
 

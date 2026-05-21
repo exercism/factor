@@ -70,10 +70,10 @@ evaluate-named .
 ## 6. Divide with safety
 
 A real calculator must not silently produce garbage when asked to
-divide by zero. Define an error class `zero-divisor-error` (no
-slots) and `divide-op` analogous to `add-op` and `multiply-op`,
-except that it `throw`s a fresh `zero-divisor-error` when the
-divisor on top of the stack is `0`.
+divide by zero. The error class `zero-divisor-error` is already
+defined for you. Implement `divide-op` analogous to `add-op` and
+`multiply-op`, except that it `throw`s a fresh
+`zero-divisor-error` when the divisor on top of the stack is `0`.
 
 ```factor
 { 12 4 } divide-op .

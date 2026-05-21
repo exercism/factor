@@ -68,3 +68,5 @@ H{ { "noodles" 200 } { "sauce" 1/2 } { "mozzarella" 1 } { "meat" 100 } }
 4 scale-recipe .
 ! => H{ { "noodles" 400 } { "sauce" 1 } { "mozzarella" 2 } { "meat" 200 } }
 ```
+
+[lasagna]: https://exercism.org/tracks/factor/exercises/lasagna
