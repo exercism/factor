@@ -1448,6 +1448,18 @@
         "difficulty": 6
       },
       {
+        "slug": "book-store",
+        "name": "Book Store",
+        "uuid": "ea626761-3feb-4f31-838f-e86960a30e93",
+        "practices": [],
+        "prerequisites": [
+          "mutation",
+          "curry-compose-fry",
+          "locals"
+        ],
+        "difficulty": 7
+      },
+      {
         "slug": "dominoes",
         "name": "Dominoes",
         "uuid": "cbbd1c5f-587b-4274-9889-1332d9446c63",
