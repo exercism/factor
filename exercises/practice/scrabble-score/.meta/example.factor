@@ -1,4 +1,4 @@
-USING: assocs kernel math.statistics sequences unicode ;
+USING: assocs kernel sequences unicode ;
 IN: scrabble-score
 
 CONSTANT: letter-scores H{

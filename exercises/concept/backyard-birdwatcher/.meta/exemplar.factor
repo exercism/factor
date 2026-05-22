@@ -1,4 +1,4 @@
-USING: kernel math math.statistics sequences ;
+USING: kernel math sequences ;
 IN: backyard-birdwatcher
 
 : today ( days -- count )

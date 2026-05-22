@@ -128,23 +128,23 @@ map-sum ( seq quot -- n )
 
 ## Min and max
 
-`infimum` and `supremum` return the smallest or largest element
-of a sequence outright. `infimum-by` and `supremum-by` (all in
-[`math.statistics`][math.statistics]) return the element whose
-extracted key is smallest or largest:
+`minimum` and `maximum` return the smallest or largest element
+of a sequence outright. `minimum-by` and `maximum-by` (all in
+[`sequences`][sequences]) return the element whose extracted
+key is smallest or largest:
 
 ```
-infimum     ( seq      -- elt )
-supremum    ( seq      -- elt )
-infimum-by  ( seq quot -- elt )
-supremum-by ( seq quot -- elt )
+minimum     ( seq      -- elt )
+maximum     ( seq      -- elt )
+minimum-by  ( seq quot -- elt )
+maximum-by  ( seq quot -- elt )
 ```
 
 ```factor
-{ 3 1 4 1 5 9 2 6 } infimum .       ! => 1
-{ 3 1 4 1 5 9 2 6 } supremum .      ! => 9
+{ 3 1 4 1 5 9 2 6 } minimum .       ! => 1
+{ 3 1 4 1 5 9 2 6 } maximum .       ! => 9
 
-{ -3 5 -1 4 } [ abs ] infimum-by .
+{ -3 5 -1 4 } [ abs ] minimum-by .
 ! => -1
 ```
 
@@ -157,7 +157,7 @@ each call site, where the quotation is a known literal — without
 it, the compiler has no way to know the quotation's stack effect.
 
 ```factor
-USING: math.statistics sequences ;
+USING: math sequences ;
 
 : tax-on ( inventory quot -- total )
     map-sum ; inline
@@ -188,5 +188,4 @@ turns a number into its decimal-string form:
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html
-[math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html
 [math.parser]: https://docs.factorcode.org/content/vocab-math.parser.html

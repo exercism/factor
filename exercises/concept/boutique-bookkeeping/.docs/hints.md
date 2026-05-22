@@ -25,7 +25,7 @@
 
 ## 4. Find the cheapest item
 
-- `infimum-by` (in [`math.statistics`][math.statistics]) returns the
+- `minimum-by` (in [`sequences`][sequences]) returns the
   element whose extracted key is smallest.
 
 ## 5. Sum all the prices
@@ -35,4 +35,3 @@
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html
-[math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

@@ -20,10 +20,8 @@ all?   ( seq quot -- ? )
 ```
 
 `map-sum` (also in `sequences`) maps a quotation across the
-sequence and adds the results in one pass. Sorting and aggregation
-use the same pattern via [`sorting`][sorting] and
-[`math.statistics`][math.statistics]: `sort-by`, `infimum-by`,
-`supremum-by`.
+sequence and adds the results in one pass. The same pattern
+drives `sort-by` (in [`sorting`][sorting]) and `minimum-by` /
+`maximum-by` (in `sequences`).
 
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html
-[math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

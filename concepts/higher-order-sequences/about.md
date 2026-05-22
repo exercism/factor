@@ -32,8 +32,11 @@ The full common cast:
 | `with`       | `( value seq quot -- seq curry )`          |
 | `without`    | `( seq exclude -- newseq )`                |
 | `sort`       | `( seq -- sortedseq )`                     |
-| `infimum`    | `( seq -- elt )`                           |
-| `supremum`   | `( seq -- elt )`                           |
+| `sum`        | `( seq -- n )`                             |
+| `minimum`    | `( seq -- elt )`                           |
+| `maximum`    | `( seq -- elt )`                           |
+| `minimum-by` | `( seq quot -- elt )`                      |
+| `maximum-by` | `( seq quot -- elt )`                      |
 
 When *your* word forwards a runtime quotation to one of these
 combinators, declare your word with `; inline` so the
@@ -46,7 +49,7 @@ Beyond the core sequence ops:
 | vocab              | provides                                      |
 |--------------------|-----------------------------------------------|
 | `sorting`          | `sort`, `sort-by`                             |
-| `math.statistics`  | `sum`, `infimum`, `supremum`, `infimum-by`, `supremum-by`, `cum-sum`, `cum-product`, `cum-min`, `cum-max` |
+| `math.statistics`  | `cum-sum`, `cum-product`, `cum-min`, `cum-max` |
 | `grouping`         | `group`, `clump`, `monotonic-split`           |
 | `sets`             | `members`, `all-unique?`                      |
 

@@ -1,4 +1,4 @@
-USING: accessors kernel math math.order math.statistics sequences sorting ;
+USING: accessors kernel math math.order sequences sorting ;
 IN: high-scores
 
 TUPLE: high-scores scores ;
@@ -13,7 +13,7 @@ TUPLE: high-scores scores ;
     scores>> last ;
 
 : personal-best ( hs -- score )
-    scores>> supremum ;
+    scores>> maximum ;
 
 : personal-top-three ( hs -- top-three )
     scores>> sort reverse 3 over length min head ;

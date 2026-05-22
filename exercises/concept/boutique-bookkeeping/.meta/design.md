@@ -10,8 +10,8 @@ items.
 
 - Pass quotations to `filter`, `reject`, `count`, `map`, and `map-sum`.
 - Sort with `sort-by` from `sorting`.
-- Pick extreme elements with `infimum-by` and `supremum-by` from
-  `math.statistics`.
+- Pick extreme elements with `minimum-by` and `maximum-by` from
+  `sequences`.
 
 ## Out of scope
 

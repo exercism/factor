@@ -1,4 +1,4 @@
-USING: kernel math math.parser math.statistics sequences sorting ;
+USING: kernel math math.parser sequences sorting ;
 IN: boutique-bookkeeping
 
 : sort-by-price ( inventory -- sorted )
@@ -11,7 +11,7 @@ IN: boutique-bookkeeping
     swap [ second < ] with count ;
 
 : cheapest-item ( inventory -- item )
-    [ second ] infimum-by ;
+    [ second ] minimum-by ;
 
 : total-price ( inventory -- sum )
     [ second ] map-sum ;

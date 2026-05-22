@@ -110,7 +110,7 @@ strings too — the result is just another string instead of an array:
 
 ## Aggregating
 
-`sum` and `product` (in [`math.statistics`][math.statistics])
+`sum` and `product` (in [`sequences`][sequences])
 add or multiply the elements of a numeric sequence:
 
 ```factor
@@ -188,4 +188,3 @@ back.
 
 [arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
-[math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

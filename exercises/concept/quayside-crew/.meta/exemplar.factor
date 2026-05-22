@@ -1,6 +1,5 @@
 USING: accessors concurrency.combinators concurrency.locks
-concurrency.promises kernel locals math math.statistics sequences
-threads ;
+concurrency.promises kernel locals math sequences threads ;
 IN: quayside-crew
 
 : weigh-crate ( crate -- weight )

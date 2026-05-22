@@ -2,8 +2,8 @@
 
 ## General
 
-- The [`sequences`][sequences] vocabulary covers nearly everything.
-- `sum` lives in [`math.statistics`][math.statistics].
+- The [`sequences`][sequences] vocabulary covers nearly everything,
+  including `sum`.
 
 ## 1. Today's count
 
@@ -40,4 +40,3 @@
   returned unchanged.
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
-[math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html

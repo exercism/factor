@@ -11,7 +11,7 @@ counts.
 - Slice with `head` and `tail`, clamping with `index-or-length`
   when the count may exceed the sequence.
 - Pad to a target length with `pad-tail` (and `pad-head`).
-- Aggregate with `sum` (from `math.statistics`).
+- Aggregate with `sum` (from `sequences`).
 - Filter-count with `count` and test with `any?`.
 - Build a new sequence with `prefix`/`suffix` and
   `unclip`/`unclip-last`.

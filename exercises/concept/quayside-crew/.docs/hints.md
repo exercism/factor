@@ -2,7 +2,7 @@
 
 ## 1. `weigh-crate`
 
-- One word from `math.statistics` does it.
+- One word from `sequences` does it.
 
 ## 2. `weigh-all`
 
