@@ -14,18 +14,11 @@ The `plot` tuple has two slots:
 | `id`            | integer  |
 | `registered-to` | string   |
 
-## 1. Open the garden
+## 1. Open the garden and list its registrations
 
 Define `open-garden` to initialise the dynamic variables: an empty
-vector for `registrations`, and `1` for `next-id`.
-
-```factor
-open-garden
-```
-
-## 2. List the registrations
-
-Define `list-registrations` to return the current vector of plots.
+vector for `registrations`, and `1` for `next-id`. Then define
+`list-registrations` to return the current vector of plots.
 
 ```factor
 open-garden
@@ -33,7 +26,7 @@ list-registrations .
 ! => V{ }
 ```
 
-## 3. Register a plot
+## 2. Register a plot
 
 Define `register` to take a name off the stack, build a fresh `plot`
 with the next available id, append it to the `registrations` vector,
@@ -51,7 +44,7 @@ list-registrations .
 Plot ids must be unique and increase even after a release — `next-id`
 should never reuse a value.
 
-## 4. Release a plot
+## 3. Release a plot
 
 Define `release` to take an id and remove the matching entry from
 `registrations`. Releasing an unknown id is a no-op.
@@ -64,7 +57,7 @@ list-registrations .
 ! => V{ }
 ```
 
-## 5. Get a registered plot
+## 4. Get a registered plot
 
 Define `get-registration` to take an id and return the matching
 plot, or the symbol `not-found` if no plot has that id.
@@ -79,7 +72,7 @@ open-garden
 ! => not-found
 ```
 
-## 6. Find plots by name
+## 5. Find plots by name
 
 Define `find-by-name` to take a name and return a vector of all plots
 currently registered to that person.

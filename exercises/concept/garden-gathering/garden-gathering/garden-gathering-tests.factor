@@ -1,12 +1,12 @@
 USING: exercism-tools garden-gathering kernel tools.test ;
 IN: garden-gathering.tests
 
-TASK: 1 + 2 open-garden + list-registrations
+TASK: 1 open-garden / list-registrations
 { V{ } } [ open-garden list-registrations ] unit-test
 
 STOP-HERE
 
-TASK: 3 register
+TASK: 2 register
 { T{ plot { id 1 } { registered-to "Emma Balan" } } } [
     open-garden "Emma Balan" register
 ] unit-test
@@ -32,7 +32,7 @@ TASK: 3 register
     "Carol" register
 ] unit-test
 
-TASK: 4 release
+TASK: 3 release
 { V{ T{ plot { id 1 } { registered-to "Emma" } } } } [
     open-garden
     "Emma" register drop
@@ -49,7 +49,7 @@ TASK: 4 release
     list-registrations
 ] unit-test
 
-TASK: 5 get-registration
+TASK: 4 get-registration
 { T{ plot { id 1 } { registered-to "Emma" } } } [
     open-garden
     "Emma" register drop
@@ -67,7 +67,7 @@ TASK: 5 get-registration
     1 get-registration
 ] unit-test
 
-TASK: 6 find-by-name
+TASK: 5 find-by-name
 { V{ } } [ open-garden "Emma" find-by-name ] unit-test
 
 { V{ } } [
