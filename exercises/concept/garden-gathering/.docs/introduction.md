@@ -34,9 +34,44 @@ counter [ 10 + ] change-global
 counter get-global .         ! => 10
 ```
 
-(`set` / `get` / `change` operate on the *current* dynamic scope —
-useful inside `with-variable`, but for module-level state the
-`-global` versions are what you want.)
+For module-level state, the `-global` flavours are what you want.
+
+## Scoped bindings with `with-variable`
+
+A dynamic variable also supports a second, *scoped* flavour. `set` /
+`get` / `change` (no `-global` suffix) read and write the *current*
+dynamic scope, and `with-variable` (in [`namespaces`][namespaces])
+creates a fresh scope for the duration of a quotation:
+
+```
+with-variable ( value variable quot -- )
+set           ( value variable -- )
+get           ( variable -- value )
+change        ( variable quot: ( old -- new ) -- )
+```
+
+The variable is bound to `value` while `quot` runs; once it returns,
+the binding disappears. This lets an outer caller "inject" a value
+that inner code can read without threading it through every stack
+signature.
+
+```factor
+SYMBOL: greeting
+
+"Hello" greeting [
+    greeting get .                ! => "Hello"
+    "Howdy" greeting set
+    greeting get .                ! => "Howdy"
+    greeting [ "!" append ] change
+    greeting get .                ! => "Howdy!"
+] with-variable
+
+greeting get-global .    ! => f   (the scoped binding is gone)
+```
+
+This exercise uses the global flavour throughout — but recognising
+the parallel `set`/`get`/`change` family is useful when you read
+other people's code.
 
 ## Mutable vectors
 
