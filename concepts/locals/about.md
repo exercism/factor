@@ -16,11 +16,12 @@ USING: locals ;
 :: average ( a b -- avg ) a b + 2 / ;        ! same effect
 ```
 
-`[let | binding-list | body ]` introduces local bindings inside a
-quotation:
+`[let code :> name code :> name ... body ]` introduces local
+bindings inside a quotation or at the listener, where `:>` would
+otherwise have no lexical scope to bind into:
 
 ```factor
-[let | x [ 5 ] y [ 10 ] | x y + ] .   ! => 15
+[let 5 :> x 10 :> y x y + ] .   ! => 15
 ```
 
 The `:>` mutation suffix lets you rebind a local — useful in

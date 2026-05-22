@@ -31,6 +31,66 @@ Both are valid — locals shine when an input is referenced more than
 once or when the order of operations doesn't naturally line up with
 stack order.
 
+## Binding intermediate values with `:>`
+
+Inside a `::` body (or an inline `[| ... |]` lambda), `:>` pops a
+value off the data stack and binds it to a fresh local:
+
+```
+value :> name      ! immutable binding
+value :> name!     ! mutable binding (name! is its setter)
+```
+
+The immutable form is the common one — use it to name an
+intermediate so the body reads top-to-bottom:
+
+```factor
+USING: locals math ;
+
+:: average-3 ( x y z -- avg )
+    x y + z + :> sum
+    sum 3 / ;
+```
+
+The `!` flavour declares the local as mutable; later in the
+body, `value name!` (no colon, no `:>`) reassigns it:
+
+```factor
+USING: kernel locals math math.order ;
+
+:: clamped ( x lo hi -- y )
+    x :> v!
+    v lo < [ lo v! ] when
+    v hi > [ hi v! ] when
+    v ;
+```
+
+Mutable locals shine inside the iteration words you'll meet in
+later exercises (e.g. `while`).
+
+## `[let` — a scope from anywhere
+
+`:>` only works inside a lexical scope, which `::` and
+`[| ... |]` create automatically. To introduce locals from a
+plain `:` word or at the listener, wrap the code in `[let ... ]`:
+
+```
+[let code :> name code :> name ... body ]
+```
+
+Each `:> name` binds the previous expression's top-of-stack value;
+the bindings are visible to the rest of the form.
+
+```factor
+USING: locals math ;
+
+[let 3 :> x 4 :> y x x * y y * + ] .   ! => 25
+```
+
+`[let` is the bridge between stack-style `:` definitions and
+named bindings — handy when only a slice of a word benefits from
+locals.
+
 ## Lambdas — `[| inputs | body ]`
 
 Inside a quotation, `[| inputs | body ]` introduces locals that
