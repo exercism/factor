@@ -106,6 +106,18 @@ H{ { "a" 1 } { "b" 2 } }
 ! => H{ { "a" -1 } { "b" -2 } }
 ```
 
+The same shape works for `map-index` (in [`sequences`][sequences]),
+whose quotation receives the element *and* its index. The names
+make clear which operand plays which role:
+
+```factor
+USING: locals sequences ;
+
+! Divide each element by its 1-based position:
+{ 10 80 270 } [| elt i | elt i 1 + / ] map-index .
+! => { 10 40 90 }
+```
+
 The lambda's stack effect is determined by the input list and what
 its body produces.
 

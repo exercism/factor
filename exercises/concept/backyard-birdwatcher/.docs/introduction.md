@@ -61,6 +61,19 @@ index-or-length ( seq n -- seq n' )
 { 10 20 } 3 index-or-length head .            ! => { 10 20 }
 ```
 
+The starred variants `head*` and `tail*` count from the end —
+`head*` drops the last `n`, `tail*` keeps the last `n`:
+
+```
+head* ( seq n -- headseq )   ! everything except the last n
+tail* ( seq n -- tailseq )   ! the last n elements
+```
+
+```factor
+{ 1 2 3 4 5 } 2 head* .   ! => { 1 2 3 }
+{ 1 2 3 4 5 } 2 tail* .   ! => { 4 5 }
+```
+
 For an arbitrary slice between two indices, `subseq` takes the
 *start* (inclusive) and *end* (exclusive):
 

@@ -1306,7 +1306,8 @@
           "unicode",
           "arrays",
           "windows",
-          "locals"
+          "locals",
+          "while"
         ],
         "difficulty": 5
       },
@@ -1469,7 +1470,8 @@
           "sequences",
           "dynamic-variables",
           "mutation",
-          "bitwise-operations"
+          "bitwise-operations",
+          "while"
         ],
         "difficulty": 7
       },
@@ -1501,7 +1503,8 @@
           "higher-order-sequences",
           "sequences",
           "strings",
-          "locals"
+          "locals",
+          "while"
         ],
         "difficulty": 7
       },
@@ -1556,7 +1559,8 @@
           "combinators",
           "errors",
           "mutation",
-          "locals"
+          "locals",
+          "while"
         ],
         "difficulty": 8
       },
