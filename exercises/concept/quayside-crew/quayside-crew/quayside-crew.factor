@@ -7,7 +7,7 @@ IN: quayside-crew
 : weigh-all ( crates -- weights )
     "unimplemented" throw ;
 
-TUPLE: crane ;
+TUPLE: crane lock tonnage ;
 
 : <crane> ( -- crane )
     "unimplemented" throw ;

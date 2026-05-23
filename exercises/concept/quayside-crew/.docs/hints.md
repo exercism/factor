@@ -12,8 +12,8 @@
 
 ## 3. `<crane>`
 
-- Define the crane with `TUPLE: crane lock tonnage ;` so the
-  slots are named.
+- The `crane` tuple (slots `lock` and `tonnage`) is already
+  declared in the exercise file.
 - Use `<lock>` (in [`concurrency.locks`][locks]) for the lock
   slot and `0` for the starting tonnage. `boa` constructs a
   tuple from the values on the stack in slot order.

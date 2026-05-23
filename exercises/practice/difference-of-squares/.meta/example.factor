@@ -8,4 +8,4 @@ IN: difference-of-squares
     [1..b] [ sq ] map sum ;
 
 : difference-of-squares ( n -- m )
-    dup square-of-sum swap sum-of-squares - ;
+    [ square-of-sum ] [ sum-of-squares ] bi - ;

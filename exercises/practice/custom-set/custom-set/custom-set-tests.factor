@@ -122,17 +122,17 @@ unit-test
 
 "add to empty set" print
 { { 3 } }
-[ <custom-set> dup 3 swap adjoin members natural-sort ]
+[ <custom-set> 3 over adjoin members natural-sort ]
 unit-test
 
 "add to non-empty set" print
 { { 1 2 3 4 } }
-[ { 1 2 4 } >custom-set dup 3 swap adjoin members natural-sort ]
+[ { 1 2 4 } >custom-set 3 over adjoin members natural-sort ]
 unit-test
 
 "adding an existing element does not change the set" print
 { { 1 2 3 } }
-[ { 1 2 3 } >custom-set dup 3 swap adjoin members natural-sort ]
+[ { 1 2 3 } >custom-set 3 over adjoin members natural-sort ]
 unit-test
 
 "intersection of two empty sets is an empty set" print

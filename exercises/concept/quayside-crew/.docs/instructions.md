@@ -52,8 +52,8 @@ at the same time.
 
 ```factor
 <crane>
-dup 35 swap hoist-crate
-dup 17 swap hoist-crate
+35 over hoist-crate
+17 over hoist-crate
 tonnage>> .
 ! => 52
 ```
@@ -66,7 +66,7 @@ hoist.
 
 ```factor
 <crane>
-dup 35 swap hoist-crate
+35 over hoist-crate
 crane-tonnage .
 ! => 35
 ```

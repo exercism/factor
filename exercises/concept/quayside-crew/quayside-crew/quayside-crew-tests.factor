@@ -19,23 +19,23 @@ TASK: 3 <crane>
 
 ! a fresh crane each call — mutating one doesn't affect another
 { 5 0 } [
-    <crane> dup 5 swap hoist-crate tonnage>>
+    <crane> 5 over hoist-crate tonnage>>
     <crane> tonnage>>
 ] unit-test
 
 TASK: 4 hoist-crate
-{ 35 } [ <crane> dup 35 swap hoist-crate tonnage>> ] unit-test
+{ 35 } [ <crane> 35 over hoist-crate tonnage>> ] unit-test
 { 52 }
 [
     <crane>
-    dup 35 swap hoist-crate
-    dup 17 swap hoist-crate
+    35 over hoist-crate
+    17 over hoist-crate
     tonnage>>
 ] unit-test
 
 TASK: 5 crane-tonnage
 { 0 }  [ <crane> crane-tonnage ] unit-test
-{ 35 } [ <crane> dup 35 swap hoist-crate crane-tonnage ] unit-test
+{ 35 } [ <crane> 35 over hoist-crate crane-tonnage ] unit-test
 
 TASK: 6 load-cargo
 { 32 } [

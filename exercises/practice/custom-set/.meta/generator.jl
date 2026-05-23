@@ -23,7 +23,7 @@ function gen_test_case(case)
         return "{ $(bool_factor(exp)) }\n[ $(set_factor(inp["set1"])) $(set_factor(inp["set2"])) set= ]\nunit-test"
     elseif prop == "add"
         sorted = format_int_array(sort(collect(exp)))
-        return "{ $(sorted) }\n[ $(set_factor(inp["set"])) dup $(to_int_str(inp["element"])) swap adjoin members natural-sort ]\nunit-test"
+        return "{ $(sorted) }\n[ $(set_factor(inp["set"])) $(to_int_str(inp["element"])) over adjoin members natural-sort ]\nunit-test"
     end
 
     word = prop == "intersection" ? "intersect" :

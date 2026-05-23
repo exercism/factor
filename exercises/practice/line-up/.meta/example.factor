@@ -9,5 +9,5 @@ IN: line-up
     if ;
 
 : format ( name number -- str )
-    dup number>string swap ordinal-suffix append
+    [ number>string ] [ ordinal-suffix ] bi append
     "%s, you are the %s customer we serve today. Thank you!" sprintf ;

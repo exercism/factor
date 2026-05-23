@@ -8,7 +8,7 @@ IN: atbash-cipher
     dup Letter? [ lower-char CHAR: a - CHAR: z swap - ] when ;
 
 : atbash-core ( phrase -- seq )
-    [ dup Letter? swap digit? or ] filter
+    [ [ Letter? ] [ digit? ] bi or ] filter
     [ atbash-char ] map ;
 
 : encode ( phrase -- str )
