@@ -25,6 +25,12 @@ built on it and handle allocation. Most user-defined streams
 implement either `stream-read1` (when reads happen one element
 at a time) or `stream-read-unsafe` (when reads can be batched).
 
+`stream-element-type` returns one of two singleton tokens:
+`+byte+` for byte streams (file readers, sockets) and
+`+character+` for character streams (string readers, ttys).
+A wrapper stream usually just delegates to its underlying
+stream.
+
 ## Joining the mixins
 
 ```factor

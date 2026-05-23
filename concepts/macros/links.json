@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-macros.html",
+    "description": "macros vocabulary — MACRO: declaration"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-syntax-words.html",
+    "description": "Parsing words — the next layer down, for new literal syntaxes"
+  }
+]

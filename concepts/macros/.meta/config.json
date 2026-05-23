@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor's MACRO: declares a word whose body runs at compile time and returns a quotation that's spliced into the call site."
+}

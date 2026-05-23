@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-deques.html",
+    "description": "deques vocabulary — the protocol words"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-dlists.html",
+    "description": "dlists vocabulary — the doubly-linked-list implementation"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-memoize.html",
+    "description": "memoize vocabulary — MEMO: declaration"
+  }
+]

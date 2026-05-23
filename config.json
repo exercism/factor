@@ -457,6 +457,36 @@
         "status": "beta"
       },
       {
+        "slug": "pirates-path",
+        "name": "Pirates' Path",
+        "uuid": "28c290a0-ee33-46fd-83a9-47aebea21b7a",
+        "concepts": [
+          "deques"
+        ],
+        "prerequisites": [
+          "hash-sets",
+          "assocs",
+          "locals",
+          "while"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "signal-stencils",
+        "name": "Signal Stencils",
+        "uuid": "02460c9b-7292-4d4e-a6b3-6fe59dc9ec01",
+        "concepts": [
+          "macros"
+        ],
+        "prerequisites": [
+          "quotations",
+          "combinators",
+          "quotations-call",
+          "sequences"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "quayside-crew",
         "name": "Quayside Crew",
         "uuid": "e520b985-797e-42b6-a366-990db2d58796",
@@ -486,6 +516,19 @@
         "status": "beta"
       },
       {
+        "slug": "dragons-descendants",
+        "name": "Dragons' Descendants",
+        "uuid": "b0d9d6c2-de29-4e40-860a-30d714213eb3",
+        "concepts": [
+          "subclasses"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "boatswains-bilge",
         "name": "Boatswain's Bilge",
         "uuid": "c02fea6b-21ee-4328-b7e8-b30f970b69d5",
@@ -496,7 +539,22 @@
           "tuples",
           "errors",
           "generics",
-          "combinators"
+          "combinators",
+          "subclasses"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "channel-chatter",
+        "name": "Channel Chatter",
+        "uuid": "5177c87c-1117-44e9-89ff-a377b925f570",
+        "concepts": [
+          "io-streams"
+        ],
+        "prerequisites": [
+          "destructors",
+          "sequences",
+          "strings"
         ],
         "status": "beta"
       },
@@ -514,7 +572,9 @@
           "sequences",
           "vocabularies",
           "wire-format",
-          "destructors"
+          "subclasses",
+          "destructors",
+          "io-streams"
         ],
         "status": "beta"
       }
@@ -1628,7 +1688,8 @@
           "locals",
           "while",
           "mutation",
-          "hash-sets"
+          "hash-sets",
+          "deques"
         ],
         "difficulty": 9
       }
@@ -1786,6 +1847,16 @@
       "name": "Hash Sets"
     },
     {
+      "uuid": "0043b4e1-9260-471e-9026-9330f10b957a",
+      "slug": "deques",
+      "name": "Deques"
+    },
+    {
+      "uuid": "395d9a61-0dc7-471b-9b26-4099a9e88ee6",
+      "slug": "macros",
+      "name": "Macros"
+    },
+    {
       "uuid": "4b136c82-48c0-4dd6-859d-e5e76c898540",
       "slug": "concurrency",
       "name": "Concurrency"
@@ -1796,9 +1867,19 @@
       "name": "Wire Format"
     },
     {
+      "uuid": "302a3f0b-3bb9-4a01-9494-2aa37d14192e",
+      "slug": "subclasses",
+      "name": "Subclasses"
+    },
+    {
       "uuid": "abce8f6a-d7a7-440d-a471-610f7d528bc1",
       "slug": "destructors",
       "name": "Destructors"
+    },
+    {
+      "uuid": "cdafedad-1ec6-49cd-975d-85b2711e12ff",
+      "slug": "io-streams",
+      "name": "IO Streams"
     },
     {
       "uuid": "bc982157-d036-4d11-a42f-483e8dcf32e6",

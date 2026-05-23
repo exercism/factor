@@ -33,6 +33,7 @@ dup pop drop           ! removes "bob"
 | `set-nth`       | `( elt n seq -- )` — assign element at index `n` |
 | `change-nth`    | `( i seq quot -- )` — apply `quot` to element at `i` |
 | `push`          | `( elt seq -- )` — append to a vector          |
+| `suffix!`       | `( seq elt -- seq )` — append in place, returns the vector |
 | `pop`           | `( seq -- elt )` — remove and return last      |
 | `pop*`          | `( seq -- )` — remove last, discard            |
 | `clone`         | `( obj -- copy )` — fresh independent copy     |

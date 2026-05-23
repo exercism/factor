@@ -17,7 +17,11 @@ with the others.
 | `but-last`  | `( seq -- headseq )`              |
 | `nth`       | `( n seq -- elt )` (0-based)      |
 | `head`      | `( seq n -- headseq )`            |
+| `head*`     | `( seq n -- headseq )` (all but last n) |
 | `tail`      | `( seq n -- tailseq )`            |
+| `tail*`     | `( seq n -- tailseq )` (last n)   |
+| `subseq`    | `( from to seq -- newseq )`       |
+| `remove-nth`| `( n seq -- newseq )`             |
 | `pad-head`  | `( seq n elt -- padded )`         |
 | `pad-tail`  | `( seq n elt -- padded )`         |
 | `prefix`    | `( seq elt -- newseq )`           |
@@ -29,6 +33,8 @@ with the others.
 | `member?`   | `( elt seq -- ? )`                |
 | `reverse`   | `( seq -- newseq )`               |
 | `index`     | `( elt seq -- i/f )`              |
+| `index-or-length` | `( elt seq -- i )` (length when absent) |
+| `count`     | `( seq quot -- n )`               |
 | `concat`    | `( seqs -- seq )`                 |
 | `sum`       | `( seq -- n )`                    |
 | `product`   | `( seq -- n )`                    |
@@ -40,5 +46,20 @@ Arrays are immutable; the `prefix`/`suffix`/`append` operations all
 return new sequences without modifying the original. Vectors are
 mutable — `push` and `pop` work in place — but `clone` is the right
 starting point if you want a fresh copy.
+
+## Conversions
+
+`>array`, `>string`, and `>vector` (in their respective vocabs)
+coerce any sequence to the named concrete type. Use them when a
+caller wants a specific representation, or to materialise a slice
+or other lazy sequence.
+
+```factor
+USING: arrays sequences strings vectors ;
+
+V{ 1 2 3 } >array  .   ! => { 1 2 3 }
+{ 65 66 67 } >string . ! => "ABC"
+"abc" >vector .        ! => V{ CHAR: a CHAR: b CHAR: c }
+```
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html

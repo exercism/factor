@@ -21,3 +21,23 @@ a piece of behaviour needs to be deferred or parameterised:
 A quotation's stack effect can usually be inferred. When it can't —
 typically when it's stored and `call`ed later — declare the effect
 explicitly: `call( a b -- c )`.
+
+## Combining quotations
+
+```
+compose ( quot1 quot2 -- compound )
+curry   ( value quot  -- curried )
+```
+
+`compose` concatenates two quotations end-to-end into a new
+quotation that runs the first, then the second. `curry` prepends
+a fixed value, returning a quotation that will push that value
+before invoking the original. Both produce ordinary quotations
+you can `call`, store, or pass to combinators.
+
+```factor
+USING: kernel math ;
+
+3 [ 2 * ] [ 1 + ] compose call .   ! 3 2 * 1 + => 7
+5 [ 1 + ] curry call .             ! 5 1 +     => 6
+```

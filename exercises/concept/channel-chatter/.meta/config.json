@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "channel-chatter/channel-chatter.factor"
+    ],
+    "test": [
+      "channel-chatter/channel-chatter-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Read, write, and scope bundled streams from the io vocabulary, using the same destructor combinators that release any disposable."
+}

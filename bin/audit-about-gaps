@@ -1,0 +1,134 @@
+#!/usr/bin/env python3
+
+# Synopsis:
+# Advisory check: for every concept exercise, flag Factor words that
+# appear in its `.docs/introduction.md` (inside backticks) but are
+# not mentioned anywhere in the matched concept's `about.md`.
+#
+# This is a fuzzy signal, NOT a hard invariant:
+#   - Exercise intros legitimately reach for support words from
+#     other concepts (a strings exercise might use a sequences word).
+#   - The about.md is for the concept itself, not for cataloguing
+#     every word the exercise example happens to use.
+# Treat the output as "things worth eyeballing during a doc pass",
+# not as build failures. The script always exits 0.
+#
+# Usage:
+#   bin/audit-about-gaps              # per-concept gap report
+#   bin/audit-about-gaps --strict     # exit 1 if any gap reported
+#   bin/audit-about-gaps <concept>    # filter to one concept
+#
+# Heuristic: a word is "in the intro" if it appears inside `…`
+# backticks in the intro. A word is "in the about" if it appears
+# anywhere in the about.md (including fenced code blocks and prose).
+# This asymmetry catches the common drift case (a new word taught
+# in an intro but never folded back into the concept page) while
+# tolerating the about.md's freedom to mention things briefly.
+
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+
+# Tokens that are never worth flagging — stack-effect placeholders,
+# Factor syntax markers, single letters, boolean literals, and
+# common example names that leak into the regex.
+NOISE = {
+    # stack-effect placeholders
+    'x', 'y', 'z', 'n', 'a', 'b', 'c', 'd', 'e', 'g', 'h', 'i', 'j',
+    'k', 'l', 'm', 'o', 'p', 'q', 'r', 's', 'u', 'v', 'w',
+    'seq', 'newseq', 'quot', 'elt', 'obj', 'val', 'key', 'pred',
+    'body', 'try', 'recovery', 'class', 'quot1', 'quot2',
+    'x1', 'x2', 'y1', 'y2', 'x3', 'y3', 'elt/f',
+    # declaration words appear in nearly every intro
+    'USING', 'USE', 'IN', 'M', 'TUPLE', 'INSTANCE', 'SYMBOL', 'SYMBOLS',
+    'GENERIC', 'ERROR', 'PRIVATE', 'CONSTANT', 'SLOT', 'DEFER',
+    # boolean literals
+    'f', 't',
+    # generic Factor example placeholders
+    'F', 'G', 'H', 'N', 'P', 'Q', 'R', 'foo', 'bar', 'baz', 'quux',
+    # prose words that leak from regex
+    'inputs', 'outputs', 'returns', 'value', 'values', 'name',
+    'default-value', 'initial', 'difference', 'something',
+    # vocab names (covered in vocab-import contexts, not concept words)
+    'math', 'sequences', 'combinators', 'kernel', 'strings', 'arrays',
+    'vectors', 'sets', 'splitting', 'formatting', 'parser', 'ascii',
+    'quotations', 'assocs', 'namespaces',
+    # exercise-name leakage
+    'helpers', 'my-vocab', 'my-vocab.helpers',
+}
+
+TOK_RE = re.compile(r'[\w\-\*\?!@/<>]+')
+BACKTICK_RE = re.compile(r'`([^`\n]+)`')
+
+
+def tokens(text: str) -> set[str]:
+    out: set[str] = set()
+    for raw in TOK_RE.findall(text):
+        tok = raw.strip('.,;:')
+        if not tok or tok in NOISE:
+            continue
+        # pure numeric literals
+        if re.fullmatch(r'-?\d[\d.eE_+/-]*', tok):
+            continue
+        # single-letter placeholders (already in NOISE for the common ones)
+        if len(tok) == 1 and tok.isalpha():
+            continue
+        out.add(tok)
+    return out
+
+
+def words_in_backticks(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    out: set[str] = set()
+    for m in BACKTICK_RE.finditer(path.read_text()):
+        out.update(tokens(m.group(1)))
+    return out
+
+
+def words_anywhere(path: Path) -> set[str]:
+    if not path.exists():
+        return set()
+    return tokens(path.read_text())
+
+
+def main() -> int:
+    args = sys.argv[1:]
+    strict = '--strict' in args
+    args = [a for a in args if a != '--strict']
+    concept_filter = args[0] if args else None
+
+    cfg = json.loads((ROOT / 'config.json').read_text())
+    any_gaps = False
+
+    for ex in cfg['exercises']['concept']:
+        slug = ex['slug']
+        if not ex['concepts']:
+            continue
+        concept = ex['concepts'][0]
+        if concept_filter and concept != concept_filter and slug != concept_filter:
+            continue
+
+        intro = ROOT / 'exercises' / 'concept' / slug / '.docs' / 'introduction.md'
+        about = ROOT / 'concepts' / concept / 'about.md'
+        if not about.exists():
+            print(f'? {slug:30} → {concept:25}  (no about.md)')
+            any_gaps = True
+            continue
+
+        missing = sorted(words_in_backticks(intro) - words_anywhere(about))
+        if missing:
+            any_gaps = True
+            print(f'{slug:30} → {concept:25}  {", ".join(missing)}')
+
+    if not any_gaps:
+        print('No gaps. (Advisory only — false positives possible.)')
+
+    return 1 if (strict and any_gaps) else 0
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "signal-stencils/signal-stencils.factor"
+    ],
+    "test": [
+      "signal-stencils/signal-stencils-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Build four MACRO: declarations whose bodies run at compile time and return quotations specialised on each call site's literal arguments."
+}

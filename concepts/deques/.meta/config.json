@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor's double-ended queues — push and pop at both ends with <dlist>, used as the FIFO frontier in breadth-first search."
+}

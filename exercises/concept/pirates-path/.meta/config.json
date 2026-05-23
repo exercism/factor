@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "pirates-path/pirates-path.factor"
+    ],
+    "test": [
+      "pirates-path/pirates-path-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "tisbury-treasure-hunt",
+  "blurb": "Use a <dlist> as the BFS frontier through a chart of hidden coves, then cache an expensive gold-lookup with MEMO:."
+}

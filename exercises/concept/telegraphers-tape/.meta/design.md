@@ -29,6 +29,10 @@ and assumed here.
 - `destructors` — taught in `boatswains-bilge`. The student must
   already know `new-disposable`, `dispose*`, and the at-most-once
   semantics; this exercise only adds the *stream* protocol on top.
+- `io-streams` — taught in `channel-chatter`. The consumer side
+  of streams (`stream-read1`, `stream-contents`, the `with-…`
+  combinators). Once the student knows what callers do, the
+  implementor's side falls out naturally.
 - `wire-format` — taught in `signalers-satchel`. Not load-bearing
   for the exemplar, but a sibling pre-streams exercise that gives
   the student practice with `unparse` and slice variants they'll

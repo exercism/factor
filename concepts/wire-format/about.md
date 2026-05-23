@@ -71,4 +71,8 @@ projection applied to each input separately (that's `bi@`).
 1 2 3 [ + + ] [ * * ] 3bi . . ! => 6  6
 ```
 
+For *one* quotation applied to each input separately, reach for
+`bi@` (two inputs) or `tri@` (three inputs) instead — same family,
+different shape.
+
 [prettyprint]: https://docs.factorcode.org/content/vocab-prettyprint.html

@@ -28,6 +28,8 @@ The string-specific words live mostly in `splitting`, `ascii`, and
 | `first`, `second`, `third`, `fourth` | `sequences` | the leading slot |
 | `first2`, `first3`         | `sequences`   | unpack two or three leading slots |
 | `>string`    | `strings`     | turn a sequence of chars into a string |
+| `1string`    | `strings`     | wrap a single character into a one-character string |
+| `CHAR: x`    | parser        | a single-character literal (e.g. `CHAR: A` → `65`) |
 
 For numeric ↔ string round-tripping, [`math.parser`][math.parser]
 provides `number>string` and `string>number`. For format-string

@@ -28,6 +28,7 @@ over cardinality .            ! => 1
 | `union`       | `( set1 set2 -- set )`                    |
 | `intersect`   | `( set1 set2 -- set )`                    |
 | `diff`        | `( set1 set2 -- set )`                    |
+| `set-like`    | `( set exemplar -- set' )` — coerce `set` to the class of `exemplar` |
 
 A subtle point about `in?` versus `member?` (from
 `sequences`): both test membership, but `member?` does a
@@ -39,21 +40,27 @@ than a handful of entries.
 ## Pairs nicely with hashtables
 
 `HS{ }` for "is X visited?" pairs naturally with `H{ }` for
-"who are X's neighbours?". A textbook BFS is just:
+"who are X's neighbours?". A textbook DFS is just:
 
 ```factor
 visited adjoin
-queue push
-[ queue empty? not ] [
-    queue pop dup neighbours-quot call [
+stack push
+[ stack empty? ] [
+    stack pop dup neighbours-quot call [
         dup visited in? [ drop ] [
-            [ visited adjoin ] [ queue push ] bi
+            [ visited adjoin ] [ stack push ] bi
         ] if
     ] each
-] while
+] until
 ```
 
-The visited set deduplicates work; the queue threads frontier
-nodes; the neighbours map (a hashtable) supplies the graph.
+The visited set deduplicates work; the stack threads frontier
+nodes (LIFO via `push`/`pop`); the neighbours map (a hashtable)
+supplies the graph. Order of visitation doesn't matter for a
+reachability question, which is why a vector-as-stack is enough
+— a real BFS over the same shape swaps the vector for a
+[`<dlist>`][deques] and dequeues from the front instead.
+
+[deques]: https://docs.factorcode.org/content/vocab-deques.html
 
 [sets]: https://docs.factorcode.org/content/vocab-sets.html

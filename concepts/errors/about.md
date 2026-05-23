@@ -20,7 +20,8 @@ ERROR: not-found path ;
 ```
 
 That gives every custom error a unique class, a friendly throwing
-constructor, and a class predicate to test caught errors against:
+constructor, and a class predicate (`name?`) to test caught errors
+against:
 
 ```factor
 [ "/missing" not-found ]

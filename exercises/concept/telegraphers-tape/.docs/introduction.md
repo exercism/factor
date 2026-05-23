@@ -1,22 +1,39 @@
 # Introduction
 
-A *stream* is anything you can read bytes from or write bytes to.
-Factor's [`io`][io] vocabulary defines a small protocol — a few
-generic words — and any class can join in. The bundled streams
-(`<string-reader>`, `<file-writer>`, sockets, …) all implement
-it; this exercise is your first custom one.
+You've already *used* streams in `channel-chatter` and disposed
+of them in `boatswains-bilge`. This exercise is your first
+custom stream — a class that implements the protocol so the
+same `with-input-stream` / `read1` / `stream-read1` code that
+worked on a `<string-reader>` works on yours.
 
-## The two mixins
+## Mixins: the other half of the class hierarchy
 
-Two open mixins decide which half of the protocol a class
-participates in:
+You already know `TUPLE: child < parent …` from
+`dragons-descendants` — a single-parent hierarchy where slots
+flow down. Factor has a *second* way to extend the class graph:
+**open mixins**. A `MIXIN: m` declares a class with no slots
+that other classes can join after the fact with `INSTANCE: c m`.
+Membership is many-to-many: a class can be an instance of as
+many mixins as it likes.
+
+The streams protocol uses two mixins to mark which half of the
+interface a class implements:
 
 ```factor
 INSTANCE: my-stream input-stream    ! readable
 INSTANCE: my-stream output-stream   ! writable
 ```
 
-A stream can be one, the other, or both.
+A stream can be one, the other, or both. Generic methods on
+`input-stream` (or `output-stream`) then dispatch to any class
+that has joined the mixin — that's how the ambient `read1`,
+`stream-contents`, `with-input-stream`, etc. find their way to
+your class.
+
+Mixins are *open*: you can add a new member after the mixin is
+declared, even in a different vocabulary. That's the contrast
+with `TUPLE: < parent`, where the relationship is fixed when
+the child class is declared.
 
 ## The protocol generics
 
@@ -43,10 +60,9 @@ underlying one.
 
 ## Cleanup is from `destructors`
 
-Streams hold OS resources, so they extend `disposable` (the `<`
-parent syntax in `TUPLE:`) and implement `dispose*` — the same
-framework you used in `boatswains-bilge`. A custom stream
-declares:
+Streams are disposables: a custom stream extends `disposable`
+and implements `dispose*`. That's the framework from
+`boatswains-bilge`, applied to a stream class:
 
 ```factor
 TUPLE: my-stream < disposable underlying ;
@@ -57,8 +73,7 @@ TUPLE: my-stream < disposable underlying ;
 M: my-stream dispose* underlying>> dispose ;
 ```
 
-Callers use `with-input-stream` (and friends) to acquire and
-release the stream in one move — see boatswains-bilge for the
-full disposal API.
+Once that's in place, all the `with-…` combinators from
+`channel-chatter` work on your stream automatically.
 
 [io]: https://docs.factorcode.org/content/vocab-io.html

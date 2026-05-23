@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "dragons-descendants/dragons-descendants.factor"
+    ],
+    "test": [
+      "dragons-descendants/dragons-descendants-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Build a hierarchy of dragon tuples using TUPLE: < parent, then exercise slot and accessor inheritance with one word that ages any descendant."
+}

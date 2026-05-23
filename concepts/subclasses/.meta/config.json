@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor's TUPLE: < parent syntax declares a subclass that inherits slots, accessors, and predicate-class membership from its parent."
+}

@@ -10,6 +10,7 @@ the stack:
 | `1array` | `( a     -- { a } )`                |
 | `2array` | `( a b   -- { a b } )`              |
 | `3array` | `( a b c -- { a b c } )`            |
+| `<array>`| `( n elt -- array )` — `n` copies of `elt` |
 | `array?` | `( obj   -- ? )` — type predicate   |
 
 A few protocol words from `sequences` come up so often with
@@ -18,6 +19,7 @@ arrays that they are worth knowing as a unit:
 | word      | effect                                                |
 |-----------|-------------------------------------------------------|
 | `concat`  | `( seqs -- seq )` — flatten a sequence-of-sequences   |
+| `join`    | `( seqs glue -- seq )` — flatten with a separator     |
 | `reverse` | `( seq -- newseq )`                                   |
 | `index`   | `( elt seq -- i/f )` — index of element, or `f`       |
 | `member?` | `( elt seq -- ? )` — membership test                  |
@@ -31,3 +33,9 @@ USING: arrays sequences ;
 "b" { "a" "b" "c" } index .        ! => 1
 "b" { "a" "b" "c" } member? .      ! => t
 ```
+
+`all-unique?` and `members` from [`sets`][sets] also accept any
+sequence — handy when an array's elements should be deduplicated
+or checked for duplicates without first converting to a hash-set.
+
+[sets]: https://docs.factorcode.org/content/vocab-sets.html

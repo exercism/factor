@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-io.html",
+    "description": "io vocabulary — ambient and explicit stream words"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-io.streams.string.html",
+    "description": "io.streams.string — string-backed readers and writers"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-io.files.html",
+    "description": "io.files — file-backed readers and writers"
+  }
+]

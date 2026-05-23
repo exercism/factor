@@ -53,10 +53,10 @@ USING: kernel locals math sequences ;
 :: sum-by-hand ( seq -- total )
     seq :> rest!
     0   :> running!
-    [ rest length 0 > ] [
+    [ rest empty? ] [
         rest unclip [ rest! ] dip
         running + running!
-    ] while
+    ] until
     running ;
 ```
 
