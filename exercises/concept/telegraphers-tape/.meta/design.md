@@ -10,21 +10,29 @@ input stream.
 ## Concept introduced
 
 `streams` — the stream protocol generics (`stream-read1`,
-`stream-element-type`, …), the `input-stream`/`output-stream`
-mixins, and the `disposable` parent + `dispose*` cleanup hook.
+`stream-element-type`, …) and the `input-stream`/`output-stream`
+mixins. The disposable framework (`new-disposable`, `dispose*`,
+the scoped combinators) is taught upstream in `boatswains-bilge`
+and assumed here.
 
 ## Prerequisite concepts
 
 - `tuples` — for the `TUPLE: tape < disposable wire ;` declaration
 - `generics` — `M:` methods plus `INSTANCE:` for the input-stream
-  mixin (already covered alongside `GENERIC:` in
-  bering-bearings)
+  mixin
 - `while` — the `stream-read1` body loops until it sees a Morse
   symbol or end-of-stream
 - `sequences` — `member?` to test the Morse alphabet
 - `vocabularies` — the stream protocol generics live in a
   separate vocab from the tuple, so the student gets practice
   picking the right `USING:` lines
+- `destructors` — taught in `boatswains-bilge`. The student must
+  already know `new-disposable`, `dispose*`, and the at-most-once
+  semantics; this exercise only adds the *stream* protocol on top.
+- `wire-format` — taught in `signalers-satchel`. Not load-bearing
+  for the exemplar, but a sibling pre-streams exercise that gives
+  the student practice with `unparse` and slice variants they'll
+  reach for in real stream code.
 
 ## Why a filtering input stream
 

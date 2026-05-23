@@ -37,3 +37,8 @@ combines a hash-set (visited) with a hashtable (adjacency map).
 - `locals` — taught in `lasagna-luminary`. Needed to keep the
   BFS body readable.
 - `while` — taught in `mixed-juices`. Needed for the BFS loop.
+- `generics` — taught in `bering-bearings`. Not needed for the
+  tasks themselves (the student only *calls* protocol words), but
+  the introduction frames hash-sets as implementing the `sets`
+  protocol, and "protocol" only makes sense once you've seen
+  `GENERIC:`/`M:`.

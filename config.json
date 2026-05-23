@@ -409,21 +409,6 @@
         "status": "beta"
       },
       {
-        "slug": "lighthouse-logbook",
-        "name": "Lighthouse Logbook",
-        "uuid": "616f2c19-8267-4a6e-97dd-cc777e71f0ae",
-        "concepts": [
-          "hash-sets"
-        ],
-        "prerequisites": [
-          "assocs",
-          "mutation",
-          "locals",
-          "while"
-        ],
-        "status": "beta"
-      },
-      {
         "slug": "garden-gathering",
         "name": "Garden Gathering",
         "uuid": "de770f11-77fb-4faa-92a3-c8e63bdb0c0f",
@@ -456,6 +441,22 @@
         "status": "beta"
       },
       {
+        "slug": "lighthouse-logbook",
+        "name": "Lighthouse Logbook",
+        "uuid": "616f2c19-8267-4a6e-97dd-cc777e71f0ae",
+        "concepts": [
+          "hash-sets"
+        ],
+        "prerequisites": [
+          "assocs",
+          "mutation",
+          "locals",
+          "while",
+          "generics"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "quayside-crew",
         "name": "Quayside Crew",
         "uuid": "e520b985-797e-42b6-a366-990db2d58796",
@@ -466,6 +467,36 @@
           "higher-order-sequences",
           "tuples",
           "locals"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "signalers-satchel",
+        "name": "Signaler's Satchel",
+        "uuid": "8c4cc9a6-0abd-4b64-914d-4f9be13a4768",
+        "concepts": [
+          "wire-format"
+        ],
+        "prerequisites": [
+          "combinators",
+          "sequences",
+          "tuples",
+          "strings"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "boatswains-bilge",
+        "name": "Boatswain's Bilge",
+        "uuid": "c02fea6b-21ee-4328-b7e8-b30f970b69d5",
+        "concepts": [
+          "destructors"
+        ],
+        "prerequisites": [
+          "tuples",
+          "errors",
+          "generics",
+          "combinators"
         ],
         "status": "beta"
       },
@@ -481,7 +512,9 @@
           "generics",
           "while",
           "sequences",
-          "vocabularies"
+          "vocabularies",
+          "wire-format",
+          "destructors"
         ],
         "status": "beta"
       }
@@ -1587,17 +1620,15 @@
         "name": "Connect",
         "uuid": "aa62b866-3c6b-4804-9a62-dddc45ab5d17",
         "practices": [
-          "tuples",
           "locals"
         ],
         "prerequisites": [
-          "sequences",
-          "conditionals",
           "tuples",
           "recursion",
           "locals",
           "while",
-          "mutation"
+          "mutation",
+          "hash-sets"
         ],
         "difficulty": 9
       }
@@ -1740,11 +1771,6 @@
       "name": "While"
     },
     {
-      "uuid": "fa730f6b-2c32-4890-8b11-3103615e41b4",
-      "slug": "hash-sets",
-      "name": "Hash Sets"
-    },
-    {
       "uuid": "c8a58a3d-d6e4-4325-b0c9-d2ee4bfc9df3",
       "slug": "dynamic-variables",
       "name": "Dynamic Variables"
@@ -1755,9 +1781,24 @@
       "name": "Generics"
     },
     {
+      "uuid": "fa730f6b-2c32-4890-8b11-3103615e41b4",
+      "slug": "hash-sets",
+      "name": "Hash Sets"
+    },
+    {
       "uuid": "4b136c82-48c0-4dd6-859d-e5e76c898540",
       "slug": "concurrency",
       "name": "Concurrency"
+    },
+    {
+      "uuid": "640105b1-6976-4e6d-9dc8-c63f28346ad1",
+      "slug": "wire-format",
+      "name": "Wire Format"
+    },
+    {
+      "uuid": "abce8f6a-d7a7-440d-a471-610f7d528bc1",
+      "slug": "destructors",
+      "name": "Destructors"
     },
     {
       "uuid": "bc982157-d036-4d11-a42f-483e8dcf32e6",

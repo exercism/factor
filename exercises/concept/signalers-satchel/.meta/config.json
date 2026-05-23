@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "signalers-satchel/signalers-satchel.factor"
+    ],
+    "test": [
+      "signalers-satchel/signalers-satchel-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Quote values, slice signal flags, and project pairs and triples with the multi-input cleave family."
+}

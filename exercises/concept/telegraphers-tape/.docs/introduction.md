@@ -41,42 +41,24 @@ lower-level batch read most input streams provide;
 stream, the simplest implementation just delegates to the
 underlying one.
 
-## Cleanup with `disposable`
+## Cleanup is from `destructors`
 
-Streams hold OS resources, so the protocol pairs with
-[`destructors`][destructors]. A custom stream extends
-`disposable` (the `<` parent syntax in `TUPLE:`):
+Streams hold OS resources, so they extend `disposable` (the `<`
+parent syntax in `TUPLE:`) and implement `dispose*` — the same
+framework you used in `boatswains-bilge`. A custom stream
+declares:
 
 ```factor
 TUPLE: my-stream < disposable underlying ;
-```
 
-The factory is `new-disposable` — it allocates the tuple *and*
-registers it so exceptions during setup can't leak the
-resource. The cleanup hook is the generic `dispose*`:
-
-```factor
 : <my-stream> ( underlying -- s )
     my-stream new-disposable swap >>underlying ;
 
 M: my-stream dispose* underlying>> dispose ;
 ```
 
-User code calls the public `dispose` (or one of the scoped
-combinators below); the framework runs your `dispose*` once and
-marks the object disposed. Calling `dispose` twice is harmless.
-
-## Scoped use
-
-Most code doesn't call `dispose` by hand — it uses a combinator
-that opens the stream, runs a quotation, and disposes on exit
-even if the quotation throws:
-
-```
-with-input-stream   ( stream quot -- )
-with-output-stream  ( stream quot -- )
-with-disposal       ( disposable quot -- )
-```
+Callers use `with-input-stream` (and friends) to acquire and
+release the stream in one move — see boatswains-bilge for the
+full disposal API.
 
 [io]: https://docs.factorcode.org/content/vocab-io.html
-[destructors]: https://docs.factorcode.org/content/vocab-destructors.html

@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Factor's destructors framework guarantees cleanup of disposables with dispose, with-disposal, with-destructors, &dispose, and |dispose."
+}

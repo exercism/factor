@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-prettyprint.html",
+    "description": "prettyprint vocabulary — home of unparse"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-cleave-combinators.html",
+    "description": "Cleave combinators — including 2bi, 3bi, 2tri, 3tri"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-slices.html",
+    "description": "slices vocabulary — head-slice, tail-slice, and friends"
+  }
+]

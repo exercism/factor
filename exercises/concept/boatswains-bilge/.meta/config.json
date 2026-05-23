@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "boatswains-bilge/boatswains-bilge.factor"
+    ],
+    "test": [
+      "boatswains-bilge/boatswains-bilge-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Acquire and release bilge gear with dispose, with-disposal, with-destructors, &dispose, and |dispose, then define a fresh disposable from scratch."
+}
