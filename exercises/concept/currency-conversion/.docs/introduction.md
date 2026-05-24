@@ -129,6 +129,22 @@ The most common use is *clamping* — pinning a value to a floor
 with `max` (e.g., `0 max` keeps a value non-negative) or to a
 ceiling with `min`.
 
+## Ordering predicates
+
+`math.order` also provides `before?`, `after?`, `before=?`,
+`after=?` for comparison predicates that work on any orderable
+type — numbers, strings, characters:
+
+```
+before?  ( obj1 obj2 -- ? )   ! obj1 <  obj2
+before=? ( obj1 obj2 -- ? )   ! obj1 <= obj2
+after?   ( obj1 obj2 -- ? )   ! obj1 >  obj2
+after=?  ( obj1 obj2 -- ? )   ! obj1 >= obj2
+```
+
+Use these instead of `<`/`<=` when the values might be strings —
+the arithmetic operators don't dispatch on strings.
+
 [lasagna]: https://exercism.org/tracks/factor/exercises/lasagna
 [math]: https://docs.factorcode.org/content/vocab-math.html
 [math.functions]: https://docs.factorcode.org/content/vocab-math.functions.html

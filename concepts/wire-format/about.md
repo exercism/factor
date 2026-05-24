@@ -7,7 +7,7 @@ ground.
 
 ## `unparse` — value to source
 
-[`unparse`][prettyprint] (in `prettyprint`) returns the
+[`unparse`][unparse] (in `prettyprint`) returns the
 source-form text of any value. It's the inverse of the parser —
 the round-trip `dup unparse parse` reconstructs the value.
 
@@ -75,4 +75,4 @@ For *one* quotation applied to each input separately, reach for
 `bi@` (two inputs) or `tri@` (three inputs) instead — same family,
 different shape.
 
-[prettyprint]: https://docs.factorcode.org/content/vocab-prettyprint.html
+[unparse]: https://docs.factorcode.org/content/word-unparse%2Cprettyprint.html

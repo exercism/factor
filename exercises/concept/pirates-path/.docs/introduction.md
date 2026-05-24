@@ -14,7 +14,11 @@ push-back     ( elt deque -- )
 pop-front     ( deque -- elt )
 pop-back      ( deque -- elt )
 deque-empty?  ( deque -- ? )
+clear-deque   ( deque -- )
 ```
+
+`clear-deque` empties the deque in place — useful for reuse
+without reallocating.
 
 Push and pop at the same end gives you a LIFO stack. Push at one
 end and pop at the other gives you a FIFO queue:

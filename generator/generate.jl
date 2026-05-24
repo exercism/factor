@@ -101,7 +101,11 @@ function gen_header(mod, slug)
     base = String["exercism-tools", "io", "kernel", slug, "tools.test", "unicode"]
     extra = isdefined(mod, :EXTRA_VOCABS) ? collect(mod.EXTRA_VOCABS) : String[]
     vocabs = sort!(unique!(vcat(base, extra)))
-    return "USING: $(join(vocabs, " ")) ;\nIN: $(slug).tests"
+    header = "USING: $(join(vocabs, " ")) ;\nIN: $(slug).tests"
+    if isdefined(mod, :EXTRA_HEADER)
+        header *= "\n" * mod.EXTRA_HEADER
+    end
+    return header
 end
 
 function render_test_file(mod, cases, slug)

@@ -646,6 +646,20 @@
         "difficulty": 2
       },
       {
+        "slug": "etl",
+        "name": "ETL",
+        "uuid": "5ebcdd87-4967-4c4a-b3dd-51026581cb9d",
+        "practices": [
+          "assocs"
+        ],
+        "prerequisites": [
+          "assocs",
+          "locals",
+          "sequences"
+        ],
+        "difficulty": 2
+      },
+      {
         "slug": "grains",
         "name": "Grains",
         "uuid": "9dc3a05d-1a65-487f-826f-02636d2bc9dc",
@@ -1096,6 +1110,21 @@
         "difficulty": 4
       },
       {
+        "slug": "kindergarten-garden",
+        "name": "Kindergarten Garden",
+        "uuid": "a8cbd7a8-548a-4fb1-b7a7-30c05822f335",
+        "practices": [
+          "assocs"
+        ],
+        "prerequisites": [
+          "assocs",
+          "sequences",
+          "strings",
+          "locals"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "largest-series-product",
         "name": "Largest Series Product",
         "uuid": "d6d49ae0-5999-435c-902f-beb35e72aac9",
@@ -1287,6 +1316,21 @@
         "difficulty": 5
       },
       {
+        "slug": "circular-buffer",
+        "name": "Circular Buffer",
+        "uuid": "0d95acdf-26a3-4c51-b4ae-1f1c02c78963",
+        "practices": [
+          "deques",
+          "tuples"
+        ],
+        "prerequisites": [
+          "deques",
+          "tuples",
+          "errors"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "clock",
         "name": "Clock",
         "uuid": "2a606909-644b-4fd3-bd6c-bf0bb605a48d",
@@ -1380,8 +1424,10 @@
         ],
         "prerequisites": [
           "tuples",
+          "subclasses",
           "generics",
           "mutation",
+          "destructors",
           "streams"
         ],
         "difficulty": 5
@@ -1419,6 +1465,23 @@
         "difficulty": 5
       },
       {
+        "slug": "tournament",
+        "name": "Tournament",
+        "uuid": "05a48d2a-8443-436d-826c-8736c32f02fb",
+        "practices": [
+          "assocs",
+          "tuples"
+        ],
+        "prerequisites": [
+          "assocs",
+          "tuples",
+          "case",
+          "sequences",
+          "locals"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "yacht",
         "name": "Yacht",
         "uuid": "c94bbdbb-cdfe-4b53-913c-fc7f705cc0d0",
@@ -1450,6 +1513,27 @@
           "sequences",
           "reductions",
           "locals"
+        ],
+        "difficulty": 6
+      },
+      {
+        "slug": "binary-search-tree",
+        "name": "Binary Search Tree",
+        "uuid": "776db019-258b-4e1a-9eda-78260e8bca3e",
+        "practices": [
+          "tuples",
+          "subclasses",
+          "generics",
+          "recursion"
+        ],
+        "prerequisites": [
+          "tuples",
+          "subclasses",
+          "generics",
+          "recursion",
+          "locals",
+          "sequences",
+          "reductions"
         ],
         "difficulty": 6
       },

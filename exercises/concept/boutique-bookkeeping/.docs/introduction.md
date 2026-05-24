@@ -75,11 +75,17 @@ lockstep and combines corresponding elements; `zip` is the
 shorthand for "pair them up without combining":
 
 ```
-map  ( seq       quot -- newseq )
-each ( seq       quot -- )
-2map ( seq1 seq2 quot -- newseq )
-zip  ( seq1 seq2      -- pairs )
+map    ( seq       quot          -- newseq )
+map-as ( seq       quot exemplar -- newseq )
+each   ( seq       quot          -- )
+2map   ( seq1 seq2 quot          -- newseq )
+zip    ( seq1 seq2               -- pairs )
 ```
+
+`map-as` is the cousin of `map` that forces the output sequence's
+type — pass an empty `{ }` or `V{ }` as the exemplar to override
+the input-type default (otherwise mapping a string to non-chars
+errors when Factor tries to pack the results back into a string).
 
 ```factor
 USING: formatting math sequences ;

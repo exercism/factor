@@ -61,7 +61,7 @@ shape becomes depth-first.
 ## `MEMO:` — automatic caching
 
 Sometimes the per-node lookup the BFS calls is expensive. Factor
-provides [`MEMO:`][memoize], a replacement for `:` that
+provides [`MEMO:`][memo-decl], a replacement for `:` that
 auto-caches the word's result keyed on its inputs:
 
 ```factor
@@ -81,3 +81,4 @@ finite, manageable set.
 [deques]: https://docs.factorcode.org/content/vocab-deques.html
 [dlists]: https://docs.factorcode.org/content/vocab-dlists.html
 [memoize]: https://docs.factorcode.org/content/vocab-memoize.html
+[memo-decl]: https://docs.factorcode.org/content/word-MEMO__colon__%2Csyntax.html

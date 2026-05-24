@@ -60,6 +60,21 @@ H{ } clone "coal" over inc-at .
 ! => H{ { "coal" 1 } }
 ```
 
+## Iteration and lazy insertion
+
+`assoc-each` walks every `( key value -- )` pair; `cache`
+returns the value for a key, computing it once with the
+supplied quotation if the key is missing.
+
+```
+assoc-each ( assoc quot: ( key value -- ) -- )
+cache      ( key assoc quot: ( key -- value ) -- value )
+```
+
+`cache` is the "look up or create" pattern in one word — handy
+when you're building a hashtable from a stream of keys and don't
+want to handle the missing-entry case at every call site.
+
 ## Applying a hashtable update across a sequence of keys
 
 When the input is a sequence of keys and you want to update the

@@ -59,8 +59,8 @@ nodes (LIFO via `push`/`pop`); the neighbours map (a hashtable)
 supplies the graph. Order of visitation doesn't matter for a
 reachability question, which is why a vector-as-stack is enough
 — a real BFS over the same shape swaps the vector for a
-[`<dlist>`][deques] and dequeues from the front instead.
+[`<dlist>`][dlist] and dequeues from the front instead.
 
-[deques]: https://docs.factorcode.org/content/vocab-deques.html
+[dlist]: https://docs.factorcode.org/content/word-__lt__dlist__gt__%2Cdlists.html
 
 [sets]: https://docs.factorcode.org/content/vocab-sets.html

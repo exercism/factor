@@ -8,7 +8,7 @@ from Factor's standard library do most of the work.
 
 ## `unparse` — value to source
 
-[`unparse`][prettyprint] (in `prettyprint`) returns the
+[`unparse`][unparse] (in `prettyprint`) returns the
 source-form text of any value:
 
 ```factor
@@ -89,4 +89,4 @@ USING: combinators math ;
 ! => 6
 ```
 
-[prettyprint]: https://docs.factorcode.org/content/vocab-prettyprint.html
+[unparse]: https://docs.factorcode.org/content/word-unparse%2Cprettyprint.html
