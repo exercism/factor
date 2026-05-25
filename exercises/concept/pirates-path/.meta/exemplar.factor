@@ -6,7 +6,7 @@ IN: pirates-path
     <dlist> :> q
     items [ q push-back ] each
     V{ } clone
-    [ q deque-empty? not ] [ q pop-front over push ] while
+    [ q deque-empty? ] [ q pop-front over push ] until
     >array ;
 
 :: coves-reachable ( start chart -- coves )
@@ -14,13 +14,13 @@ IN: pirates-path
     <dlist> :> frontier
     start visited adjoin
     start frontier push-back
-    [ frontier deque-empty? not ] [
+    [ frontier deque-empty? ] [
         frontier pop-front chart at [
             dup visited in? [ drop ] [
                 [ visited adjoin ] [ frontier push-back ] bi
             ] if
         ] each
-    ] while
+    ] until
     visited ;
 
 :: hop-count ( start goal chart -- n/f )
@@ -29,7 +29,7 @@ IN: pirates-path
     f :> answer!
     start visited adjoin
     { start 0 } frontier push-back
-    [ frontier deque-empty? not answer not and ] [
+    [ frontier deque-empty? answer or ] [
         frontier pop-front first2 :> ( cove dist )
         cove goal = [ dist answer! ] [
             cove chart at [
@@ -39,7 +39,7 @@ IN: pirates-path
                 ] if
             ] each
         ] if
-    ] while
+    ] until
     answer ;
 
 CONSTANT: gold-distribution H{

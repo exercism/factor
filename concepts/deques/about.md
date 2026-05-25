@@ -44,13 +44,13 @@ A breadth-first search is the canonical FIFO use:
     <dlist>    :> frontier
     start visited adjoin
     start frontier push-back
-    [ frontier deque-empty? not ] [
+    [ frontier deque-empty? ] [
         frontier pop-front graph at [
             dup visited in? [ drop ] [
                 [ visited adjoin ] [ frontier push-back ] bi
             ] if
         ] each
-    ] while
+    ] until
     visited ;
 ```
 

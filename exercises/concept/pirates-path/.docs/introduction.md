@@ -50,9 +50,9 @@ candidates from the front, and dedup with a hash-set:
 USING: deques dlists hash-sets sets ;
 
 ! ... visited adjoin and frontier push-back ...
-[ frontier deque-empty? not ] [
+[ frontier deque-empty? ] [
     frontier pop-front ! ... look up neighbours, push unseen ones ...
-] while
+] until
 ```
 
 Older candidates are visited before newer ones — so the search

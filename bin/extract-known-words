@@ -49,7 +49,7 @@ phrase\'
 VOCABS = set("""
 kernel math sequences strings splitting ascii unicode formatting
 combinators arrays sorting assocs locals namespaces math.statistics
-math.functions math.ranges math.parser math.vectors math.bitwise math.order
+math.functions ranges math.parser math.vectors math.bitwise math.order
 tools.test io lexer sets grouping accessors classes.tuple classes
 fry generic strings.parser sequences.deep tools.test.private continuations
 """.split())

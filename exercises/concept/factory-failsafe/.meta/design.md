@@ -27,3 +27,5 @@ handling with `recover`, and defining error classes with `ERROR:`.
 
 - `tuples` — taught in `role-playing-game`.
 - `conditionals` — taught in `cars-assemble`.
+- `higher-order-sequences` — taught in `boutique-bookkeeping`.
+- `combinators` — taught in `joiners-journey`.

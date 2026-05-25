@@ -51,7 +51,7 @@ neighbour function" pattern from the ground up.
   up neighbours.
 - `locals` — taught in `lasagna-luminary`. `::` and `:>` keep
   the multi-state BFS body readable.
-- `while` — taught in `mixed-juices`. The BFS loop.
+- `until` — taught in `mixed-juices`. The BFS loop.
 
 ## Tasks ramp
 

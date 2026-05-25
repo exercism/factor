@@ -10,16 +10,16 @@
 
 ## 1. Drain the tide queue
 
-- Start with `<dlist>`, `[ push-back ] each` to fill it, then a
-  `while` loop that pops the front until the deque is empty,
-  accumulating into a `V{ } clone` and converting to an array
-  at the end with `>array`.
+- Start with `<dlist>`, `[ push-back ] each` to fill it, then
+  drain it with an `until` loop (`[ deque-empty? ]` predicate):
+  pop the front into a `V{ } clone`, converting to an array at
+  the end with `>array`.
 
 ## 2. Coves reachable
 
 - Pattern: `HS{ } clone` for `visited`, `<dlist>` for
   `frontier`, mark `start` visited and push it onto the
-  frontier, then loop while the frontier isn't empty: pop the
+  frontier, then loop until the frontier is empty: pop the
   front, look up its neighbours in the chart with `at`, and for
   each unseen neighbour adjoin to `visited` and push-back onto
   the frontier.
@@ -29,8 +29,8 @@
 - Same shape as task 2, but the deque carries `{ cove distance }`
   pairs. When you pop a pair whose cove equals the goal, record
   the distance as the answer and stop. Use a mutable local
-  (`f :> answer!`) and gate the loop on
-  `frontier deque-empty? not answer not and`.
+  (`f :> answer!`) and gate the `until` loop on
+  `frontier deque-empty? answer or`.
 
 ## 4. Gold count
 

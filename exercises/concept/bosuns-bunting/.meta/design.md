@@ -8,7 +8,7 @@ string whose characters depend on their position.
 ## Learning objectives
 
 - `<iota>` produces a virtual sequence of integers `0..n-1`.
-- `[a..b]`, `[a..b)`, etc. (from `math.ranges`) produce bounded
+- `[a..b]`, `[a..b)`, etc. (from `ranges`) produce bounded
   integer ranges, optionally starting away from `0`.
 - `map` applies a quotation to each element and collects the
   results.
