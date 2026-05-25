@@ -42,6 +42,25 @@ without   ( seq exclude -- newseq )    ! drop every element that's in `exclude`
 `without` treats its second argument as a set: any element of
 `seq` that's `=` to *any* element of `exclude` is dropped.
 
+### Filtering records by a slot
+
+When the elements are *tuples*, the predicate usually projects
+a slot via its auto-generated reader `slot>>` and tests on that:
+
+```factor
+USING: accessors sequences ;
+
+TUPLE: customer name vip? ;
+
+{
+    T{ customer { name "Alice" } { vip? t } }
+    T{ customer { name "Bob"   } { vip? f } }
+    T{ customer { name "Carol" } { vip? t } }
+}
+[ vip?>> ] filter [ name>> ] map .
+! => { "Alice" "Carol" }
+```
+
 ## Threading a fixed value with `with`
 
 Sometimes the predicate needs a value that's the same on every

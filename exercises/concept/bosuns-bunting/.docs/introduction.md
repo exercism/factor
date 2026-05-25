@@ -57,6 +57,32 @@ A few common one-arg shorthands:
 right tool when the range starts somewhere other than `0` or
 needs an inclusive upper bound.
 
+## Open lower bounds and possibly-empty ranges
+
+Square brackets *include* an endpoint; round brackets *exclude*
+it. The same trick on the left gives `(a..b]` and `(a..b)`:
+
+```
+(a..b]    ! a+1, …, b              (lower open, upper inclusive)
+(a..b)    ! a+1, …, b-1            (both open)
+```
+
+`0 n (a..b]` gives `{ 1 … n }` for `n > 0` and `{ }` for `n = 0`
+— the natural shape when iterating "every positive integer up
+to and including `n`."
+
+## Descending ranges
+
+All four bracket forms — `[a..b]`, `[a..b)`, `(a..b]`, `(a..b)`
+— count *down* when `a > b`, not toward an empty result:
+
+```factor
+USING: ranges sequences ;
+
+5 1 [a..b] >array .   ! => { 5 4 3 2 1 }
+1 0 [a..b] >array .   ! => { 1 0 }   (not empty!)
+```
+
 ## Building a string by position
 
 `map` yields whatever shape its quotation returns. If the
