@@ -1,34 +1,32 @@
 USING: exercism-tools io kernel nth-prime tools.test unicode ;
 IN: nth-prime.tests
 
-"Nth Prime:" print
-
-"first prime" print
+"first prime" description
 { 2 }
 [ 1 nth-prime ] unit-test
 
 STOP-HERE
 
-"second prime" print
+"second prime" description
 { 3 }
 [ 2 nth-prime ] unit-test
 
-"sixth prime" print
+"sixth prime" description
 { 13 }
 [ 6 nth-prime ] unit-test
 
-"big prime" print
+"big prime" description
 { 104743 }
 [ 10001 nth-prime ] unit-test
 
-"there is no zeroth prime" print
+"there is no zeroth prime" description
 [ 0 nth-prime ]
 [ "there is no zeroth prime" = ] must-fail-with
 
-"seventh prime" print
+"seventh prime" description
 { 17 }
 [ 7 nth-prime ] unit-test
 
-"very big prime" print
+"very big prime" description
 { 821647 }
 [ 65537 nth-prime ] unit-test

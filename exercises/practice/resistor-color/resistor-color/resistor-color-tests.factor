@@ -1,19 +1,17 @@
 USING: exercism-tools io kernel resistor-color tools.test unicode ;
 IN: resistor-color.tests
 
-"Resistor Color:" print
-
-"Black" print
+"Black" description
 { 0 } [ "black" color>code ] unit-test
 
 STOP-HERE
 
-"White" print
+"White" description
 { 9 } [ "white" color>code ] unit-test
 
-"Orange" print
+"Orange" description
 { 3 } [ "orange" color>code ] unit-test
 
-"Colors" print
+"Colors" description
 { { "black" "brown" "red" "orange" "yellow" "green" "blue" "violet" "grey" "white" } }
 [ colors ] unit-test

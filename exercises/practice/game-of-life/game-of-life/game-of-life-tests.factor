@@ -1,49 +1,47 @@
 USING: exercism-tools game-of-life io kernel tools.test unicode ;
 IN: game-of-life.tests
 
-"Game Of Life:" print
-
-"empty matrix" print
+"empty matrix" description
 { { } } [ { } 0 tick ] unit-test
 
 STOP-HERE
 
-"live cells with zero live neighbors die" print
+"live cells with zero live neighbors die" description
 { { 0x0 0x0 0x0 } }
 [ { 0x0 0x2 0x0 } 3 tick ] unit-test
 
-"live cells with only one live neighbor die" print
+"live cells with only one live neighbor die" description
 { { 0x0 0x0 0x0 } }
 [ { 0x0 0x2 0x2 } 3 tick ] unit-test
 
-"live cells with two live neighbors stay alive" print
+"live cells with two live neighbors stay alive" description
 { { 0x0 0x5 0x0 } }
 [ { 0x5 0x5 0x5 } 3 tick ] unit-test
 
-"live cells with three live neighbors stay alive" print
+"live cells with three live neighbors stay alive" description
 { { 0x0 0x4 0x6 } }
 [ { 0x2 0x4 0x6 } 3 tick ] unit-test
 
-"dead cells with three live neighbors become alive" print
+"dead cells with three live neighbors become alive" description
 { { 0x0 0x6 0x0 } }
 [ { 0x6 0x0 0x4 } 3 tick ] unit-test
 
-"live cells with four or more neighbors die" print
+"live cells with four or more neighbors die" description
 { { 0x5 0x0 0x5 } }
 [ { 0x7 0x7 0x7 } 3 tick ] unit-test
 
-"bigger matrix" print
+"bigger matrix" description
 { { 0xd8 0x6 0xbd 0x81 0xc9 0xd1 0x80 0x3 } }
 [ { 0xd8 0xb0 0xe7 0x6 0x8c 0xc7 0x29 0x83 } 8 tick ] unit-test
 
-"matrix with 0 columns" print
+"matrix with 0 columns" description
 { { 0x0 0x0 0x0 0x0 0x0 } }
 [ { 0x0 0x0 0x0 0x0 0x0 } 0 tick ] unit-test
 
-"matrix with 32 columns" print
+"matrix with 32 columns" description
 { { 0xa26f4d98 0x1b08080 0x81f702a2 0x9573c200 0x3f01c1e } }
 [ { 0xec6efb48 0xbeb23898 0xed06beb6 0x91205a96 0x93710c2c } 32 tick ] unit-test
 
-"matrix with 64 columns" print
+"matrix with 64 columns" description
 { { 0x41f020f868521f68 0xbfd1141075001842 0x35f8c70050a40b34 0x4117006050817e04 0x35761230487a1c38 } }
 [ { 0xe1a9452f9072d77a 0x25150d7d533f22c 0x9c20fdcb0fadc212 0x55941c3f54993610 0x3ddd9f17d265087a } 64 tick ] unit-test

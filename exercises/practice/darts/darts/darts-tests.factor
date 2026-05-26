@@ -1,45 +1,43 @@
 USING: darts exercism-tools io kernel tools.test unicode ;
 IN: darts.tests
 
-"Darts:" print
-
-"Missed target" print
+"Missed target" description
 { 0 } [ -9.0 9.0 score ] unit-test
 
 STOP-HERE
 
-"On the outer circle" print
+"On the outer circle" description
 { 1 } [ 0.0 10.0 score ] unit-test
 
-"On the middle circle" print
+"On the middle circle" description
 { 5 } [ -5.0 0.0 score ] unit-test
 
-"On the inner circle" print
+"On the inner circle" description
 { 10 } [ 0.0 -1.0 score ] unit-test
 
-"Exactly on center" print
+"Exactly on center" description
 { 10 } [ 0.0 0.0 score ] unit-test
 
-"Near the center" print
+"Near the center" description
 { 10 } [ -0.1 -0.1 score ] unit-test
 
-"Just within the inner circle" print
+"Just within the inner circle" description
 { 10 } [ 0.7 0.7 score ] unit-test
 
-"Just outside the inner circle" print
+"Just outside the inner circle" description
 { 5 } [ 0.8 -0.8 score ] unit-test
 
-"Just within the middle circle" print
+"Just within the middle circle" description
 { 5 } [ -3.5 3.5 score ] unit-test
 
-"Just outside the middle circle" print
+"Just outside the middle circle" description
 { 1 } [ -3.6 -3.6 score ] unit-test
 
-"Just within the outer circle" print
+"Just within the outer circle" description
 { 1 } [ -7.0 7.0 score ] unit-test
 
-"Just outside the outer circle" print
+"Just outside the outer circle" description
 { 0 } [ 7.1 -7.1 score ] unit-test
 
-"Asymmetric position between the inner and middle circles" print
+"Asymmetric position between the inner and middle circles" description
 { 5 } [ 0.5 -4.0 score ] unit-test

@@ -1,30 +1,28 @@
 USING: exercism-tools io kernel space-age tools.test unicode ;
 IN: space-age.tests
 
-"Space Age:" print
-
-"age on Earth" print
+"age on Earth" description
 { 31.69 0.005 } [ 1000000000 earth on-planet ] unit-test~
 
 STOP-HERE
 
-"age on Mercury" print
+"age on Mercury" description
 { 280.88 0.005 } [ 2134835688 mercury on-planet ] unit-test~
 
-"age on Venus" print
+"age on Venus" description
 { 9.78 0.005 } [ 189839836 venus on-planet ] unit-test~
 
-"age on Mars" print
+"age on Mars" description
 { 35.88 0.005 } [ 2129871239 mars on-planet ] unit-test~
 
-"age on Jupiter" print
+"age on Jupiter" description
 { 2.41 0.005 } [ 901876382 jupiter on-planet ] unit-test~
 
-"age on Saturn" print
+"age on Saturn" description
 { 2.15 0.005 } [ 2000000000 saturn on-planet ] unit-test~
 
-"age on Uranus" print
+"age on Uranus" description
 { 0.46 0.005 } [ 1210123456 uranus on-planet ] unit-test~
 
-"age on Neptune" print
+"age on Neptune" description
 { 0.35 0.005 } [ 1821023456 neptune on-planet ] unit-test~

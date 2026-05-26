@@ -1,9 +1,7 @@
 USING: exercism-tools io kernel parallel-letter-frequency tools.test unicode ;
 IN: parallel-letter-frequency.tests
 
-"Parallel Letter Frequency:" print
-
-"no texts" print
+"no texts" description
 { H{ } }
 [
     { } calculate-frequencies
@@ -11,7 +9,7 @@ IN: parallel-letter-frequency.tests
 
 STOP-HERE
 
-"one text with one letter" print
+"one text with one letter" description
 { H{
         { CHAR: a 1 }
     } }
@@ -21,7 +19,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"one text with multiple letters" print
+"one text with multiple letters" description
 { H{
         { CHAR: c 3 }
         { CHAR: b 2 }
@@ -33,7 +31,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"two texts with one letter" print
+"two texts with one letter" description
 { H{
         { CHAR: f 1 }
         { CHAR: e 1 }
@@ -45,7 +43,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"two texts with multiple letters" print
+"two texts with multiple letters" description
 { H{
         { CHAR: g 2 }
         { CHAR: h 3 }
@@ -58,7 +56,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"ignore letter casing" print
+"ignore letter casing" description
 { H{
         { CHAR: m 2 }
     } }
@@ -69,7 +67,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"ignore whitespace" print
+"ignore whitespace" description
 { H{ } }
 [
     {
@@ -79,7 +77,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"ignore punctuation" print
+"ignore punctuation" description
 { H{ } }
 [
     {
@@ -91,7 +89,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"ignore numbers" print
+"ignore numbers" description
 { H{ } }
 [
     {
@@ -107,7 +105,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"Unicode letters" print
+"Unicode letters" description
 { H{
         { CHAR: ø 1 }
         { CHAR: 本 1 }
@@ -123,7 +121,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"combination of lower- and uppercase letters, punctuation and white space" print
+"combination of lower- and uppercase letters, punctuation and white space" description
 { H{
         { CHAR: f 7 }
         { CHAR: c 6 }
@@ -154,7 +152,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"large texts" print
+"large texts" description
 { H{
         { CHAR: f 222 }
         { CHAR: c 278 }
@@ -191,7 +189,7 @@ STOP-HERE
     } calculate-frequencies
 ] unit-test
 
-"many small texts" print
+"many small texts" description
 { H{
         { CHAR: c 150 }
         { CHAR: b 100 }

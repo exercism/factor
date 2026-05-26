@@ -1,54 +1,52 @@
 USING: exercism-tools io kernel micro-blog tools.test unicode ;
 IN: micro-blog.tests
 
-"Micro Blog:" print
-
-"English language short" print
+"English language short" description
 { "Hi" }
 [ "Hi" truncate ] unit-test
 
 STOP-HERE
 
-"English language long" print
+"English language long" description
 { "Hello" }
 [ "Hello there" truncate ] unit-test
 
-"German language short (broth)" print
+"German language short (broth)" description
 { "brühe" }
 [ "brühe" truncate ] unit-test
 
-"German language long (bear carpet → beards)" print
+"German language long (bear carpet → beards)" description
 { "Bärte" }
 [ "Bärteppich" truncate ] unit-test
 
-"Bulgarian language short (good)" print
+"Bulgarian language short (good)" description
 { "Добър" }
 [ "Добър" truncate ] unit-test
 
-"Greek language short (health)" print
+"Greek language short (health)" description
 { "υγειά" }
 [ "υγειά" truncate ] unit-test
 
-"Maths short" print
+"Maths short" description
 { "a=πr²" }
 [ "a=πr²" truncate ] unit-test
 
-"Maths long" print
+"Maths long" description
 { "∅⊊ℕ⊊ℤ" }
 [ "∅⊊ℕ⊊ℤ⊊ℚ⊊ℝ⊊ℂ" truncate ] unit-test
 
-"English and emoji short" print
+"English and emoji short" description
 { "Fly 🛫" }
 [ "Fly 🛫" truncate ] unit-test
 
-"Emoji short" print
+"Emoji short" description
 { "💇" }
 [ "💇" truncate ] unit-test
 
-"Emoji long" print
+"Emoji long" description
 { "❄🌡🤧🤒🏥" }
 [ "❄🌡🤧🤒🏥🕰😀" truncate ] unit-test
 
-"Royal Flush?" print
+"Royal Flush?" description
 { "🃎🂸🃅🃋🃍" }
 [ "🃎🂸🃅🃋🃍🃁🃊" truncate ] unit-test

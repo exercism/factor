@@ -9,6 +9,12 @@ SYNTAX: STOP-HERE
 SYNTAX: TASK:
     lexer get next-line ;
 
+! Label the test that follows with its description. The marker lets the
+! wrapper strip this line from captured output and attach it to the next
+! test as a name, rather than leaving it in the previous test's output.
+: description ( str -- )
+    "###DESC### " write print ;
+
 ! Print one failure block in a stable, parser-friendly form. Bracketed by
 ! markers so a wrapper can split the stream reliably and avoid Factor's
 ! noisy callstack output (which is interleaved with subsequent failures).

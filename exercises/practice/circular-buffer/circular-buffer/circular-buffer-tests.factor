@@ -2,9 +2,7 @@ USING: arrays circular-buffer exercism-tools io kernel locals sequences tools.te
 IN: circular-buffer.tests
 FROM: circular-buffer => read write ;
 
-"Circular Buffer:" print
-
-"reading empty buffer should fail" print
+"reading empty buffer should fail" description
 [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -14,7 +12,7 @@ FROM: circular-buffer => read write ;
 
 STOP-HERE
 
-"can read an item just written" print
+"can read an item just written" description
 { { 1 } } [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -24,7 +22,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"each item may only be read once" print
+"each item may only be read once" description
 [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -34,7 +32,7 @@ STOP-HERE
     ]
 ] must-fail
 
-"items are read in the order they are written" print
+"items are read in the order they are written" description
 { { 1 2 } } [
     [let 2 <circular-buffer> :> buf
       V{ } clone :> log
@@ -46,7 +44,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"full buffer can't be written to" print
+"full buffer can't be written to" description
 [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -55,7 +53,7 @@ STOP-HERE
     ]
 ] must-fail
 
-"a read frees up capacity for another write" print
+"a read frees up capacity for another write" description
 { { 1 2 } } [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -67,7 +65,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"read position is maintained even across multiple writes" print
+"read position is maintained even across multiple writes" description
 { { 1 2 3 } } [
     [let 3 <circular-buffer> :> buf
       V{ } clone :> log
@@ -81,7 +79,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"items cleared out of buffer can't be read" print
+"items cleared out of buffer can't be read" description
 [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -91,7 +89,7 @@ STOP-HERE
     ]
 ] must-fail
 
-"clear frees up capacity for another write" print
+"clear frees up capacity for another write" description
 { { 2 } } [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -103,7 +101,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"clear does nothing on empty buffer" print
+"clear does nothing on empty buffer" description
 { { 1 } } [
     [let 1 <circular-buffer> :> buf
       V{ } clone :> log
@@ -114,7 +112,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"overwrite acts like write on non-full buffer" print
+"overwrite acts like write on non-full buffer" description
 { { 1 2 } } [
     [let 2 <circular-buffer> :> buf
       V{ } clone :> log
@@ -126,7 +124,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"overwrite replaces the oldest item on full buffer" print
+"overwrite replaces the oldest item on full buffer" description
 { { 2 3 } } [
     [let 2 <circular-buffer> :> buf
       V{ } clone :> log
@@ -139,7 +137,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"overwrite replaces the oldest item remaining in buffer following a read" print
+"overwrite replaces the oldest item remaining in buffer following a read" description
 { { 1 3 4 5 } } [
     [let 3 <circular-buffer> :> buf
       V{ } clone :> log
@@ -156,7 +154,7 @@ STOP-HERE
     ]
 ] unit-test
 
-"initial clear does not affect wrapping around" print
+"initial clear does not affect wrapping around" description
 [
     [let 2 <circular-buffer> :> buf
       V{ } clone :> log

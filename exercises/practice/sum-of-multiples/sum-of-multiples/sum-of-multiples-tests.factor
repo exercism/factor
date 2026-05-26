@@ -1,54 +1,52 @@
 USING: exercism-tools io kernel sum-of-multiples tools.test unicode ;
 IN: sum-of-multiples.tests
 
-"Sum Of Multiples:" print
-
-"no multiples within limit" print
+"no multiples within limit" description
 { 0 } [ { 3 5 } 1 sum-of-multiples ] unit-test
 
 STOP-HERE
 
-"one factor has multiples within limit" print
+"one factor has multiples within limit" description
 { 3 } [ { 3 5 } 4 sum-of-multiples ] unit-test
 
-"more than one multiple within limit" print
+"more than one multiple within limit" description
 { 9 } [ { 3 } 7 sum-of-multiples ] unit-test
 
-"more than one factor with multiples within limit" print
+"more than one factor with multiples within limit" description
 { 23 } [ { 3 5 } 10 sum-of-multiples ] unit-test
 
-"each multiple is only counted once" print
+"each multiple is only counted once" description
 { 2318 } [ { 3 5 } 100 sum-of-multiples ] unit-test
 
-"a much larger limit" print
+"a much larger limit" description
 { 233168 } [ { 3 5 } 1000 sum-of-multiples ] unit-test
 
-"three factors" print
+"three factors" description
 { 51 } [ { 7 13 17 } 20 sum-of-multiples ] unit-test
 
-"factors not relatively prime" print
+"factors not relatively prime" description
 { 30 } [ { 4 6 } 15 sum-of-multiples ] unit-test
 
-"some pairs of factors relatively prime and some not" print
+"some pairs of factors relatively prime and some not" description
 { 4419 } [ { 5 6 8 } 150 sum-of-multiples ] unit-test
 
-"one factor is a multiple of another" print
+"one factor is a multiple of another" description
 { 275 } [ { 5 25 } 51 sum-of-multiples ] unit-test
 
-"much larger factors" print
+"much larger factors" description
 { 2203160 } [ { 43 47 } 10000 sum-of-multiples ] unit-test
 
-"all numbers are multiples of 1" print
+"all numbers are multiples of 1" description
 { 4950 } [ { 1 } 100 sum-of-multiples ] unit-test
 
-"no factors means an empty sum" print
+"no factors means an empty sum" description
 { 0 } [ {  } 10000 sum-of-multiples ] unit-test
 
-"the only multiple of 0 is 0" print
+"the only multiple of 0 is 0" description
 { 0 } [ { 0 } 1 sum-of-multiples ] unit-test
 
-"the factor 0 does not affect the sum of multiples of other factors" print
+"the factor 0 does not affect the sum of multiples of other factors" description
 { 3 } [ { 3 0 } 4 sum-of-multiples ] unit-test
 
-"solutions using include-exclude must extend to cardinality greater than 3" print
+"solutions using include-exclude must extend to cardinality greater than 3" description
 { 39614537 } [ { 2 3 5 7 11 } 10000 sum-of-multiples ] unit-test

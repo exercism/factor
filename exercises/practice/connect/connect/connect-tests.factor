@@ -1,9 +1,7 @@
 USING: connect exercism-tools io kernel tools.test unicode ;
 IN: connect.tests
 
-"Connect:" print
-
-"an empty board has no winner" print
+"an empty board has no winner" description
 { "" }
 [ {
     ". . . . ."
@@ -15,19 +13,19 @@ IN: connect.tests
 
 STOP-HERE
 
-"X can win on a 1x1 board" print
+"X can win on a 1x1 board" description
 { "X" }
 [ {
     "X"
 } winner ] unit-test
 
-"O can win on a 1x1 board" print
+"O can win on a 1x1 board" description
 { "O" }
 [ {
     "O"
 } winner ] unit-test
 
-"only edges does not make a winner" print
+"only edges does not make a winner" description
 { "" }
 [ {
     "O O O X"
@@ -36,7 +34,7 @@ STOP-HERE
     "   X O O O"
 } winner ] unit-test
 
-"illegal diagonal does not make a winner" print
+"illegal diagonal does not make a winner" description
 { "" }
 [ {
     "X O . ."
@@ -46,7 +44,7 @@ STOP-HERE
     "    X X O O"
 } winner ] unit-test
 
-"nobody wins crossing adjacent angles" print
+"nobody wins crossing adjacent angles" description
 { "" }
 [ {
     "X . . ."
@@ -56,7 +54,7 @@ STOP-HERE
     "    . . O ."
 } winner ] unit-test
 
-"X wins crossing from left to right" print
+"X wins crossing from left to right" description
 { "X" }
 [ {
     ". O . ."
@@ -66,7 +64,7 @@ STOP-HERE
     "    . O X ."
 } winner ] unit-test
 
-"X wins with left-hand dead end fork" print
+"X wins with left-hand dead end fork" description
 { "X" }
 [ {
     ". . X ."
@@ -75,7 +73,7 @@ STOP-HERE
     "   O O O O"
 } winner ] unit-test
 
-"X wins with right-hand dead end fork" print
+"X wins with right-hand dead end fork" description
 { "X" }
 [ {
     ". . X X"
@@ -84,7 +82,7 @@ STOP-HERE
     "   O O O O"
 } winner ] unit-test
 
-"O wins crossing from top to bottom" print
+"O wins crossing from top to bottom" description
 { "O" }
 [ {
     ". O . ."
@@ -94,7 +92,7 @@ STOP-HERE
     "    . O X ."
 } winner ] unit-test
 
-"X wins using a convoluted path" print
+"X wins using a convoluted path" description
 { "X" }
 [ {
     ". X X . ."
@@ -104,7 +102,7 @@ STOP-HERE
     "    O O O O O"
 } winner ] unit-test
 
-"X wins using a spiral path" print
+"X wins using a spiral path" description
 { "X" }
 [ {
     "O X X X X X X X X"

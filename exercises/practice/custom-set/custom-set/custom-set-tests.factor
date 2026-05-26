@@ -1,206 +1,204 @@
 USING: custom-set exercism-tools io kernel sequences sets sorting tools.test unicode ;
 IN: custom-set.tests
 
-"Custom Set:" print
-
-"sets with no elements are empty" print
+"sets with no elements are empty" description
 { t }
 [ <custom-set> null? ]
 unit-test
 
 STOP-HERE
 
-"sets with elements are not empty" print
+"sets with elements are not empty" description
 { f }
 [ { 1 } >custom-set null? ]
 unit-test
 
-"nothing is contained in an empty set" print
+"nothing is contained in an empty set" description
 { f }
 [ 1 <custom-set> in? ]
 unit-test
 
-"when the element is in the set" print
+"when the element is in the set" description
 { t }
 [ 1 { 1 2 3 } >custom-set in? ]
 unit-test
 
-"when the element is not in the set" print
+"when the element is not in the set" description
 { f }
 [ 4 { 1 2 3 } >custom-set in? ]
 unit-test
 
-"empty set is a subset of another empty set" print
+"empty set is a subset of another empty set" description
 { t }
 [ <custom-set> <custom-set> subset? ]
 unit-test
 
-"empty set is a subset of non-empty set" print
+"empty set is a subset of non-empty set" description
 { t }
 [ <custom-set> { 1 } >custom-set subset? ]
 unit-test
 
-"non-empty set is not a subset of empty set" print
+"non-empty set is not a subset of empty set" description
 { f }
 [ { 1 } >custom-set <custom-set> subset? ]
 unit-test
 
-"set is a subset of set with exact same elements" print
+"set is a subset of set with exact same elements" description
 { t }
 [ { 1 2 3 } >custom-set { 1 2 3 } >custom-set subset? ]
 unit-test
 
-"set is a subset of larger set with same elements" print
+"set is a subset of larger set with same elements" description
 { t }
 [ { 1 2 3 } >custom-set { 4 1 2 3 } >custom-set subset? ]
 unit-test
 
-"set is not a subset of set that does not contain its elements" print
+"set is not a subset of set that does not contain its elements" description
 { f }
 [ { 1 2 3 } >custom-set { 4 1 3 } >custom-set subset? ]
 unit-test
 
-"the empty set is disjoint with itself" print
+"the empty set is disjoint with itself" description
 { t }
 [ <custom-set> <custom-set> intersects? not ]
 unit-test
 
-"empty set is disjoint with non-empty set" print
+"empty set is disjoint with non-empty set" description
 { t }
 [ <custom-set> { 1 } >custom-set intersects? not ]
 unit-test
 
-"non-empty set is disjoint with empty set" print
+"non-empty set is disjoint with empty set" description
 { t }
 [ { 1 } >custom-set <custom-set> intersects? not ]
 unit-test
 
-"sets are not disjoint if they share an element" print
+"sets are not disjoint if they share an element" description
 { f }
 [ { 1 2 } >custom-set { 2 3 } >custom-set intersects? not ]
 unit-test
 
-"sets are disjoint if they share no elements" print
+"sets are disjoint if they share no elements" description
 { t }
 [ { 1 2 } >custom-set { 3 4 } >custom-set intersects? not ]
 unit-test
 
-"empty sets are equal" print
+"empty sets are equal" description
 { t }
 [ <custom-set> <custom-set> set= ]
 unit-test
 
-"empty set is not equal to non-empty set" print
+"empty set is not equal to non-empty set" description
 { f }
 [ <custom-set> { 1 2 3 } >custom-set set= ]
 unit-test
 
-"non-empty set is not equal to empty set" print
+"non-empty set is not equal to empty set" description
 { f }
 [ { 1 2 3 } >custom-set <custom-set> set= ]
 unit-test
 
-"sets with the same elements are equal" print
+"sets with the same elements are equal" description
 { t }
 [ { 1 2 } >custom-set { 2 1 } >custom-set set= ]
 unit-test
 
-"sets with different elements are not equal" print
+"sets with different elements are not equal" description
 { f }
 [ { 1 2 3 } >custom-set { 1 2 4 } >custom-set set= ]
 unit-test
 
-"set is not equal to larger set with same elements" print
+"set is not equal to larger set with same elements" description
 { f }
 [ { 1 2 3 } >custom-set { 1 2 3 4 } >custom-set set= ]
 unit-test
 
-"set is equal to a set constructed from an array with duplicates" print
+"set is equal to a set constructed from an array with duplicates" description
 { t }
 [ { 1 } >custom-set { 1 1 } >custom-set set= ]
 unit-test
 
-"add to empty set" print
+"add to empty set" description
 { { 3 } }
 [ <custom-set> 3 over adjoin members natural-sort ]
 unit-test
 
-"add to non-empty set" print
+"add to non-empty set" description
 { { 1 2 3 4 } }
 [ { 1 2 4 } >custom-set 3 over adjoin members natural-sort ]
 unit-test
 
-"adding an existing element does not change the set" print
+"adding an existing element does not change the set" description
 { { 1 2 3 } }
 [ { 1 2 3 } >custom-set 3 over adjoin members natural-sort ]
 unit-test
 
-"intersection of two empty sets is an empty set" print
+"intersection of two empty sets is an empty set" description
 { {  } }
 [ <custom-set> <custom-set> intersect members natural-sort ]
 unit-test
 
-"intersection of an empty set and non-empty set is an empty set" print
+"intersection of an empty set and non-empty set is an empty set" description
 { {  } }
 [ <custom-set> { 3 2 5 } >custom-set intersect members natural-sort ]
 unit-test
 
-"intersection of a non-empty set and an empty set is an empty set" print
+"intersection of a non-empty set and an empty set is an empty set" description
 { {  } }
 [ { 1 2 3 4 } >custom-set <custom-set> intersect members natural-sort ]
 unit-test
 
-"intersection of two sets with no shared elements is an empty set" print
+"intersection of two sets with no shared elements is an empty set" description
 { {  } }
 [ { 1 2 3 } >custom-set { 4 5 6 } >custom-set intersect members natural-sort ]
 unit-test
 
-"intersection of two sets with shared elements is a set of the shared elements" print
+"intersection of two sets with shared elements is a set of the shared elements" description
 { { 2 3 } }
 [ { 1 2 3 4 } >custom-set { 3 2 5 } >custom-set intersect members natural-sort ]
 unit-test
 
-"difference of two empty sets is an empty set" print
+"difference of two empty sets is an empty set" description
 { {  } }
 [ <custom-set> <custom-set> diff members natural-sort ]
 unit-test
 
-"difference of empty set and non-empty set is an empty set" print
+"difference of empty set and non-empty set is an empty set" description
 { {  } }
 [ <custom-set> { 3 2 5 } >custom-set diff members natural-sort ]
 unit-test
 
-"difference of a non-empty set and an empty set is the non-empty set" print
+"difference of a non-empty set and an empty set is the non-empty set" description
 { { 1 2 3 4 } }
 [ { 1 2 3 4 } >custom-set <custom-set> diff members natural-sort ]
 unit-test
 
-"difference of two non-empty sets is a set of elements that are only in the first set" print
+"difference of two non-empty sets is a set of elements that are only in the first set" description
 { { 1 3 } }
 [ { 3 2 1 } >custom-set { 2 4 } >custom-set diff members natural-sort ]
 unit-test
 
-"difference removes all duplicates in the first set" print
+"difference removes all duplicates in the first set" description
 { {  } }
 [ { 1 1 } >custom-set { 1 } >custom-set diff members natural-sort ]
 unit-test
 
-"union of empty sets is an empty set" print
+"union of empty sets is an empty set" description
 { {  } }
 [ <custom-set> <custom-set> union members natural-sort ]
 unit-test
 
-"union of an empty set and non-empty set is the non-empty set" print
+"union of an empty set and non-empty set is the non-empty set" description
 { { 2 } }
 [ <custom-set> { 2 } >custom-set union members natural-sort ]
 unit-test
 
-"union of a non-empty set and empty set is the non-empty set" print
+"union of a non-empty set and empty set is the non-empty set" description
 { { 1 3 } }
 [ { 1 3 } >custom-set <custom-set> union members natural-sort ]
 unit-test
 
-"union of non-empty sets contains all unique elements" print
+"union of non-empty sets contains all unique elements" description
 { { 1 2 3 } }
 [ { 1 3 } >custom-set { 2 3 } >custom-set union members natural-sort ]
 unit-test

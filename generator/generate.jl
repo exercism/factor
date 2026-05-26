@@ -95,8 +95,6 @@ function load_exercise_module(slug)
     return mod
 end
 
-title_of(slug) = join((uppercasefirst(w) for w in split(slug, '-')), ' ')
-
 function gen_header(mod, slug)
     base = String["exercism-tools", "io", "kernel", slug, "tools.test", "unicode"]
     extra = isdefined(mod, :EXTRA_VOCABS) ? collect(mod.EXTRA_VOCABS) : String[]
@@ -110,12 +108,9 @@ end
 
 function render_test_file(mod, cases, slug)
     lines = String[gen_header(mod, slug), ""]
-    if length(cases) > 1
-        push!(lines, """"$(title_of(slug)):" print""", "")
-    end
     for (i, case) in enumerate(cases)
         if length(cases) > 1
-            push!(lines, """"$(case["description"])" print""")
+            push!(lines, """"$(case["description"])" description""")
         end
         push!(lines, Base.invokelatest(mod.gen_test_case, case))
         if i == 1

@@ -1,24 +1,22 @@
 USING: exercism-tools io kernel reverse-string tools.test unicode ;
 IN: reverse-string.tests
 
-"Reverse String:" print
-
-"an empty string" print
+"an empty string" description
 { "" } [ "" reverse-string ] unit-test
 
 STOP-HERE
 
-"a word" print
+"a word" description
 { "tobor" } [ "robot" reverse-string ] unit-test
 
-"a capitalized word" print
+"a capitalized word" description
 { "nemaR" } [ "Ramen" reverse-string ] unit-test
 
-"a sentence with punctuation" print
+"a sentence with punctuation" description
 { "!yrgnuh m'I" } [ "I'm hungry!" reverse-string ] unit-test
 
-"a palindrome" print
+"a palindrome" description
 { "racecar" } [ "racecar" reverse-string ] unit-test
 
-"an even-sized word" print
+"an even-sized word" description
 { "reward" } [ "drawer" reverse-string ] unit-test

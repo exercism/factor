@@ -1,66 +1,64 @@
 USING: exercism-tools io kernel matching-brackets tools.test unicode ;
 IN: matching-brackets.tests
 
-"Matching Brackets:" print
-
-"paired square brackets" print
+"paired square brackets" description
 { t } [ "[]" paired? ] unit-test
 
 STOP-HERE
 
-"empty string" print
+"empty string" description
 { t } [ "" paired? ] unit-test
 
-"unpaired brackets" print
+"unpaired brackets" description
 { f } [ "[[" paired? ] unit-test
 
-"wrong ordered brackets" print
+"wrong ordered brackets" description
 { f } [ "}{" paired? ] unit-test
 
-"wrong closing bracket" print
+"wrong closing bracket" description
 { f } [ "{]" paired? ] unit-test
 
-"paired with whitespace" print
+"paired with whitespace" description
 { t } [ "{ }" paired? ] unit-test
 
-"partially paired brackets" print
+"partially paired brackets" description
 { f } [ "{[])" paired? ] unit-test
 
-"simple nested brackets" print
+"simple nested brackets" description
 { t } [ "{[]}" paired? ] unit-test
 
-"several paired brackets" print
+"several paired brackets" description
 { t } [ "{}[]" paired? ] unit-test
 
-"paired and nested brackets" print
+"paired and nested brackets" description
 { t } [ "([{}({}[])])" paired? ] unit-test
 
-"unopened closing brackets" print
+"unopened closing brackets" description
 { f } [ "{[)][]}" paired? ] unit-test
 
-"unpaired and nested brackets" print
+"unpaired and nested brackets" description
 { f } [ "([{])" paired? ] unit-test
 
-"paired and wrong nested brackets" print
+"paired and wrong nested brackets" description
 { f } [ "[({]})" paired? ] unit-test
 
-"paired and wrong nested brackets but innermost are correct" print
+"paired and wrong nested brackets but innermost are correct" description
 { f } [ "[({}])" paired? ] unit-test
 
-"paired and incomplete brackets" print
+"paired and incomplete brackets" description
 { f } [ "{}[" paired? ] unit-test
 
-"too many closing brackets" print
+"too many closing brackets" description
 { f } [ "[]]" paired? ] unit-test
 
-"early unexpected brackets" print
+"early unexpected brackets" description
 { f } [ ")()" paired? ] unit-test
 
-"early mismatched brackets" print
+"early mismatched brackets" description
 { f } [ "{)()" paired? ] unit-test
 
-"math expression" print
+"math expression" description
 { t } [ "(((185 + 223.85) * 15) - 543)/2" paired? ] unit-test
 
-"complex latex expression" print
+"complex latex expression" description
 { t } [ "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)" paired? ] unit-test

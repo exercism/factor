@@ -1,82 +1,80 @@
 USING: exercism-tools io kernel line-up tools.test unicode ;
 IN: line-up.tests
 
-"Line Up:" print
-
-"format smallest non-exceptional ordinal numeral 4" print
+"format smallest non-exceptional ordinal numeral 4" description
 { "Gianna, you are the 4th customer we serve today. Thank you!" }
 [ "Gianna" 4 format ] unit-test
 
 STOP-HERE
 
-"format greatest single digit non-exceptional ordinal numeral 9" print
+"format greatest single digit non-exceptional ordinal numeral 9" description
 { "Maarten, you are the 9th customer we serve today. Thank you!" }
 [ "Maarten" 9 format ] unit-test
 
-"format non-exceptional ordinal numeral 5" print
+"format non-exceptional ordinal numeral 5" description
 { "Petronila, you are the 5th customer we serve today. Thank you!" }
 [ "Petronila" 5 format ] unit-test
 
-"format non-exceptional ordinal numeral 6" print
+"format non-exceptional ordinal numeral 6" description
 { "Attakullakulla, you are the 6th customer we serve today. Thank you!" }
 [ "Attakullakulla" 6 format ] unit-test
 
-"format non-exceptional ordinal numeral 7" print
+"format non-exceptional ordinal numeral 7" description
 { "Kate, you are the 7th customer we serve today. Thank you!" }
 [ "Kate" 7 format ] unit-test
 
-"format non-exceptional ordinal numeral 8" print
+"format non-exceptional ordinal numeral 8" description
 { "Maximiliano, you are the 8th customer we serve today. Thank you!" }
 [ "Maximiliano" 8 format ] unit-test
 
-"format exceptional ordinal numeral 1" print
+"format exceptional ordinal numeral 1" description
 { "Mary, you are the 1st customer we serve today. Thank you!" }
 [ "Mary" 1 format ] unit-test
 
-"format exceptional ordinal numeral 2" print
+"format exceptional ordinal numeral 2" description
 { "Haruto, you are the 2nd customer we serve today. Thank you!" }
 [ "Haruto" 2 format ] unit-test
 
-"format exceptional ordinal numeral 3" print
+"format exceptional ordinal numeral 3" description
 { "Henriette, you are the 3rd customer we serve today. Thank you!" }
 [ "Henriette" 3 format ] unit-test
 
-"format smallest two digit non-exceptional ordinal numeral 10" print
+"format smallest two digit non-exceptional ordinal numeral 10" description
 { "Alvarez, you are the 10th customer we serve today. Thank you!" }
 [ "Alvarez" 10 format ] unit-test
 
-"format non-exceptional ordinal numeral 11" print
+"format non-exceptional ordinal numeral 11" description
 { "Jacqueline, you are the 11th customer we serve today. Thank you!" }
 [ "Jacqueline" 11 format ] unit-test
 
-"format non-exceptional ordinal numeral 12" print
+"format non-exceptional ordinal numeral 12" description
 { "Juan, you are the 12th customer we serve today. Thank you!" }
 [ "Juan" 12 format ] unit-test
 
-"format non-exceptional ordinal numeral 13" print
+"format non-exceptional ordinal numeral 13" description
 { "Patricia, you are the 13th customer we serve today. Thank you!" }
 [ "Patricia" 13 format ] unit-test
 
-"format exceptional ordinal numeral 21" print
+"format exceptional ordinal numeral 21" description
 { "Washi, you are the 21st customer we serve today. Thank you!" }
 [ "Washi" 21 format ] unit-test
 
-"format exceptional ordinal numeral 62" print
+"format exceptional ordinal numeral 62" description
 { "Nayra, you are the 62nd customer we serve today. Thank you!" }
 [ "Nayra" 62 format ] unit-test
 
-"format exceptional ordinal numeral 100" print
+"format exceptional ordinal numeral 100" description
 { "John, you are the 100th customer we serve today. Thank you!" }
 [ "John" 100 format ] unit-test
 
-"format exceptional ordinal numeral 101" print
+"format exceptional ordinal numeral 101" description
 { "Zeinab, you are the 101st customer we serve today. Thank you!" }
 [ "Zeinab" 101 format ] unit-test
 
-"format non-exceptional ordinal numeral 112" print
+"format non-exceptional ordinal numeral 112" description
 { "Knud, you are the 112th customer we serve today. Thank you!" }
 [ "Knud" 112 format ] unit-test
 
-"format exceptional ordinal numeral 123" print
+"format exceptional ordinal numeral 123" description
 { "Yma, you are the 123rd customer we serve today. Thank you!" }
 [ "Yma" 123 format ] unit-test

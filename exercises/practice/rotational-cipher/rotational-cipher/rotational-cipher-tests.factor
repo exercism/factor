@@ -1,50 +1,48 @@
 USING: exercism-tools io kernel rotational-cipher tools.test unicode ;
 IN: rotational-cipher.tests
 
-"Rotational Cipher:" print
-
-"rotate a by 0, same output as input" print
+"rotate a by 0, same output as input" description
 { "a" }
 [ "a" 0 rotate ] unit-test
 
 STOP-HERE
 
-"rotate a by 1" print
+"rotate a by 1" description
 { "b" }
 [ "a" 1 rotate ] unit-test
 
-"rotate a by 26, same output as input" print
+"rotate a by 26, same output as input" description
 { "a" }
 [ "a" 26 rotate ] unit-test
 
-"rotate m by 13" print
+"rotate m by 13" description
 { "z" }
 [ "m" 13 rotate ] unit-test
 
-"rotate n by 13 with wrap around alphabet" print
+"rotate n by 13 with wrap around alphabet" description
 { "a" }
 [ "n" 13 rotate ] unit-test
 
-"rotate capital letters" print
+"rotate capital letters" description
 { "TRL" }
 [ "OMG" 5 rotate ] unit-test
 
-"rotate spaces" print
+"rotate spaces" description
 { "T R L" }
 [ "O M G" 5 rotate ] unit-test
 
-"rotate numbers" print
+"rotate numbers" description
 { "Xiwxmrk 1 2 3 xiwxmrk" }
 [ "Testing 1 2 3 testing" 4 rotate ] unit-test
 
-"rotate punctuation" print
+"rotate punctuation" description
 { "Gzo'n zvo, Bmviyhv!" }
 [ "Let's eat, Grandma!" 21 rotate ] unit-test
 
-"rotate all letters" print
+"rotate all letters" description
 { "Gur dhvpx oebja sbk whzcf bire gur ynml qbt." }
 [ "The quick brown fox jumps over the lazy dog." 13 rotate ] unit-test
 
-"rotate boundary characters" print
+"rotate boundary characters" description
 { "/09:@NZAM[`nzam{" }
 [ "/09:@AMNZ[`amnz{" 13 rotate ] unit-test
