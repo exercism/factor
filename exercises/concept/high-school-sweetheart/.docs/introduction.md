@@ -81,6 +81,8 @@ The exercise needs five small string words from the
 - `1string ( char -- str )` — wrap a single character as a string.
 - `>upper ( str -- upper )` — uppercase a string.
 - `append ( s1 s2 -- s )` — concatenate two strings.
+- `prepend ( s1 s2 -- s )` — concatenate `s2` then `s1` (`append` with
+  its inputs in the other order).
 - `glue ( s1 s2 sep -- s )` — concatenate two strings with a separator
   between them.
 - `surround ( seq pre post -- new )` — wrap a string with a prefix and

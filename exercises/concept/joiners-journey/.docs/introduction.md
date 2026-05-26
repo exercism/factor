@@ -30,6 +30,8 @@ tuck   ( x y -- y x y )
 3dup   ( x y z -- x y z x y z )
 4dup   ( w x y z -- w x y z w x y z )
 2drop  ( x y -- )
+3drop  ( x y z -- )
+4drop  ( w x y z -- )
 2nip   ( x y z -- z )
 2swap  ( x y z w -- z w x y )
 ```

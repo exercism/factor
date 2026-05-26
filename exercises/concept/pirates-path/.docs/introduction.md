@@ -14,6 +14,7 @@ push-back     ( elt deque -- )
 pop-front     ( deque -- elt )
 pop-back      ( deque -- elt )
 deque-empty?  ( deque -- ? )
+dlist-length  ( dlist -- n )
 clear-deque   ( deque -- )
 ```
 

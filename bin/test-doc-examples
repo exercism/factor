@@ -49,10 +49,10 @@ IMAGE = "exercism/factor-test-runner"
 
 DEFAULT_USING = (
     "arrays ascii assocs combinators continuations fry hashtables "
-    "io io.streams.string kernel literals math math.bitwise "
-    "math.functions math.order math.parser math.primes math.statistics "
-    "namespaces prettyprint quotations sequences sorting splitting "
-    "strings vectors"
+    "io io.streams.string kernel literals locals math math.bitwise "
+    "math.constants math.functions math.order math.parser math.primes "
+    "math.statistics namespaces prettyprint quotations sequences "
+    "sorting splitting strings typed vectors"
 )
 
 SENTINEL = "###BLOCK-END###"

@@ -14,7 +14,8 @@ can implement them.
 | `pop-back`      | `( deque -- elt )` — remove from the back  |
 | `peek-front`    | `( deque -- elt )` — read the front without removing |
 | `peek-back`     | `( deque -- elt )` — read the back without removing  |
-| `deque-empty?`  | `( deque -- ? )` — also written `empty?` (sequence protocol) |
+| `deque-empty?`  | `( deque -- ? )` — is the deque empty? |
+| `dlist-length`  | `( dlist -- n )` — element count |
 
 All push/pop operations mutate the deque in place — passing a
 deque to a routine and then reading from it again is the normal

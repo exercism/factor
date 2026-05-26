@@ -42,7 +42,7 @@ with the others.
 | `find-last` | `( seq quot -- i/f elt/f )`       |
 | `produce`   | `( pred quot -- seq )`            |
 
-Arrays are immutable; the `prefix`/`suffix`/`append` operations all
+Arrays are immutable; the `prefix`/`suffix`/`append`/`prepend` operations all
 return new sequences without modifying the original. Vectors are
 mutable — `push` and `pop` work in place — but `clone` is the right
 starting point if you want a fresh copy.

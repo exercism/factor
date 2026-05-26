@@ -5,15 +5,15 @@ on the *class* of one of its arguments. Concrete behaviour comes
 from *methods*, defined with `M:`.
 
 ```factor
-USING: kernel math ;
-
 GENERIC: area ( shape -- n )
 
 TUPLE: square side ;
 TUPLE: circle radius ;
 
-M: square area side>> dup * ;
-M: circle area radius>> dup * pi * ;
+M: square area
+    side>> dup * ;
+M: circle area
+    radius>> dup * pi * ;
 ```
 
 When `area` is called, Factor inspects the top of the stack,
@@ -21,15 +21,18 @@ looks up the most-specific method whose class matches, and runs
 it. With locals you can use `M::`:
 
 ```factor
-USING: locals ;
+TUPLE: rectangle width height ;
 
-M:: square area ( s -- n )
-    s side>> :> a a a * ;
+M:: rectangle area ( r -- n )
+    r width>> r height>> * ;
+
+T{ rectangle { width 3 } { height 4 } } area .   ! => 12
 ```
 
 Generics let you add new representations later without changing
-the calling code. Anywhere `area` was called, the new method is
-picked up automatically.
+the calling code: `area` already worked for `square` and `circle`,
+and the `rectangle` method is picked up automatically wherever
+`area` is called.
 
 ## When a generic is the right choice
 
@@ -52,14 +55,41 @@ tuple can opt into the protocol's default methods by declaring
 itself an instance:
 
 ```factor
-TUPLE: my-shape ... ;
-INSTANCE: my-shape shape       ! my-shape is now a `shape`
+MIXIN: shape
+M: shape area                   ! a default area for any shape
+    drop 0 ;
+
+TUPLE: my-shape ;
+INSTANCE: my-shape shape         ! my-shape is now a `shape`
+
+T{ my-shape } area .   ! => 0
 ```
 
 After `INSTANCE:`, every default method `M: shape …` automatically
 dispatches on `my-shape`, and any code that asks for a `shape`
 accepts a `my-shape`. `M:` is for adding methods to a generic;
 `INSTANCE:` is for joining a class to a mixin.
+
+## `TYPED::` — checked inputs for a plain word
+
+`GENERIC:`/`M:` choose a method by the class of an argument.
+Sometimes you don't want dispatch — just *one* word that insists
+its inputs are of a given class. `TYPED::` (in the `typed`
+vocabulary) is `::` with a class written after each input name:
+
+```factor
+TYPED:: triple ( n: integer -- m )
+    n 3 * ;
+
+14 triple .   ! => 42
+```
+
+`n: integer` reads like the locals you already use, with the
+class spelled after the colon. There's no dispatch — one
+definition, one behaviour — but each argument is now checked
+against its class: a mismatch like `"x" triple` is rejected
+(*expected input value of type integer but got string*) rather
+than silently flowing through.
 
 ## Math functions and constants
 
@@ -73,7 +103,6 @@ and `math.functions` that you'll meet for the first time here:
   arbitrary base, use `^`.)
 
 ```factor
-USING: math.constants math.functions ;
 pi 2 / sin   ! → 1.0
 0 cos        ! → 1.0
 1 e^         ! → 2.718281828459045
