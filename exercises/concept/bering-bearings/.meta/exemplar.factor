@@ -1,5 +1,5 @@
 USING: accessors combinators kernel locals math math.constants
-       math.functions namespaces ;
+       math.functions namespaces typed ;
 IN: bering-bearings
 
 SYMBOLS: north east south west
@@ -61,7 +61,7 @@ M: relative flip
         { port      [ starboard ] }
     } case ] change-bearing ;
 
-:: add-bearings ( a b -- x y )
+TYPED:: add-bearings ( a b -- x: number y: number )
     a >cartesian :> ay :> ax
     b >cartesian :> by :> bx
     ax bx +

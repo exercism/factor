@@ -91,6 +91,17 @@ against its class: a mismatch like `"x" triple` is rejected
 (*expected input value of type integer but got string*) rather
 than silently flowing through.
 
+The output can be annotated the same way. `yes?` types both its
+input and its result:
+
+```factor
+TYPED:: yes? ( word: string -- answer: boolean )
+    word "yes" = ;
+
+"yes" yes? .   ! => t
+"no" yes? .    ! => f
+```
+
 ## Math functions and constants
 
 This exercise also leans on a few words from `math.constants`

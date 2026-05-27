@@ -3,7 +3,7 @@ IN: bank-account
 
 TUPLE: bank-account open? balance lock ;
 
-: <bank-account> ( -- account )
+: <bank-account> ( -- account: bank-account )
     bank-account new
     f >>open?
     0 >>balance

@@ -1621,7 +1621,8 @@
           "recursion",
           "strings",
           "errors",
-          "locals"
+          "locals",
+          "generics"
         ],
         "difficulty": 6
       },

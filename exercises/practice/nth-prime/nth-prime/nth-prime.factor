@@ -1,4 +1,4 @@
-USING: kernel math typed ;
+USING: kernel typed ;
 IN: nth-prime
 
 TYPED:: nth-prime ( n: integer -- prime: integer )

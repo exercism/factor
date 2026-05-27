@@ -1,9 +1,9 @@
-USING: kernel math typed ;
+USING: kernel typed ;
 IN: bank-account
 
 TUPLE: bank-account ;
 
-: <bank-account> ( -- account )
+: <bank-account> ( -- account: bank-account )
     "unimplemented" throw ;
 
 TYPED:: open-account ( account: bank-account -- )

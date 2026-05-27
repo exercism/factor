@@ -1,4 +1,4 @@
-USING: kernel locals math math.order sequences strings ;
+USING: kernel locals math math.order sequences strings typed ;
 IN: say
 
 CONSTANT: ones { "zero" "one" "two" "three" "four" "five" "six" "seven" "eight" "nine"
@@ -31,6 +31,6 @@ CONSTANT: tens { f f "twenty" "thirty" "forty" "fifty" "sixty" "seventy" "eighty
     dup 1000 >= [ 1000 "thousand" say-chunk ] when
     dup 0 > [ say-below-1000 swap dup empty? [ drop ] [ swap " " glue ] if ] [ drop ] if ;
 
-: say ( n -- str )
-    dup 0 999999999999 between? [ "input out of range" throw ] unless
-    dup 0 = [ drop "zero" ] [ say-positive ] if ;
+TYPED:: say ( n: integer -- str: string )
+    n 0 999999999999 between? [ "input out of range" throw ] unless
+    n 0 = [ "zero" ] [ n say-positive ] if ;

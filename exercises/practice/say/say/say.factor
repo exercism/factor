@@ -1,5 +1,5 @@
-USING: kernel ;
+USING: kernel typed ;
 IN: say
 
-: say ( n -- str )
+TYPED:: say ( n: integer -- str: string )
     "unimplemented" throw ;
