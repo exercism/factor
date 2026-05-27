@@ -1714,6 +1714,19 @@
         "difficulty": 7
       },
       {
+        "slug": "zebra-puzzle",
+        "name": "Zebra Puzzle",
+        "uuid": "c463c552-df50-4312-8444-bf12308b0c1e",
+        "practices": [],
+        "prerequisites": [
+          "recursion",
+          "locals",
+          "higher-order-sequences",
+          "tabulation"
+        ],
+        "difficulty": 7
+      },
+      {
         "slug": "nth-prime",
         "name": "Nth Prime",
         "uuid": "cbd8dbf2-67da-49fe-a89b-db82e4a9f440",
