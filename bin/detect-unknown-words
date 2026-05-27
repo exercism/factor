@@ -88,16 +88,20 @@ def parse_solution(paths):
     text = '\n'.join(p.read_text() for p in paths if p.exists())
     defined, locals_ = set(), set()
 
-    # Top-level word definitions: `:` and `::`.
+    # Top-level word definitions: `:`, `::`, `TYPED:`, `TYPED::`.
     for m in re.finditer(r'^::?\s+(\S+)\s*\(', text, re.M):
+        defined.add(m.group(1))
+    for m in re.finditer(r'^TYPED::?\s+(\S+)\s*\(', text, re.M):
         defined.add(m.group(1))
     # Locals-bearing definitions:
     #   `:: <word> ( ... -- ... )`
     #   `M:: <class> <word> ( ... -- ... )`
+    #   `TYPED:: <word> ( name: class ... -- ... )`
     # The names aren't "defined" by `M::` (the generic was declared
-    # elsewhere), but the parameter list does introduce locals.
+    # elsewhere), but the parameter list does introduce locals. For
+    # `TYPED::` the class names also land in `locals_`, harmlessly.
     for m in re.finditer(
-        r'^(?:::\s+\S+|M::\s+\S+\s+\S+)\s*\(([^)]*)--[^)]*\)',
+        r'^(?:::\s+\S+|M::\s+\S+\s+\S+|TYPED::\s+\S+)\s*\(([^)]*)--[^)]*\)',
         text, re.M,
     ):
         for tok in m.group(1).split():

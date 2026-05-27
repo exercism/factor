@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "bank-account/bank-account.factor"
+    ],
+    "test": [
+      "bank-account/bank-account-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Simulate a bank account supporting opening/closing, withdraws, and deposits of money. Watch out for concurrent transactions!"
+}

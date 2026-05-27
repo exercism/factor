@@ -1626,6 +1626,18 @@
         "difficulty": 6
       },
       {
+        "slug": "bank-account",
+        "name": "Bank Account",
+        "uuid": "d17aa096-63a8-4855-a8ee-f906a993a916",
+        "practices": [],
+        "prerequisites": [
+          "concurrency",
+          "errors",
+          "generics"
+        ],
+        "difficulty": 7
+      },
+      {
         "slug": "book-store",
         "name": "Book Store",
         "uuid": "ea626761-3feb-4f31-838f-e86960a30e93",
@@ -1716,7 +1728,8 @@
           "higher-order-sequences",
           "curry-compose-fry",
           "errors",
-          "indexed-iteration"
+          "indexed-iteration",
+          "generics"
         ],
         "difficulty": 8
       },
