@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/vocab-locals.html",
     "description": "locals vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-locals.html",
+    "description": "Lexical variables — Factor handbook"
   }
 ]

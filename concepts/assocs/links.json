@@ -2,5 +2,13 @@
   {
     "url": "https://docs.factorcode.org/content/article-assocs.html",
     "description": "Associative mapping — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-assocs.html",
+    "description": "assocs vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-hashtables.html",
+    "description": "Hashtables — the default associative implementation"
   }
 ]

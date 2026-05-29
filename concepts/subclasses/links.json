@@ -2,5 +2,13 @@
   {
     "url": "https://docs.factorcode.org/content/article-tuple-subclassing.html",
     "description": "Tuple subclassing — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-generic.html",
+    "description": "Generic words — method dispatch over class hierarchies"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-accessors.html",
+    "description": "accessors vocabulary — auto-generated slot readers and writers"
   }
 ]

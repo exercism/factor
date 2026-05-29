@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/article-quotations.html",
     "description": "Quotations — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-quotations.html",
+    "description": "quotations vocabulary reference"
   }
 ]

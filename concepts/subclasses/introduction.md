@@ -24,4 +24,4 @@ Generic methods dispatched on the parent fire for every
 descendant — but that lesson lives with [`generics`][generics];
 this exercise stays focused on the data side.
 
-[generics]: https://docs.factorcode.org/content/article-generic-words.html
+[generics]: https://docs.factorcode.org/content/article-generic.html

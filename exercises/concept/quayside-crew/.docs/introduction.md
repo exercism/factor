@@ -61,6 +61,22 @@ USING: concurrency.promises kernel threads ;
 hand-rolling them is useful when each task does something other
 than "compute one element."
 
+The typical fan-out/join shape over a sequence is: for each input
+make a fresh promise, spawn a thread that does the work and
+`fulfill`s the promise, collect every promise into a sequence, then
+`?promise` each one to wait for completion. Locals make this
+readable — bind the promise to a name with `:>` inside a `[| | ]`
+lambda so the spawned quotation can close over it:
+
+```factor
+! DOCTEST: SKIP   (`:>` only works inside [let, [|, or :: forms)
+inputs [| x |
+    <promise> :> p
+    [ x do-work t p fulfill ] "worker" spawn drop
+    p
+] map [ ?promise drop ] each
+```
+
 ## Locks — mutual exclusion
 
 ```

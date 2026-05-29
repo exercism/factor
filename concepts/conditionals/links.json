@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/article-conditionals.html",
     "description": "Conditionals — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-combinators.html",
+    "description": "combinators vocabulary — home of cond and case"
   }
 ]

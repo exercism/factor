@@ -71,5 +71,5 @@ USING: accessors ;
   an existing class by a runtime predicate. A separate Factor
   feature; not covered here.
 
-[generics]: https://docs.factorcode.org/content/article-generic-words.html
+[generics]: https://docs.factorcode.org/content/article-generic.html
 [accessors]: https://docs.factorcode.org/content/vocab-accessors.html

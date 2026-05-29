@@ -11,7 +11,8 @@
 
 - Cut the line on `": "` with `split1` (stack effect
   `( seq subseq -- before after )`); discard the part before, keep
-  the part after.
+  the part after. `nip ( x y -- y )` from `kernel` drops the second
+  value down — so `split1 nip` keeps the right half.
 - Strip whitespace from what's left with `[ blank? ] trim`.
 
 ## 2. Get log level from a log line

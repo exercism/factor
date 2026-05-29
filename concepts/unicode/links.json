@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/vocab-unicode.html",
     "description": "unicode vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-strings.html",
+    "description": "Strings — Factor handbook"
   }
 ]

@@ -14,11 +14,15 @@
 
 ## 2. Place a tile
 
-- `set-nth` does the assignment.
+- `set-nth` does the assignment, but it expects
+  `( elt n seq -- )` and the inputs arrive as `( row position colour -- )`.
+  `spin ( x y z -- z y x )` from `kernel` reorders three values on
+  the stack in a single word so they land in `set-nth`'s order.
 
 ## 3. Chip a tile out
 
-- "Set this position to `f`" — same shape as task 2.
+- "Set this position to `f`" — same shape as task 2, but you'll
+  need to push `f` onto the stack first.
 
 ## 4. Re-colour a tile
 

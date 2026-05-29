@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/vocab-fry.html",
     "description": "fry vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-dataflow-combinators.html",
+    "description": "Dataflow combinators — context for curry and compose"
   }
 ]

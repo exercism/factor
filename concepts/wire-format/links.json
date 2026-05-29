@@ -8,7 +8,7 @@
     "description": "Cleave combinators — including 2bi, 3bi, 2tri, 3tri"
   },
   {
-    "url": "https://docs.factorcode.org/content/vocab-slices.html",
-    "description": "slices vocabulary — head-slice, tail-slice, and friends"
+    "url": "https://docs.factorcode.org/content/word-slice%2Csequences.html",
+    "description": "slice — sequences vocabulary (head-slice, tail-slice and friends)"
   }
 ]

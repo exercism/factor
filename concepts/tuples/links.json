@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/article-tuples.html",
     "description": "Tuples — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-accessors.html",
+    "description": "accessors vocabulary — auto-generated slot readers and writers"
   }
 ]

@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/article-errors.html",
     "description": "Errors — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-continuations.html",
+    "description": "continuations vocabulary — home of throw, catch, and cleanup"
   }
 ]

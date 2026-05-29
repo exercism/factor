@@ -2,5 +2,13 @@
   {
     "url": "https://docs.factorcode.org/content/article-dataflow-combinators.html",
     "description": "Dataflow combinators — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-cleave-combinators.html",
+    "description": "Cleave combinators — bi, tri, and their multi-input cousins"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-combinators.html",
+    "description": "combinators vocabulary reference"
   }
 ]

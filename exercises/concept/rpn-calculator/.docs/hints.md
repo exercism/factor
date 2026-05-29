@@ -28,5 +28,22 @@
   sequence. Every iteration sees the running stack, pops the next
   operation off the program, and applies it.
 
+## 5. Evaluate by name
+
+- Look each name up in the assoc with `at` (in [`assocs`][assocs])
+  to get its operation, then reuse `evaluate`.
+- A fry quotation `'[ _ at ]` from [`curry-compose-fry`][fry]
+  closes over the assoc so `map` can swap each name for its
+  operation in one pass.
+
+## 6. Divide with safety
+
+- `throw` (in [`kernel`][kernel]) raises an error. `zero-divisor-error`
+  is already declared, so `zero-divisor-error throw` is the call.
+- Guard the divide path with an `if` that checks whether the
+  bottom-most divisor is `0`.
+
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
+[assocs]: https://docs.factorcode.org/content/vocab-assocs.html
+[fry]: https://docs.factorcode.org/content/vocab-fry.html

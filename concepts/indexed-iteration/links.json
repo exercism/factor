@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/vocab-sequences.html",
     "description": "sequences vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-sequences.html",
+    "description": "Sequences — Factor handbook (covers each-index, map-index, ...)"
   }
 ]

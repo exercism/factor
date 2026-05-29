@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/vocab-namespaces.html",
     "description": "namespaces vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-namespaces-global.html",
+    "description": "Global namespaces — how dynamic variables are scoped"
   }
 ]

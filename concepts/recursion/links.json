@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/article-words.html",
     "description": "Defining words — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-cookbook.html",
+    "description": "Factor cookbook — control-flow idioms in depth"
   }
 ]

@@ -2,5 +2,13 @@
   {
     "url": "https://docs.factorcode.org/content/article-destructors.html",
     "description": "Destructors — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-destructors.html",
+    "description": "destructors vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/word-cleanup%2Ccontinuations.html",
+    "description": "cleanup — the underlying continuations primitive"
   }
 ]

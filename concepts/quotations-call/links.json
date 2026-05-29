@@ -2,5 +2,13 @@
   {
     "url": "https://docs.factorcode.org/content/word-call,kernel.html",
     "description": "call — kernel vocabulary"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-kernel.html",
+    "description": "kernel vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-dataflow-combinators.html",
+    "description": "Dataflow combinators — call sites for quotations"
   }
 ]

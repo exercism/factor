@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/word-case,combinators.html",
     "description": "case — combinators vocabulary"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-combinators.html",
+    "description": "combinators vocabulary — home of case, cond, and cond>quot"
   }
 ]

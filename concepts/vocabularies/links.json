@@ -4,7 +4,7 @@
     "description": "Vocabularies: official Factor documentation"
   },
   {
-    "url": "https://docs.factorcode.org/content/article-vocab-search.html",
-    "description": "Vocabulary search path"
+    "url": "https://docs.factorcode.org/content/article-syntax.html",
+    "description": "Syntax — including USING:, USE:, IN:"
   }
 ]

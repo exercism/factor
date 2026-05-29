@@ -2,5 +2,9 @@
   {
     "url": "https://docs.factorcode.org/content/article-booleans.html",
     "description": "Booleans — Factor handbook"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-kernel.html",
+    "description": "kernel vocabulary — home of and, or, not, xor"
   }
 ]

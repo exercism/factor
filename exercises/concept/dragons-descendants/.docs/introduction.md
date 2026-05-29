@@ -55,4 +55,4 @@ every descendant unless a more-specific override takes
 priority. You'll see that in `boatswains-bilge` immediately
 after this exercise.
 
-[generics]: https://docs.factorcode.org/content/article-generic-words.html
+[generics]: https://docs.factorcode.org/content/article-generic.html
