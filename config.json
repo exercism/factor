@@ -1012,18 +1012,6 @@
         "difficulty": 3
       },
       {
-        "slug": "robot-name",
-        "name": "Robot Name",
-        "uuid": "1f3cded8-c357-448d-9640-63e8e6ea8efe",
-        "practices": [],
-        "prerequisites": [
-          "dynamic-variables",
-          "randomness",
-          "hash-sets"
-        ],
-        "difficulty": 3
-      },
-      {
         "slug": "rotational-cipher",
         "name": "Rotational Cipher",
         "uuid": "dc8ef2d7-065e-4ea5-b613-6f4db433e925",
@@ -1050,6 +1038,20 @@
           "unicode",
           "higher-order-sequences",
           "assocs"
+        ],
+        "difficulty": 3
+      },
+      {
+        "slug": "series",
+        "name": "Series",
+        "uuid": "3bb91e4a-d234-40e9-b56c-fb06a9d84985",
+        "practices": [],
+        "prerequisites": [
+          "strings",
+          "sequences",
+          "combinators",
+          "locals",
+          "errors"
         ],
         "difficulty": 3
       },
@@ -1148,6 +1150,19 @@
         "difficulty": 4
       },
       {
+        "slug": "diamond",
+        "name": "Diamond",
+        "uuid": "3da8114d-a1d4-4b45-9cb6-30bbef6624d3",
+        "practices": [],
+        "prerequisites": [
+          "strings",
+          "tabulation",
+          "higher-order-sequences",
+          "locals"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "flatten-array",
         "name": "Flatten Array",
         "uuid": "27cb8df3-ed88-4b60-990e-eb0422123260",
@@ -1159,6 +1174,21 @@
           "conditionals",
           "recursion",
           "arrays"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "grade-school",
+        "name": "Grade School",
+        "uuid": "fb1fe9a5-d2ce-4e44-850f-7c0518e0422c",
+        "practices": [],
+        "prerequisites": [
+          "tuples",
+          "mutation",
+          "assocs",
+          "higher-order-sequences",
+          "curry-compose-fry",
+          "locals"
         ],
         "difficulty": 4
       },
@@ -1270,6 +1300,20 @@
           "sequences",
           "dynamic-variables",
           "tuples"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "roman-numerals",
+        "name": "Roman Numerals",
+        "uuid": "31e438b9-e2c9-4d35-9b3f-dc8a97dcb787",
+        "practices": [],
+        "prerequisites": [
+          "numbers",
+          "tabulation",
+          "higher-order-sequences",
+          "arrays",
+          "locals"
         ],
         "difficulty": 4
       },
@@ -1499,6 +1543,18 @@
         "difficulty": 5
       },
       {
+        "slug": "robot-name",
+        "name": "Robot Name",
+        "uuid": "1f3cded8-c357-448d-9640-63e8e6ea8efe",
+        "practices": [],
+        "prerequisites": [
+          "dynamic-variables",
+          "randomness",
+          "hash-sets"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "run-length-encoding",
         "name": "Run-Length Encoding",
         "uuid": "009090ef-d7fd-4ba5-9942-c6e686069e12",
@@ -1630,6 +1686,19 @@
         "difficulty": 6
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "d635beb6-bc14-4846-909c-b6216c3f4d41",
+        "practices": [],
+        "prerequisites": [
+          "strings",
+          "tabulation",
+          "higher-order-sequences",
+          "locals"
+        ],
+        "difficulty": 6
+      },
+      {
         "slug": "food-chain",
         "name": "Food Chain",
         "uuid": "7cd07547-7e56-416f-ad19-b2086ff835c1",
@@ -1640,6 +1709,23 @@
           "higher-order-sequences",
           "arrays",
           "tabulation"
+        ],
+        "difficulty": 6
+      },
+      {
+        "slug": "intergalactic-transmission",
+        "name": "Intergalactic Transmission",
+        "uuid": "e2ce391c-7d7e-4442-aea6-71f310206ace",
+        "practices": [],
+        "prerequisites": [
+          "bitwise-operations",
+          "arrays",
+          "windows",
+          "reductions",
+          "higher-order-sequences",
+          "combinators",
+          "strings",
+          "errors"
         ],
         "difficulty": 6
       },
@@ -1669,6 +1755,22 @@
           "concurrency",
           "unicode",
           "assocs"
+        ],
+        "difficulty": 6
+      },
+      {
+        "slug": "piecing-it-together",
+        "name": "Piecing It Together",
+        "uuid": "46be0bec-ed8e-4d32-9640-556acdbb5221",
+        "practices": [],
+        "prerequisites": [
+          "assocs",
+          "combinators",
+          "arrays",
+          "higher-order-sequences",
+          "booleans",
+          "locals",
+          "errors"
         ],
         "difficulty": 6
       },

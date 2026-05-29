@@ -93,11 +93,27 @@ that on every iteration `each` only needs to supply the key.
 `keep` runs the quotation while preserving the hashtable for the
 final `.`.
 
-## Converting back to a sequence
+## Keys, values, and pairs
 
-`>alist` (in [`assocs`][assocs]) returns a sequence of `{ key value }`
-pairs. `sort-keys` (in [`sorting`][sorting]) returns the same
-sequence sorted by key.
+`keys` and `values` (in [`assocs`][assocs]) return just the keys or
+just the values; `>alist` returns the `{ key value }` pairs.
+
+```
+keys   ( assoc -- keys )
+values ( assoc -- values )
+>alist ( assoc -- alist )
+```
+
+```factor
+H{ { "wood" 11 } { "coal" 7 } } keys .     ! the keys (order not guaranteed)
+H{ { "wood" 11 } { "coal" 7 } } values .   ! the matching values
+```
+
+`keys` and `values` line up: the value at a given position belongs to
+the key at the same position.
+
+`sort-keys` (in [`sorting`][sorting]) returns the `{ key value }` pairs
+sorted by key:
 
 ```factor
 H{ { "wood" 11 } { "coal" 7 } } sort-keys .

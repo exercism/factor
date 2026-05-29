@@ -20,6 +20,8 @@ set-at    ( value key assoc -- )
 delete-at ( key assoc -- )
 inc-at    ( key assoc -- )
 change-at ( key assoc quot -- )
+keys      ( assoc -- keys )
+values    ( assoc -- values )
 >alist    ( assoc -- alist )
 ```
 

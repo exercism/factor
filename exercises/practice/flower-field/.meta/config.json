@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "flower-field/flower-field.factor"
+    ],
+    "test": [
+      "flower-field/flower-field-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}

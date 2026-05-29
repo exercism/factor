@@ -100,8 +100,8 @@ USING: random random.mersenne-twister ;
 
 Everything inside the quotation — `random`, `randomize`, `sample` —
 draws from the seeded generator, so the same seed always reproduces the
-same outcome. Marking a word that wraps `with-random` as `inline` lets
-the quotation return values to the caller.
+same outcome. A word that wraps `with-random` should be marked `inline`
+so the quotation's result can flow back to the caller.
 
 [random]: https://docs.factorcode.org/content/vocab-random.html
 [mt]: https://docs.factorcode.org/content/vocab-random.mersenne-twister.html
