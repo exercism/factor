@@ -425,6 +425,34 @@
         "status": "beta"
       },
       {
+        "slug": "boardwalk-games",
+        "name": "Boardwalk Games",
+        "uuid": "2ab5123d-7837-4dad-a7a3-3bca1bfc15f2",
+        "concepts": [
+          "randomness"
+        ],
+        "prerequisites": [
+          "numbers",
+          "sequences",
+          "quotations",
+          "combinators"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "ferry-schedule",
+        "name": "Ferry Schedule",
+        "uuid": "4e03dc97-8707-41d5-8e68-ca269d5f17be",
+        "concepts": [
+          "calendar"
+        ],
+        "prerequisites": [
+          "numbers",
+          "sequences"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "bering-bearings",
         "name": "Bering Bearings",
         "uuid": "377c3de1-a5ec-4a44-b06e-69aed2630f0f",
@@ -984,6 +1012,18 @@
         "difficulty": 3
       },
       {
+        "slug": "robot-name",
+        "name": "Robot Name",
+        "uuid": "1f3cded8-c357-448d-9640-63e8e6ea8efe",
+        "practices": [],
+        "prerequisites": [
+          "dynamic-variables",
+          "randomness",
+          "hash-sets"
+        ],
+        "difficulty": 3
+      },
+      {
         "slug": "rotational-cipher",
         "name": "Rotational Cipher",
         "uuid": "dc8ef2d7-065e-4ea5-b613-6f4db433e925",
@@ -1095,6 +1135,19 @@
         "difficulty": 4
       },
       {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "7229dc0f-df0c-4c3d-9aec-810ab2474d6f",
+        "practices": [],
+        "prerequisites": [
+          "randomness",
+          "tuples",
+          "locals",
+          "higher-order-sequences"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "flatten-array",
         "name": "Flatten Array",
         "uuid": "27cb8df3-ed88-4b60-990e-eb0422123260",
@@ -1155,6 +1208,19 @@
           "unicode",
           "locals",
           "indexed-iteration"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "meetup",
+        "name": "Meetup",
+        "uuid": "faf43296-da2b-4953-ab84-1381e52c600b",
+        "practices": [],
+        "prerequisites": [
+          "calendar",
+          "case",
+          "locals",
+          "arrays"
         ],
         "difficulty": 4
       },
@@ -1564,6 +1630,20 @@
         "difficulty": 6
       },
       {
+        "slug": "food-chain",
+        "name": "Food Chain",
+        "uuid": "7cd07547-7e56-416f-ad19-b2086ff835c1",
+        "practices": [],
+        "prerequisites": [
+          "macros",
+          "locals",
+          "higher-order-sequences",
+          "arrays",
+          "tabulation"
+        ],
+        "difficulty": 6
+      },
+      {
         "slug": "ocr-numbers",
         "name": "OCR Numbers",
         "uuid": "725a35a9-b2ae-4c71-8dc9-a801a8699bd2",
@@ -1946,6 +2026,16 @@
       "uuid": "c8a58a3d-d6e4-4325-b0c9-d2ee4bfc9df3",
       "slug": "dynamic-variables",
       "name": "Dynamic Variables"
+    },
+    {
+      "uuid": "38b7be75-62ec-4a24-8bd0-d2714c4c8a3c",
+      "slug": "randomness",
+      "name": "Randomness"
+    },
+    {
+      "uuid": "cd393574-269e-494e-b515-bb4f0fb677ea",
+      "slug": "calendar",
+      "name": "Calendar"
     },
     {
       "uuid": "e9c2a584-0c03-467f-9781-38754f06dd1a",

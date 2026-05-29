@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "boardwalk-games/boardwalk-games.factor"
+    ],
+    "test": [
+      "boardwalk-games/boardwalk-games-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "amusement-park",
+  "blurb": "Learn about randomness in Factor by running the games of chance at a seaside boardwalk arcade."
+}

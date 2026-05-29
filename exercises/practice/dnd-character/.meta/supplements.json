@@ -1,0 +1,18 @@
+[
+  {
+    "description": "every rolled ability is within range",
+    "property": "range"
+  },
+  {
+    "description": "a freshly rolled character is valid",
+    "property": "valid"
+  },
+  {
+    "description": "each ability is only calculated once",
+    "property": "stable"
+  },
+  {
+    "description": "abilities follow the 4d6-drop-lowest distribution",
+    "property": "distribution"
+  }
+]

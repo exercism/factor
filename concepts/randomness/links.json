@@ -1,0 +1,10 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-random.html",
+    "description": "random vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-random.mersenne-twister.html",
+    "description": "random.mersenne-twister — seeded, reproducible generators"
+  }
+]

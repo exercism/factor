@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "The calendar vocabulary: <date> and >date< build and split timestamps, day-of-week, leap-year?, and days-in-month query them, and durations like days shift them with time+."
+}

@@ -15,6 +15,8 @@ This is enforced by the "Learning checks" workflow.
 bin/add-practice-exercise <exercise-slug>
 ```
 
+- An exercise should include a `.meta/tests.toml` file if, and only if, the exercise has a `canonical-data.json` in [problem-specifications](https://github.com/exercism/problem-specifications/tree/main/exercises).
+
 #### **Do you want to report a bug?**
 
 - **Ensure the bug was not already reported** by searching the [forum](https://forum.exercism.org/c/programming/factor).

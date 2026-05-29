@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "ferry-schedule/ferry-schedule.factor"
+    ],
+    "test": [
+      "ferry-schedule/ferry-schedule-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "calendar",
+  "blurb": "Learn about the calendar vocabulary in Factor by keeping the timetable for an island ferry."
+}

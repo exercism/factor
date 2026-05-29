@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "The random vocabulary: random picks values and elements, randomize and sample reorder sequences, and with-random plus <mersenne-twister> make results reproducible."
+}
