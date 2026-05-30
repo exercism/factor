@@ -1,5 +1,5 @@
 USING: kernel math ranges sequences strings ;
-IN: bosuns-bunting
+IN: bunting-bonanza
 
 : alphabet-bunting ( n -- str )
     <iota> [ CHAR: a + ] map >string ;

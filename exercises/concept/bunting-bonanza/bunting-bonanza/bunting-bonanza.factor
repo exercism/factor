@@ -1,5 +1,5 @@
 USING: kernel ;
-IN: bosuns-bunting
+IN: bunting-bonanza
 
 : alphabet-bunting ( n -- str )
     "unimplemented" throw ;

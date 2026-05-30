@@ -90,15 +90,27 @@ USING: kernel sequences ;
 element and returns the array of results. `each` does the same
 walk but discards the results — useful when the quotation runs
 purely for its side effects. `2map` walks *two* sequences in
-lockstep and combines corresponding elements; `zip` is the
-shorthand for "pair them up without combining":
+lockstep and combines corresponding elements; `2each` and
+`2reduce` are its side-effect-only and folding cousins; `zip` is
+the shorthand for "pair them up without combining":
 
 ```
-map    ( seq       quot          -- newseq )
-map-as ( seq       quot exemplar -- newseq )
-each   ( seq       quot          -- )
-2map   ( seq1 seq2 quot          -- newseq )
-zip    ( seq1 seq2               -- pairs )
+map     ( seq       quot           -- newseq )
+map-as  ( seq       quot exemplar  -- newseq )
+each    ( seq       quot           -- )
+2map    ( seq1 seq2 quot           -- newseq )
+2each   ( seq1 seq2 quot           -- )
+2reduce ( seq1 seq2 identity quot  -- result )
+zip     ( seq1 seq2                -- pairs )
+```
+
+`2reduce` threads an accumulator through both sequences at once —
+its quotation takes `( accumulator elt1 elt2 -- accumulator' )`.
+Here it accumulates a dot product — each pair is multiplied, and
+the products are summed (`1*10 + 2*20 + 3*30`):
+
+```factor
+{ 1 2 3 } { 10 20 30 } 0 [ * + ] 2reduce .   ! => 140
 ```
 
 `map-as` is the cousin of `map` that forces the output sequence's
@@ -113,6 +125,7 @@ USING: formatting math sequences ;
 { 1 2 3 } [ . ] each                           ! prints 1, then 2, then 3
 { 1 2 3 } { 10 20 30 } [ + ] 2map .            ! => { 11 22 33 }
 { "x" "y" } { 1 2 } [ "%s%d" sprintf ] 2map .  ! => { "x1" "y2" }
+{ 1 2 3 } { 10 20 30 } [ + . ] 2each           ! prints 11, then 22, then 33
 { "a" "b" "c" } { 1 2 3 } zip .                ! => { { "a" 1 } { "b" 2 } { "c" 3 } }
 ```
 

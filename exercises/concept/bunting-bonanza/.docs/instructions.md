@@ -1,9 +1,9 @@
 # Instructions
 
-The bosun is stitching bunting for the ship's signal halyards.
-Each line of bunting is a horizontal row of `n` little flags, and
+A party robot is stringing up bunting for the big bonanza. Each
+line of bunting is a horizontal row of `n` little flags, and
 every flag's character is decided by where the flag sits in the
-row, counted from the left starting at `0`. Help the bosun
+row, counted from the left starting at `0`. Help the robot
 assemble the patterns below.
 
 ## 1. Alphabet bunting
@@ -57,10 +57,10 @@ that positions `0`, `5`, `10`, … get `|` and the rest get `.`.
 
 ## 5. Valley bunting
 
-The bosun is hanging a fixed-size 10-flag bunting that anchors on
-a cleat at the centre. Counting from the leftmost flag at
-position `-5` up to (but not including) `5`, each flag's
-character is the distance from the centre, written as a digit.
+The robot hangs a fixed-size 10-flag bunting that pins to a hook
+at the centre. Counting from the leftmost flag at position `-5`
+up to (but not including) `5`, each flag's character is the
+distance from the centre, written as a digit.
 
 Define `valley-bunting` (taking no inputs) to return that fixed
 string.

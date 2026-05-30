@@ -1,5 +1,5 @@
-USING: bosuns-bunting exercism-tools tools.test ;
-IN: bosuns-bunting.tests
+USING: bunting-bonanza exercism-tools tools.test ;
+IN: bunting-bonanza.tests
 
 TASK: 1 alphabet-bunting
 { "abcde" } [ 5 alphabet-bunting ] unit-test

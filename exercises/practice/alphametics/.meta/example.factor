@@ -1,5 +1,5 @@
 USING: accessors arrays assocs hashtables kernel locals math
-math.bitwise math.order ranges sequences sets sorting splitting ;
+math.order sequences sets sorting splitting ;
 IN: alphametics
 
 TUPLE: letter ch min-digit rank weight ;
@@ -44,54 +44,52 @@ TUPLE: letter ch min-digit rank weight ;
     ch  words ch leads-word? 1 0 ?  w first-nonzero  w  letter boa ;
 
 :: make-letters ( puzzle words ncols -- letters )
-    puzzle unique-letters [| ch | words ncols ch <letter> ] { } map-as [ rank>> ] sort-by ;
+    puzzle unique-letters [| ch | words ncols ch <letter> ] { } map-as
+    [ rank>> ] sort-by ;
 
+! Sum of (weight-in-this-column * assigned-digit) over every letter.
+! Unassigned letters have a zero weight here, so their stale digit
+! contributes nothing -- no per-step reset of `assigned` is needed.
+:: column-sum ( letters assigned col -- n )
+    letters assigned 0 [| acc l d | acc col l weight>> nth d * + ] 2reduce ;
 
-:: column-sum ( letters mapping col -- n )
-    letters [| l |
-        col l weight>> nth
-        l ch>> mapping at 0 or
-        *
-    ] map-sum ;
-
-: assoc-with ( mapping key val -- mapping' )
-    [ clone ] 2dip swap pick set-at ;
-
-! `claimed` is a bitmask of the digits already in use.
 : claimed? ( claimed digit -- ? ) 1 swap shift bitand 0 = not ;
-
 : claim ( claimed digit -- claimed' ) 1 swap shift bitor ;
 
-:: search ( ncols letters col carry remaining claimed mapping digit -- result )
-    remaining empty? [ t ] [ remaining first rank>> col > ] if
+! Smallest unclaimed digit >= d, or 10 if there is none.
+:: next-free ( claimed d -- d' )
+    d 10 >= [ 10 ] [ claimed d claimed? [ claimed d 1 + next-free ] [ d ] if ] if ;
+
+:: search ( ncols letters assigned col carry k claimed digit -- ? )
+    k letters length >= [ t ] [ k letters nth rank>> col > ] if
     [
-        carry letters mapping col column-sum + :> colsum
+        carry letters assigned col column-sum + :> colsum
         colsum 10 mod 0 = [
             col 1 + ncols < [
-                ncols letters col 1 + colsum 10 /i remaining claimed mapping 0 search
+                ncols letters assigned col 1 + colsum 10 /i k claimed 0 search
             ] [
-                colsum 0 = [ mapping ] [ f ] if
+                colsum 0 =
             ] if
         ] [ f ] if
     ] [
-        remaining first :> entry
-        digit entry min-digit>> max :> d
+        k letters nth :> entry
+        claimed  digit entry min-digit>> max  next-free  :> d
         d 9 > [ f ] [
-            claimed d claimed? [
-                ncols letters col carry remaining claimed mapping d 1 + search
-            ] [
-                ncols letters col carry
-                remaining rest
-                claimed d claim
-                mapping entry ch>> d assoc-with
-                0 search
-                [ ncols letters col carry remaining claimed mapping d 1 + search ] unless*
-            ] if
+            d k assigned set-nth
+            ncols letters assigned col carry k 1 + claimed d claim 0 search
+            [ ncols letters assigned col carry k claimed d 1 + search ] unless*
         ] if
     ] if ;
+
+:: letters>mapping ( letters assigned -- hashtable )
+    H{ } clone :> result
+    letters assigned [| l d | d l ch>> result set-at ] 2each
+    result ;
 
 :: solve ( puzzle -- result )
     puzzle tokenize word-signs :> words
     words column-count :> ncols
     puzzle words ncols make-letters :> letters
-    ncols letters 0 0 letters 0 H{ } clone 0 search ;
+    letters length 0 <array> :> assigned
+    ncols letters assigned 0 0 0 0 0 search
+    [ letters assigned letters>mapping ] [ f ] if ;
