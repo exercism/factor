@@ -1985,6 +1985,23 @@
           "deques"
         ],
         "difficulty": 9
+      },
+      {
+        "slug": "alphametics",
+        "name": "Alphametics",
+        "uuid": "79d053a3-763d-4e3b-a148-3204faadc31c",
+        "practices": [],
+        "prerequisites": [
+          "tuples",
+          "assocs",
+          "mutation",
+          "higher-order-sequences",
+          "bitwise-operations",
+          "tabulation",
+          "hash-sets",
+          "locals"
+        ],
+        "difficulty": 10
       }
     ]
   },
