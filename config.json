@@ -1724,7 +1724,6 @@
           "reductions",
           "higher-order-sequences",
           "combinators",
-          "strings",
           "errors"
         ],
         "difficulty": 6

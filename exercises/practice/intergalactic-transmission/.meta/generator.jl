@@ -3,7 +3,7 @@ module IntergalacticTransmission
 const EXTRA_VOCABS = ["sequences"]
 
 function fmt_array(arr)
-    "{ " * join(["\"$(s)\"" for s in arr], " ") * (isempty(arr) ? "}" : " }")
+    "{ " * join(["$(s)" for s in arr], " ") * (isempty(arr) ? "}" : " }")
 end
 
 function gen_test_case(case)
