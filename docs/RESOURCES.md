@@ -19,7 +19,7 @@
 [official-docs]: https://docs.factorcode.org/
 [ferretti-tutorial]: https://andreaferretti.github.io/factor-tutorial/
 [factor-in-2022]: https://www.youtube.com/watch?v=OLh61q4c4XE
-[thinking-forth]: https://thinking-forth.sourceforge.net/
+[thinking-forth]: https://www.forth.com/wp-content/uploads/2018/11/thinking-forth-color.pdf
 [playground-factor]: https://github.com/bjourne/playground-factor
 [learn-x-in-y-minutes]: https://learnxinyminutes.com/docs/factor
 [rosetta-code]: https://rosettacode.org/wiki/Category:Factor
