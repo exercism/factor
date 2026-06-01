@@ -14,5 +14,7 @@ IN: paasio
 ! `input-stream` / `output-stream` mixins so they're recognized
 ! by Factor's I/O combinators.
 
-: <metered-input> ( stream -- m ) "unimplemented" throw ;
-: <metered-output> ( stream -- m ) "unimplemented" throw ;
+: <metered-input> ( stream -- m )
+    "unimplemented" throw ;
+: <metered-output> ( stream -- m )
+    "unimplemented" throw ;

@@ -1678,7 +1678,7 @@
           "sequences"
         ],
         "prerequisites": [
-          "higher-order-sequences",
+          "windows",
           "sequences",
           "bitwise-operations",
           "locals"
@@ -1693,7 +1693,7 @@
         "prerequisites": [
           "strings",
           "tabulation",
-          "higher-order-sequences",
+          "windows",
           "locals"
         ],
         "difficulty": 6

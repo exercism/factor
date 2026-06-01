@@ -8,19 +8,28 @@ IN: rational-numbers
 : <rat> ( numerator denominator -- rat )
     "unimplemented" throw ;
 
-: >rat ( pair -- rat ) "unimplemented" throw ;
+: >rat ( pair -- rat )
+    "unimplemented" throw ;
 
-: rat>pair ( rat -- pair ) "unimplemented" throw ;
+: rat>pair ( rat -- pair )
+    "unimplemented" throw ;
 
-: r+ ( a b -- c ) "unimplemented" throw ;
-: r- ( a b -- c ) "unimplemented" throw ;
-: r* ( a b -- c ) "unimplemented" throw ;
-: r/ ( a b -- c ) "unimplemented" throw ;
+: r+ ( a b -- c )
+    "unimplemented" throw ;
+: r- ( a b -- c )
+    "unimplemented" throw ;
+: r* ( a b -- c )
+    "unimplemented" throw ;
+: r/ ( a b -- c )
+    "unimplemented" throw ;
 
-: r-abs ( a -- |a| ) "unimplemented" throw ;
+: r-abs ( a -- |a| )
+    "unimplemented" throw ;
 
 ! `r^` raises a `rat` to an integer power.
-: r^ ( a n -- a^n ) "unimplemented" throw ;
+: r^ ( a n -- a^n )
+    "unimplemented" throw ;
 
 ! `real^r` raises a real to a `rat` exponent and returns a float.
-: real^r ( x a -- y ) "unimplemented" throw ;
+: real^r ( x a -- y )
+    "unimplemented" throw ;
