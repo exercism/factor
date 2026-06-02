@@ -1105,6 +1105,20 @@
         "difficulty": 4
       },
       {
+        "slug": "bottle-song",
+        "name": "Bottle Song",
+        "uuid": "7457b271-28de-4d30-b429-3f0b6e05e395",
+        "practices": [],
+        "prerequisites": [
+          "locals",
+          "unicode",
+          "arrays",
+          "tabulation",
+          "higher-order-sequences"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "complex-numbers",
         "name": "Complex Numbers",
         "uuid": "8989aeb2-048d-4523-87b7-54573aa18f5f",
@@ -1199,6 +1213,19 @@
         "difficulty": 4
       },
       {
+        "slug": "house",
+        "name": "House",
+        "uuid": "1284fba0-4dcf-43c6-bcf6-4975d9bd72f7",
+        "practices": [],
+        "prerequisites": [
+          "tabulation",
+          "arrays",
+          "higher-order-sequences",
+          "sequences"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "kindergarten-garden",
         "name": "Kindergarten Garden",
         "uuid": "a8cbd7a8-548a-4fb1-b7a7-30c05822f335",
@@ -1274,6 +1301,19 @@
           "higher-order-sequences",
           "recursion",
           "indexed-iteration"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "proverb",
+        "name": "Proverb",
+        "uuid": "a787b061-c960-44d8-828c-1c6b12b4f2a0",
+        "practices": [],
+        "prerequisites": [
+          "wire-format",
+          "higher-order-sequences",
+          "strings",
+          "conditionals"
         ],
         "difficulty": 4
       },
@@ -1370,6 +1410,20 @@
           "numbers",
           "case",
           "dynamic-variables"
+        ],
+        "difficulty": 4
+      },
+      {
+        "slug": "twelve-days",
+        "name": "Twelve Days",
+        "uuid": "ce0683ac-a581-4bb1-9c12-9fe2dd89aafc",
+        "practices": [],
+        "prerequisites": [
+          "tabulation",
+          "arrays",
+          "higher-order-sequences",
+          "combinators",
+          "conditionals"
         ],
         "difficulty": 4
       },
@@ -1550,6 +1604,20 @@
         "difficulty": 5
       },
       {
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "26d75b43-0f97-4224-809d-7246fda13195",
+        "practices": [],
+        "prerequisites": [
+          "locals",
+          "wire-format",
+          "strings",
+          "higher-order-sequences",
+          "conditionals"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "robot-name",
         "name": "Robot Name",
         "uuid": "1f3cded8-c357-448d-9640-63e8e6ea8efe",
@@ -1576,6 +1644,21 @@
           "windows",
           "locals",
           "while"
+        ],
+        "difficulty": 5
+      },
+      {
+        "slug": "save-the-cow",
+        "name": "Save the Cow",
+        "uuid": "b36844d7-f9f5-48e6-8e66-81f0cac8c14a",
+        "practices": [],
+        "prerequisites": [
+          "locals",
+          "errors",
+          "mutation",
+          "higher-order-sequences",
+          "conditionals",
+          "numbers"
         ],
         "difficulty": 5
       },

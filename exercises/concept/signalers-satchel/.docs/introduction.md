@@ -88,6 +88,31 @@ code to a fixed width or to lay down a run of repeated markers;
 coerce with `>string` (or `>array`) only when a concrete
 sequence is actually needed.
 
+## `<clumps>` — overlapping windows, virtually
+
+[`<clumps>`][clumps] (in `grouping`) is a third non-copying
+virtual sequence — `( seq n -- clumps )` views `seq` as the
+series of *overlapping* length-`n` windows over it, each window a
+slice:
+
+```factor
+USING: grouping math sequences ;
+
+! each window is a slice; map >array to view them concretely
+{ 1 2 3 4 } 2 <clumps> [ >array ] map .
+! => { { 1 2 } { 2 3 } { 3 4 } }
+
+! the usual move is to project straight from each window
+{ 1 2 3 4 } 2 <clumps> [ first2 + ] map .
+! => { 3 5 7 }
+```
+
+A sequence of `length` n yields `length - n + 1` windows.
+Because each window is a slice, pairing successive readings costs
+no copying — `[ first2 ]` on each `2`-clump gives you every
+consecutive pair to project from. (The non-overlapping cousin,
+`<groups>`, chops the sequence into disjoint blocks instead.)
+
 ## Multi-input cleave — `2bi`, `3bi`, `2tri`, `3tri`
 
 The plain cleave words `bi` and `tri` apply two or three
@@ -123,3 +148,4 @@ USING: combinators math ;
 
 [unparse]: https://docs.factorcode.org/content/word-unparse%2Cprettyprint.html
 [repetition]: https://docs.factorcode.org/content/word-__lt__repetition__gt__%2Csequences.html
+[clumps]: https://docs.factorcode.org/content/word-__lt__clumps__gt__%2Cgrouping.html

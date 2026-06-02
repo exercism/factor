@@ -8,19 +8,21 @@ then look up or rearrange their contents.
 
 ## Building from the stack
 
-`1array`, `2array`, and `3array` (in [`arrays`][arrays]) take
-1, 2, or 3 values off the top of the stack and bundle them:
+`1array`, `2array`, `3array`, and `4array` (in [`arrays`][arrays])
+take 1, 2, 3, or 4 values off the top of the stack and bundle them:
 
 ```
-1array ( a     -- { a }     )
-2array ( a b   -- { a b }   )
-3array ( a b c -- { a b c } )
+1array ( a       -- { a }       )
+2array ( a b     -- { a b }     )
+3array ( a b c   -- { a b c }   )
+4array ( a b c d -- { a b c d } )
 ```
 
 ```factor
-42 1array .              ! => { 42 }
-3 4 2array .             ! => { 3 4 }
-"x" "y" "z" 3array .     ! => { "x" "y" "z" }
+42 1array .                ! => { 42 }
+3 4 2array .               ! => { 3 4 }
+"x" "y" "z" 3array .       ! => { "x" "y" "z" }
+1 2 3 4 4array .           ! => { 1 2 3 4 }
 ```
 
 ## Joining
