@@ -1140,7 +1140,9 @@
         "slug": "dnd-character",
         "name": "D&D Character",
         "uuid": "7229dc0f-df0c-4c3d-9aec-810ab2474d6f",
-        "practices": [],
+        "practices": [
+          "randomness"
+        ],
         "prerequisites": [
           "randomness",
           "tuples",
@@ -1158,6 +1160,7 @@
           "strings",
           "tabulation",
           "higher-order-sequences",
+          "wire-format",
           "locals"
         ],
         "difficulty": 4
@@ -1245,7 +1248,9 @@
         "slug": "meetup",
         "name": "Meetup",
         "uuid": "faf43296-da2b-4953-ab84-1381e52c600b",
-        "practices": [],
+        "practices": [
+          "calendar"
+        ],
         "prerequisites": [
           "calendar",
           "case",
@@ -1430,7 +1435,6 @@
         "name": "Circular Buffer",
         "uuid": "0d95acdf-26a3-4c51-b4ae-1f1c02c78963",
         "practices": [
-          "deques",
           "tuples"
         ],
         "prerequisites": [

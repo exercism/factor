@@ -3,8 +3,8 @@
 A *signaler* aboard a coastal patrol vessel maintains the
 message log. Raw signal flags come in framed with marker
 characters; readings have to be rendered for the wire; pairs and
-triples of observations get summarised on the fly. Three idioms
-from Factor's standard library do most of the work.
+triples of observations get summarised on the fly. A handful of
+idioms from Factor's standard library do most of the work.
 
 ## `unparse` — value to source
 
@@ -56,6 +56,38 @@ takes a slice — `length`, `first`, `each`, and so on all work
 without copying. Tests that need to compare against a literal
 string can coerce with `>string`.
 
+## `<repetition>` — N copies, virtually
+
+[`<repetition>`][repetition] (in `sequences`) is another
+non-copying virtual sequence — `( len elt -- repetition )`
+builds a sequence of `len` elements that are all `elt`, without
+allocating that many slots:
+
+```factor
+USING: sequences strings ;
+
+5 CHAR: - <repetition> >string . ! => "-----"
+3 0 <repetition> >array .        ! => { 0 0 0 }
+```
+
+The `elt` can itself be a sequence — each copy is that same
+sequence. `concat` then joins the copies end to end:
+
+```factor
+USING: sequences ;
+
+2 { 1 2 } <repetition> >array . ! => { { 1 2 } { 1 2 } }
+3 "ab" <repetition> concat .    ! => "ababab"
+4 { "on" "off" } <repetition> concat .
+! => { "on" "off" "on" "off" "on" "off" "on" "off" }
+```
+
+Like a `slice`, the result *is* a sequence — `length`, `each`,
+and friends work on it directly. Reach for it to pad a signal
+code to a fixed width or to lay down a run of repeated markers;
+coerce with `>string` (or `>array`) only when a concrete
+sequence is actually needed.
+
 ## Multi-input cleave — `2bi`, `3bi`, `2tri`, `3tri`
 
 The plain cleave words `bi` and `tri` apply two or three
@@ -90,3 +122,4 @@ USING: combinators math ;
 ```
 
 [unparse]: https://docs.factorcode.org/content/word-unparse%2Cprettyprint.html
+[repetition]: https://docs.factorcode.org/content/word-__lt__repetition__gt__%2Csequences.html
