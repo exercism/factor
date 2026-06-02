@@ -2,37 +2,73 @@
 
 ## General
 
-- `MACRO:` is in [`macros`][macros]. Most building blocks live
-  in `kernel`, `sequences`, and `combinators`.
-- A macro body must leave one quotation on the compile-time
-  stack. If your body produces an array, convert it with
-  `>quotation`.
+- `MACRO:` is in [`macros`][macros]. The building blocks live in
+  `kernel` (`dup`, `curry`), `sequences` (`append`, `concat`,
+  `<repetition>`, `map`), and `quotations` (`>quotation`).
+- A macro body must leave **one quotation** on the stack. If your
+  body produces an array of code, finish with `>quotation`.
+- To check your thinking, run the body's words on a literal in the
+  listener and look at the quotation you get back — it should be
+  the straight-line code from the task's "compiles to" line.
 
 ## 1. Twice over
 
-- Build `[ A A ]` from `[ A ]` with `dup append`.
+- You receive `[ A ]` and want `[ A A ]`. Make a copy and join
+  them: `dup append`.
 
 ## 2. N repetitions
 
-- `<repetition>` from `sequences` builds a virtual sequence of
-  N copies of an element. Its stack effect is `( length elt -- )`,
-  so swap the inputs before calling it. `concat` flattens; `>quotation`
-  converts the resulting array back into a quotation:
-  `swap <repetition> concat >quotation`.
+- You receive `[ A ] n` and want `n` copies joined together.
+- `<repetition>` builds the copies, but its effect is
+  `( length elt -- repetition )` — the count must be on top, so
+  `swap` first.
+- Then flatten and convert: `swap <repetition> concat >quotation`.
+
+  ```factor
+  ! stack: [ 1 + ] 3
+  swap <repetition>     ! 3 copies of [ 1 + ]
+  concat >quotation     ! => [ 1 + 1 + 1 + ]
+  ```
 
 ## 3. Compose many
 
-- `concat` already does the work; just convert with `>quotation`.
+- You already receive the array of quotations; you only need to
+  flatten it into one. `concat >quotation` is the whole body.
 
 ## 4. Unrolled iteration
 
-- For each element of `seq`, build a quotation `[ elt original-quot ]`
-  by currying `elt` into `original-quot`. Then `concat` the
-  per-element quotations and convert.
-- The dense Factor expression: `[ curry ] curry map concat >quotation`.
-  The outer `curry` bakes `original-quot` into the inner
-  `[ curry ]` body, so what `map` actually applies to each
-  element is a quotation that curries the element into the
-  original quot.
+You receive a sequence and a quotation, e.g. `{ 10 20 30 } [ + ]`,
+and want `[ 10 + 20 + 30 + ]`. Build it up in three moves.
+
+**One element.** Baking an element into the quotation is exactly
+what `curry` does:
+
+```factor
+10 [ + ] curry .   ! => [ 10 + ]
+```
+
+**Every element.** You want to `map` that over the sequence — but
+`map` only hands the mapping quotation one input (the element),
+while you also need `[ + ]` on hand each time. So bake `[ + ]` into
+the mapping quotation first, again with `curry`:
+
+```factor
+! stack: { 10 20 30 } [ + ]
+[ curry ] curry    ! => { 10 20 30 } [ [ + ] curry ]
+map                ! runs  10 [ + ] curry,  20 [ + ] curry, …
+                   ! => { [ 10 + ] [ 20 + ] [ 30 + ] }
+```
+
+`[ curry ] curry` reads as "push the little quotation `[ curry ]`,
+then curry `[ + ]` into it", giving `[ [ + ] curry ]`. Mapping that
+over an element `e` runs `e [ + ] curry`, which is `[ e + ]`.
+
+**Join them.** Same finish as the other tasks:
+
+```factor
+concat >quotation  ! => [ 10 + 20 + 30 + ]
+```
+
+- The whole body: `[ curry ] curry map concat >quotation`.
 
 [macros]: https://docs.factorcode.org/content/vocab-macros.html

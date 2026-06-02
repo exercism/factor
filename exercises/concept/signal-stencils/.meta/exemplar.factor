@@ -1,4 +1,4 @@
-USING: combinators kernel macros quotations sequences ;
+USING: kernel macros quotations sequences ;
 IN: signal-stencils
 
 MACRO: twice ( quot -- compound )

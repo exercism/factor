@@ -500,21 +500,6 @@
         "status": "beta"
       },
       {
-        "slug": "signal-stencils",
-        "name": "Signal Stencils",
-        "uuid": "02460c9b-7292-4d4e-a6b3-6fe59dc9ec01",
-        "concepts": [
-          "macros"
-        ],
-        "prerequisites": [
-          "quotations",
-          "combinators",
-          "quotations-call",
-          "sequences"
-        ],
-        "status": "beta"
-      },
-      {
         "slug": "quayside-crew",
         "name": "Quayside Crew",
         "uuid": "e520b985-797e-42b6-a366-990db2d58796",
@@ -553,6 +538,24 @@
         "prerequisites": [
           "tuples",
           "generics"
+        ],
+        "status": "beta"
+      },
+      {
+        "slug": "signal-stencils",
+        "name": "Signal Stencils",
+        "uuid": "02460c9b-7292-4d4e-a6b3-6fe59dc9ec01",
+        "concepts": [
+          "macros"
+        ],
+        "prerequisites": [
+          "quotations",
+          "combinators",
+          "quotations-call",
+          "curry-compose-fry",
+          "wire-format",
+          "sequences",
+          "higher-order-sequences"
         ],
         "status": "beta"
       },
@@ -2171,11 +2174,6 @@
       "name": "Deques"
     },
     {
-      "uuid": "395d9a61-0dc7-471b-9b26-4099a9e88ee6",
-      "slug": "macros",
-      "name": "Macros"
-    },
-    {
       "uuid": "4b136c82-48c0-4dd6-859d-e5e76c898540",
       "slug": "concurrency",
       "name": "Concurrency"
@@ -2189,6 +2187,11 @@
       "uuid": "302a3f0b-3bb9-4a01-9494-2aa37d14192e",
       "slug": "subclasses",
       "name": "Subclasses"
+    },
+    {
+      "uuid": "395d9a61-0dc7-471b-9b26-4099a9e88ee6",
+      "slug": "macros",
+      "name": "Macros"
     },
     {
       "uuid": "abce8f6a-d7a7-440d-a471-610f7d528bc1",

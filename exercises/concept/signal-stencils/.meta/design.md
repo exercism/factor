@@ -47,16 +47,17 @@ short) to teach macro-writing.
 ## Prerequisites
 
 - `quotations` — taught in `high-school-sweetheart`. Quotations
-  are the macro's *output type*; the student must be fluent
-  with `[ … ]` as a first-class value.
-- `combinators` — taught in `joiners-journey`. `curry` and the
-  quotation-shuffling combinators are the macro body's
-  toolkit.
-- `quotations-call` — taught in `rpn-calculator`. `>quotation`
-  and the awareness that quotations are *callable sequences*.
+  are the macro's *output type*; the student must be fluent with
+  `[ … ]` as a first-class value, and the concept already teaches
+  `concat >quotation call` to build code from data.
+- `combinators` — taught in `joiners-journey`. The
+  quotation-shuffling vocabulary the student reasons in.
 - `sequences` — taught in `backyard-birdwatcher`. `concat`,
-  `map`, `<repetition>`, `append` — the building blocks for
-  the macro bodies.
+  `append`, `>quotation` — the building blocks for the macro
+  bodies.
+- `higher-order-sequences` — taught in `boutique-bookkeeping`.
+  `map`, used in `each-literal` to turn a literal sequence into
+  per-element quotations.
 
 ## Tasks ramp
 
@@ -73,8 +74,10 @@ short) to teach macro-writing.
 4. **`each-literal`** — input is a literal sequence and a
    quotation; the output is unrolled iteration. The compile-
    time sequence drives per-element code generation, and the
-   `[ swap curry ] curry map concat >quotation` body is the
-   densest macro shape in the exercise.
+   `[ curry ] curry map concat >quotation` body is the densest
+   macro shape in the exercise. The hints derive it in three
+   steps (one element → every element → join) rather than
+   presenting it as a one-liner.
 
 ## Test file uses wrapper words
 
