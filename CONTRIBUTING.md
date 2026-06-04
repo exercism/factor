@@ -17,6 +17,16 @@ bin/add-practice-exercise <exercise-slug>
 
 - An exercise should include a `.meta/tests.toml` file if, and only if, the exercise has a `canonical-data.json` in [problem-specifications](https://github.com/exercism/problem-specifications/tree/main/exercises).
 
+#### **Do you want to verify an exercise's example solution?**
+
+- Use `bin/verify-exercises` to check that an exercise's example/exemplar solution passes its tests:
+
+```shell
+bin/verify-exercises <exercise-slug>   # omit the slug to verify every exercise
+```
+
+- If `factor` is not on your `PATH`, point the `FACTOR` environment variable at the executable, e.g. `FACTOR=/path/to/factor bin/verify-exercises <exercise-slug>`.
+
 #### **Do you want to report a bug?**
 
 - **Ensure the bug was not already reported** by searching the [forum](https://forum.exercism.org/c/programming/factor).
