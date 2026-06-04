@@ -42,3 +42,11 @@ STOP-HERE
 "can sort complex tree" description
 { { "1" "2" "3" "5" "6" "7" } }
 [ { "2" "1" "3" "6" "7" "5" } <bst> sorted-data ] unit-test
+
+"empty input yields a leaf" description
+{ T{ leaf } }
+[ { } <bst> ] unit-test
+
+"can sort empty input" description
+{ { } }
+[ { } <bst> sorted-data ] unit-test

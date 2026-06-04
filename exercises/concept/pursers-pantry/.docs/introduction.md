@@ -2,7 +2,7 @@
 
 Hashtables in Factor are *associative arrays* — collections of
 `key/value` pairs with O(1) lookup. They're part of the wider
-`assocs` family.
+[`assocs`][assocs] family.
 
 ## Hashtable literals
 
@@ -48,7 +48,7 @@ H{ } clone 5 "coal" pick set-at .
 
 ## `inc-at` — the count-up shortcut
 
-`inc-at` (also in `assocs`) adds 1 to the existing value for a key,
+`inc-at` (also in [`assocs`][assocs]) adds 1 to the existing value for a key,
 inserting it as 1 when missing. Perfect for tallying:
 
 ```

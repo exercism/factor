@@ -7,7 +7,7 @@ in [Annalyn's Infiltration][annalyns] and the integer arithmetic from
 
 ## Comparison words
 
-These all live in [`math`][math] (and `kernel` for `=`):
+These all live in [`math`][math] (and [`kernel`][kernel] for `=`):
 
 ```
 =  ( x y -- ? )    ! equal
@@ -23,6 +23,25 @@ These all live in [`math`][math] (and `kernel` for `=`):
 3 3 <= .    ! => t
 3 4 = not . ! => t    (inequality: combine = with not)
 ```
+
+## Range checks
+
+`between?` (in [`math.order`][math.order]) tests whether a value
+falls within an inclusive range. It's handy when an action depends
+on which band a number lands in:
+
+```
+between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
+```
+
+```factor
+5 1 10 between? .    ! => t
+0 1 10 between? .    ! => f
+10 1 10 between? .   ! => t   (inclusive at both ends)
+```
+
+You'll often see it as a `cond` predicate — `dup 1 4 between?` —
+to pick a branch by range rather than by a single value.
 
 ## `if`, `when`, `unless`
 
@@ -106,5 +125,6 @@ A few details worth noting:
 [annalyns]: https://exercism.org/tracks/factor/exercises/annalyns-infiltration
 [currency-conversion]: https://exercism.org/tracks/factor/exercises/currency-conversion
 [math]: https://docs.factorcode.org/content/vocab-math.html
+[math.order]: https://docs.factorcode.org/content/vocab-math.order.html
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [combinators]: https://docs.factorcode.org/content/vocab-combinators.html

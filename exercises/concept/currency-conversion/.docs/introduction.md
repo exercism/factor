@@ -50,7 +50,7 @@ even for two integers. `/i` always truncates toward zero.
 ## Checking
 
 Number predicates from [`math`][math], [`math.functions`][math.functions],
-[`math.order`][math.order], and [`math.primes`][math.primes]:
+and [`math.primes`][math.primes]:
 
 ```
 zero?    ( x       -- ? )
@@ -58,7 +58,6 @@ even?    ( x       -- ? )
 odd?     ( x       -- ? )
 prime?   ( x       -- ? )
 divisor? ( m n     -- ? )    ! true when n divides m
-between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
 integer? ( x       -- ? )    ! true for ints (fixnum or bignum)
 float?   ( x       -- ? )    ! true for floats
 number?  ( x       -- ? )    ! true for any numeric kind
@@ -78,10 +77,6 @@ number?  ( x       -- ? )    ! true for any numeric kind
 
 15 5 divisor? .      ! => t   (5 divides 15)
 15 4 divisor? .      ! => f
-
-5 1 10 between? .    ! => t
-0 1 10 between? .    ! => f
-10 1 10 between? .   ! => t   (inclusive at both ends)
 ```
 
 ## Float to integer

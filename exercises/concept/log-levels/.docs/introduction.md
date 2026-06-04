@@ -1,8 +1,9 @@
 # Introduction
 
 A string in Factor is a sequence of characters. Most words from the
-`sequences` vocabulary work on strings, in addition to the dedicated
-string-handling words in `splitting`, `ascii`, and friends.
+[`sequences`][sequences] vocabulary work on strings, in addition to the
+dedicated string-handling words in [`splitting`][splitting],
+[`ascii`][ascii], and friends.
 
 ## String literals
 
@@ -115,7 +116,7 @@ code point — rather than a substring:
 ## Trimming
 
 `[ blank? ] trim` (from [`sequences`][sequences], with `blank?` from
-the `ascii` vocabulary) removes leading and trailing whitespace:
+the [`ascii`][ascii] vocabulary) removes leading and trailing whitespace:
 
 ```factor
 "  Disk full \r\n" [ blank? ] trim .
@@ -134,7 +135,7 @@ with the case changed:
 
 ## Joining
 
-Two `sequences` words assemble strings:
+Two [`sequences`][sequences] words assemble strings:
 
 `surround` wraps a string with a prefix and a suffix:
 
