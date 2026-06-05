@@ -2,7 +2,7 @@
 
 You've already *used* streams in `channel-chatter` and disposed
 of them in `boatswains-bilge`. This exercise is your first
-custom stream — a class that implements the protocol so the
+custom stream — a class that implements the [protocol][stream-protocol] so the
 same `with-input-stream` / `read1` / `stream-read1` code that
 worked on a `<string-reader>` works on yours.
 
@@ -77,3 +77,4 @@ Once that's in place, all the `with-…` combinators from
 `channel-chatter` work on your stream automatically.
 
 [io]: https://docs.factorcode.org/content/vocab-io.html
+[stream-protocol]: https://docs.factorcode.org/content/article-stream-protocol.html

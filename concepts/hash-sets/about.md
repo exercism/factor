@@ -1,6 +1,6 @@
 # About
 
-Hash-sets implement the [`sets`][sets] protocol with hashing
+Hash-sets implement the [`sets`][sets] [protocol][set-protocol] with hashing
 under the hood, giving O(1) average insert, lookup, and delete.
 They're mutable in place, which makes them ideal for the
 *visited set* pattern in graph traversals.
@@ -64,3 +64,4 @@ reachability question, which is why a vector-as-stack is enough
 [dlist]: https://docs.factorcode.org/content/word-__lt__dlist__gt__%2Cdlists.html
 
 [sets]: https://docs.factorcode.org/content/vocab-sets.html
+[set-protocol]: https://docs.factorcode.org/content/article-sets.html

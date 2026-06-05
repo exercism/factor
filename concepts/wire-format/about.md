@@ -39,7 +39,7 @@ the text back, and the wrong tool for human-readable output.
 | `tail-slice*` | `( seq n -- slice )` — view of last n           |
 
 A `slice` is a tuple holding a from-index, to-index, and the
-underlying sequence — it implements the sequence protocol so any
+underlying sequence — it implements the [sequence protocol][sequence-protocol] so any
 sequence operation works on it. Reach for the slice variants when
 you'd otherwise allocate just to read; reach for the copying ones
 when you need to keep the data after the underlying sequence
@@ -76,3 +76,4 @@ For *one* quotation applied to each input separately, reach for
 different shape.
 
 [unparse]: https://docs.factorcode.org/content/word-unparse%2Cprettyprint.html
+[sequence-protocol]: https://docs.factorcode.org/content/article-sequence-protocol.html

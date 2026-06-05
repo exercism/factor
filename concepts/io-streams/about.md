@@ -4,7 +4,7 @@ Factor splits stream I/O into two layers. The lower layer is the
 *explicit-stream* API: every word takes the stream as an
 argument. The upper layer is the *ambient-stream* API: short,
 one-line words that act on whichever stream is currently bound.
-Both layers sit on the same protocol — the upper-layer words
+Both layers sit on the same [protocol][stream-protocol] — the upper-layer words
 just look up the ambient stream and forward the call.
 
 ## Explicit-stream words
@@ -47,10 +47,10 @@ redirecting `print` to a string is just a matter of binding
 
 | word              | vocab                | what it builds                  |
 |-------------------|----------------------|---------------------------------|
-| `<string-reader>` | `io.streams.string`  | reads a literal string          |
-| `<string-writer>` | `io.streams.string`  | collects writes into a string   |
-| `<file-reader>`   | `io.files`           | reads a file with an encoding   |
-| `<file-writer>`   | `io.files`           | writes a file with an encoding  |
+| `<string-reader>` | [`io.streams.string`][io.streams.string]  | reads a literal string          |
+| `<string-writer>` | [`io.streams.string`][io.streams.string]  | collects writes into a string   |
+| `<file-reader>`   | [`io.files`][io.files]           | reads a file with an encoding   |
+| `<file-writer>`   | [`io.files`][io.files]           | writes a file with an encoding  |
 
 All four produce disposables — they extend `disposable` from
 `destructors`, so the `with-…` combinators below release them
@@ -98,6 +98,6 @@ For *implementing* a stream — defining your own class that
 plugs into the protocol — see the `streams` concept (taught in
 `telegraphers-tape`).
 
-[io]: https://docs.factorcode.org/content/vocab-io.html
 [io.streams.string]: https://docs.factorcode.org/content/vocab-io.streams.string.html
 [io.files]: https://docs.factorcode.org/content/vocab-io.files.html
+[stream-protocol]: https://docs.factorcode.org/content/article-stream-protocol.html

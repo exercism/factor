@@ -1,7 +1,7 @@
 # Introduction
 
 Factor's associative arrays — hashtables and friends — share a
-common protocol from [`assocs`][assocs]. The hashtable literal is
+common [protocol][assoc-protocol] from [`assocs`][assocs]. The hashtable literal is
 `H{ }`:
 
 ```factor
@@ -29,3 +29,4 @@ Hashtables are *mutable* — `clone` an `H{ }` literal before
 modifying so the literal isn't shared between calls.
 
 [assocs]: https://docs.factorcode.org/content/vocab-assocs.html
+[assoc-protocol]: https://docs.factorcode.org/content/article-assocs-protocol.html

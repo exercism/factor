@@ -1,6 +1,6 @@
 # About
 
-Factor's I/O is built on a single protocol that any data source
+Factor's I/O is built on a single [protocol][stream-protocol] that any data source
 or sink can implement. The bundled streams — `<file-reader>`,
 `<file-writer>`, `<string-reader>`, `<string-writer>`,
 network sockets, byte arrays, ttys — are all classes that
@@ -88,3 +88,4 @@ threading it through every call.
 
 [io]: https://docs.factorcode.org/content/vocab-io.html
 [destructors]: https://docs.factorcode.org/content/vocab-destructors.html
+[stream-protocol]: https://docs.factorcode.org/content/article-stream-protocol.html

@@ -1,8 +1,8 @@
 # Introduction
 
 Most data in Factor lives in *sequences*. Arrays (`{ … }`), vectors
-(`V{ … }`), and strings all share the same protocol from
-[`sequences`][sequences].
+(`V{ … }`), and strings all share the same [protocol][sequence-protocol]
+from [`sequences`][sequences].
 
 ```factor
 { 1 2 3 } length .    ! => 3
@@ -24,3 +24,4 @@ back from a generic operation.
 [arrays]: https://docs.factorcode.org/content/vocab-arrays.html
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
+[sequence-protocol]: https://docs.factorcode.org/content/article-sequence-protocol.html

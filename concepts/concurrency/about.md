@@ -14,13 +14,13 @@ The standard concurrency primitives are layered:
 
 | Vocab                       | Provides                               |
 |-----------------------------|----------------------------------------|
-| `threads`                   | `spawn`, `yield`, thread identity      |
-| `concurrency.promises`      | `<promise>`, `fulfill`, `?promise`     |
-| `concurrency.locks`         | `<lock>`, `with-lock`                  |
-| `concurrency.combinators`   | `parallel-map`, `parallel-each`        |
-| `concurrency.semaphores`    | `<semaphore>`, `acquire`, `release`    |
-| `concurrency.mailboxes`     | per-thread inboxes, `send`, `receive`  |
-| `concurrency.channels`      | rendezvous handles, `to`, `from`       |
+| [`threads`][threads]                   | `spawn`, `yield`, thread identity      |
+| [`concurrency.promises`][concurrency.promises]      | `<promise>`, `fulfill`, `?promise`     |
+| [`concurrency.locks`][concurrency.locks]         | `<lock>`, `with-lock`                  |
+| [`concurrency.combinators`][concurrency.combinators]   | `parallel-map`, `parallel-each`        |
+| [`concurrency.semaphores`][concurrency.semaphores]    | `<semaphore>`, `acquire`, `release`    |
+| [`concurrency.mailboxes`][concurrency.mailboxes]     | per-thread inboxes, `send`, `receive`  |
+| [`concurrency.channels`][concurrency.channels]      | rendezvous handles, `to`, `from`       |
 
 ```factor
 USING: concurrency.combinators concurrency.locks
@@ -50,3 +50,11 @@ hashtable that more than one thread reads or writes. Treat both reads
 and writes as needing the lock if there's any non-atomic compound
 update; missing a lock on either side is the classic recipe for a
 torn read.
+
+[concurrency.channels]: https://docs.factorcode.org/content/vocab-concurrency.channels.html
+[concurrency.combinators]: https://docs.factorcode.org/content/vocab-concurrency.combinators.html
+[concurrency.locks]: https://docs.factorcode.org/content/vocab-concurrency.locks.html
+[concurrency.mailboxes]: https://docs.factorcode.org/content/vocab-concurrency.mailboxes.html
+[concurrency.promises]: https://docs.factorcode.org/content/vocab-concurrency.promises.html
+[concurrency.semaphores]: https://docs.factorcode.org/content/vocab-concurrency.semaphores.html
+[threads]: https://docs.factorcode.org/content/vocab-threads.html

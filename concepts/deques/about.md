@@ -2,7 +2,7 @@
 
 `<dlist>` (in [`dlists`][dlists]) constructs a fresh doubly-linked
 list. The operations live in [`deques`][deques] and dispatch on
-the deque protocol, so other containers — chiefly `<dlist>` —
+the [deque protocol][deque-protocol], so other containers — chiefly `<dlist>` —
 can implement them.
 
 | word            | effect                              |
@@ -83,3 +83,4 @@ finite, manageable set.
 [dlists]: https://docs.factorcode.org/content/vocab-dlists.html
 [memoize]: https://docs.factorcode.org/content/vocab-memoize.html
 [memo-decl]: https://docs.factorcode.org/content/word-MEMO__colon__%2Csyntax.html
+[deque-protocol]: https://docs.factorcode.org/content/article-deques.html

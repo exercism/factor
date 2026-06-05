@@ -48,10 +48,15 @@ Beyond the core sequence ops:
 
 | vocab              | provides                                      |
 |--------------------|-----------------------------------------------|
-| `sorting`          | `sort`, `sort-by`                             |
-| `math.statistics`  | `cum-sum`, `cum-product`, `cum-min`, `cum-max` |
-| `grouping`         | `group`, `clump`, `monotonic-split`           |
-| `sets`             | `members`, `all-unique?`                      |
+| [`sorting`][sorting]          | `sort`, `sort-by`                             |
+| [`math.statistics`][math.statistics]  | `cum-sum`, `cum-product`, `cum-min`, `cum-max` |
+| [`grouping`][grouping]         | `group`, `clump`, `monotonic-split`           |
+| [`sets`][sets]             | `members`, `all-unique?`                      |
 
 Pairs (`bi`, `tri`) and "n-ary" combinators (`2map`, `2each`, `zip`)
 extend the same pattern when the quotation needs more than one input.
+
+[grouping]: https://docs.factorcode.org/content/vocab-grouping.html
+[math.statistics]: https://docs.factorcode.org/content/vocab-math.statistics.html
+[sets]: https://docs.factorcode.org/content/vocab-sets.html
+[sorting]: https://docs.factorcode.org/content/vocab-sorting.html

@@ -13,7 +13,7 @@ the stack:
 | `<array>`| `( n elt -- array )` — `n` copies of `elt` |
 | `array?` | `( obj   -- ? )` — type predicate   |
 
-A few protocol words from `sequences` come up so often with
+A few [protocol][sequence-protocol] words from `sequences` come up so often with
 arrays that they are worth knowing as a unit:
 
 | word      | effect                                                |
@@ -39,3 +39,4 @@ sequence — handy when an array's elements should be deduplicated
 or checked for duplicates without first converting to a hash-set.
 
 [sets]: https://docs.factorcode.org/content/vocab-sets.html
+[sequence-protocol]: https://docs.factorcode.org/content/article-sequence-protocol.html

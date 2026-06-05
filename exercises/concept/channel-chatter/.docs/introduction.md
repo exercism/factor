@@ -2,7 +2,7 @@
 
 Factor's I/O is built on *streams* — objects you read bytes or
 characters from, or write them to. The [`io`][io] vocabulary
-gives you two views of the same protocol.
+gives you two views of the same [protocol][stream-protocol].
 
 ## The two views
 
@@ -78,3 +78,4 @@ disposed on exit even if the quotation throws.
 
 [io]: https://docs.factorcode.org/content/vocab-io.html
 [boatswains-bilge]: https://exercism.org/tracks/factor/exercises/boatswains-bilge
+[stream-protocol]: https://docs.factorcode.org/content/article-stream-protocol.html

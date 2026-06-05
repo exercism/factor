@@ -2,7 +2,7 @@
 
 A *stream* in Factor is anything you can read bytes from or write
 bytes to. Files, sockets, in-memory buffers, and your own custom
-wrappers all participate in the same small protocol from
+wrappers all participate in the same small [protocol][stream-protocol] from
 [`io`][io].
 
 The protocol's two halves are mixins: `input-stream` for things
@@ -65,3 +65,4 @@ USING: io io.streams.string ;
 
 [io]: https://docs.factorcode.org/content/vocab-io.html
 [destructors]: https://docs.factorcode.org/content/vocab-destructors.html
+[stream-protocol]: https://docs.factorcode.org/content/article-stream-protocol.html

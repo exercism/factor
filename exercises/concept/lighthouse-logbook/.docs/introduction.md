@@ -3,7 +3,7 @@
 Hash-sets are mutable, unordered collections that store each
 value at most once. Lookup, insert, and delete are all O(1)
 average. They live in [`hash-sets`][hash-sets] and implement the
-[`sets`][sets] protocol.
+[`sets`][sets] [protocol][set-protocol].
 
 ## Hash-set literals
 
@@ -86,3 +86,4 @@ outwards.
 
 [hash-sets]: https://docs.factorcode.org/content/vocab-hash-sets.html
 [sets]: https://docs.factorcode.org/content/vocab-sets.html
+[set-protocol]: https://docs.factorcode.org/content/article-sets.html

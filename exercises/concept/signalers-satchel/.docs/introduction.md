@@ -29,7 +29,7 @@ quotes, vectors keep their `V{ ... }`, etc.).
 `head` and `tail` from `sequences` *copy* the part you keep into
 a fresh sequence. Their `-slice` counterparts return a `slice`
 object — a tuple holding from-index, to-index, and the
-underlying sequence — that implements the sequence protocol
+underlying sequence — that implements the [sequence protocol][sequence-protocol]
 without copying:
 
 | word          | effect                                          |
@@ -149,3 +149,4 @@ USING: combinators math ;
 [unparse]: https://docs.factorcode.org/content/word-unparse%2Cprettyprint.html
 [repetition]: https://docs.factorcode.org/content/word-__lt__repetition__gt__%2Csequences.html
 [clumps]: https://docs.factorcode.org/content/word-__lt__clumps__gt__%2Cgrouping.html
+[sequence-protocol]: https://docs.factorcode.org/content/article-sequence-protocol.html

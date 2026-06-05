@@ -1,7 +1,7 @@
 # About
 
-The [`sequences`][sequences] vocabulary defines a single protocol
-that arrays (`{ … }`), vectors (`V{ … }`), strings, ranges, and
+The [`sequences`][sequences] vocabulary defines a single
+[protocol][sequence-protocol] that arrays (`{ … }`), vectors (`V{ … }`), strings, ranges, and
 slices all implement. Anything you can do with one, you can do
 with the others.
 
@@ -63,3 +63,4 @@ V{ 1 2 3 } >array  .   ! => { 1 2 3 }
 ```
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
+[sequence-protocol]: https://docs.factorcode.org/content/article-sequence-protocol.html

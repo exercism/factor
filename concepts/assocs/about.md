@@ -1,6 +1,6 @@
 # About
 
-`assocs` is a protocol, not a single data type. Hashtables (`H{ }`),
+`assocs` is a [protocol][assoc-protocol], not a single data type. Hashtables (`H{ }`),
 association lists (sequences of `{ key value }` pairs), and tree
 maps all implement it, and most words on assocs are interchangeable
 between them.
@@ -29,3 +29,5 @@ but most exercise-level work involves a small set:
 
 `sort-keys` and `sort-values` (in `sorting`) sort an alist by the
 chosen field.
+
+[assoc-protocol]: https://docs.factorcode.org/content/article-assocs-protocol.html
