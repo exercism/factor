@@ -72,21 +72,24 @@ to apply `initial` to each.
 
 ## A few string words
 
-The exercise needs five small string words from the
-[`sequences`][sequences] and [`splitting`][splitting] vocabularies:
+The exercise needs a handful of small string words, drawn from three
+vocabularies — [`sequences`][sequences], [`ascii`][ascii], and
+[`strings`][strings]:
 
-- `replace ( seq old new -- new-seq )` — substring replace.
-- `[ blank? ] trim` — drop leading/trailing whitespace (`blank?` from
-  the `ascii` vocabulary).
-- `1string ( char -- str )` — wrap a single character as a string.
-- `>upper ( str -- upper )` — uppercase a string.
-- `append ( s1 s2 -- s )` — concatenate two strings.
-- `prepend ( s1 s2 -- s )` — concatenate `s2` then `s1` (`append` with
-  its inputs in the other order).
-- `glue ( s1 s2 sep -- s )` — concatenate two strings with a separator
-  between them.
-- `surround ( seq pre post -- new )` — wrap a string with a prefix and
-  a suffix.
+- `replace ( seq old new -- new-seq )` (in `sequences`) — substring
+  replace.
+- `[ blank? ] trim` (`trim` in `sequences`, `blank?` in `ascii`) — drop
+  leading/trailing whitespace.
+- `1string ( char -- str )` (in `strings`) — wrap a single character as
+  a string.
+- `>upper ( str -- upper )` (in `ascii`) — uppercase a string.
+- `append ( s1 s2 -- s )` (in `sequences`) — concatenate two strings.
+- `prepend ( s1 s2 -- s )` (in `sequences`) — concatenate `s2` then `s1`
+  (`append` with its inputs in the other order).
+- `glue ( s1 s2 sep -- s )` (in `sequences`) — concatenate two strings
+  with a separator between them.
+- `surround ( seq pre post -- new )` (in `sequences`) — wrap a string
+  with a prefix and a suffix.
 
 Unicode characters can be written as `\u{XXXX}` inside a string, where
 `XXXX` is the codepoint in hex. The heart `\u{2764}` (❤) appears in
@@ -125,7 +128,8 @@ USING: math.parser ;
 ```
 
 [sequences]: https://docs.factorcode.org/content/vocab-sequences.html
-[splitting]: https://docs.factorcode.org/content/vocab-splitting.html
+[ascii]: https://docs.factorcode.org/content/vocab-ascii.html
+[strings]: https://docs.factorcode.org/content/vocab-strings.html
 [formatting]: https://docs.factorcode.org/content/vocab-formatting.html
 [math.parser]: https://docs.factorcode.org/content/vocab-math.parser.html
 [quotations]: https://docs.factorcode.org/content/vocab-quotations.html

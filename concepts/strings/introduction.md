@@ -16,10 +16,13 @@ USING: ascii sequences splitting ;
 "warning" "(" ")" surround .      ! => "(warning)"
 ```
 
-`split1` cuts a string on the first occurrence of a separator,
-`split` cuts on any of a set of characters, `surround` wraps a
-string with a prefix and suffix, and `glue` joins two strings with
-a separator.
+`split1` and `split` (in [`splitting`][splitting]) cut a string —
+`split1` on the first occurrence of a separator, `split` on any of a
+set of characters. `surround` and `glue` (in [`sequences`][sequences])
+build strings — `surround` wraps a string with a prefix and suffix,
+and `glue` joins two strings with a separator. The [About](./about.md)
+page lists each string word alongside the vocabulary it lives in.
 
 [splitting]: https://docs.factorcode.org/content/vocab-splitting.html
+[sequences]: https://docs.factorcode.org/content/vocab-sequences.html
 [ascii]: https://docs.factorcode.org/content/vocab-ascii.html

@@ -1,8 +1,8 @@
 # Introduction
 
-*Combinators* are higher-order words that capture common stack-
-shuffling patterns in named form. Reaching for them means you write
-much less `dup`, `swap`, `over`, `rot`.
+*Combinators* are higher-order words that capture common
+stack-shuffling patterns in named form. Reaching for them means you
+write much less `dup`, `swap`, `over`, `rot`.
 
 ```
 keep   ( x quot: ( x -- y ) -- y x )         ! apply, preserve x

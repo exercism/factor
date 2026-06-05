@@ -56,6 +56,27 @@ takes a slice — `length`, `first`, `each`, and so on all work
 without copying. Tests that need to compare against a literal
 string can coerce with `>string`.
 
+## `?head` and `?tail` — strip a marker if present
+
+Framed readings carry marker text that may or may not be there.
+`?head` and `?tail` (in `sequences`) try to strip a prefix or
+suffix, returning the (possibly shortened) sequence *and* a
+boolean reporting whether the marker was found:
+
+```
+?head ( seq begin -- newseq ? )   ! strip prefix begin if present
+?tail ( seq end   -- newseq ? )   ! strip suffix end if present
+```
+
+```factor
+"NS-1024" "NS-" ?head   ! ( -- "1024" t )      matched, prefix removed
+"NS-1024" "XX-" ?head   ! ( -- "NS-1024" f )   no match, sequence unchanged
+```
+
+The trailing boolean makes them a natural fit for a guard: pair
+`?head` with `if` to branch on whether the frame was present, or
+with `unless` to reject input that lacks the expected marker.
+
 ## `<repetition>` — N copies, virtually
 
 [`<repetition>`][repetition] (in `sequences`) is another

@@ -35,6 +35,11 @@ values from the top of the stack and pushes some values back.
 2 3 * .    ! prints 6
 ```
 
+A related word, `.s`, prints the *whole* data stack without consuming
+anything — handy at the listener for seeing what a snippet leaves
+behind. It's why later examples sometimes end in `.s` rather than `.`:
+they leave more than one value on the stack, and `.s` shows them all.
+
 The arithmetic words live in the `math` vocabulary, so a file that uses
 them needs `math` in its `USING:` line.
 

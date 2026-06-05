@@ -776,6 +776,38 @@
         "difficulty": 2
       },
       {
+        "slug": "resistor-color-duo",
+        "name": "Resistor Color Duo",
+        "uuid": "f295d49d-b580-403e-a5da-bf2664c15886",
+        "practices": [],
+        "prerequisites": [
+          "sequences",
+          "arrays",
+          "higher-order-sequences",
+          "combinators",
+          "curry-compose-fry"
+        ],
+        "difficulty": 2
+      },
+      {
+        "slug": "resistor-color-trio",
+        "name": "Resistor Color Trio",
+        "uuid": "5e28ca04-55ce-4c31-bac2-401ecb7c4dc7",
+        "practices": [],
+        "prerequisites": [
+          "sequences",
+          "strings",
+          "arrays",
+          "higher-order-sequences",
+          "combinators",
+          "numbers",
+          "conditionals",
+          "quotations",
+          "locals"
+        ],
+        "difficulty": 2
+      },
+      {
         "slug": "rna-transcription",
         "name": "RNA Transcription",
         "uuid": "85e9ad19-d7e3-407d-8906-b8c69b09788e",
@@ -1305,6 +1337,23 @@
         "difficulty": 4
       },
       {
+        "slug": "protein-translation",
+        "name": "Protein Translation",
+        "uuid": "51e23591-ba3d-4577-8b78-384b64ba32d0",
+        "practices": [],
+        "prerequisites": [
+          "sequences",
+          "assocs",
+          "conditionals",
+          "errors",
+          "windows",
+          "mutation",
+          "locals",
+          "while"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "proverb",
         "name": "Proverb",
         "uuid": "a787b061-c960-44d8-828c-1c6b12b4f2a0",
@@ -1618,6 +1667,20 @@
         "difficulty": 5
       },
       {
+        "slug": "relative-distance",
+        "name": "Relative Distance",
+        "uuid": "e94c2353-0ed5-4a11-b606-9c82d88ab74a",
+        "practices": [],
+        "prerequisites": [
+          "assocs",
+          "deques",
+          "conditionals",
+          "locals",
+          "while"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "robot-name",
         "name": "Robot Name",
         "uuid": "1f3cded8-c357-448d-9640-63e8e6ea8efe",
@@ -1898,6 +1961,26 @@
         "difficulty": 6
       },
       {
+        "slug": "two-bucket",
+        "name": "Two Bucket",
+        "uuid": "ec8d731a-9f3e-442d-99df-ea76296f6887",
+        "practices": [],
+        "prerequisites": [
+          "arrays",
+          "deques",
+          "hash-sets",
+          "conditionals",
+          "booleans",
+          "numbers",
+          "strings",
+          "quotations",
+          "errors",
+          "locals",
+          "while"
+        ],
+        "difficulty": 6
+      },
+      {
         "slug": "bank-account",
         "name": "Bank Account",
         "uuid": "d17aa096-63a8-4855-a8ee-f906a993a916",
@@ -1982,6 +2065,24 @@
           "tuples",
           "locals",
           "recursion"
+        ],
+        "difficulty": 7
+      },
+      {
+        "slug": "wordy",
+        "name": "Wordy",
+        "uuid": "593abf4b-9ba6-4e31-8431-09f69263f3e1",
+        "practices": [],
+        "prerequisites": [
+          "numbers",
+          "conditionals",
+          "case",
+          "strings",
+          "quotations",
+          "wire-format",
+          "errors",
+          "locals",
+          "while"
         ],
         "difficulty": 7
       },

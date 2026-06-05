@@ -65,13 +65,14 @@ when   ( ? quot -- )
 unless ( ? quot -- )
 ```
 
-## `if*` and `unless*`
+## `if*`, `when*`, and `unless*`
 
-Two kernel variants treat the boolean as a *value* worth keeping
+Three kernel variants treat the boolean as a *value* worth keeping
 when it's truthy — useful when a word returns "the thing, or `f`":
 
 ```
 if*     ( ? true false -- )    ! truthy: true is called WITH ? on stack
+when*   ( ? true       -- )    ! truthy: true is called WITH ? on stack
 unless* ( ? false      -- )    ! falsy: false runs and pushes a default
 ```
 
@@ -91,6 +92,17 @@ the quotation runs to push a substitute:
 ```factor
 "hello" [ "anonymous" ] unless* .   ! => "hello"
 f       [ "anonymous" ] unless* .   ! => "anonymous"
+```
+
+`when*` is the one-branch form of `if*`: it runs its quotation —
+with the value still on the stack — only when the value is truthy,
+and simply drops the value when it's `f`. Reach for it to fold a
+"the thing, or `f`" result into a running value without bothering
+to handle the `f` case:
+
+```factor
+0 41 [ + ] when* .   ! => 41   (truthy: 41 added to the running total)
+0 f  [ + ] when* .   ! => 0    (falsy: f dropped, total left untouched)
 ```
 
 ## `cond`
