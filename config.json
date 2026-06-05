@@ -1661,7 +1661,9 @@
         "slug": "killer-sudoku-helper",
         "name": "Killer Sudoku Helper",
         "uuid": "6bff39e1-e1cd-4cc5-8753-2e05c4748ccb",
-        "practices": [],
+        "practices": [
+          "combinatorics"
+        ],
         "prerequisites": [
           "combinatorics",
           "higher-order-sequences",
@@ -2276,9 +2278,8 @@
         "practices": [],
         "prerequisites": [
           "tuples",
-          "assocs",
           "mutation",
-          "higher-order-sequences",
+          "combinatorics",
           "bitwise-operations",
           "tabulation",
           "hash-sets",

@@ -5,7 +5,7 @@ function gen_test_case(case)
     idx = Int(case["input"]["index"])
     expected = format_int_array(case["expected"])
     word = case["property"] == "row" ? "nth-row" : "nth-column"
-    return "{ $(expected) } [ $(str) <matrix> $(idx) $(word) ] unit-test"
+    return "{ $(expected) } [ $(str) $(idx) $(word) ] unit-test"
 end
 
 end

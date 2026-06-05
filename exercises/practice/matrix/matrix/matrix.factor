@@ -1,11 +1,8 @@
 USING: kernel ;
 IN: matrix
 
-: <matrix> ( str -- matrix )
+: nth-row ( str n -- row )
     "unimplemented" throw ;
 
-: nth-row ( matrix n -- row )
-    "unimplemented" throw ;
-
-: nth-column ( matrix n -- column )
+: nth-column ( str n -- column )
     "unimplemented" throw ;

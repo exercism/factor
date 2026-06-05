@@ -4,8 +4,8 @@ IN: matrix
 : <matrix> ( str -- matrix )
     "\n" split [ " " split harvest [ string>number ] map ] map ;
 
-: nth-row ( matrix n -- row )
-    1 - swap nth ;
+: nth-row ( str n -- row )
+    [ <matrix> ] dip 1 - swap nth ;
 
-: nth-column ( matrix n -- column )
-    1 - [ swap nth ] curry map ;
+: nth-column ( str n -- column )
+    [ <matrix> ] dip 1 - [ swap nth ] curry map ;
