@@ -3,8 +3,8 @@
 ## Goal
 
 Introduce the [`math.combinatorics`][math.combinatorics] vocabulary —
-counting and listing combinations and permutations — by giving a
-programmable graphing calculator a set of combinatorics functions.
+counting and listing combinations and permutations — by choosing and
+ordering the songs on a mixtape.
 
 ## Learning objectives
 

@@ -1,5 +1,5 @@
 USING: kernel locals math math.combinatorics sequences ;
-IN: instruments-of-texas
+IN: mixtape-maker
 
 : count-combinations ( n k -- count )
     nCk ;

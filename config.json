@@ -610,8 +610,8 @@
         "status": "beta"
       },
       {
-        "slug": "instruments-of-texas",
-        "name": "Instruments of Texas",
+        "slug": "mixtape-maker",
+        "name": "Mixtape Maker",
         "uuid": "66e9e171-ae51-4f71-bdd8-6451439e2fe4",
         "concepts": [
           "combinatorics"

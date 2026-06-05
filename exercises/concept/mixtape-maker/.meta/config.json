@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "mixtape-maker/mixtape-maker.factor"
+    ],
+    "test": [
+      "mixtape-maker/mixtape-maker-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "ozans-playlist",
+  "blurb": "Learn about combinatorics in Factor by choosing and ordering the songs on a mixtape."
+}

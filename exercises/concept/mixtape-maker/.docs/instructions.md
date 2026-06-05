@@ -1,8 +1,9 @@
 # Instructions
 
-Your programmable graphing calculator is gaining a combinatorics
-keypad. You'll implement the words behind its new keys in the
-`instruments-of-texas` vocabulary.
+Ozan is putting together the perfect mixtape: first deciding *which*
+songs make the cut, then settling on the *order* they play in. You'll
+build the combinatorics helpers behind his choices in the
+`mixtape-maker` vocabulary.
 
 ## 1. Count combinations
 

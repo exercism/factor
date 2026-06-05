@@ -1,5 +1,5 @@
-USING: exercism-tools instruments-of-texas io kernel tools.test unicode ;
-IN: instruments-of-texas.tests
+USING: exercism-tools mixtape-maker io kernel tools.test unicode ;
+IN: mixtape-maker.tests
 
 TASK: 1 count-combinations
 { 10 } [ 5 2 count-combinations ] unit-test
