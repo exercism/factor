@@ -5,6 +5,40 @@ vocabulary provides one generic word, `random`, that adapts to whatever
 you hand it, plus helpers for shuffling and sampling, and a way to make
 randomness *reproducible* for tests.
 
+## Marking a word `inline`
+
+Some of this exercise's tasks define a word that takes a *quotation* (a
+`[ … ]` block) as an argument and runs it. Factor has one firm rule
+about that: **a word that `call`s a quotation it received as an argument
+must be declared `inline`**, written by putting `inline` right after the
+closing `;`.
+
+`inline` tells the compiler to splice the word's body into each call
+site instead of compiling it once on its own.
+
+- The caller's quotation is stitched in directly, so **whatever the
+  quotation leaves on the stack flows back to the caller** — even though
+  the word's own stack effect declares no outputs.
+
+Here is a small word that pushes `10` and then runs the quotation it was
+handed:
+
+```factor
+USING: kernel math prettyprint ;
+
+: with-ten ( quot -- ) 10 swap call ; inline
+```
+
+Its stack effect, `( quot -- )`, names no outputs — yet calling it with
+two quotations of *different* effects produces different results, all
+flowing back to the caller:
+
+```factor
+[ 1 + ] with-ten .        ! => 11   (quotation ( n -- n ): one value back)
+[ dup 2 * ] with-ten . .  ! => 20
+                          ! => 10   (quotation ( n -- n n ): two values back)
+```
+
 ## `random` — one element
 
 `random` (in [`random`][random]) is generic over its argument:
@@ -100,8 +134,12 @@ USING: random random.mersenne-twister ;
 
 Everything inside the quotation — `random`, `randomize`, `sample` —
 draws from the seeded generator, so the same seed always reproduces the
-same outcome. A word that wraps `with-random` should be marked `inline`
-so the quotation's result can flow back to the caller.
+same outcome.
+
+A word that takes a quotation as an argument and runs it through
+`with-random` falls under the rule from [Marking a word
+`inline`](#marking-a-word-inline): `with-random` ends up `call`ing that
+quotation, so such a wrapper must be marked `inline`.
 
 [random]: https://docs.factorcode.org/content/vocab-random.html
 [mt]: https://docs.factorcode.org/content/vocab-random.mersenne-twister.html
