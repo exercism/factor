@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "sublist/sublist.factor"
+    ],
+    "test": [
+      "sublist/sublist-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Determine if a list is a sublist of another list."
+}

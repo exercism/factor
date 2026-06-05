@@ -25,6 +25,7 @@ find-last ( seq quot    -- i/f elt/f ) ! same, but searches from the end
 filter    ( seq quot    -- newseq )    ! keep elements where quot is truthy
 reject    ( seq quot    -- newseq )    ! drop them instead
 without   ( seq exclude -- newseq )    ! drop every element that's in `exclude`
+sift      ( seq         -- newseq )    ! drop every `f`, keep the rest
 ```
 
 ```factor
@@ -37,10 +38,14 @@ without   ( seq exclude -- newseq )    ! drop every element that's in `exclude`
 { 1 2 3 4 5 } [ even? ] filter .    ! => { 2 4 }
 { 1 2 3 4 5 } [ even? ] reject .    ! => { 1 3 5 }
 "hello world" " ld" without .       ! => "heowor"
+{ 1 f 2 f 3 } sift .                ! => { 1 2 3 }
 ```
 
 `without` treats its second argument as a set: any element of
 `seq` that's `=` to *any* element of `exclude` is dropped.
+`sift` is the no-quotation special case of `reject`: it keeps every
+element except `f`, handy for clearing out the gaps a previous `map`
+left behind.
 
 ### Filtering records by a slot
 
