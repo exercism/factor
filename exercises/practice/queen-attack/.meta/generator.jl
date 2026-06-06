@@ -10,8 +10,9 @@ function gen_test_case(case)
         column = Int(pos["column"])
         expected = case["expected"]
         if expected isa AbstractDict
-            msg = expected["error"]
-            return """[ $(row) $(column) <queen> ]\n[ "$(escape_factor(msg))" = ] must-fail-with"""
+            pred = occursin("row", expected["error"]) ?
+                "row-not-on-board?" : "column-not-on-board?"
+            return """[ $(row) $(column) <queen> ]\n[ $(pred) ] must-fail-with"""
         else
             return """[ $(row) $(column) <queen> drop ] must-not-fail"""
         end

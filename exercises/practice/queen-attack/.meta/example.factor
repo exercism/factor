@@ -1,13 +1,14 @@
 USING: accessors kernel locals math ;
 IN: queen-attack
 
+ERROR: row-not-on-board ;
+ERROR: column-not-on-board ;
+
 TUPLE: queen row column ;
 
 :: <queen> ( row column -- queen )
-    row 0 < [ "row not positive" throw ] when
-    row 7 > [ "row not on board" throw ] when
-    column 0 < [ "column not positive" throw ] when
-    column 7 > [ "column not on board" throw ] when
+    row 0 < row 7 > or [ row-not-on-board ] when
+    column 0 < column 7 > or [ column-not-on-board ] when
     row column queen boa ;
 
 :: can-attack? ( queen1 queen2 -- ? )

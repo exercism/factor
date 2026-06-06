@@ -8,19 +8,19 @@ STOP-HERE
 
 "queen must have positive row" description
 [ -2 2 <queen> ]
-[ "row not positive" = ] must-fail-with
+[ row-not-on-board? ] must-fail-with
 
 "queen must have row on board" description
 [ 8 4 <queen> ]
-[ "row not on board" = ] must-fail-with
+[ row-not-on-board? ] must-fail-with
 
 "queen must have positive column" description
 [ 2 -2 <queen> ]
-[ "column not positive" = ] must-fail-with
+[ column-not-on-board? ] must-fail-with
 
 "queen must have column on board" description
 [ 4 8 <queen> ]
-[ "column not on board" = ] must-fail-with
+[ column-not-on-board? ] must-fail-with
 
 "cannot attack" description
 { f } [ 2 4 <queen> 6 6 <queen> can-attack? ] unit-test
