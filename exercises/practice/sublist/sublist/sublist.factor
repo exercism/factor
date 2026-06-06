@@ -1,3 +1,4 @@
+USING: kernel ;
 IN: sublist
 
 SYMBOLS: equal sublist superlist unequal ;
