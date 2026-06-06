@@ -1769,6 +1769,7 @@
           "assocs",
           "deques",
           "conditionals",
+          "hash-sets",
           "locals",
           "while"
         ],

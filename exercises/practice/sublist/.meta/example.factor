@@ -1,6 +1,8 @@
 USING: kernel locals math ranges sequences ;
 IN: sublist
 
+SYMBOLS: equal sublist superlist unequal ;
+
 ! Is the whole of `needle` a contiguous run somewhere in `haystack`?
 :: contained? ( needle haystack -- ? )
     needle length :> n
@@ -12,8 +14,8 @@ IN: sublist
     ] if ;
 
 : relation ( list-one list-two -- result )
-    2dup = [ 2drop "equal" ] [
-        2dup contained? [ 2drop "sublist" ] [
-            swap contained? [ "superlist" ] [ "unequal" ] if
+    2dup = [ 2drop equal ] [
+        2dup contained? [ 2drop sublist ] [
+            swap contained? [ superlist ] [ unequal ] if
         ] if
     ] if ;
