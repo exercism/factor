@@ -29,6 +29,6 @@ counts.
 
 ## Prerequisites
 
-- `basics` — taught in `lasagna`.
+- `words` — taught in `lasagna`.
 - `conditionals` — taught in `cars-assemble`. Needed for the `>=`
   predicate inside `count`.

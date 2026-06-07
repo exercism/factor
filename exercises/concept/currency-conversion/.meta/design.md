@@ -23,4 +23,4 @@ Introduce floating-point numbers, integer division, and remainder, building on t
 
 ## Prerequisites
 
-- `basics` — taught in `lasagna`.
+- `words` — taught in `lasagna`.

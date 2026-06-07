@@ -2,5 +2,5 @@
   "authors": [
     "keiravillekode"
   ],
-  "blurb": "Factor words declare a stack effect ( inputs -- outputs ) so the compiler can check the body matches."
+  "blurb": "Factor passes values on a data stack; shuffle words like dup, drop, swap, over and rot rearrange it."
 }

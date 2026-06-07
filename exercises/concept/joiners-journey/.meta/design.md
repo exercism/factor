@@ -30,7 +30,7 @@ Show the student that the four common shuffle words (`dup`, `over`,
 
 ## Prerequisites
 
-- `basics` — taught in `lasagna`. The student must already be
+- `words` — taught in `lasagna`. The student must already be
   comfortable reading and writing stack-effect declarations.
 - `numbers` — taught in `currency-conversion`. Light arithmetic only.
 - `quotations` — introduced in `high-school-sweetheart`. The

@@ -1,26 +1,15 @@
 # Introduction
 
-Welcome to Factor! Factor is a *concatenative* language: instead of
-calling functions with parenthesised arguments, you write a sequence of
-words that pass values to each other through a shared **data stack**.
+In [Cargo Shuffle][cargo-shuffle] you met Factor's **data stack** and
+the shuffle words that rearrange it. This exercise builds on that: you
+will define words that *compute* with their inputs rather than just
+moving them around.
 
 ## Comments
 
 A `!` starts a line comment — Factor ignores everything from `!` to the
 end of the line. The examples below use `!` both to annotate what code
 does and to show what it would print.
-
-## The data stack
-
-Writing a literal pushes it onto the top of the stack. Code is read
-left to right.
-
-```factor
-2 3    ! stack (bottom → top): 2 3
-```
-
-There is no other way to pass data around — every word reads its
-inputs from the top of the stack and writes its outputs back there.
 
 ## Words
 
@@ -63,20 +52,9 @@ top, the stack effect is `( x y -- difference )`, and the result is
 A trailing `?` in the outputs is the convention for "a boolean", but
 the lasagna exercise uses only numbers.
 
-## Rearranging the top of the stack
-
-Three small shuffle words from the `kernel` vocabulary handle the
-most common rearrangements:
-
-```
-dup  ( x   -- x x   )    ! duplicate the top
-swap ( x y -- y x   )    ! flip the top two
-over ( x y -- x y x )    ! copy the second-from-top onto the top
-```
-
-Use `dup` when one input value needs to feed two operations,
-`swap` when two values are in the wrong order for the next word,
-and `over` when you need to *keep* a value while still using it.
+One shuffle word from Cargo Shuffle comes up below: `swap`
+`( x y -- y x )`, which flips the top two values when they are in the
+wrong order for the next word.
 
 ## Defining a word
 
@@ -126,3 +104,5 @@ This is how the last task in the exercise reuses an earlier one.
 Words and constants both use `lowercase-kebab-case`: lowercase letters
 joined by hyphens (for example, `expected-bake-time`,
 `preparation-time`).
+
+[cargo-shuffle]: https://exercism.org/tracks/factor/exercises/cargo-shuffle

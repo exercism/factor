@@ -2,17 +2,15 @@
 
 ## Goal
 
-Introduce a complete novice to Factor by way of a tiny cooking-themed exercise. This is the first exercise on the track, so it has to teach the fundamentals from scratch: the data stack, words operating on it, and the stack-effect notation that documents every word.
+Building on the data stack and shuffle words from `cargo-shuffle`, teach a complete novice to define their own words by way of a tiny cooking-themed exercise: integer arithmetic, naming fixed values with `CONSTANT:`, and composing a word out of words defined earlier.
 
 ## Learning objectives
 
-- Understand that Factor passes values via a last-in-first-out data stack.
-- Read and write a stack effect of the form `( inputs -- outputs )`.
 - Define a word with `:` ... `;` and have its body match the declared stack effect.
 - Define a constant with `CONSTANT:` and use it as a word.
 - Use the integer arithmetic words `+`, `-`, `*`.
 - Define a word whose body calls another word already in scope.
-- Use `swap` to reorder the top two values when the operator wants them flipped.
+- Use `swap` (from `basics`) to reorder the top two values when the operator wants them flipped.
 
 ## Out of scope
 
@@ -24,8 +22,8 @@ Introduce a complete novice to Factor by way of a tiny cooking-themed exercise. 
 
 ## Concepts
 
-- `basics`: every Factor word is documented as `( inputs -- outputs )` and its body must leave exactly that on the stack. This exercise is a student's first encounter with the notation and the calling convention behind it.
+- `words`: defining words with `:` ... `;`, naming fixed values with `CONSTANT:`, integer arithmetic with `+`, `-`, `*`, and calling one word from another. This is a student's first encounter with computing on the stack, rather than merely rearranging it.
 
 ## Prerequisites
 
-There are no prerequisites — this is the first concept exercise on the Factor track.
+- `basics` — taught in `cargo-shuffle`. The student must already understand the data stack, stack-effect notation, and shuffle words such as `swap`.

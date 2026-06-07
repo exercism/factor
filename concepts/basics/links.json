@@ -1,14 +1,14 @@
 [
   {
-    "url": "https://docs.factorcode.org/content/article-effects.html",
-    "description": "Stack effect declarations — Factor handbook"
+    "url": "https://docs.factorcode.org/content/article-tour-stack-shuffling.html",
+    "description": "A tour of stack shuffling — Factor handbook"
   },
   {
     "url": "https://docs.factorcode.org/content/article-shuffle-words.html",
-    "description": "Shuffle words: dup, drop, swap, over, pick, and friends"
+    "description": "Shuffle words: dup, drop, swap, over, nip, rot, and friends"
   },
   {
-    "url": "https://docs.factorcode.org/content/article-cookbook.html",
-    "description": "Factor cookbook — a tour of the language for new readers"
+    "url": "https://docs.factorcode.org/content/article-effects.html",
+    "description": "Stack effect declarations — Factor handbook"
   }
 ]

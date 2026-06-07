@@ -29,4 +29,4 @@ will need throughout the rest of the track.
 
 ## Prerequisites
 
-- `basics` — taught in `lasagna`.
+- `words` — taught in `lasagna`.

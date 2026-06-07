@@ -27,4 +27,4 @@ twos-complement values.
 
 ## Prerequisites
 
-- `basics` — taught in `lasagna`.
+- `words` — taught in `lasagna`.

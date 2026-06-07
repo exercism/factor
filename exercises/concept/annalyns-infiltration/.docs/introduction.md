@@ -1,7 +1,7 @@
 # Introduction
 
 This exercise builds on the data stack and stack-effect notation you
-met in [Leah's Luscious Lasagna][lasagna]. Here you will write words
+met in [Cargo Shuffle][cargo-shuffle]. Here you will write words
 that combine boolean values.
 
 ## Shuffle words
@@ -65,5 +65,5 @@ The `?` in each output is the stack-effect convention for "a boolean".
 
 You'll need `swap` for one of the tasks below.
 
-[lasagna]: https://exercism.org/tracks/factor/exercises/lasagna
+[cargo-shuffle]: https://exercism.org/tracks/factor/exercises/cargo-shuffle
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html

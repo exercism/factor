@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "cargo-shuffle/cargo-shuffle.factor"
+    ],
+    "test": [
+      "cargo-shuffle/cargo-shuffle-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "basics",
+  "blurb": "Learn how Factor passes values on the data stack by re-stowing cargo with shuffle words."
+}

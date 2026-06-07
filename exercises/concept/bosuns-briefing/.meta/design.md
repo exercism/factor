@@ -16,7 +16,7 @@ ties vocabulary names to file paths.
 
 ## Prerequisite concepts
 
-- `basics` — basic word definition syntax (`: ;`)
+- `words` — word definition syntax (`: ;`), arithmetic, constants
 - `strings` — the helpers and main both work with strings
 - `sequences` — `map`, array literals
 - `higher-order-sequences` — `[ word ] map` pattern

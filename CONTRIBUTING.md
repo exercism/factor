@@ -15,6 +15,12 @@ This is enforced by the "Learning checks" workflow.
 bin/add-practice-exercise <exercise-slug>
 ```
 
+- Each `uuid` is generated using
+
+```shell
+bin/configlet uuid
+```
+
 - An exercise should include a `.meta/tests.toml` file if, and only if, the exercise has a `canonical-data.json` in [problem-specifications](https://github.com/exercism/problem-specifications/tree/main/exercises).
 
 #### **Do you want to verify an exercise's example solution?**
