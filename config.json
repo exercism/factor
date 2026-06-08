@@ -1224,24 +1224,6 @@
         "difficulty": 4
       },
       {
-        "slug": "custom-set",
-        "name": "Custom Set",
-        "uuid": "0d8b51a3-d695-4adc-bb37-2e74901b6cb0",
-        "practices": [
-          "generics",
-          "tuples"
-        ],
-        "prerequisites": [
-          "tuples",
-          "generics",
-          "sequences",
-          "higher-order-sequences",
-          "mutation",
-          "hash-sets"
-        ],
-        "difficulty": 4
-      },
-      {
         "slug": "dnd-character",
         "name": "D&D Character",
         "uuid": "7229dc0f-df0c-4c3d-9aec-810ab2474d6f",
@@ -2108,6 +2090,23 @@
           "mutation",
           "curry-compose-fry",
           "locals"
+        ],
+        "difficulty": 7
+      },
+      {
+        "slug": "custom-set",
+        "name": "Custom Set",
+        "uuid": "0d8b51a3-d695-4adc-bb37-2e74901b6cb0",
+        "practices": [
+          "generics"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "sequences",
+          "higher-order-sequences",
+          "mutation",
+          "hash-sets"
         ],
         "difficulty": 7
       },

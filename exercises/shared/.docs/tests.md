@@ -3,7 +3,7 @@
 The Factor track uses **Factor 0.101**. Each exercise ships with a bundled `exercism-tools` vocabulary that defines `STOP-HERE` and `TASK:` parsing words plus a test runner. From the exercise's directory, run:
 
 ```
-factor -roots=. -run=exercism-tools <exercise-slug>
+factor -roots=. -run=exercism-tools <exercise>
 ```
 
 For example, for the `hello-world` exercise:

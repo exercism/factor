@@ -7,7 +7,7 @@ The Factor track uses **Factor 0.101**. After
 run from this exercise's directory:
 
 ```
-factor -roots=. -run=exercism-tools <exercise-slug>
+factor -roots=. -run=exercism-tools <exercise>
 ```
 
 For example, for `hello-world`:
@@ -43,7 +43,7 @@ When all tests pass, you've solved the exercise.
 From the exercise's directory:
 
 ```
-exercism submit <exercise-slug>/<exercise-slug>.factor
+exercism submit <exercise>/<exercise>.factor
 ```
 
 For example:

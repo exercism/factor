@@ -1,0 +1,8 @@
+[
+  {
+    "description": "set operations return a custom-set",
+    "property": "result-type",
+    "input": {"set1": [1, 2], "set2": [2, 3]},
+    "expected": true
+  }
+]

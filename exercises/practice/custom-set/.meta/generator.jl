@@ -24,6 +24,10 @@ function gen_test_case(case)
     elseif prop == "add"
         sorted = format_int_array(sort(collect(exp)))
         return "{ $(sorted) }\n[ $(set_factor(inp["set"])) $(to_int_str(inp["element"])) over adjoin members natural-sort ]\nunit-test"
+    elseif prop == "result-type"
+        # Track-specific: a set operation must return a `custom-set`, not a
+        # bare sequence, which verifies `set-like` is actually implemented.
+        return "{ $(bool_factor(exp)) }\n[ $(set_factor(inp["set1"])) $(set_factor(inp["set2"])) union custom-set? ]\nunit-test"
     end
 
     word = prop == "intersection" ? "intersect" :

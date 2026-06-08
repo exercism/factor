@@ -202,3 +202,8 @@ unit-test
 { { 1 2 3 } }
 [ { 1 3 } >custom-set { 2 3 } >custom-set union members natural-sort ]
 unit-test
+
+"set operations return a custom-set" description
+{ t }
+[ { 1 2 } >custom-set { 2 3 } >custom-set union custom-set? ]
+unit-test
