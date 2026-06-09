@@ -1723,24 +1723,6 @@
         "difficulty": 5
       },
       {
-        "slug": "paasio",
-        "name": "PaaS I/O",
-        "uuid": "52d4d9d6-a129-4b10-bffd-6a14ed2fb80b",
-        "practices": [
-          "generics",
-          "tuples"
-        ],
-        "prerequisites": [
-          "tuples",
-          "subclasses",
-          "generics",
-          "mutation",
-          "destructors",
-          "streams"
-        ],
-        "difficulty": 5
-      },
-      {
         "slug": "pig-latin",
         "name": "Pig Latin",
         "uuid": "26d75b43-0f97-4224-809d-7246fda13195",
@@ -2122,6 +2104,24 @@
           "mutation",
           "bitwise-operations",
           "while"
+        ],
+        "difficulty": 7
+      },
+      {
+        "slug": "paasio",
+        "name": "PaaS I/O",
+        "uuid": "52d4d9d6-a129-4b10-bffd-6a14ed2fb80b",
+        "practices": [
+          "generics",
+          "tuples"
+        ],
+        "prerequisites": [
+          "tuples",
+          "subclasses",
+          "generics",
+          "mutation",
+          "destructors",
+          "streams"
         ],
         "difficulty": 7
       },

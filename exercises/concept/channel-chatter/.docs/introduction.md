@@ -33,7 +33,7 @@ hand and don't want to swap the ambient one.
 ## In-memory streams
 
 For the exercise you'll work with string-backed streams from
-`io.streams.string`:
+[`io.streams.string`][io.streams.string]:
 
 ```
 <string-reader>   ( str -- reader )
@@ -59,7 +59,7 @@ with-file-reader     ( path encoding quot -- )
 with-file-writer     ( path encoding quot -- )
 ```
 
-`with-string-writer` is the convenience form for "collect what
+[`with-string-writer`][with-string-writer] is the convenience form for "collect what
 this quotation prints" — it builds the writer, runs the
 quotation with that writer as the ambient output, and returns
 the captured string:
@@ -77,5 +77,7 @@ same family as [`boatswains-bilge`][boatswains-bilge]'s
 disposed on exit even if the quotation throws.
 
 [io]: https://docs.factorcode.org/content/vocab-io.html
+[io.streams.string]: https://docs.factorcode.org/content/vocab-io.streams.string.html
+[with-string-writer]: https://docs.factorcode.org/content/word-with-string-writer,io.streams.string.html
 [boatswains-bilge]: https://exercism.org/tracks/factor/exercises/boatswains-bilge
 [stream-protocol]: https://docs.factorcode.org/content/article-stream-protocol.html

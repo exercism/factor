@@ -1,4 +1,4 @@
-USING: kernel ;
+USING: kernel sets ;
 IN: custom-set
 
 ! Define a `custom-set` tuple and declare it an instance of the
