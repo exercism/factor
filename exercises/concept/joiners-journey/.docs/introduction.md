@@ -170,5 +170,22 @@ bi* ( x y q1 q2 -- r1 r2 )
 Reach for `bi@` when both values get the same treatment, and for
 `bi*` when each needs its own.
 
+## `tri*` — different operations on three values
+
+`tri*` (in [`combinators`][combinators]) extends `bi*` to three
+values and three quotations, applying each quotation to one value
+in order:
+
+```
+tri* ( x y z q1 q2 q3 -- r1 r2 r3 )
+```
+
+```factor
+1 2 3 [ sq ] [ neg ] [ 10 * ] tri* .s
+! => 1
+! => -2
+! => 30
+```
+
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html
 [combinators]: https://docs.factorcode.org/content/vocab-combinators.html

@@ -95,6 +95,19 @@ When you have a *start and a length*, add them to get the end:
 (That's the index range `[2, 5)` — three characters starting at
 position 2.)
 
+The reverse question — *where* a subsequence occurs — is answered
+by `subseq-index`, which returns the starting index of the first
+match, or `f` when there is none:
+
+```
+subseq-index ( seq subseq -- i/f )
+```
+
+```factor
+"hello world" "o w" subseq-index .   ! => 4
+"hello world" "xyz" subseq-index .   ! => f
+```
+
 ## Padding
 
 ```

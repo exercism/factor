@@ -634,6 +634,20 @@
           "locals"
         ],
         "status": "beta"
+      },
+      {
+        "slug": "vltava-weather-watch",
+        "name": "Vltava Weather Watch",
+        "uuid": "edbe1108-0c38-47a1-9917-d2d6f9df1752",
+        "concepts": [
+          "files"
+        ],
+        "prerequisites": [
+          "io-streams",
+          "sequences",
+          "strings"
+        ],
+        "status": "beta"
       }
     ],
     "practice": [
@@ -1797,6 +1811,21 @@
         "difficulty": 5
       },
       {
+        "slug": "split-second-stopwatch",
+        "name": "Split-Second Stopwatch",
+        "uuid": "b4f33c97-64e9-41c1-804f-fa2453d3f1da",
+        "practices": [
+          "tuples"
+        ],
+        "prerequisites": [
+          "tuples",
+          "errors",
+          "sequences",
+          "strings"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "square-root",
         "name": "Square Root",
         "uuid": "53cef38b-ad56-4462-bf37-48902fd3745c",
@@ -2104,6 +2133,20 @@
           "mutation",
           "bitwise-operations",
           "while"
+        ],
+        "difficulty": 7
+      },
+      {
+        "slug": "grep",
+        "name": "Grep",
+        "uuid": "bb9023f5-0baf-4e6a-a219-99390fd0aebd",
+        "practices": [
+          "files"
+        ],
+        "prerequisites": [
+          "files",
+          "sequences",
+          "strings"
         ],
         "difficulty": 7
       },
@@ -2511,6 +2554,11 @@
       "uuid": "6510ec99-2e86-4a29-a57a-a733f13a1365",
       "slug": "combinatorics",
       "name": "Combinatorics"
+    },
+    {
+      "uuid": "30538350-2959-4c56-b76b-2aedd7c919a0",
+      "slug": "files",
+      "name": "Files"
     }
   ],
   "key_features": [

@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-io.files.html",
+    "description": "io.files — reading, writing, and appending to files"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-io.encodings.utf8.html",
+    "description": "io.encodings.utf8 — the utf8 encoding for text files"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/article-stream-protocol.html",
+    "description": "The stream protocol that file streams implement"
+  }
+]

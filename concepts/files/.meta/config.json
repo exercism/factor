@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "Read, write, and append to files on disk with the whole-file and scoped words of Factor's io.files vocabulary."
+}

@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "vltava-weather-watch/vltava-weather-watch.factor"
+    ],
+    "test": [
+      "vltava-weather-watch/vltava-weather-watch-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "the-weather-in-deather",
+  "blurb": "Read, write, and append to files on disk with the whole-file and scoped words of the io.files vocabulary."
+}
