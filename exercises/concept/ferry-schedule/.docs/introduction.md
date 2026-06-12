@@ -76,5 +76,37 @@ time+ ( timestamp duration -- timestamp )
 Arithmetic carries correctly across month and year boundaries, and
 two timestamps that name the same instant compare equal with `=`.
 
+## Times of day
+
+`<timestamp>` builds a full timestamp, down to the second. Its last
+argument is the offset from UTC; `instant` (a zero `duration`) keeps
+the timestamp at UTC:
+
+```
+<timestamp> ( year month day hour minute second gmt-offset -- timestamp )
+```
+
+```factor
+USING: calendar ;
+
+2024 7 14 1 30 0 instant <timestamp> .
+! a timestamp at 01:30 on 2024-07-14
+```
+
+`seconds` and `minutes` build a `duration` just like `days`, `weeks`,
+and `hours`, so any of them can be handed to `time+`:
+
+```
+seconds ( x -- duration )
+minutes ( x -- duration )
+```
+
+The individual fields of a timestamp are read with the accessors
+`year>>`, `month>>`, `day>>`, `hour>>`, `minute>>`, and `second>>`:
+
+```factor
+2024 7 14 1 30 0 instant <timestamp> hour>> .   ! => 1
+```
+
 [calendar]: https://docs.factorcode.org/content/vocab-calendar.html
 [english]: https://docs.factorcode.org/content/vocab-calendar.english.html

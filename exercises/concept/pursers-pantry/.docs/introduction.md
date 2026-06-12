@@ -93,6 +93,21 @@ that on every iteration `each` only needs to supply the key.
 `keep` runs the quotation while preserving the hashtable for the
 final `.`.
 
+## Building a hashtable from a sequence
+
+`map>assoc` (in [`assocs`][assocs]) maps a quotation over a sequence
+and collects the `( elt -- key value )` results into an assoc of the
+exemplar's type:
+
+```
+map>assoc ( seq quot: ( elt -- key value ) exemplar -- assoc )
+```
+
+```factor
+{ "wood" } [ dup length ] H{ } map>assoc .
+! => H{ { "wood" 4 } }
+```
+
 ## Keys, values, and pairs
 
 `keys` and `values` (in [`assocs`][assocs]) return just the keys or

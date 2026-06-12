@@ -20,6 +20,30 @@ USING: math sequences ;
 The quotation receives one integer — the index — and leaves the
 value for that position on the stack.
 
+## Iterating and repeating by count
+
+When you only need the *side effects* of visiting each index — not a
+new sequence — `each-integer` (in [`math`][math]) runs a quotation
+over `0, 1, …, n-1`:
+
+```
+each-integer ( n quot: ( i -- ) -- )
+```
+
+`replicate` (in [`sequences`][sequences]) calls a quotation `n`
+times and collects the results, ignoring the index — handy for
+building `n` independent values:
+
+```
+replicate ( n quot: ( -- elt ) -- seq )
+```
+
+```factor
+USING: sequences ;
+
+3 [ { 0 0 } ] replicate .   ! => { { 0 0 } { 0 0 } { 0 0 } }
+```
+
 ## Bounded ranges
 
 When the index range doesn't start at `0`, or you want it

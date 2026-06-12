@@ -26,7 +26,7 @@ seq seq1 seq2 quot quot1 quot2 quot3 quot: quot:: assoc
 key value old elt elt1 elt2 bool string str
 old-x new-x 3x 2x n+1 n+10% n+1% length+kerf length+10%
 new-days new-days-or-f symbol direction direction'
-amount rate years seconds planet period arr sortedstr count/f
+amount rate years planet period arr sortedstr count/f
 p' dx dy sx sy points transformed
 price prices item items base-speed
 finish bolt-length pieces per-piece length-a length-b kerf-a kerf-b

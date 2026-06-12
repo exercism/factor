@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "word-search/word-search.factor"
+    ],
+    "test": [
+      "word-search/word-search-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Create a program to solve a word search puzzle."
+}
