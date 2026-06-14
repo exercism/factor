@@ -87,13 +87,16 @@ on `call` so the compiler can type-check it:
 
 ## Vector arithmetic
 
-The [`math.vectors`][math.vectors] vocabulary's `v+` and `v*` add or
-multiply two same-length sequences element-wise. Both `{ a b }` and
-`{ c d }` give back a 2-array:
+The [`math.vectors`][math.vectors] vocabulary combines two same-length
+sequences element-wise. `v+` and `v*` add or multiply them; `vmax` and
+`vmin` keep the larger or smaller of each component. Each gives back a
+2-array:
 
 ```factor
-{ 1 1 } { 3 4 } v+ .   ! => { 4 5 }
-{ 2 5 } { 3 -1 } v* .  ! => { 6 -5 }
+{ 1 1 } { 3 4 } v+ .    ! => { 4 5 }
+{ 2 5 } { 3 -1 } v* .   ! => { 6 -5 }
+{ 1 9 } { 4 4 } vmax .  ! => { 4 9 }
+{ 1 9 } { 4 4 } vmin .  ! => { 1 4 }
 ```
 
 [kernel]: https://docs.factorcode.org/content/vocab-kernel.html

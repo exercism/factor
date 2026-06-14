@@ -49,23 +49,7 @@ quotation off the stack and return the transformed point.
 ! => { 6 8 }
 ```
 
-## 5. Affine transform
-
-Define `affine-2d` to take four values `a`, `b`, `c`, `d` off the
-stack and return a quotation that maps the point `{ x y }` to
-`{ a*x+b*y c*x+d*y }`.
-
-```factor
-{ 1 2 } 1 2 3 4 affine-2d apply-transformation .
-! => { 5 11 }
-```
-
-`affine-2d` captures four separate values into the returned
-quotation. Try writing it with chained `curry` and you'll see why
-*fry quotations* — `'[ … ]` with `_` placeholders — are the standard
-tool for this job.
-
-## 6. Transform many points at once
+## 5. Transform many points at once
 
 Define `transform-points` to take an array of points and a
 transformation quotation, and return the array of transformed points.

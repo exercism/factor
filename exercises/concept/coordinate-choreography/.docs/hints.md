@@ -26,17 +26,7 @@
 - The transformation's effect is `( p -- p' )`. Use
   `call( p -- p' )`.
 
-## 5. Affine transform
-
-- Four captures means fry: `'[ … _ … _ … _ … _ … ]`. The
-  underscores are filled left-to-right with the captured stack
-  values.
-- One workable shape uses `first2` to push `x y`, `2dup` so each
-  row of the matrix gets its own copy, and `[ _ * ] [ _ * ] bi*`
-  to multiply each component by its coefficient. Wrap with `+` and
-  `2array` to assemble the result.
-
-## 6. Transform many points at once
+## 5. Transform many points at once
 
 - `map` (in [`sequences`][sequences]) walks the sequence and
   applies a quotation to each element.

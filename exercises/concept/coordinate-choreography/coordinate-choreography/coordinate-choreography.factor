@@ -13,8 +13,5 @@ IN: coordinate-choreography
 : apply-transformation ( point f -- point' )
     "unimplemented" throw ;
 
-: affine-2d ( a b c d -- quot )
-    "unimplemented" throw ;
-
 : transform-points ( points f -- points' )
     "unimplemented" throw ;

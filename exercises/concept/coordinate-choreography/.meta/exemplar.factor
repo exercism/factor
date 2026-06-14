@@ -1,4 +1,4 @@
-USING: arrays fry kernel math math.vectors sequences ;
+USING: arrays fry kernel math.vectors sequences ;
 IN: coordinate-choreography
 
 : translate-2d ( dx dy -- quot )
@@ -12,15 +12,6 @@ IN: coordinate-choreography
 
 : apply-transformation ( point f -- point' )
     call( p -- p' ) ;
-
-: affine-2d ( a b c d -- quot )
-    '[
-        first2 2dup
-        [ _ * ] [ _ * ] bi* +
-        -rot
-        [ _ * ] [ _ * ] bi* +
-        2array
-    ] ;
 
 : transform-points ( points f -- points' )
     '[ _ apply-transformation ] map ;
