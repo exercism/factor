@@ -1,6 +1,7 @@
 USING: accessors command-line continuations debugger io kernel
-       lexer namespaces sequences source-files.errors.debugger
-       system tools.test vocabs vocabs.loader ;
+       lexer namespaces prettyprint.config sequences
+       source-files.errors.debugger system tools.test vocabs
+       vocabs.loader ;
 IN: exercism-tools
 
 SYNTAX: STOP-HERE
@@ -17,7 +18,7 @@ SYNTAX: TASK:
 :: print-failure ( failure -- )
     "###FAIL_BEGIN###" print
     failure error-location print
-    failure error>> [ error. ] [ 2drop ] recover
+    [ failure error>> [ error. ] [ 2drop ] recover ] without-limits
     "###FAIL_END###" print
     flush ;
 
