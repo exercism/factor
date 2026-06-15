@@ -16,8 +16,8 @@ on the given day:
 ```factor
 USING: calendar ;
 
-2024 7 14 <date> .
-! a timestamp at midnight on 2024-07-14
+1904 11 16 <date> .
+! a timestamp at midnight on 1904-11-16
 ```
 
 `>date<` splits a timestamp back into its parts:
@@ -27,7 +27,7 @@ USING: calendar ;
 ```
 
 ```factor
-2024 7 14 <date> >date< .   ! => 14   (with 2024 and 7 below it)
+1904 11 16 <date> >date< .   ! => 16   (with 1904 and 11 below it)
 ```
 
 ## Inspecting a date
@@ -89,8 +89,19 @@ the timestamp at UTC:
 ```factor
 USING: calendar ;
 
-2024 7 14 1 30 0 instant <timestamp> .
-! a timestamp at 01:30 on 2024-07-14
+1969 7 21 2 56 15 instant <timestamp> .
+! a timestamp at 02:56:15 on 1969-07-21
+```
+
+`>time<` is the counterpart to `>date<`, splitting a timestamp into
+its hour, minute, and second:
+
+```
+>time< ( timestamp -- hour minute second )
+```
+
+```factor
+1969 7 21 2 56 15 instant <timestamp> >time< .   ! => 15   (with 2 and 56 below it)
 ```
 
 `seconds` and `minutes` build a `duration` just like `days`, `weeks`,
@@ -105,7 +116,7 @@ The individual fields of a timestamp are read with the accessors
 `year>>`, `month>>`, `day>>`, `hour>>`, `minute>>`, and `second>>`:
 
 ```factor
-2024 7 14 1 30 0 instant <timestamp> hour>> .   ! => 1
+1969 7 21 2 56 15 instant <timestamp> hour>> .   ! => 2
 ```
 
 [calendar]: https://docs.factorcode.org/content/vocab-calendar.html
