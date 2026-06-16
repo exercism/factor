@@ -2,6 +2,8 @@
 
 ## Words
 
+Define a `linked-list-node` tuple.
+
 Define a `linked-list` tuple and provide a `M: linked-list length`
 method (from `sequences`) so the tests can call `length` directly
 on your list.

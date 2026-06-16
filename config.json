@@ -1514,25 +1514,6 @@
         "difficulty": 4
       },
       {
-        "slug": "simple-linked-list",
-        "name": "Simple Linked List",
-        "uuid": "cc4ec93a-45b5-440c-abea-4efb1658b616",
-        "practices": [
-          "generics",
-          "tuples"
-        ],
-        "prerequisites": [
-          "tuples",
-          "generics",
-          "errors",
-          "higher-order-sequences",
-          "reductions",
-          "while",
-          "indexed-iteration"
-        ],
-        "difficulty": 4
-      },
-      {
         "slug": "space-age",
         "name": "Space Age",
         "uuid": "92fc6937-1b33-49f1-b66e-7ec7e3786906",
@@ -2269,6 +2250,25 @@
           "tuples",
           "locals",
           "recursion"
+        ],
+        "difficulty": 7
+      },
+      {
+        "slug": "simple-linked-list",
+        "name": "Simple Linked List",
+        "uuid": "cc4ec93a-45b5-440c-abea-4efb1658b616",
+        "practices": [
+          "generics",
+          "tuples"
+        ],
+        "prerequisites": [
+          "tuples",
+          "generics",
+          "errors",
+          "higher-order-sequences",
+          "reductions",
+          "while",
+          "indexed-iteration"
         ],
         "difficulty": 7
       },

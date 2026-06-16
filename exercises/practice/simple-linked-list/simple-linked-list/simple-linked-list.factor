@@ -3,14 +3,17 @@ IN: simple-linked-list
 
 ERROR: list-empty ;
 
-! Define a `linked-list` tuple and implement these words. Then add
-! `M: linked-list length` and `M: linked-list nth-unsafe` so the
-! tests can call `length` and `>array` on your list.
+! Define `linked-list-node` and `linked-list` tuples, then implement
+! these words. Also add `M: linked-list length` (from `sequences`) so
+! the tests can call `length` on your list.
 
 : <linked-list> ( -- linked-list )
     "unimplemented" throw ;
 
 : >linked-list ( seq -- linked-list )
+    "unimplemented" throw ;
+
+: linked-list>array ( linked-list -- array )
     "unimplemented" throw ;
 
 : list-push ( linked-list value -- linked-list )

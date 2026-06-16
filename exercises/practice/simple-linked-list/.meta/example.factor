@@ -3,13 +3,13 @@ IN: simple-linked-list
 
 ERROR: list-empty ;
 
-TUPLE: node value next ;
+TUPLE: linked-list-node value next ;
 TUPLE: linked-list head ;
 
 : <linked-list> ( -- linked-list ) linked-list new ;
 
 : list-push ( linked-list value -- linked-list )
-    over head>> node boa >>head ;
+    over head>> linked-list-node boa >>head ;
 
 : ensure-non-empty ( linked-list -- linked-list )
     dup head>> [ list-empty ] unless ;
