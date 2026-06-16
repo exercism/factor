@@ -20,6 +20,7 @@ over cardinality .            ! => 1
 | word          | effect                                    |
 |---------------|-------------------------------------------|
 | `HS{ }`       | empty hash-set literal (shared — `clone` it!) |
+| `>hash-set`   | `( seq -- set )` — build a fresh set from a sequence (dedups) |
 | `adjoin`      | `( elt set -- )` — destructive insert     |
 | `in?`         | `( elt set -- ? )` — membership           |
 | `delete`      | `( elt set -- )` — destructive remove     |
@@ -29,6 +30,11 @@ over cardinality .            ! => 1
 | `intersect`   | `( set1 set2 -- set )`                    |
 | `diff`        | `( set1 set2 -- set )`                    |
 | `set-like`    | `( set exemplar -- set' )` — coerce `set` to the class of `exemplar` |
+
+To build a set from data you already have, `>hash-set` converts
+any sequence in one step, discarding duplicates — `{ 2 3 2 5 }
+>hash-set` gives `HS{ 2 3 5 }`. It's the bulk counterpart to
+growing a set with repeated `adjoin`.
 
 A subtle point about `in?` versus `member?` (from
 `sequences`): both test membership, but `member?` does a

@@ -12,7 +12,11 @@ STOP-HERE
 [ { "a" } { "a" } tree-from-traversals ] unit-test
 
 "Tree with many items" description
-{ T{ tree { value "a" } { left T{ tree { value "i" } { left f } { right f } } } { right T{ tree { value "x" } { left T{ tree { value "f" } { left f } { right f } } } { right T{ tree { value "r" } { left f } { right f } } } } } } }
+{ T{ tree { value "a" }
+    { left T{ tree { value "i" } { left f } { right f } } }
+    { right T{ tree { value "x" }
+        { left T{ tree { value "f" } { left f } { right f } } }
+        { right T{ tree { value "r" } { left f } { right f } } } } } } }
 [ { "a" "i" "x" "f" "r" } { "i" "a" "f" "x" "r" } tree-from-traversals ] unit-test
 
 "Reject traversals of different length" description
@@ -25,13 +29,35 @@ STOP-HERE
 [ { "a" "b" "a" } { "b" "a" "a" } tree-from-traversals ] [ invalid-traversals? ] must-fail-with
 
 "A degenerate binary tree" description
-{ T{ tree { value "a" } { left T{ tree { value "b" } { left T{ tree { value "c" } { left T{ tree { value "d" } { left f } { right f } } } { right f } } } { right f } } } { right f } } }
+{ T{ tree { value "a" }
+    { left T{ tree { value "b" }
+        { left T{ tree { value "c" }
+            { left T{ tree { value "d" } { left f } { right f } } }
+            { right f } } }
+        { right f } } }
+    { right f } } }
 [ { "a" "b" "c" "d" } { "d" "c" "b" "a" } tree-from-traversals ] unit-test
 
 "Another degenerate binary tree" description
-{ T{ tree { value "a" } { left f } { right T{ tree { value "b" } { left f } { right T{ tree { value "c" } { left f } { right T{ tree { value "d" } { left f } { right f } } } } } } } } }
+{ T{ tree { value "a" }
+    { left f }
+    { right T{ tree { value "b" }
+        { left f }
+        { right T{ tree { value "c" }
+            { left f }
+            { right T{ tree { value "d" } { left f } { right f } } } } } } } } }
 [ { "a" "b" "c" "d" } { "a" "b" "c" "d" } tree-from-traversals ] unit-test
 
 "Tree with many more items" description
-{ T{ tree { value "a" } { left T{ tree { value "b" } { left T{ tree { value "d" } { left T{ tree { value "g" } { left f } { right f } } } { right T{ tree { value "h" } { left f } { right f } } } } } { right f } } } { right T{ tree { value "c" } { left T{ tree { value "e" } { left f } { right f } } } { right T{ tree { value "f" } { left T{ tree { value "i" } { left f } { right f } } } { right f } } } } } } }
+{ T{ tree { value "a" }
+    { left T{ tree { value "b" }
+        { left T{ tree { value "d" }
+            { left T{ tree { value "g" } { left f } { right f } } }
+            { right T{ tree { value "h" } { left f } { right f } } } } }
+        { right f } } }
+    { right T{ tree { value "c" }
+        { left T{ tree { value "e" } { left f } { right f } } }
+        { right T{ tree { value "f" }
+            { left T{ tree { value "i" } { left f } { right f } } }
+            { right f } } } } } } }
 [ { "a" "b" "d" "g" "h" "c" "e" "f" "i" } { "g" "d" "h" "b" "a" "e" "c" "i" "f" } tree-from-traversals ] unit-test

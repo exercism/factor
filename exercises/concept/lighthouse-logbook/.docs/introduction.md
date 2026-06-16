@@ -17,6 +17,22 @@ HS{ "NS-1024" "WB-203" } .
 the same set. `HS{ } clone` gives you a fresh independent copy
 each call.
 
+## From a sequence
+
+```
+>hash-set ( seq -- set )    ! build a fresh set from a sequence
+```
+
+When you already have the values in a sequence, `>hash-set`
+converts them in one step, dropping any duplicates.
+
+```factor
+USING: hash-sets prettyprint ;
+
+{ "NS-1024" "WB-203" "NS-1024" } >hash-set .
+! => HS{ "NS-1024" "WB-203" }
+```
+
 ## Adjoining and removing
 
 ```

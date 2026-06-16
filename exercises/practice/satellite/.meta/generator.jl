@@ -1,13 +1,25 @@
 module Satellite
 
-function format_tree(node)
+function format_tree(node, indent="")
     if isempty(node)
         return "f"
     end
     v = escape_factor(node["v"])
-    l = format_tree(node["l"])
-    r = format_tree(node["r"])
-    return """T{ tree { value "$(v)" } { left $(l) } { right $(r) } }"""
+    l = node["l"]
+    r = node["r"]
+    # Keep leaves on a single line; break internal nodes so each child
+    # sits on its own indented line (mirroring the reference layouts).
+    if isempty(l) && isempty(r)
+        return """T{ tree { value "$(v)" } { left f } { right f } }"""
+    end
+    child = indent * "    "
+    ls = format_tree(l, child)
+    rs = format_tree(r, child)
+    return string(
+        "T{ tree { value \"$(v)\" }\n",
+        child, "{ left ", ls, " }\n",
+        child, "{ right ", rs, " } }",
+    )
 end
 
 function gen_test_case(case)

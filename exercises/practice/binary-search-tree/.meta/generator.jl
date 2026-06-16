@@ -1,13 +1,25 @@
 module BinarySearchTree
 
-function format_tree(t)
+function format_tree(t, indent="")
     if t === nothing
         return "T{ leaf }"
     end
     data = t["data"]
-    left = format_tree(t["left"])
-    right = format_tree(t["right"])
-    return "T{ branch f \"$(data)\" $(left) $(right) }"
+    l = t["left"]
+    r = t["right"]
+    # Keep branches whose children are both leaves on a single line; break
+    # larger branches so each child sits on its own indented line.
+    if l === nothing && r === nothing
+        return "T{ branch f \"$(data)\" T{ leaf } T{ leaf } }"
+    end
+    child = indent * "    "
+    left = format_tree(l, child)
+    right = format_tree(r, child)
+    return string(
+        "T{ branch f \"$(data)\"\n",
+        child, left, "\n",
+        child, right, " }",
+    )
 end
 
 function format_strings(arr)

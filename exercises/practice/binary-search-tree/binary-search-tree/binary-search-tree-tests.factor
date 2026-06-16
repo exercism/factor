@@ -8,19 +8,31 @@ IN: binary-search-tree.tests
 STOP-HERE
 
 "smaller number at left node" description
-{ T{ branch f "4" T{ branch f "2" T{ leaf } T{ leaf } } T{ leaf } } }
+{ T{ branch f "4"
+    T{ branch f "2" T{ leaf } T{ leaf } }
+    T{ leaf } } }
 [ { "4" "2" } <bst> ] unit-test
 
 "same number at left node" description
-{ T{ branch f "4" T{ branch f "4" T{ leaf } T{ leaf } } T{ leaf } } }
+{ T{ branch f "4"
+    T{ branch f "4" T{ leaf } T{ leaf } }
+    T{ leaf } } }
 [ { "4" "4" } <bst> ] unit-test
 
 "greater number at right node" description
-{ T{ branch f "4" T{ leaf } T{ branch f "5" T{ leaf } T{ leaf } } } }
+{ T{ branch f "4"
+    T{ leaf }
+    T{ branch f "5" T{ leaf } T{ leaf } } } }
 [ { "4" "5" } <bst> ] unit-test
 
 "can create complex tree" description
-{ T{ branch f "4" T{ branch f "2" T{ branch f "1" T{ leaf } T{ leaf } } T{ branch f "3" T{ leaf } T{ leaf } } } T{ branch f "6" T{ branch f "5" T{ leaf } T{ leaf } } T{ branch f "7" T{ leaf } T{ leaf } } } } }
+{ T{ branch f "4"
+    T{ branch f "2"
+        T{ branch f "1" T{ leaf } T{ leaf } }
+        T{ branch f "3" T{ leaf } T{ leaf } } }
+    T{ branch f "6"
+        T{ branch f "5" T{ leaf } T{ leaf } }
+        T{ branch f "7" T{ leaf } T{ leaf } } } } }
 [ { "4" "2" "6" "1" "3" "5" "7" } <bst> ] unit-test
 
 "can sort single number" description
