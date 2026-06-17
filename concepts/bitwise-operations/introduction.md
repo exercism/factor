@@ -19,6 +19,17 @@ USE: math.bitwise
 16 -2 shift .     ! => 4
 ```
 
+`even-parity?` and `odd-parity?` report whether the number of set bits
+is even or odd:
+
+```factor
+USE: math.bitwise
+
+5 even-parity? .    ! => t   (0b101 has two set bits)
+5 odd-parity? .     ! => f
+7 odd-parity? .     ! => t   (0b111 has three set bits)
+```
+
 Single-bit helpers are also there: `bit?`, `set-bit`, `clear-bit`.
 
 [math.bitwise]: https://docs.factorcode.org/content/vocab-math.bitwise.html

@@ -25,6 +25,7 @@ over cardinality .            ! => 1
 | `in?`         | `( elt set -- ? )` — membership           |
 | `delete`      | `( elt set -- )` — destructive remove     |
 | `cardinality` | `( set -- n )` — number of elements       |
+| `null?`       | `( set -- ? )` — true when the set is empty |
 | `members`     | `( set -- seq )` — enumerate as sequence  |
 | `union`       | `( set1 set2 -- set )`                    |
 | `intersect`   | `( set1 set2 -- set )`                    |
@@ -42,6 +43,11 @@ linear scan over a sequence, while `in?` dispatches to whatever
 the set type's protocol method is — for `HS{ }`, that's a
 hash lookup. Use `in?` once your "visited" container has more
 than a handful of entries.
+
+`null?` answers "is this set empty?" without computing the full
+`cardinality` — it's the natural guard for "have we anything
+left to process?". For a worklist held as a set, `[ set null? ]
+[ … ] until` drains it down to empty.
 
 ## Pairs nicely with hashtables
 

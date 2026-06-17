@@ -258,6 +258,20 @@
         "status": "beta"
       },
       {
+        "slug": "poetry-club",
+        "name": "Poetry Club",
+        "uuid": "75469fd3-21d2-44ea-882e-6f9a8424a841",
+        "concepts": [
+          "disjoint-sets"
+        ],
+        "prerequisites": [
+          "words",
+          "combinators",
+          "curry-compose-fry"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "lap-leaderboard",
         "name": "Lap Leaderboard",
         "uuid": "431e56e5-956c-4383-9380-8fe5907081ae",
@@ -1994,7 +2008,9 @@
         "slug": "intergalactic-transmission",
         "name": "Intergalactic Transmission",
         "uuid": "e2ce391c-7d7e-4442-aea6-71f310206ace",
-        "practices": [],
+        "practices": [
+          "bitwise-operations"
+        ],
         "prerequisites": [
           "bitwise-operations",
           "arrays",
@@ -2168,7 +2184,8 @@
           "dynamic-variables",
           "mutation",
           "bitwise-operations",
-          "while"
+          "while",
+          "disjoint-sets"
         ],
         "difficulty": 7
       },
@@ -2377,7 +2394,8 @@
           "while",
           "mutation",
           "hash-sets",
-          "deques"
+          "deques",
+          "disjoint-sets"
         ],
         "difficulty": 9
       },
@@ -2484,6 +2502,11 @@
       "uuid": "0c9457be-37a3-4a08-85c8-44ee82925d55",
       "slug": "curry-compose-fry",
       "name": "Curry, Compose, and Fry"
+    },
+    {
+      "uuid": "5ed802dd-ad9b-4acc-990b-e5f01e29d389",
+      "slug": "disjoint-sets",
+      "name": "Disjoint Sets"
     },
     {
       "uuid": "3a7292bd-a725-464e-9bce-4a9762a9d98c",

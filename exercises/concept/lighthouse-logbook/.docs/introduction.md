@@ -56,6 +56,7 @@ HS{ } clone
 
 ```
 in?         ( elt set -- ? )   ! is elt in the set?
+null?       ( set -- ? )       ! is the set empty?
 cardinality ( set -- n )       ! number of elements
 members     ( set -- seq )     ! enumerate as a sequence
 ```
@@ -65,11 +66,17 @@ members     ( set -- seq )     ! enumerate as a sequence
 sequence. For a hash-set, `in?` is a hash lookup — O(1) average,
 the whole point of using a hash-set.
 
+`null?` reports whether the set has no elements — the direct way
+to ask "is this empty?" rather than comparing `cardinality` to
+zero.
+
 ```factor
 : my-log ( -- set ) HS{ "NS-1024" "WB-203" } ;
 
 "NS-1024" my-log in? .   ! => t
 "X-99"    my-log in? .   ! => f
+my-log null? .           ! => f
+HS{ } clone null? .      ! => t
 my-log cardinality .     ! => 2
 ```
 

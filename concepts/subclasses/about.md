@@ -39,6 +39,21 @@ dup cargo-vessel?  .   ! => t
 dup vessel?        .   ! => t
 ```
 
+`instance?` (from [`classes`][classes]) asks the same question
+with the class as a stack argument instead of baked into a word
+name — `obj tanker instance?` is `obj tanker?`:
+
+```factor
+USING: classes ;
+
+"Esso" 50000 100000 "diesel" tanker boa
+dup vessel instance? .   ! => t
+```
+
+Because the class is now a value, the same call site can test
+against whatever class is handed to it, which a fixed `name?`
+predicate can't do.
+
 The transitive `is-a` relationship is also what `M:` method
 dispatch walks — a method defined on `vessel` applies to every
 `cargo-vessel` and every `tanker`, unless a more-specific
@@ -73,3 +88,4 @@ USING: accessors ;
 
 [generics]: https://docs.factorcode.org/content/article-generic.html
 [accessors]: https://docs.factorcode.org/content/vocab-accessors.html
+[classes]: https://docs.factorcode.org/content/vocab-classes.html

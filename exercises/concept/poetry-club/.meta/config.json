@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "poetry-club/poetry-club.factor"
+    ],
+    "test": [
+      "poetry-club/poetry-club-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "poetry-club",
+  "blurb": "Learn about disjoint sets in Factor by tracking the writing circles of a poetry club."
+}

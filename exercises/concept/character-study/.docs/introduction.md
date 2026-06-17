@@ -35,6 +35,13 @@ CHAR: a ch>upper .   ! => 65   (which is CHAR: A)
 "Hello" >upper .     ! => "HELLO"
 ```
 
+`capitalize` lowercases a whole string and then uppercases its first
+character — the title case of a single word:
+
+```factor
+"hELLO" capitalize .   ! => "Hello"
+```
+
 ## Character literals
 
 `CHAR: A` parses to the integer code point of `A`. For named
