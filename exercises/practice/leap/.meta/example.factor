@@ -1,10 +1,5 @@
-USING: combinators kernel math ;
+USING: combinators kernel math.functions ;
 IN: leap
 
 : leap-year? ( year -- ? )
-    {
-        { [ dup 400 mod zero? ] [ drop t ] }
-        { [ dup 100 mod zero? ] [ drop f ] }
-        { [ dup   4 mod zero? ] [ drop t ] }
-        [ drop f ]
-    } cond ;
+    [ 4 divisor? ] [ 100 divisor? not ] [ 400 divisor? ] tri or and ;

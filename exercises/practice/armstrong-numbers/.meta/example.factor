@@ -1,24 +1,7 @@
-USING: assocs kernel locals math math.functions math.order sequences vectors ;
+USING: kernel locals math math.functions math.parser sequences ;
 IN: armstrong-numbers
 
-:: digits ( x -- digits )
-    x 10 /mod :> x! :> xs!
-    V{ } clone :> digits
-    x digits push
-
-    [ xs 0 = not ]
-    [
-        xs 10 /mod x! xs!
-        x digits push
-    ] while
-
-    digits reverse ;
-
-:: powsum ( x -- powsum )
-    x digits :> digs
-    digs length :> len
-
-    digs [ len ^ ] map sum ;
-
-: armstrong? ( n -- ? )
-    [ ] [ powsum ] bi = ;
+:: armstrong? ( n -- ? )
+    n number>string [ CHAR: 0 - ] map :> digits
+    digits length :> len
+    digits [ len ^ ] map-sum n = ;
