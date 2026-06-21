@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "tellers-triage/tellers-triage.factor"
+    ],
+    "test": [
+      "tellers-triage/tellers-triage-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "savings-account",
+  "blurb": "Learn about heaps in Factor by serving a bank's customers in priority order."
+}

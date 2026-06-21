@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "passphrase-patrol/passphrase-patrol.factor"
+    ],
+    "test": [
+      "passphrase-patrol/passphrase-patrol-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "developer-privileges",
+  "blurb": "Learn about regular expressions in Factor by validating badge codes and tidying an access log."
+}

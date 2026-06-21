@@ -1,0 +1,6 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "blurb": "The heaps vocabulary is a priority queue: push keyed values and pop them smallest-key-first."
+}
