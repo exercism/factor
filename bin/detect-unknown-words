@@ -165,7 +165,11 @@ def parse_solution(paths):
     for m in re.finditer(r'USING:\s+(.*?);', text, re.S):
         imports.update(m.group(1).split())
 
-    body = re.sub(r'\(\s*(?:[^()]|\([^)]*\))*\s*\)', '', text)
+    # Drop `R/ ... /` regexp literals first: their pattern bodies are not
+    # Factor words, and the `( )` group syntax inside them would otherwise be
+    # mangled by the stack-effect stripper below.
+    body = re.sub(r'R/\s(?:\\.|[^/])*/[a-z]*', ' ', text)
+    body = re.sub(r'\(\s*(?:[^()]|\([^)]*\))*\s*\)', '', body)
     body = re.sub(r'!\s.*', '', body)
     body = re.sub(r'"[^"\n]*"', '', body)
     body = re.sub(r'CHAR:\s+\S+', '', body)

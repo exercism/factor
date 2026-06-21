@@ -282,7 +282,20 @@
           "strings",
           "sequences"
         ],
-        "status": "beta"
+        "status": "wip"
+      },
+      {
+        "slug": "ledger-lookout",
+        "name": "Ledger Lookout",
+        "uuid": "63178793-7386-445f-8437-55e775040ca0",
+        "concepts": [
+          "advanced-regexp"
+        ],
+        "prerequisites": [
+          "regexp",
+          "sequences"
+        ],
+        "status": "wip"
       },
       {
         "slug": "lap-leaderboard",
@@ -384,7 +397,7 @@
           "assocs",
           "sequences"
         ],
-        "status": "beta"
+        "status": "wip"
       },
       {
         "slug": "rpn-calculator",
@@ -1783,13 +1796,16 @@
         "slug": "pig-latin",
         "name": "Pig Latin",
         "uuid": "26d75b43-0f97-4224-809d-7246fda13195",
-        "practices": [],
+        "practices": [
+          "advanced-regexp"
+        ],
         "prerequisites": [
           "locals",
           "wire-format",
           "strings",
           "higher-order-sequences",
-          "conditionals"
+          "conditionals",
+          "advanced-regexp"
         ],
         "difficulty": 5
       },
@@ -2547,6 +2563,11 @@
       "uuid": "e8867007-a1fb-473e-a10f-41063f18e1a6",
       "slug": "regexp",
       "name": "Regular Expressions"
+    },
+    {
+      "uuid": "581ecffe-ed25-4165-b2d2-353028d6f8a9",
+      "slug": "advanced-regexp",
+      "name": "Advanced Regular Expressions"
     },
     {
       "uuid": "3a7292bd-a725-464e-9bce-4a9762a9d98c",

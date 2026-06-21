@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "ledger-lookout/ledger-lookout.factor"
+    ],
+    "test": [
+      "ledger-lookout/ledger-lookout-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "icon": "interest-is-interesting",
+  "blurb": "Learn advanced regular expressions in Factor — grouping, lookaround, and options — by parsing a ledger."
+}
