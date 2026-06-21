@@ -10,7 +10,7 @@ comes from character classes and quantifiers:
 
 ```
 \d        ! a digit 0–9            \s   ! whitespace
-\w        ! a "word" character     \S   ! non-whitespace
+\D        ! any non-digit          \S   ! non-whitespace
 [A-Z]     ! one capital letter     .    ! any one character
 [^0-9]    ! any char except a digit
 

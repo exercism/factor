@@ -22,7 +22,9 @@ for *kinds* of characters or *how many* of them.
 
 ```
 \d        ! any digit, 0–9
+\D        ! any NON-digit (the opposite of \d)
 \s        ! any space, tab, or newline
+\S        ! any NON-space character (the opposite of \s)
 [A-Z]     ! any one capital letter A to Z
 [a-z]     ! any one lowercase letter
 [0-9]     ! any one digit (same as \d)
@@ -45,8 +47,11 @@ Put one of these *after* a piece to say how many times it may repeat:
 ```
 
 So `\d{4}` means four digits in a row, and `[A-Z]+` means one or more
-capital letters. Putting it together, `R/ [A-Z]{2}-\d{4}/` describes
-"two capitals, a dash, then four digits" — text like `NS-1024`.
+capital letters. Putting it together, `R/ [A-Z]+-\d+/` describes "one
+or more capitals, a dash, then one or more digits" — text like
+`SALE-2024`. The `-` here is an ordinary character: outside of `[ ]` a
+dash just matches a dash (inside a class, as in `[A-Z]`, it marks a
+range).
 
 ## Matching a whole string
 
@@ -60,9 +65,27 @@ matches? ( string regexp -- ? )
 ```factor
 USING: regexp ;
 
-"NS-1024" R/ [A-Z]{2}-\d{4}/ matches? .   ! => t
-"NS-10"   R/ [A-Z]{2}-\d{4}/ matches? .   ! => f   (too few digits)
-"ns-1024" R/ [A-Z]{2}-\d{4}/ matches? .   ! => f   (lowercase letters)
+"SALE-2024"     R/ [A-Z]+-\d+/ matches? .   ! => t
+"GET SALE-2024" R/ [A-Z]+-\d+/ matches? .   ! => f   (extra text before)
+"SALE-2024 NOW" R/ [A-Z]+-\d+/ matches? .   ! => f   (extra text after)
+"sale-2024"     R/ [A-Z]+-\d+/ matches? .   ! => f   (lowercase letters)
+```
+
+Even though `SALE-2024` sits inside `"GET SALE-2024"`, `matches?` still
+says `f`: the extra characters are part of the string and they don't
+fit the pattern. When you only care whether the pattern appears
+*somewhere*, reach for `re-contains?` — it returns `t` exactly where
+`matches?` returned `f`:
+
+```
+re-contains? ( string regexp -- ? )
+```
+
+```factor
+USING: regexp ;
+
+"GET SALE-2024" R/ [A-Z]+-\d+/ matches? .      ! => f
+"GET SALE-2024" R/ [A-Z]+-\d+/ re-contains? .  ! => t
 ```
 
 ## Finding matches inside longer text
@@ -81,10 +104,13 @@ count-matches        ( string regexp -- n )
 ```factor
 USING: regexp ;
 
-"seen NS-1024 then AB-0007" R/ [A-Z]{2}-\d{4}/ all-matching-subseqs .
-! => { "NS-1024" "AB-0007" }
+"3 cats, 12 dogs, 1 fish" R/ \d+/ all-matching-subseqs .
+! => { "3" "12" "1" }            (every run of digits)
 
-"NS-1024" R/ \d/ count-matches .   ! => 4   (four digits)
+"the quick fox" R/ \S+/ all-matching-subseqs .
+! => { "the" "quick" "fox" }     (every run of non-space characters)
+
+"a1b2c3" R/ \d/ count-matches .   ! => 3   (three digits)
 ```
 
 ## Replacing matches
@@ -99,15 +125,15 @@ re-replace ( string regexp replacement -- result )
 ```factor
 USING: regexp ;
 
-"user=alice pass=hunter2 ok" R/ pass=\S+/ "pass=****" re-replace .
-! => "user=alice pass=**** ok"
+"page 7 of 12" R/ \d+/ "N" re-replace .
+! => "page N of N"
 ```
 
-(`\S` means "any non-space character", so `pass=\S+` matches `pass=`
-followed by the rest of that word.)
-
-Other handy `regexp` words you'll meet later include `re-contains?`
-(is there *any* match?), `first-match` (the first match only), and
-`re-split` (split a string wherever the pattern matches).
+The `regexp` vocabulary has more words worth knowing — follow the
+links for details: [`first-match`][first-match] (the first match only)
+and [`re-split`][re-split] (split a string wherever the pattern
+matches).
 
 [regexp]: https://docs.factorcode.org/content/vocab-regexp.html
+[first-match]: https://docs.factorcode.org/content/word-first-match%2Cregexp.html
+[re-split]: https://docs.factorcode.org/content/word-re-split%2Cregexp.html

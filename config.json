@@ -282,7 +282,7 @@
           "strings",
           "sequences"
         ],
-        "status": "wip"
+        "status": "beta"
       },
       {
         "slug": "ledger-lookout",
@@ -397,7 +397,7 @@
           "assocs",
           "sequences"
         ],
-        "status": "wip"
+        "status": "beta"
       },
       {
         "slug": "rpn-calculator",

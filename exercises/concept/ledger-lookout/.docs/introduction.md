@@ -83,4 +83,27 @@ USING: regexp ;
 "Refund"  R/ refund/i matches? .       ! => t
 ```
 
+## Transforming each match
+
+`all-matching-subseqs` hands you the matched text. `map-matches` goes a
+step further — it runs a quotation on *each* match and collects the
+results. The quotation receives the match's `start` index, its `end`
+index, and the whole string; `subseq` turns those three into the
+matched text, which you then transform:
+
+```
+map-matches ( string regexp quot: ( start end string -- obj ) -- seq )
+```
+
+```factor
+USING: math regexp sequences ;
+
+"a1 b22 c333" R/ \d+/ [ subseq length ] map-matches .
+! => { 1 2 3 }     (the length of each run of digits)
+```
+
+Its side-effect-only cousin, [`each-match`][each-match], runs a
+quotation on each match without collecting anything.
+
 [regexp]: https://docs.factorcode.org/content/vocab-regexp.html
+[each-match]: https://docs.factorcode.org/content/word-each-match%2Cregexp.html

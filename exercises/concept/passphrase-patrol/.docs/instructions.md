@@ -4,7 +4,7 @@ You run the security desk at a research station. Staff carry *badges*
 whose codes follow a strict format, the access log is full of those
 codes mixed into ordinary text, and the log has to be cleaned up
 before it can be shared. Regular expressions are the right tool for
-all four jobs.
+each of these jobs.
 
 A valid badge code is **two capital letters, a dash, then four
 digits** — for example `NS-1024`.

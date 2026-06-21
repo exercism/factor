@@ -67,6 +67,25 @@ USING: regexp ;
 "REFUND" R/ refund/i matches? .   ! => t
 ```
 
+## Transforming each match
+
+`map-matches` runs a quotation on every match and collects the
+results; `each-match` does the same for side effects only. Both pass
+the quotation the match's `start` index, `end` index, and the whole
+string, so `subseq` recovers the matched text:
+
+```
+map-matches ( string regexp quot: ( start end string -- obj ) -- seq )
+each-match  ( string regexp quot: ( start end string --     ) --     )
+```
+
+```factor
+USING: math regexp sequences ;
+
+"a1 b22 c333" R/ \d+/ [ subseq length ] map-matches .
+! => { 1 2 3 }
+```
+
 ## What Factor does not support
 
 Factor's regexp engine has no **capture-group extraction** (a group
