@@ -24,6 +24,13 @@ These all live in [`math`][math] (and [`kernel`][kernel] for `=`):
 3 4 = not . ! => t    (inequality: combine = with not)
 ```
 
+`zero?` (in [`math`][math]) is a shorthand for the common `0 =` test —
+it consumes the number and pushes whether it was zero:
+
+```
+zero? ( n -- ? )    ! t when n is 0
+```
+
 ## Range checks
 
 `between?` (in [`math.order`][math.order]) tests whether a value

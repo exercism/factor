@@ -1,6 +1,9 @@
 USING: combinators kernel math math.functions ;
 IN: cars-assemble
 
+: production-status ( speed -- status )
+    zero? [ "stopped" ] [ "running" ] if ;
+
 CONSTANT: base-speed 221
 
 : success-rate ( speed -- rate )

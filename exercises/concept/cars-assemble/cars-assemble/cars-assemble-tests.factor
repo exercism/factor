@@ -1,18 +1,23 @@
 USING: cars-assemble exercism-tools tools.test ;
 IN: cars-assemble.tests
 
-TASK: 1 success-rate
-{ 0.0 }  [ 0 success-rate ] unit-test
+TASK: 1 production-status
+{ "stopped" } [ 0 production-status ] unit-test
 
 STOP-HERE
 
+{ "running" } [ 1 production-status ] unit-test
+{ "running" } [ 10 production-status ] unit-test
+
+TASK: 2 success-rate
+{ 0.0 }  [ 0 success-rate ] unit-test
 { 1.0 }  [ 1 success-rate ] unit-test
 { 1.0 }  [ 4 success-rate ] unit-test
 { 0.9 }  [ 5 success-rate ] unit-test
 { 0.8 }  [ 9 success-rate ] unit-test
 { 0.77 } [ 10 success-rate ] unit-test
 
-TASK: 2 production-rate-per-hour
+TASK: 3 production-rate-per-hour
 { 0.0 }    [ 0 production-rate-per-hour ] unit-test
 { 221.0 }  [ 1 production-rate-per-hour ] unit-test
 { 884.0 }  [ 4 production-rate-per-hour ] unit-test
@@ -21,7 +26,7 @@ TASK: 2 production-rate-per-hour
 { 1591.2 } [ 9 production-rate-per-hour ] unit-test
 { 1701.7 } [ 10 production-rate-per-hour ] unit-test
 
-TASK: 3 working-items-per-minute
+TASK: 4 working-items-per-minute
 { 0 }  [ 0 working-items-per-minute ] unit-test
 { 14 } [ 4 working-items-per-minute ] unit-test
 { 19 } [ 6 working-items-per-minute ] unit-test

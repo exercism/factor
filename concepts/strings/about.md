@@ -19,7 +19,7 @@ The string-specific words live mostly in [`splitting`][splitting],
 | `split1`     | [`splitting`][splitting]   | cut on the first occurrence           |
 | `split`      | [`splitting`][splitting]   | cut on any character in a set         |
 | `harvest`    | [`sequences`][sequences]   | drop empty pieces from a split result |
-| `replace`    | [`sequences`][sequences]   | substitute a substring                |
+| `replace`    | [`splitting`][splitting]   | substitute a substring                |
 | `surround`   | [`sequences`][sequences]   | wrap with a prefix and suffix         |
 | `glue`       | [`sequences`][sequences]   | join two strings with a separator     |
 | `join`       | [`sequences`][sequences]   | join an array of strings with a separator |

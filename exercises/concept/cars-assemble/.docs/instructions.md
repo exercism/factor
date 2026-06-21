@@ -10,10 +10,22 @@ line produces `4 * 221 = 884` cars per hour. However, higher speeds
 increase the likelihood that faulty cars are produced, which then
 have to be discarded.
 
-You have three tasks. Each takes a single integer parameter — the
+You have four tasks. Each takes a single integer parameter — the
 speed of the assembly line — off the stack.
 
-## 1. Calculate the success rate
+## 1. Report whether the line is running
+
+Define `production-status` to return `"stopped"` when the speed is `0`
+and `"running"` for any other speed:
+
+```factor
+0 production-status .
+! => "stopped"
+3 production-status .
+! => "running"
+```
+
+## 2. Calculate the success rate
 
 Define `success-rate` to return the probability of an item being
 produced without error:
@@ -29,7 +41,7 @@ produced without error:
 ! => 0.77
 ```
 
-## 2. Calculate the production rate per hour
+## 3. Calculate the production rate per hour
 
 Define `production-rate-per-hour` to return the assembly line's
 production rate per hour, taking the success rate into account.
@@ -43,7 +55,7 @@ You'll need to define `base-speed` first, the constant `221`.
 
 The value returned is floating-point.
 
-## 3. Calculate the number of working items produced per minute
+## 4. Calculate the number of working items produced per minute
 
 Define `working-items-per-minute` to return how many working cars are
 produced per minute. The result is an integer — partial cars are not

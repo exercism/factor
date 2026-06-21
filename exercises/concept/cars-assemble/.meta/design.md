@@ -2,8 +2,9 @@
 
 ## Goal
 
-Introduce Factor's conditional combinators by mapping a discrete input
-(speed) onto a discrete output (success rate).
+Introduce Factor's conditionals, starting with a simple two-branch `if`
+and building up to mapping a discrete input (speed) onto a discrete
+output (success rate) with `cond`.
 
 ## Learning objectives
 

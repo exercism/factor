@@ -78,7 +78,7 @@ The exercise needs a handful of small string words, drawn from three
 vocabularies — [`sequences`][sequences], [`ascii`][ascii], and
 [`strings`][strings]:
 
-- `replace ( seq old new -- new-seq )` (in `sequences`) — substring
+- `replace ( seq old new -- new-seq )` (in `splitting`) — substring
   replace.
 - `[ blank? ] trim` (`trim` in `sequences`, `blank?` in `ascii`) — drop
   leading/trailing whitespace.
