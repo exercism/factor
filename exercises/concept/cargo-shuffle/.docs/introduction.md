@@ -67,9 +67,8 @@ idea; you will meet those words later.
 ## How words compose
 
 Words written in a row run **left to right**: each word acts on the
-stack the word before it left behind. So `dup over` just means "run
-`dup`, then run `over` on what `dup` left." Here is what `swap nip`
-does to the stack `1 2` (bottom → top), one word at a time:
+stack the word before it left behind. Here is what `swap nip` does to
+the stack `1 2` (bottom → top), one word at a time:
 
 ```factor
 1 2     ! 1 2     the starting crates
@@ -77,8 +76,14 @@ swap    ! 2 1     swap flipped the top two
 nip     ! 1       nip dropped the 2nd-from-top crate (the 2)
 ```
 
-Concretely, `dup over` on `1 2` runs `dup` first (leaving `1 2 2`),
-then `over` on that (leaving `1 2 2 2`).
+And here is `dup rot` on the same starting crates, again one word at
+a time:
+
+```factor
+1 2     ! 1 2     the starting crates
+dup     ! 1 2 2   dup copied the top crate
+rot     ! 2 2 1   rot rolled the 3rd-from-top crate up to the top
+```
 
 ## Naming conventions
 
