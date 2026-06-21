@@ -295,7 +295,7 @@
           "regexp",
           "sequences"
         ],
-        "status": "wip"
+        "status": "beta"
       },
       {
         "slug": "lap-leaderboard",

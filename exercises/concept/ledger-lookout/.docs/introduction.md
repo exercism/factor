@@ -63,23 +63,28 @@ spot **without** making those characters part of the match. It is
 "zero-width": what it tests is not included in the result.
 
 ```
-(?=...)    ! lookahead:          ... must follow
-(?!...)    ! negative lookahead: ... must NOT follow
-(?<=...)   ! lookbehind:         ... must come before
+(?=...)    ! lookahead:           ... must follow
+(?!...)    ! negative lookahead:  ... must NOT follow
+(?<=...)   ! lookbehind:          ... must come before
+(?<!...)   ! negative lookbehind: ... must NOT come before
 ```
+
+Lookaround is *selective* — the same characters match or not depending
+on what sits beside them. A plain `\d+` grabs every number; the lookbehind
+and lookahead keep only those with the right neighbour:
 
 ```factor
 USING: regexp ;
 
-"spent $100 and $25" R/ (?<=\$)\d+/ all-matching-subseqs .
-! => { "100" "25" }   (digits that follow a $; the $ is left out)
+"3 for $10 or 10 for $30" R/ \d+/ all-matching-subseqs .
+! => { "3" "10" "10" "30" }   (every number)
 
-"up 5% then 12%" R/ \d+(?=%)/ all-matching-subseqs .
-! => { "5" "12" }     (digits that come right before a %)
+"3 for $10 or 10 for $30" R/ (?<=\$)\d+/ all-matching-subseqs .
+! => { "10" "30" }            (only the prices — the bare 3 and 10 drop)
+
+"buy 2 at 15% off, 4 at 30% off" R/ \d+(?=%)/ all-matching-subseqs .
+! => { "15" "30" }            (only the discounts — the bare 2 and 4 drop)
 ```
-
-Lookaround is how you say "the part I want, recognised by what
-surrounds it" — exactly what capture groups do elsewhere.
 
 ## Options
 
