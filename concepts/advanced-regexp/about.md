@@ -28,6 +28,10 @@ $    ! end of the string
 \b   ! a word boundary
 ```
 
+A *word boundary* (`\b`) is where a word character (a letter, digit, or
+underscore) meets a non-word one, including the ends of the string. So
+`\bcat\b` matches `cat` only when it stands on its own:
+
 ```factor
 USING: regexp ;
 

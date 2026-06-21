@@ -7,6 +7,32 @@ of regular expressions that describe *structure* and *context*. They
 live in the same [`regexp`][regexp] vocabulary, written with the same
 `R/ /` literal.
 
+## Anchors
+
+Anchors match a *position* rather than a character:
+
+```
+^    ! the start of the string
+$    ! the end of the string
+\b   ! a word boundary
+```
+
+Because `$` means the end of the string, write `\$` when you mean a
+literal dollar sign.
+
+A *word boundary* (`\b`) is the spot where a *word character* meets a
+non-word one. Word characters are letters, digits, and the underscore;
+everything else — spaces, punctuation, and the two ends of the
+string — counts as a boundary. So `\bcat\b` matches `cat` only when it
+stands on its own:
+
+```factor
+USING: regexp ;
+
+"cat nap" R/ \bcat\b/ re-contains? .   ! => t
+"scatter" R/ \bcat\b/ re-contains? .   ! => f   (cat sits inside a word)
+```
+
 ## Grouping and alternation
 
 Round brackets `( )` group part of a pattern so that a quantifier — or
@@ -21,30 +47,14 @@ USING: regexp ;
 "$100"    R/ \$\d+(\.\d{2})?/ matches? .   ! => t   (the group is optional)
 ```
 
-The last pattern reads "a `$`, one or more digits, then an *optional*
-group of a dot and two digits". Write `\$` for a literal dollar sign,
-because a bare `$` is a special character (see anchors).
+The last pattern reads "a dollar sign, one or more digits, then an
+*optional* group of a dot and two digits".
 
 > Note: in Factor a group only *structures* the pattern. Unlike some
 > regex tools, you cannot pull back out the text a group matched —
 > there is no capture-group extraction, and back-references like `\1`
 > are not supported. To pick text out *around* a landmark, use
 > lookaround instead (below).
-
-## Anchors
-
-```
-^    ! the start of the string
-$    ! the end of the string
-\b   ! a word boundary — the edge of a run of letters/digits
-```
-
-```factor
-USING: regexp ;
-
-"cat nap" R/ \bcat\b/ re-contains? .   ! => t
-"scatter" R/ \bcat\b/ re-contains? .   ! => f   (cat sits inside a word)
-```
 
 ## Lookaround — match by context, without consuming it
 

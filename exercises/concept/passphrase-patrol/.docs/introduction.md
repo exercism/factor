@@ -25,6 +25,8 @@ for *kinds* of characters or *how many* of them.
 \D        ! any NON-digit (the opposite of \d)
 \s        ! any space, tab, or newline
 \S        ! any NON-space character (the opposite of \s)
+\w        ! a "word" character: a letter, a digit, or an underscore
+\W        ! any NON-word character (the opposite of \w)
 [A-Z]     ! any one capital letter A to Z
 [a-z]     ! any one lowercase letter
 [0-9]     ! any one digit (same as \d)
@@ -90,11 +92,10 @@ USING: regexp ;
 
 ## Finding matches inside longer text
 
-The next words look *inside* a string rather than requiring the whole
-thing to fit.
-
-`all-matching-subseqs` returns every place the pattern matches, as a
-sequence of strings. `count-matches` just counts them:
+`re-contains?` tells you only *whether* the pattern is in there. These
+next words look inside and report *what* matched: `all-matching-subseqs`
+returns every place the pattern matches, as a sequence of strings, and
+`count-matches` just counts them:
 
 ```
 all-matching-subseqs ( string regexp -- seq )
@@ -110,7 +111,7 @@ USING: regexp ;
 "the quick fox" R/ \S+/ all-matching-subseqs .
 ! => { "the" "quick" "fox" }     (every run of non-space characters)
 
-"a1b2c3" R/ \d/ count-matches .   ! => 3   (three digits)
+"id_7!" R/ \w/ count-matches .   ! => 4   (i, d, _ and 7 count; ! does not)
 ```
 
 ## Replacing matches
