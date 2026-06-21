@@ -1,8 +1,8 @@
 # Introduction
 
-A *quotation* — code in `[ ]` brackets — is a first-class value in
-Factor. You can store one in a variable, put one in an array, pass
-one to another word, and *call* it later.
+A *quotation* — code in `[ ]` brackets — is itself a value in Factor,
+just like a number or a string. You can store one in a variable, put
+one in an array, pass one to another word, and *call* it later.
 
 ## `call`
 

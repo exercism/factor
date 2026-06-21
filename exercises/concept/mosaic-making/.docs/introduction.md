@@ -1,10 +1,10 @@
 # Introduction
 
-Arrays are Factor's fixed-length, immutable sequence type. You
-already know how to write a literal array — `{ … }` — and how to
-slice and aggregate one. This exercise covers the small toolkit
-that comes up when you build arrays from values on the stack and
-then look up or rearrange their contents.
+Arrays are Factor's fixed-length sequences: you can change the
+elements, but not the length. You already know how to write a literal
+array — `{ … }` — and how to slice and aggregate one. This exercise
+covers the small toolkit that comes up when you build arrays from
+values on the stack and then look up or rearrange their contents.
 
 ## Building from the stack
 

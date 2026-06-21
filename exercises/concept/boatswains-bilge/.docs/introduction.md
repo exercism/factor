@@ -1,10 +1,10 @@
 # Introduction
 
-Pumps, valves, hoses — anything that holds an OS handle has to
-be *released* when you're done with it. Factor's
-[`destructors`][destructors] vocab wraps these in a framework
-that guarantees cleanup, even when an exception unwinds the
-stack midway through a routine.
+Pumps, valves, hoses — anything that holds an operating-system
+resource (an open file, a network connection) has to be *released*
+when you're done with it. Factor's [`destructors`][destructors] vocab
+wraps these in a framework that guarantees cleanup, even when an error
+interrupts your code partway through.
 
 ## The class and the generic
 

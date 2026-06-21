@@ -42,10 +42,10 @@ with the others.
 | `find-last` | `( seq quot -- i/f elt/f )`       |
 | `produce`   | `( pred quot -- seq )`            |
 
-Arrays are immutable; the `prefix`/`suffix`/`append`/`prepend` operations all
-return new sequences without modifying the original. Vectors are
-mutable — `push` and `pop` work in place — but `clone` is the right
-starting point if you want a fresh copy.
+Arrays are fixed-length, so the `prefix`/`suffix`/`append`/`prepend`
+operations all return new sequences rather than growing the original.
+Vectors are resizable — `push` and `pop` work in place — but `clone`
+is the right starting point if you want a fresh copy.
 
 ## Conversions
 

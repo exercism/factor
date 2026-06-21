@@ -1,6 +1,7 @@
 # About
 
-Arrays are Factor's fixed-length, immutable sequence type.
+Arrays are Factor's fixed-length sequence type: you can change the
+elements but not the length.
 Literals use `{ … }` with whitespace between elements; the
 `arrays` vocabulary adds small constructors that pull values off
 the stack:

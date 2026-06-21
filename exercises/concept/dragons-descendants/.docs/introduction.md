@@ -3,7 +3,8 @@
 Tuples can extend other tuples. `TUPLE: child < parent slots ;`
 declares a class whose instances are also instances of `parent`
 — they get the parent's slots in addition to their own, and the
-parent's accessors work on them transparently.
+parent's accessors work on them too, just as if they'd been defined on
+the child.
 
 ```factor
 USING: accessors ;

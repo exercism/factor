@@ -1,7 +1,8 @@
 # Introduction
 
-Arrays are Factor's primary fixed-length, immutable sequence
-type, written `{ … }`. The `arrays` and `sequences` vocabularies
+Arrays are Factor's primary fixed-length sequence type, written
+`{ … }`: you can change the elements but not the length. The `arrays`
+and `sequences` vocabularies
 together give you small constructors that take values off the
 stack, plus everyday operations for joining, reversing, and
 looking up elements.

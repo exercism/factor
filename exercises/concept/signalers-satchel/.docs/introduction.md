@@ -59,7 +59,7 @@ string can coerce with `>string`.
 ## `?head` and `?tail` — strip a marker if present
 
 Framed readings carry marker text that may or may not be there.
-`?head` and `?tail` (in `sequences`) try to strip a prefix or
+`?head` and `?tail` (in `splitting`) try to strip a prefix or
 suffix, returning the (possibly shortened) sequence *and* a
 boolean reporting whether the marker was found:
 

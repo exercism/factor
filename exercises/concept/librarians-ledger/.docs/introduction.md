@@ -13,10 +13,10 @@ for the running form.
 reduce ( seq init quot: ( prev elt -- next ) -- result )
 ```
 
-`reduce` walks a sequence, threading an accumulator through a
-two-argument quotation. The quotation receives the running
-accumulator and the next element; whatever it leaves on the
-stack becomes the new accumulator.
+`reduce` goes through a sequence one item at a time, carrying along a
+running result (the *accumulator*) and feeding it to a two-argument
+quotation. The quotation receives the running accumulator and the next
+element; whatever it leaves on the stack becomes the new accumulator.
 
 ```factor
 USING: math sequences ;

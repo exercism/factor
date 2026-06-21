@@ -1,8 +1,8 @@
 # Introduction
 
 Factor's error system has three pieces: `throw` to signal an error,
-`recover` to handle one, and `ERROR:` to define a tuple-typed error
-class.
+`recover` to handle one, and `ERROR:` to define your own kind of
+error.
 
 ## `throw`
 

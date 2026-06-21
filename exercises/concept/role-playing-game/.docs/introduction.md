@@ -1,6 +1,7 @@
 # Introduction
 
-A *tuple* is Factor's record/struct/class type. Each tuple class has
+A *tuple* bundles several named values together into one object — what
+other languages call a record, struct, or class. Each tuple class has
 a fixed set of named slots and Factor automatically generates getters
 and setters for them.
 

@@ -25,7 +25,8 @@ values from the top of the stack and pushes some values back.
 ```
 
 A related word, `.s`, prints the *whole* data stack without consuming
-anything — handy at the listener for seeing what a snippet leaves
+anything — handy in the listener (Factor's interactive prompt, where
+you type code and see results) for seeing what a snippet leaves
 behind. It's why later examples sometimes end in `.s` rather than `.`:
 they leave more than one value on the stack, and `.s` shows them all.
 

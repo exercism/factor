@@ -15,7 +15,8 @@ until ( pred body -- )
 
 `pred` and `body` are both quotations that operate on the data
 stack. `while` keeps looping while `pred` leaves a truthy value;
-`until` is the symmetric form (loop while `pred` leaves `f`).
+`until` is the opposite: it keeps looping *until* `pred` becomes true
+(that is, while `pred` leaves `f`).
 
 A single piece of state can flow on the stack between the
 predicate and the body:

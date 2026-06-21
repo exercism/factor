@@ -1,9 +1,10 @@
 # Introduction
 
 Welcome to Factor! Factor is a *concatenative* language: instead of
-calling functions with parenthesised arguments, you write a sequence of
-**words** that pass values to each other through a shared **data
-stack**. Picture a stack of cargo crates on a quay, newest on top.
+calling functions like `square(add(2, 3))`, you write a row of
+**words** left to right — `2 3 + square` — that pass values to each
+other through a shared **data stack**. Picture a stack of cargo crates
+on a quay, newest on top.
 
 ## Comments
 

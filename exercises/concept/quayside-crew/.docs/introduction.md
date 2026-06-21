@@ -3,7 +3,7 @@
 Factor's threads are *cooperative coroutines* — they share one OS
 thread, hand control to each other at I/O and at explicit yield
 points, and never run truly simultaneously. Anything you do
-*between* yields is effectively atomic. But if a compound
+*between* yields happens as one uninterrupted step. But if a compound
 operation (read-modify-write) yields midway, another thread can
 slip in and change the world before you finish — and that's a race.
 

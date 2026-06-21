@@ -15,8 +15,8 @@ float in one calculation, the result comes out as a float:
 2 3.0 + .    ! => 5.0
 ```
 
-Underscores are allowed inside number literals as digit separators
-and are ignored by the parser.
+You can put underscores inside a number to group the digits —
+`1_000_000` — and Factor just ignores them.
 
 ## Division words
 
