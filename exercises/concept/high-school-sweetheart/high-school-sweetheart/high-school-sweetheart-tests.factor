@@ -7,6 +7,7 @@ TASK: 1 cleanupname
 STOP-HERE
 
 { "John Doe" } [ "-John-Doe-" cleanupname ] unit-test
+{ "Jane Ann" } [ "  \tJane-Ann\n  " cleanupname ] unit-test
 
 TASK: 2 firstletter
 { "M" } [ "Mary" firstletter ] unit-test
