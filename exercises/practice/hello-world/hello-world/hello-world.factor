@@ -1,4 +1,4 @@
-USING: formatting kernel sequences ;
+USING: kernel ;
 IN: hello-world
 
 : say-hello ( -- str )
