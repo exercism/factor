@@ -76,6 +76,7 @@ MAPS = {
  "rpn-calculator": {"add-op":1,"multiply-op":2,"apply-op":3,"evaluate":4,"evaluate-named":5,"divide-op":6},
  "secrets": {"shift-back":1,"set-bits":2,"flip-bits":3,"clear-bits":4},
  "signalers-satchel": {"quote-value":1,"flag-body":2,"split-flag":3,"triangulate":4,"triangle-stats":5},
+ "telegraphers-tape": {"<tape>":1,"stream-read1":3,"stream-element-type":4,"dispose*":5},
  "tellers-triage": {"new-queue":1,"join-queue":2,"next-name":3,"serve-all":4},
  "valentines-day": {"rate-restaurant":1,"rate-movie":2,"rate-walk":3,"rate-activity":4,"approval-counts":5},
  "vltava-weather-watch": {"read-readings":1,"latest-reading":2,"log-text":3,"record-reading":4,"rewrite-log":5},
@@ -84,14 +85,14 @@ MAPS = {
 # Exercises whose Mode-B prefix run we cannot synthesize automatically (MACRO:
 # bodies cannot be re-stubbed with a throw, and exercises without TASK: markers
 # have no prefixes). Mode A is still checked for them.
-MODEB_SKIP = {"signal-stencils", "telegraphers-tape", "bering-bearings",
-              "boatswains-bilge"}
+MODEB_SKIP = {"signal-stencils", "bering-bearings", "boatswains-bilge"}
 
 # The shipped stub does not make the test file compile, but the missing
 # definition is created in task 1, so the exercise is still accretive by the
 # implement-first-K-tasks rule (a student who does task 1 sees task 1 pass).
 ACCRETIVE_VIA_TASK1 = {"lasagna", "role-playing-game", "factory-failsafe",
-                       "dragons-descendants", "bering-bearings"}
+                       "dragons-descendants", "bering-bearings",
+                       "telegraphers-tape"}
 
 DEF_STARTERS = {":","::","M:","M::","TYPED:","TYPED::","MEMO:","MEMO::"}
 

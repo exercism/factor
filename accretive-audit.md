@@ -47,15 +47,15 @@ Run it with `FACTOR=/path/to/factor bin/check-accretive [slug...]`.
 
 ## Results
 
-The initial audit found 11 of 47 not Accretive. The 5 Mode-B and 5 Mode-A
-exercises have since been fixed; only the 1 structural case remains open.
+The initial audit found 11 of 47 not Accretive. All 11 have since been fixed —
+**every concept exercise is now accretive (47/47)**. The table records what the
+audit flagged and how each was resolved.
 
-| Verdict | Count | Exercises |
+| Original verdict | Count | Exercises |
 |---|---|---|
-| Accretive | 46 | all others |
 | Mode A (fixed) | 5 | bering-bearings, boatswains-bilge, dragons-descendants, factory-failsafe, pirates-path |
 | Mode B (fixed) | 5 | garden-gathering, lighthouse-logbook, poetry-club, quayside-crew, tellers-triage |
-| Structural (open) | 1 | telegraphers-tape |
+| Structural (fixed) | 1 | telegraphers-tape |
 
 ## Mode A — a definition was introduced after task 1 (fixed)
 
@@ -106,14 +106,16 @@ that owns the word, or (for opaque structures) observing through a library word.
 - **quayside-crew** — a task-3 test `[ <crane> 5 over hoist-crate tonnage>> ... ]`
   used `hoist-crate` (task 4) to show cranes are independent; moved to task 4.
 
-## Structural
+## Structural — tests not grouped by task (fixed)
 
-- **telegraphers-tape** — the tests use descriptive `print` labels, not `TASK:`
-  markers, and each test is end-to-end (construct + read + dispose together), so
-  no prefix of tasks passes on its own.
-  *Fix (larger):* regroup the tests under per-task `TASK:` markers, ordered so
-  each task's tests need only words from that task and earlier; or accept it as a
-  documented exemption.
+- **telegraphers-tape** — the tests used descriptive `print` labels, not `TASK:`
+  markers, and each was end-to-end (construct + read + dispose together), so no
+  prefix of tasks passed on its own. *Fixed* by regrouping the tests under
+  per-task `TASK:` markers (task order unchanged) and adding checkpoints for the
+  early tasks: task 1 reads through `wire>>` to prove the constructor stored the
+  wire; task 2 checks `input-stream?`. Each group now calls only words from its
+  own task and earlier. (Like the Mode-A fixes, the task-1 test touches the
+  tuple, so the exercise is accretive-via-task1.)
 
 ## Suggested track-wide rules (to keep new exercises Accretive)
 
