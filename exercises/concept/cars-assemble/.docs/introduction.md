@@ -50,6 +50,22 @@ between? ( x lo hi -- ? )    ! lo <= x <= hi (inclusive)
 You'll often see it as a `cond` predicate — `dup 1 4 between?` —
 to pick a branch by range rather than by a single value.
 
+## Quotations
+
+The comparison words above produce booleans; to *act* on a boolean you
+hand the conditional one or more **quotations**. A quotation is a
+snippet of code wrapped in square brackets, `[ ... ]`. Writing it
+pushes the code onto the stack as a value instead of running it — a
+word like `if` then decides which quotation to run.
+
+```factor
+[ neg ]   ! a quotation that negates the top of the stack
+[ ]       ! the empty quotation — does nothing
+```
+
+A later exercise covers quotations in full; for now, read
+`[ ... ]` as "the code to run for this branch."
+
 ## `if`, `when`, `unless`
 
 `if` (in [`kernel`][kernel]) takes a boolean and two quotations. It

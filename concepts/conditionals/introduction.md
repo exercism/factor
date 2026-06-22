@@ -1,5 +1,11 @@
 # Introduction
 
+Factor's conditionals choose between **quotations** — snippets of code
+written in square brackets, `[ ... ]`. Writing `[ ... ]` pushes the
+code onto the stack as a value rather than running it; the conditional
+then decides which quotation to run. (Quotations are covered fully in a
+later exercise.)
+
 `if` (in [`kernel`][kernel]) is Factor's basic conditional. It
 takes a boolean and two quotations, running the first if the
 boolean is truthy and the second otherwise.

@@ -1,6 +1,9 @@
 # About
 
-Factor's conditionals all take quotations as their branches.
+Factor's conditionals all take **quotations** as their branches — code
+written in square brackets, `[ ... ]`, that is pushed as a value rather
+than run until the conditional selects it. (Quotations themselves are
+covered fully in a later exercise.)
 
 The basic three are in `kernel`:
 
