@@ -1,14 +1,18 @@
-USING: exercism-tools kernel tellers-triage tools.test ;
+USING: exercism-tools heaps kernel tellers-triage tools.test ;
 IN: tellers-triage.tests
 
 TASK: 1 new-queue
-{ { } } [ new-queue serve-all ] unit-test
+{ t } [ new-queue heap-empty? ] unit-test
 
 STOP-HERE
 
+{ 0 } [ new-queue heap-size ] unit-test
+
 TASK: 2 join-queue
-{ { "alice" } } [ new-queue "alice" 5 rot join-queue serve-all ] unit-test
-{ "bob" } [ new-queue "alice" 5 rot join-queue "bob" 2 rot join-queue next-name ] unit-test
+{ 1 } [ new-queue "alice" 5 rot join-queue heap-size ] unit-test
+! the customer and priority are stored together
+{ "alice" 5 } [ new-queue "alice" 5 rot join-queue heap-peek ] unit-test
+{ 2 } [ new-queue "alice" 5 rot join-queue "bob" 2 rot join-queue heap-size ] unit-test
 
 TASK: 3 next-name
 { "bob" } [ new-queue "alice" 5 rot join-queue "bob" 2 rot join-queue

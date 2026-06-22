@@ -45,14 +45,17 @@ Verified empirically with the factor runtime, via `bin/check-accretive`:
 
 Run it with `FACTOR=/path/to/factor bin/check-accretive [slug...]`.
 
-## Results: 11 of 47 are not Accretive
+## Results
+
+The initial audit found 11 of 47 not Accretive. The 5 Mode-B exercises have
+since been fixed (test-only changes); 6 remain open (5 Mode A + 1 structural).
 
 | Verdict | Count | Exercises |
 |---|---|---|
-| Accretive | 36 | all others |
-| Mode A | 5 | bering-bearings, boatswains-bilge, dragons-descendants, factory-failsafe, pirates-path |
-| Mode B | 5 | garden-gathering, lighthouse-logbook, poetry-club, quayside-crew, tellers-triage |
-| Structural | 1 | telegraphers-tape |
+| Accretive | 41 | all others |
+| Mode A (open) | 5 | bering-bearings, boatswains-bilge, dragons-descendants, factory-failsafe, pirates-path |
+| Mode B (fixed) | 5 | garden-gathering, lighthouse-logbook, poetry-club, quayside-crew, tellers-triage |
+| Structural (open) | 1 | telegraphers-tape |
 
 ## Mode A — a definition is introduced after task 1
 
@@ -81,23 +84,25 @@ Run it with `FACTOR=/path/to/factor bin/check-accretive [slug...]`.
   `TUPLE: valve < disposable is-open ;`, a stubbed `<valve>`, and `M: valve
   dispose* drop ;` — so the file compiles; task 5 fills in the bodies.
 
-## Mode B — an early task's test calls a later task's word
+## Mode B — an early task's test called a later task's word (fixed)
 
-Each of these is a test-design issue: the test for an early task observes its
-result through a word the student has not been asked to write yet. Fix by
-rewriting the early-task test to observe the early word directly, or by
-reordering tasks.
+Each was a test-design issue: the test for an early task observed its result
+through a word the student had not been asked to write yet. All five were fixed
+with test-only changes — moving the forward-referencing assertion into the task
+that owns the word, or (for opaque structures) observing through a library word.
 
-- **tellers-triage** — task 1 is `{ { } } [ new-queue serve-all ]`, which needs
-  `serve-all` (task 4); task 2's tests also use `serve-all`/`next-name`.
-- **lighthouse-logbook** — a task-1 test `[ empty-log dup "x" sight ]` (checking
-  each log is fresh) needs `sight` (task 2).
-- **garden-gathering** — a task-2 test uses `release` (task 3) to check that ids
-  keep increasing after a release.
-- **poetry-club** — task 1's test uses `circle-of` (task 3); task 2's test uses
-  `same-circle?` (task 4). A disjoint-set is only observable through those.
+- **tellers-triage** — task 1 `[ new-queue serve-all ]` needed `serve-all`
+  (task 4) and task 2 also used `serve-all`/`next-name`. Tasks 1–2 now observe
+  the min-heap through library `heap-empty?` / `heap-size` / `heap-peek`.
+- **lighthouse-logbook** — a task-1 freshness test `[ empty-log dup "x" sight ]`
+  needed `sight` (task 2); moved to task 2.
+- **garden-gathering** — a task-2 test used `release` (task 3) to check that ids
+  keep increasing; moved to task 3.
+- **poetry-club** — task 1 used `circle-of` (task 3) and task 2 used
+  `same-circle?` (task 4); a disjoint-set is only observable through those, so
+  tasks 1–2 now observe circles through library `equiv?`.
 - **quayside-crew** — a task-3 test `[ <crane> 5 over hoist-crate tonnage>> ... ]`
-  uses `hoist-crate` (task 4) to show cranes are independent.
+  used `hoist-crate` (task 4) to show cranes are independent; moved to task 4.
 
 ## Structural
 

@@ -23,15 +23,6 @@ TASK: 2 register
     list-registrations
 ] unit-test
 
-! Plot ids continue increasing even after a release.
-{ T{ plot { id 3 } { registered-to "Carol" } } } [
-    open-garden
-    "Emma" register drop
-    "Bob" register drop
-    1 release
-    "Carol" register
-] unit-test
-
 TASK: 3 release
 { V{ T{ plot { id 1 } { registered-to "Emma" } } } } [
     open-garden
@@ -47,6 +38,15 @@ TASK: 3 release
     "Emma" register drop
     7 release
     list-registrations
+] unit-test
+
+! Plot ids continue increasing even after a release.
+{ T{ plot { id 3 } { registered-to "Carol" } } } [
+    open-garden
+    "Emma" register drop
+    "Bob" register drop
+    1 release
+    "Carol" register
 ] unit-test
 
 TASK: 4 get-registration

@@ -17,12 +17,6 @@ TASK: 2 weigh-all
 TASK: 3 <crane>
 { 0 } [ <crane> tonnage>> ] unit-test
 
-! a fresh crane each call — mutating one doesn't affect another
-{ 5 0 } [
-    <crane> 5 over hoist-crate tonnage>>
-    <crane> tonnage>>
-] unit-test
-
 TASK: 4 hoist-crate
 { 35 } [ <crane> 35 over hoist-crate tonnage>> ] unit-test
 { 52 }
@@ -31,6 +25,12 @@ TASK: 4 hoist-crate
     35 over hoist-crate
     17 over hoist-crate
     tonnage>>
+] unit-test
+
+! a fresh crane each call — mutating one doesn't affect another
+{ 5 0 } [
+    <crane> 5 over hoist-crate tonnage>>
+    <crane> tonnage>>
 ] unit-test
 
 TASK: 5 crane-tonnage

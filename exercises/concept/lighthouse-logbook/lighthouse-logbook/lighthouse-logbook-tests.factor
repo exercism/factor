@@ -6,10 +6,6 @@ TASK: 1 empty-log
 
 STOP-HERE
 
-! a fresh log each call (not the shared HS{ } literal)
-{ HS{ "x" } } [ empty-log dup "x" sight ] unit-test
-{ HS{ } } [ empty-log ] unit-test
-
 TASK: 2 sight
 { HS{ "NS-1024" } }
 [ empty-log dup "NS-1024" sight ] unit-test
@@ -20,6 +16,10 @@ TASK: 2 sight
 ! adjoining a duplicate is a no-op
 { HS{ "NS-1024" } }
 [ empty-log dup "NS-1024" sight dup "NS-1024" sight ] unit-test
+
+! empty-log returns a fresh set each call, not a shared literal
+{ HS{ } }
+[ empty-log dup "x" sight drop empty-log ] unit-test
 
 TASK: 3 seen?
 { t } [ HS{ "NS-1024" "WB-203" } "NS-1024" seen? ] unit-test
