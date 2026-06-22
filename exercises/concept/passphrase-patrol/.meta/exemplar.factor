@@ -1,4 +1,4 @@
-USING: regexp ;
+USING: kernel regexp ;
 IN: passphrase-patrol
 
 : valid-badge? ( badge -- ? )

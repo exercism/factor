@@ -1,4 +1,4 @@
-USING: regexp ;
+USING: kernel regexp ;
 IN: ledger-lookout
 
 : valid-amount? ( line -- ? )

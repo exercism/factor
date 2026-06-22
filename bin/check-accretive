@@ -1,0 +1,276 @@
+#!/usr/bin/env python3
+"""Check that concept exercises are "Accretive".
+
+An exercise is Accretive if a student who correctly implements the first K
+tasks (leaving the rest as `"unimplemented" throw ;` stubs) sees every test
+for tasks 1..K pass. Two ways this fails:
+
+  Mode A (compile-time): the test file references a tuple/slot/constant/symbol
+    /word that the starting stub does not declare, so until the task that adds
+    it is done the whole test file fails to compile and NO task passes. (Words
+    are normally safe because the stub pre-declares them all; the trap is a
+    definition introduced by a task later than task 1.) Detected here by
+    compiling the test file against the shipped stub.
+
+  Mode B (runtime): a test for task K calls a word the instructions assign to a
+    later task M>K, so that test throws "unimplemented" even when tasks 1..K are
+    done correctly. Detected here by, for each prefix K, rebuilding the exemplar
+    with every later-task word re-stubbed and checking no task<=K test fails.
+
+Usage:
+  bin/check-accretive [slug...]      # default: all concept exercises
+Environment:
+  FACTOR   path to the Factor executable (default: factor)
+
+This script only writes to a fresh mktemp dir; it never touches the checkout.
+"""
+import json, os, re, shutil, subprocess, sys, tempfile
+
+REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+FACTOR = os.environ.get("FACTOR", "factor")
+TOOLS = os.path.join(REPO, "lib/exercism-tools")
+CONCEPT = os.path.join(REPO, "exercises/concept")
+
+# Intended task ownership: word -> task number it is implemented in, per the
+# instructions. Only body-bearing words are listed (these are what we re-stub);
+# tuples/constants/symbols are left intact so Mode-B runs always compile and we
+# isolate runtime ordering. Keep this in sync with the exercises' instructions.
+MAPS = {
+ "annalyns-infiltration": {"can-do-fast-attack":1,"can-spy":2,"can-signal-prisoner":3,"can-free-prisoner":4},
+ "backyard-birdcount": {"today":1,"increment-day-count":2,"has-day-without-birds?":3,"total":4,"busy-days":5},
+ "backyard-birdwatcher": {"today":1,"increment-todays-count":2,"has-day-without-birds?":3,"count-for-first-days":4,"busy-days":5,"pad-missing-days":6},
+ "belgian-boxcars": {"couple":1,"peek-couplings":2,"split-at-junctions":3,"coalesce-cargo":4},
+ "boardwalk-games": {"roll-die":1,"pick-prize":2,"shuffle-deck":3,"deal-hand":4,"play-seeded":5},
+ "bosuns-briefing": {"greeting":1,"crew-line":2,"closing":3,"roster":4,"briefing":5},
+ "boutique-bookkeeping": {"sort-by-price":1,"with-missing-price":2,"expensive-items":3,"cheapest-item":4,"total-price":5,"format-price-tag":6},
+ "bunting-bonanza": {"alphabet-bunting":1,"counting-bunting":2,"stripe-bunting":3,"marker-bunting":4,"valley-bunting":5},
+ "cargo-shuffle": {"swap-crates":1,"clear-spill":2,"peek-under":3,"tidy-deck":4},
+ "cars-assemble": {"production-status":1,"success-rate":2,"production-rate-per-hour":3,"working-items-per-minute":4},
+ "channel-chatter": {"hear-out":1,"count-messages":2,"echo-back":3,"broadcast":4,"capture":5},
+ "character-study": {"compare-chars":1,"size-of-char":2,"change-size-of-char":3,"type-of-char":4},
+ "coordinate-choreography": {"translate-2d":1,"scale-2d":2,"compose-transformations":3,"apply-transformation":4,"transform-points":5},
+ "currency-conversion": {"exchange-money":1,"get-change":2,"value-of-bills":3,"number-of-bills":4,"leftover-of-bills":5,"exchangeable-value":6,"safe-change":7,"cap-spend":8},
+ "factory-failsafe": {"check-humidity":1,"check-temperature":2,"monitor":4,"monitor-batch":5},
+ "ferry-schedule": {"make-date":1,"weekday-name":2,"leap?":3,"month-length":4,"add-days":5},
+ "garden-gathering": {"open-garden":1,"list-registrations":1,"register":2,"release":3,"get-registration":4,"find-by-name":5},
+ "high-school-sweetheart": {"cleanupname":1,"firstletter":2,"initial":3,"couple":4},
+ "joiners-journey": {"with-kerf":1,"kerf-and-finish":2,"cut-card":3,"per-piece":4,"compare-bolts":5},
+ "lap-leaderboard": {"assign-bibs":1,"lane-labels":2,"tag-racers":3,"record-finishes":4,"lap-bells":5},
+ "lasagna": {"preparation-time":2,"remaining-time":3,"total-working-time":4},
+ "lasagna-luminary": {"cooking-status":1,"preparation-time":2,"quantities":3,"add-secret-ingredient":4,"scale-recipe":5},
+ "ledger-lookout": {"valid-amount?":1,"dollar-amounts":2,"percentages":3,"flagged?":4},
+ "librarians-ledger": {"protected-balance":1,"running-balance":2,"least-balance-so-far":3,"halve-until":4},
+ "lighthouse-logbook": {"empty-log":1,"sight":2,"seen?":3,"forget-sighting":4,"unique-count":5,"reachable":6},
+ "log-levels": {"message":1,"log-level":2,"reformat":3},
+ "mixed-juices": {"time-to-mix-juice":1,"wedges-from-lime":2,"limes-to-cut":2,"order-times":3,"remaining-orders":4},
+ "mixtape-maker": {"count-combinations":1,"count-permutations":2,"list-combinations":3,"list-permutations":4,"combinations-summing-to":5},
+ "mosaic-making": {"tile-strip":1,"row-of-three":2,"combine-rows":3,"mirror-row":4,"tile-position":5,"has-colour?":6},
+ "mosaic-mischief": {"fresh-mosaic":1,"place-tile":2,"chip-tile":3,"recolour-tile":4,"snapshot-mosaic":5,"stash-tile":6,"return-tile":7},
+ "passphrase-patrol": {"valid-badge?":1,"badge-codes":2,"digit-count":3,"redact":4},
+ "pirates-path": {"tide-queue":1,"coves-reachable":2,"hop-count":3,"gold-count":4,"treasure-route":5},
+ "poetry-club": {"new-club":1,"collaborate":2,"circle-of":3,"same-circle?":4},
+ "pursers-pantry": {"create-inventory":1,"add-items":2,"decrement-items":3,"remove-item":4,"list-inventory":5},
+ "quayside-crew": {"weigh-crate":1,"weigh-all":2,"<crane>":3,"hoist-crate":4,"crane-tonnage":5,"load-cargo":6},
+ "role-playing-game": {"introduce":2,"revive":3,"take-damage":4},
+ "rpn-calculator": {"add-op":1,"multiply-op":2,"apply-op":3,"evaluate":4,"evaluate-named":5,"divide-op":6},
+ "secrets": {"shift-back":1,"set-bits":2,"flip-bits":3,"clear-bits":4},
+ "signalers-satchel": {"quote-value":1,"flag-body":2,"split-flag":3,"triangulate":4,"triangle-stats":5},
+ "tellers-triage": {"new-queue":1,"join-queue":2,"next-name":3,"serve-all":4},
+ "valentines-day": {"rate-restaurant":1,"rate-movie":2,"rate-walk":3,"rate-activity":4,"approval-counts":5},
+ "vltava-weather-watch": {"read-readings":1,"latest-reading":2,"log-text":3,"record-reading":4,"rewrite-log":5},
+}
+
+# Exercises whose Mode-B prefix run we cannot synthesize automatically (MACRO:
+# bodies cannot be re-stubbed with a throw, and exercises without TASK: markers
+# have no prefixes). Mode A is still checked for them.
+MODEB_SKIP = {"signal-stencils", "telegraphers-tape", "bering-bearings",
+              "boatswains-bilge", "dragons-descendants"}
+
+# The shipped stub does not make the test file compile, but the missing
+# definition is created in task 1, so the exercise is still accretive by the
+# implement-first-K-tasks rule (a student who does task 1 sees task 1 pass).
+ACCRETIVE_VIA_TASK1 = {"lasagna", "role-playing-game"}
+
+DEF_STARTERS = {":","::","M:","M::","TYPED:","TYPED::","MEMO:","MEMO::"}
+
+
+def tokenize(text):
+    i, n = 0, len(text)
+    while i < n:
+        c = text[i]
+        if c.isspace():
+            i += 1; continue
+        if c == '"':
+            j = i + 1
+            while j < n:
+                if text[j] == '\\': j += 2; continue
+                if text[j] == '"': j += 1; break
+                j += 1
+            yield (text[i:j], i, j); i = j; continue
+        j = i
+        while j < n and not text[j].isspace():
+            j += 1
+        yield (text[i:j], i, j); i = j
+
+
+def restub(text, words_to_stub):
+    toks = list(tokenize(text))
+    edits, k = [], 0
+    while k < len(toks):
+        t = toks[k][0]
+        if t in DEF_STARTERS:
+            if t in ("M:", "M::"):
+                if k + 2 >= len(toks): k += 1; continue
+                name, after = toks[k + 2][0], k + 3
+            else:
+                if k + 1 >= len(toks): k += 1; continue
+                name, after = toks[k + 1][0], k + 2
+            body_start = after
+            if after < len(toks) and toks[after][0] == "(":
+                m = after
+                while m < len(toks) and toks[m][0] != ")":
+                    m += 1
+                body_start = m + 1
+            term = body_start
+            while term < len(toks) and toks[term][0] != ";":
+                term += 1
+            if term < len(toks) and name in words_to_stub and body_start < len(toks):
+                edits.append((toks[body_start][1], toks[term][1]))
+            k = term + 1
+            continue
+        k += 1
+    for body_off, semi_off in sorted(edits, reverse=True):
+        text = text[:body_off] + ' "unimplemented" throw ' + text[semi_off:]
+    return text
+
+
+def ensure_kernel(text):
+    def repl(mo):
+        body = mo.group(1)
+        return mo.group(0) if re.search(r'\bkernel\b', body) else "USING: " + body.strip() + " kernel ;"
+    new, n = re.subn(r'USING:\s+(.*?);', repl, text, count=1, flags=re.S)
+    return new if n else "USING: kernel ;\n" + text
+
+
+def task_ranges(tests_text):
+    out = []
+    for idx, ln in enumerate(tests_text.splitlines(), start=1):
+        m = re.match(r'\s*TASK:\s+(\d+)\b', ln)
+        if m:
+            out.append((idx, int(m.group(1))))
+    return out
+
+
+def line_to_task(line, ranges):
+    task = None
+    for start, t in ranges:
+        if line >= start: task = t
+        else: break
+    return task
+
+
+def setup(slug, write_solutions=None):
+    """Make a temp run dir; optionally overwrite solution files. Returns (dir, cfg)."""
+    src = os.path.join(CONCEPT, slug)
+    cfg = json.load(open(os.path.join(src, ".meta/config.json")))
+    work = tempfile.mkdtemp(prefix=f"acc-{slug}-")
+    shutil.copytree(os.path.join(src, slug), os.path.join(work, slug))
+    shutil.copytree(TOOLS, os.path.join(work, "exercism-tools"))
+    if write_solutions:
+        for rel, content in write_solutions.items():
+            with open(os.path.join(work, rel), "w") as f:
+                f.write(content)
+    # strip STOP-HERE in every test file
+    for rel in cfg["files"]["test"]:
+        p = os.path.join(work, rel)
+        txt = "\n".join(l for l in open(p).read().splitlines() if "STOP-HERE" not in l)
+        open(p, "w").write(txt)
+    return work, cfg
+
+
+def run(work, slug):
+    p = subprocess.run([FACTOR, "-roots=.", "-run=exercism-tools", slug],
+                       cwd=work, capture_output=True, text=True, timeout=300)
+    return p.stdout + p.stderr
+
+
+def stub_compiles(slug):
+    work, _ = setup(slug)
+    try:
+        out = run(work, slug)
+        return "Unit Test:" in out
+    finally:
+        shutil.rmtree(work, ignore_errors=True)
+
+
+def modeb_violations(slug):
+    """Return dict K -> list of early task numbers whose tests fail, or {} if clean."""
+    src = os.path.join(CONCEPT, slug)
+    cfg = json.load(open(os.path.join(src, ".meta/config.json")))
+    wmap = MAPS[slug]
+    N = max(wmap.values())
+    sols, exes = cfg["files"]["solution"], cfg["files"].get("exemplar") or cfg["files"]["example"]
+    test_base = os.path.basename(cfg["files"]["test"][0])
+    bad = {}
+    for K in range(1, N):
+        to_stub = {w for w, t in wmap.items() if t > K}
+        writes = {}
+        for sol, exe in zip(sols, exes):
+            writes[sol] = ensure_kernel(restub(open(os.path.join(src, exe)).read(), to_stub))
+        work, _ = setup(slug, writes)
+        try:
+            ttext = "\n".join(l for l in open(os.path.join(work, cfg["files"]["test"][0])).read().splitlines())
+            ranges = task_ranges(ttext)
+            out = run(work, slug)
+            if "Unit Test:" not in out:
+                bad[K] = ["COMPILE-FAIL"]; continue
+            fl = [int(m.group(1)) for m in re.finditer(re.escape(test_base) + r":\s*(\d+)", out)]
+            early = sorted({line_to_task(l, ranges) for l in fl if line_to_task(l, ranges) and line_to_task(l, ranges) <= K})
+            if early:
+                bad[K] = early
+        finally:
+            shutil.rmtree(work, ignore_errors=True)
+    return bad
+
+
+def main():
+    slugs = sys.argv[1:] or sorted(os.listdir(CONCEPT))
+    failures = 0
+    for slug in slugs:
+        if not os.path.isdir(os.path.join(CONCEPT, slug)):
+            continue
+        compiles = stub_compiles(slug)
+        notes = []
+        verdict = "ACCRETIVE"
+        # Structural: no TASK: markers means tests are not grouped by task and
+        # cannot be passed task-by-task.
+        ttext = open(os.path.join(CONCEPT, slug, json.load(open(os.path.join(CONCEPT, slug, ".meta/config.json")))["files"]["test"][0])).read()
+        if not task_ranges(ttext):
+            verdict = "STRUCTURAL"
+            notes.append("tests are not grouped by TASK: marker, so no prefix of tasks can pass on its own")
+        elif not compiles:
+            if slug in ACCRETIVE_VIA_TASK1:
+                notes.append("stub omits a definition that task 1 creates; accretive by the implement-first-K rule")
+            else:
+                verdict = "MODE-A"
+                notes.append("stub does not pre-declare everything the test file needs (a "
+                             "tuple/slot/constant/symbol/word is introduced by a task later than task 1)")
+        if slug in MODEB_SKIP:
+            notes.append("Mode-B prefix run skipped (macros / no TASK: markers); checked by hand")
+        elif slug in MAPS:
+            bad = modeb_violations(slug)
+            if bad:
+                verdict = "MODE-A+B" if verdict == "MODE-A" else "MODE-B"
+                for K in sorted(bad):
+                    notes.append(f"prefix K={K}: task(s) {bad[K]} fail (an earlier task's test calls a later task's word)")
+        if verdict != "ACCRETIVE":
+            failures += 1
+        print(f"{slug:28s} {verdict}")
+        for nt in notes:
+            print(f"    - {nt}")
+    print(f"\n{failures} non-accretive of {len([s for s in slugs if os.path.isdir(os.path.join(CONCEPT, s))])} checked")
+    sys.exit(1 if failures else 0)
+
+
+if __name__ == "__main__":
+    main()
