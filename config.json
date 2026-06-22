@@ -1,7 +1,7 @@
 {
   "language": "Factor",
   "slug": "factor",
-  "active": false,
+  "active": true,
   "status": {
     "concept_exercises": true,
     "test_runner": true,
