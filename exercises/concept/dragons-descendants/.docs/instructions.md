@@ -6,10 +6,19 @@ a name, colour, and age — but specialise in distinctive ways.
 You'll build a small inheritance tree of dragon classes and a
 single word that ages any descendant.
 
-## 1. The base class
+## 1. The dragon family
 
-Define a tuple `dragon` with slots `name`, `color`, `age`, and
-a `<dragon>` constructor.
+Define the whole inheritance tree of tuple classes up front (their
+constructors come in the tasks that follow):
+
+- `dragon` with slots `name`, `color`, `age`.
+- `fire-dragon`, a subclass of `dragon`, adding a `flame-temp` slot.
+- `ice-dragon`, another subclass of `dragon`, adding a `chill-temp`
+  slot.
+- `volcano-dragon`, a subclass of `fire-dragon`, adding a
+  `lava-volume` slot.
+
+Then give `dragon` a `<dragon>` constructor.
 
 ```factor
 "Falkor" "white" 100 <dragon> name>> .   ! => "Falkor"
@@ -17,8 +26,7 @@ a `<dragon>` constructor.
 
 ## 2. The fire breathers
 
-Define `fire-dragon` as a subclass of `dragon` with one extra
-slot, `flame-temp`. Give it a `<fire-dragon>` constructor.
+Give `fire-dragon` a `<fire-dragon>` constructor.
 
 ```factor
 "Smaug" "red" 500 1200 <fire-dragon> flame-temp>> .   ! => 1200
@@ -27,8 +35,7 @@ slot, `flame-temp`. Give it a `<fire-dragon>` constructor.
 
 ## 3. The ice breathers
 
-Define `ice-dragon` as another subclass of `dragon`, with one
-extra slot `chill-temp` and a `<ice-dragon>` constructor.
+Give `ice-dragon` a `<ice-dragon>` constructor.
 
 ```factor
 "Frosty" "blue" 200 -40 <ice-dragon> chill-temp>> .   ! => -40
@@ -37,9 +44,7 @@ extra slot `chill-temp` and a `<ice-dragon>` constructor.
 
 ## 4. The volcano dwellers
 
-Define `volcano-dragon` as a subclass of `fire-dragon`, with
-one extra slot `lava-volume` and a `<volcano-dragon>`
-constructor.
+Give `volcano-dragon` a `<volcano-dragon>` constructor.
 
 ```factor
 "Vesuvius" "red" 1000 1500 99 <volcano-dragon> dragon? .       ! => t

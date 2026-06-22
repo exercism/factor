@@ -54,9 +54,10 @@ deque (a 2-element array works).
 
 ## 4. Gold count
 
-Define `gold-count` with `MEMO:` (not `:`) so the result for
-each cove is computed once and cached. Look up the gold for the
-cove in the `gold-distribution` constant the exercise provides.
+The stub declares `gold-count` with `:`. Change it to `MEMO:`
+(not `:`) so the result for each cove is computed once and
+cached. Look up the gold for the cove in the `gold-distribution`
+constant the exercise provides.
 A cove that isn't in the distribution has zero gold.
 
 ```factor

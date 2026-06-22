@@ -13,5 +13,12 @@ IN: boatswains-bilge
 : risky-pump-out ( pump quot -- )
     "unimplemented" throw ;
 
-! Task 5: define `valve` as a custom disposable, `<valve>` as its
-! constructor, and an `M: valve dispose*` method.
+! Task 5: the valve tuple is declared for you. Implement <valve>
+! (construct a fresh open valve) and M: valve dispose* (mark it closed).
+TUPLE: valve < disposable is-open ;
+
+: <valve> ( -- valve )
+    "unimplemented" throw ;
+
+M: valve dispose*
+    "unimplemented" throw ;

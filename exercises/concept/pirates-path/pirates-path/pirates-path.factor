@@ -10,10 +10,6 @@ IN: pirates-path
 : hop-count ( start goal chart -- n/f )
     "unimplemented" throw ;
 
-! Task 4: declare `gold-count ( cove -- n )` with MEMO: so the
-! result for each cove is computed once and cached. Look up the
-! value from the `gold-distribution` constant below.
-
 CONSTANT: gold-distribution H{
     { "Hidden Cove"        80 }
     { "Skull Bay"         120 }
@@ -22,6 +18,9 @@ CONSTANT: gold-distribution H{
     { "Plank Island"       60 }
     { "Lantern Rock"      150 }
 }
+
+: gold-count ( cove -- n )
+    "unimplemented" throw ;
 
 : treasure-route ( start chart -- best-cove )
     "unimplemented" throw ;

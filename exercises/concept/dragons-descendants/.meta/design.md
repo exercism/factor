@@ -46,15 +46,21 @@ the `< disposable` syntax instead of pattern-matching it cold.
 
 ## Tasks ramp
 
-1. **`<dragon>`** — declare the base class with three slots and
-   the `boa` constructor. No inheritance yet.
-2. **`<fire-dragon>`** — first use of `<` — adds one slot. The
-   constructor takes four arguments: three inherited, one new.
-3. **`<ice-dragon>`** — a *sibling* of `fire-dragon`. Reinforces
-   that subclasses of the same parent are disjoint
-   (`ice-dragon?` is `f` for a `fire-dragon`).
-4. **`<volcano-dragon>`** — *grandchild* via `< fire-dragon`.
-   Demonstrates that inheritance is transitive: a
+1. **The dragon family** — declare all four tuple classes up
+   front: the `dragon` base (three slots) and its descendants
+   `fire-dragon` / `ice-dragon` (`< dragon`) and
+   `volcano-dragon` (`< fire-dragon`), then the `<dragon>` `boa`
+   constructor. Bundling the whole hierarchy here keeps the
+   exercise accretive — the test file references every
+   descendant's predicate and accessors, so they must all exist
+   once task 1 is done.
+2. **`<fire-dragon>`** — the first descendant constructor. Takes
+   four arguments: three inherited, one new.
+3. **`<ice-dragon>`** — a *sibling* constructor. Reinforces that
+   subclasses of the same parent are disjoint (`ice-dragon?` is
+   `f` for a `fire-dragon`).
+4. **`<volcano-dragon>`** — a *grandchild* constructor via
+   `< fire-dragon`. Inheritance is transitive: a
    `volcano-dragon` satisfies `dragon?`, `fire-dragon?`, and
    `volcano-dragon?`.
 5. **`age-dragon`** — uses the parent's `change-age` accessor

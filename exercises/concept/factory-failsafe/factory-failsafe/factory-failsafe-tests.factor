@@ -1,21 +1,20 @@
 USING: exercism-tools factory-failsafe kernel tools.test ;
 IN: factory-failsafe.tests
 
-TASK: 1 check-humidity
-{ } [ 50 check-humidity ] unit-test
+TASK: 1 machine-error class
+[ machine-error ] [ machine-error? ] must-fail-with
 
 STOP-HERE
 
+TASK: 2 check-humidity
+{ } [ 50 check-humidity ] unit-test
 { } [ 70 check-humidity ] unit-test
 [ 80 check-humidity ] [ "humidity too high" = ] must-fail-with
 
-TASK: 2 check-temperature
+TASK: 3 check-temperature
 { } [ 400 check-temperature ] unit-test
 { } [ 500 check-temperature ] unit-test
 [ 600 check-temperature ] [ "temperature too high" = ] must-fail-with
-
-TASK: 3 machine-error class
-[ machine-error ] [ machine-error? ] must-fail-with
 
 TASK: 4 monitor
 { } [ 50 400 monitor ] unit-test

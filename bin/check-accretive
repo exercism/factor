@@ -50,7 +50,8 @@ MAPS = {
  "character-study": {"compare-chars":1,"size-of-char":2,"change-size-of-char":3,"type-of-char":4},
  "coordinate-choreography": {"translate-2d":1,"scale-2d":2,"compose-transformations":3,"apply-transformation":4,"transform-points":5},
  "currency-conversion": {"exchange-money":1,"get-change":2,"value-of-bills":3,"number-of-bills":4,"leftover-of-bills":5,"exchangeable-value":6,"safe-change":7,"cap-spend":8},
- "factory-failsafe": {"check-humidity":1,"check-temperature":2,"monitor":4,"monitor-batch":5},
+ "dragons-descendants": {"<dragon>":1,"<fire-dragon>":2,"<ice-dragon>":3,"<volcano-dragon>":4,"age-dragon":5},
+ "factory-failsafe": {"check-humidity":2,"check-temperature":3,"monitor":4,"monitor-batch":5},
  "ferry-schedule": {"make-date":1,"weekday-name":2,"leap?":3,"month-length":4,"add-days":5},
  "garden-gathering": {"open-garden":1,"list-registrations":1,"register":2,"release":3,"get-registration":4,"find-by-name":5},
  "high-school-sweetheart": {"cleanupname":1,"firstletter":2,"initial":3,"couple":4},
@@ -84,12 +85,13 @@ MAPS = {
 # bodies cannot be re-stubbed with a throw, and exercises without TASK: markers
 # have no prefixes). Mode A is still checked for them.
 MODEB_SKIP = {"signal-stencils", "telegraphers-tape", "bering-bearings",
-              "boatswains-bilge", "dragons-descendants"}
+              "boatswains-bilge"}
 
 # The shipped stub does not make the test file compile, but the missing
 # definition is created in task 1, so the exercise is still accretive by the
 # implement-first-K-tasks rule (a student who does task 1 sees task 1 pass).
-ACCRETIVE_VIA_TASK1 = {"lasagna", "role-playing-game"}
+ACCRETIVE_VIA_TASK1 = {"lasagna", "role-playing-game", "factory-failsafe",
+                       "dragons-descendants", "bering-bearings"}
 
 DEF_STARTERS = {":","::","M:","M::","TYPED:","TYPED::","MEMO:","MEMO::"}
 

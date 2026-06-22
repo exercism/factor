@@ -20,13 +20,24 @@ Your job is to convert all three into a common cartesian `(x, y)`
 frame so the chart can be plotted. Bearings are degrees; `(0, 1)`
 is one nautical mile north, `(1, 0)` is one nautical mile east.
 
-## 1. Cartesian for cardinal
+## 1. The data model, and cartesian for cardinal
 
-Define a tuple `cardinal` with one slot, `direction`, holding
-one of `north`, `east`, `south`, `west` (declared with
-`SYMBOLS:`). Then declare a `GENERIC:` word
-`>cartesian ( direction -- x y )` and add an `M: cardinal`
-method that returns the unit-vector for the named direction.
+First lay out the pieces the whole exercise shares:
+
+- Define three tuples: `cardinal` (one slot, `direction`), `polar`
+  (slots `magnitude` and `bearing`), and `relative` (slots
+  `distance` and `bearing`).
+- Declare the heading symbols with `SYMBOLS:`: `north`, `east`,
+  `south`, `west`, `ahead`, `starboard`, `behind`, `port`.
+- Declare a dynamic variable `heading` with `SYMBOL:` (task 3 uses
+  it).
+- Declare two generic words —
+  `GENERIC: >cartesian ( direction -- x y )` and
+  `GENERIC: flip ( direction -- direction' )`. You add their
+  methods over the next tasks.
+
+Then add the `M: cardinal` method of `>cartesian`, returning the
+unit-vector for the named direction.
 
 ```factor
 T{ cardinal { direction north } } >cartesian . .
@@ -37,9 +48,8 @@ T{ cardinal { direction north } } >cartesian . .
 
 ## 2. Cartesian for polar
 
-Define a tuple `polar` with slots `magnitude` and `bearing`
-(degrees clockwise from north). Add an `M: polar` method to
-`>cartesian` that converts the polar form to `(x, y)`:
+Add an `M: polar` method to `>cartesian` that converts the polar
+form to `(x, y)`:
 
 ```
 x = magnitude * sin(bearing-in-radians)
@@ -54,17 +64,13 @@ T{ polar { magnitude 10 } { bearing 90 } } >cartesian . .
 
 ## 3. Cartesian for relative
 
-Define a tuple `relative` with slots `distance` and `bearing`
-(one of the symbols `ahead`, `starboard`, `behind`, `port`).
-Add an `M: relative` method to `>cartesian`. The catch: a
-relative bearing is measured against the ship's *current
-heading*, which isn't part of the tuple.
-
-Declare a dynamic variable `heading` (with `SYMBOL:`). The
-caller will set it inside a `with-variable` block. Your method
-reads it with `heading get`, adds the bearing offset
-(`ahead = 0`, `starboard = 90`, `behind = 180`, `port = 270`),
-and produces the cartesian point.
+Add an `M: relative` method to `>cartesian`. The catch: a relative
+bearing is measured against the ship's *current heading*, which
+isn't part of the tuple. Read the `heading` variable (declared in
+task 1) with `heading get`, add the bearing offset (`ahead = 0`,
+`starboard = 90`, `behind = 180`, `port = 270`), and produce the
+cartesian point. The caller sets `heading` inside a `with-variable`
+block.
 
 ```factor
 0 heading [
@@ -76,8 +82,8 @@ and produces the cartesian point.
 
 ## 4. Flip
 
-Define a generic `flip ( direction -- direction' )` that returns
-the opposite direction.
+Add the methods of the `flip` generic (declared in task 1) so it
+returns the opposite direction.
 
 - For `cardinal`: north ↔ south, east ↔ west.
 - For `polar`: add 180° to the bearing (modulo 360).

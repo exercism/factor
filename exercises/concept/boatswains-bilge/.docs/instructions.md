@@ -62,11 +62,13 @@ throws, the pump is released and the exception propagates.
 
 ## 5. A custom disposable: the valve
 
-Define a brand-new disposable — a `valve` — to round out the
-toolkit.
+Round out the toolkit with a brand-new disposable — a `valve`.
+The tuple is declared for you:
 
-- Declare a tuple `valve` that extends `disposable` and adds an
-  `is-open` slot.
+```factor
+TUPLE: valve < disposable is-open ;
+```
+
 - Define `<valve> ( -- valve )` to construct a fresh valve via
   `new-disposable`, with `is-open` set to `t`.
 - Implement `M: valve dispose*` to flip `is-open` to `f`.

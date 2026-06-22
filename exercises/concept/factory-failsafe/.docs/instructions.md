@@ -3,7 +3,16 @@
 Elena, the new quality manager at a newspaper factory, asks you to
 write a small piece of software to monitor the production room.
 
-## 1. Check the humidity
+## 1. Define a custom error
+
+Define an error tuple class `machine-error` using the `ERROR:` parsing
+word. It needs no slots.
+
+```factor
+machine-error   ! throws a fresh machine-error
+```
+
+## 2. Check the humidity
 
 Define `check-humidity`. It takes a humidity reading off the stack
 and `throw`s the string `"humidity too high"` when the reading is
@@ -14,7 +23,7 @@ strictly greater than `70`. Otherwise, it returns nothing.
 80 check-humidity   ! throws "humidity too high"
 ```
 
-## 2. Check the temperature
+## 3. Check the temperature
 
 Define `check-temperature`. It takes a temperature reading and
 `throw`s the string `"temperature too high"` when the reading is
@@ -23,15 +32,6 @@ strictly greater than `500`. Otherwise, it returns nothing.
 ```factor
 400 check-temperature   ! returns nothing
 600 check-temperature   ! throws "temperature too high"
-```
-
-## 3. Define a custom error
-
-Define an error tuple class `machine-error` using the `ERROR:` parsing
-word. It needs no slots.
-
-```factor
-machine-error   ! throws a fresh machine-error
 ```
 
 ## 4. Monitor the machine

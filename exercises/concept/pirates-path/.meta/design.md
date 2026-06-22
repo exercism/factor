@@ -63,7 +63,7 @@ neighbour function" pattern from the ground up.
 3. **`hop-count`** — same shape with one twist: the frontier
    carries pairs of `(cove, distance)`, and the loop terminates
    early on a goal match.
-4. **`gold-count`** — single-line `MEMO:` declaration over a
+4. **`gold-count`** — change the stub from `:` to `MEMO:` over a
    `CONSTANT:` lookup. Introduces caching.
 5. **`treasure-route`** — integration: combine `coves-reachable`
    with `gold-count` and pick the maximum. The memoisation pays

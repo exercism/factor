@@ -42,7 +42,13 @@ fudge.
 
 ## Tasks ramp
 
-1. `>cartesian` for `cardinal` — first method. Pure case-lookup.
+1. The data model + `>cartesian` for `cardinal` — define the
+   three direction tuples, the direction symbols, the `heading`
+   variable, and both generics (`>cartesian`, `flip`), then the
+   first method (pure case-lookup). Bundling the declarations
+   here keeps the exercise accretive — the test file references
+   all three tuples and both generics, so they must exist once
+   task 1 is done.
 2. `>cartesian` for `polar` — adds arithmetic, no ambient state.
 3. `>cartesian` for `relative` — adds the dynamic variable.
 4. `flip` — second generic, demonstrates that Factor doesn't

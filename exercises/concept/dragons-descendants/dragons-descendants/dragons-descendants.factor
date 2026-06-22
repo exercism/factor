@@ -1,17 +1,22 @@
 USING: kernel ;
 IN: dragons-descendants
 
-! Task 1: TUPLE: dragon with slots `name`, `color`, `age`
-!         and a constructor `<dragon> ( name color age -- dragon )`
+! Task 1: define the dragon tuple hierarchy here (dragon and its
+! descendants fire-dragon, ice-dragon, volcano-dragon — see the
+! instructions for each class's slots), then the <dragon> constructor
+! below. The descendant constructors follow in tasks 2-4.
 
-! Task 2: TUPLE: fire-dragon extending dragon, adding `flame-temp`
-!         and `<fire-dragon> ( name color age flame-temp -- fd )`
+: <dragon> ( name color age -- dragon )
+    "unimplemented" throw ;
 
-! Task 3: TUPLE: ice-dragon extending dragon, adding `chill-temp`
-!         and `<ice-dragon> ( name color age chill-temp -- id )`
+: <fire-dragon> ( name color age flame-temp -- fd )
+    "unimplemented" throw ;
 
-! Task 4: TUPLE: volcano-dragon extending fire-dragon, adding `lava-volume`
-!         and `<volcano-dragon> ( name color age flame-temp lava-volume -- vd )`
+: <ice-dragon> ( name color age chill-temp -- id )
+    "unimplemented" throw ;
+
+: <volcano-dragon> ( name color age flame-temp lava-volume -- vd )
+    "unimplemented" throw ;
 
 : age-dragon ( dragon -- )
     "unimplemented" throw ;

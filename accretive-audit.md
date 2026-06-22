@@ -47,42 +47,44 @@ Run it with `FACTOR=/path/to/factor bin/check-accretive [slug...]`.
 
 ## Results
 
-The initial audit found 11 of 47 not Accretive. The 5 Mode-B exercises have
-since been fixed (test-only changes); 6 remain open (5 Mode A + 1 structural).
+The initial audit found 11 of 47 not Accretive. The 5 Mode-B and 5 Mode-A
+exercises have since been fixed; only the 1 structural case remains open.
 
 | Verdict | Count | Exercises |
 |---|---|---|
-| Accretive | 41 | all others |
-| Mode A (open) | 5 | bering-bearings, boatswains-bilge, dragons-descendants, factory-failsafe, pirates-path |
+| Accretive | 46 | all others |
+| Mode A (fixed) | 5 | bering-bearings, boatswains-bilge, dragons-descendants, factory-failsafe, pirates-path |
 | Mode B (fixed) | 5 | garden-gathering, lighthouse-logbook, poetry-club, quayside-crew, tellers-triage |
 | Structural (open) | 1 | telegraphers-tape |
 
-## Mode A — a definition is introduced after task 1
+## Mode A — a definition was introduced after task 1 (fixed)
 
-- **factory-failsafe** — `ERROR: machine-error` is created in task 3, but the
-  tests reference `machine-error` / `machine-error?` (tasks 3–4). The stub only
-  has a comment, so tasks 1–2 cannot compile.
-  *Fix:* pre-ship the error class in the stub, exactly as `rpn-calculator`
-  already ships `zero-divisor-error`.
-- **pirates-path** — `gold-count` (a `MEMO:` word, task 4) is left as a comment
-  in the stub instead of a stub body, so the tests reference an undefined
-  `gold-count` and nothing compiles.
-  *Fix:* pre-stub it, e.g. `MEMO: gold-count ( cove -- n ) "unimplemented" throw ;`.
+- **factory-failsafe** — `ERROR: machine-error` was created in task 3, but the
+  tests reference `machine-error` / `machine-error?` at compile time, so tasks
+  1–2 could not compile. *Fixed* by reordering so defining the error class is
+  task 1; the check/monitor tasks follow.
+- **pirates-path** — `gold-count` (a `MEMO:` word, task 4) was a comment in the
+  stub, so the tests referenced an undefined `gold-count`. *Fixed* by shipping it
+  as a `:` stub; task 4 now asks the student to change `:` to `MEMO:`.
 - **dragons-descendants** — the subtuples `fire-dragon` / `ice-dragon` /
-  `volcano-dragon` and their constructors are defined across tasks 2–4 (the stub
-  is comment-only), so implementing only task 1 leaves them undefined.
-  *Fix:* bundle all tuple/constructor definitions into task 1.
-- **bering-bearings** — tuples `polar` (task 2) and `relative` (task 3), plus the
-  direction symbols and the `>cartesian`/`flip` generics, are scattered across
-  tasks (comment-only stub).
-  *Fix:* bundle all tuple/symbol/generic definitions into task 1.
+  `volcano-dragon` and their constructors were defined across tasks 2–4 (the stub
+  was comment-only). *Fixed* by bundling the whole tuple hierarchy into task 1
+  (the student still defines it); the descendant constructors are pre-stubbed so
+  the file compiles.
+- **bering-bearings** — the `polar`/`relative` tuples, direction symbols, and the
+  `>cartesian`/`flip` generics were scattered across tasks. *Fixed* by bundling
+  all the data and generic declarations into task 1; the per-class methods stay
+  in their own tasks.
 - **boatswains-bilge** — task 5's `valve` tuple, `<valve>` constructor, and
-  `is-open` slot are not declared; the tests reference `<valve>`/`is-open>>`, so
-  tasks 1–4 cannot compile. (Tasks 1–4 themselves use a `test-pump` fixture
-  defined inside the test file and are otherwise fine.)
-  *Fix:* pre-ship the valve skeleton in the stub —
-  `TUPLE: valve < disposable is-open ;`, a stubbed `<valve>`, and `M: valve
-  dispose* drop ;` — so the file compiles; task 5 fills in the bodies.
+  `is-open` slot were not declared; the tests reference `<valve>`/`is-open>>`, so
+  tasks 1–4 could not compile. *Fixed* by pre-shipping the valve skeleton
+  (`TUPLE: valve < disposable is-open ;`, a stubbed `<valve>`, and `M: valve
+  dispose*`); task 5 fills in the bodies.
+
+`factory-failsafe`, `dragons-descendants`, and `bering-bearings` now rely on a
+task-1 definition to compile (like `lasagna` and `role-playing-game`): the bare
+stub does not compile on its own, which `bin/check-accretive` recognises via its
+`ACCRETIVE_VIA_TASK1` list.
 
 ## Mode B — an early task's test called a later task's word (fixed)
 
