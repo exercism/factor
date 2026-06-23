@@ -13,8 +13,9 @@ A literal array uses `{ }` with whitespace between elements:
 { "a" "b" "c" } .    ! => { "a" "b" "c" }
 ```
 
-Arrays are read-only — words like `suffix` and `remove-nth` return
-a *new* sequence rather than mutating the original.
+Arrays are fixed-length, so words like `suffix` and `remove-nth` —
+which change how many elements there are — return a *new* sequence
+rather than growing the original.
 
 ## Length and indexing
 
