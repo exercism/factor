@@ -17,8 +17,6 @@ A few things to know:
 
 - Plain `:` definitions can recurse with no special syntax. The
   compiler infers stack effects across the recursive call.
-- `inline` words that recurse need the additional `recursive`
-  modifier so the compiler knows the recursion is intentional.
 - `loop ( quot -- )` lets you iterate a quotation that returns a
   boolean — keep going while it's truthy.
 - Tail calls compile to jumps, so deeply recursive words don't

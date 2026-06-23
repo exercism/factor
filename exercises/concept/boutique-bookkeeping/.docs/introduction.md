@@ -212,6 +212,11 @@ USING: math sequences ;
 Words built only from literal quotations don't need `inline` —
 just the ones that pass an *incoming* quotation through.
 
+If such an `inline` word ever calls *itself* — a recursive
+combinator — declare it `; inline recursive` instead. Without the
+extra word the compiler stops with *"The inline recursive word ...
+must be declared recursive"*, which tells you exactly what to add.
+
 ## Pulling the second element
 
 For a 2-element array, `second` returns its second element. `first`

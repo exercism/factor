@@ -6,9 +6,7 @@ spell a computation is **recursion** — a word that calls itself.
 
 ## Defining a recursive word
 
-A `:` definition can call itself directly. The compiler can usually
-infer the stack effect; if it can't, you can add the `recursive`
-modifier to ask it to assume self-consistency:
+A `:` definition can call itself directly:
 
 ```factor
 : count-down ( n -- )
