@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "hear-out": 1,
+    "count-messages": 2,
+    "echo-back": 3,
+    "broadcast": 4,
+    "capture": 5
+  }
+}

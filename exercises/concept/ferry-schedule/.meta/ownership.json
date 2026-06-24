@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "make-date": 1,
+    "weekday-name": 2,
+    "leap?": 3,
+    "month-length": 4,
+    "add-days": 5
+  }
+}

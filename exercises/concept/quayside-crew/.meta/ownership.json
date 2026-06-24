@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "weigh-crate": 1,
+    "weigh-all": 2,
+    "<crane>": 3,
+    "hoist-crate": 4,
+    "crane-tonnage": 5,
+    "load-cargo": 6
+  }
+}

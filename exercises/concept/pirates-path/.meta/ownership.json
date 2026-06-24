@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "tide-queue": 1,
+    "coves-reachable": 2,
+    "hop-count": 3,
+    "gold-count": 4,
+    "treasure-route": 5
+  }
+}

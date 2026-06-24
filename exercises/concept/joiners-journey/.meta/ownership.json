@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "with-kerf": 1,
+    "kerf-and-finish": 2,
+    "cut-card": 3,
+    "per-piece": 4,
+    "compare-bolts": 5
+  }
+}

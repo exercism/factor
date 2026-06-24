@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "cleanupname": 1,
+    "firstletter": 2,
+    "initial": 3,
+    "couple": 4
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "quote-value": 1,
+    "flag-body": 2,
+    "split-flag": 3,
+    "triangulate": 4,
+    "triangle-stats": 5
+  }
+}

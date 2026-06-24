@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "add-op": 1,
+    "multiply-op": 2,
+    "apply-op": 3,
+    "evaluate": 4,
+    "evaluate-named": 5,
+    "divide-op": 6
+  }
+}

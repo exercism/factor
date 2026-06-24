@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "protected-balance": 1,
+    "running-balance": 2,
+    "least-balance-so-far": 3,
+    "halve-until": 4
+  }
+}

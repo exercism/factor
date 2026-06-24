@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "read-readings": 1,
+    "latest-reading": 2,
+    "log-text": 3,
+    "record-reading": 4,
+    "rewrite-log": 5
+  }
+}

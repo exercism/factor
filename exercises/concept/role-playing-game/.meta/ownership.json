@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "introduce": 2,
+    "revive": 3,
+    "take-damage": 4
+  },
+  "requires-task1-to-compile": true
+}

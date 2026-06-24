@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "empty-log": 1,
+    "sight": 2,
+    "seen?": 3,
+    "forget-sighting": 4,
+    "unique-count": 5,
+    "reachable": 6
+  }
+}

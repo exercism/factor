@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "new-club": 1,
+    "collaborate": 2,
+    "circle-of": 3,
+    "same-circle?": 4
+  }
+}

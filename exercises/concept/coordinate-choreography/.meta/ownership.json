@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "translate-2d": 1,
+    "scale-2d": 2,
+    "compose-transformations": 3,
+    "apply-transformation": 4,
+    "transform-points": 5
+  }
+}

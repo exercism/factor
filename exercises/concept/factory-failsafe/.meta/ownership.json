@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "check-humidity": 2,
+    "check-temperature": 3,
+    "monitor": 4,
+    "monitor-batch": 5
+  },
+  "requires-task1-to-compile": true
+}

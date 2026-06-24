@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "tile-strip": 1,
+    "row-of-three": 2,
+    "combine-rows": 3,
+    "mirror-row": 4,
+    "tile-position": 5,
+    "has-colour?": 6
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "<dragon>": 1,
+    "<fire-dragon>": 2,
+    "<ice-dragon>": 3,
+    "<volcano-dragon>": 4,
+    "age-dragon": 5
+  },
+  "requires-task1-to-compile": true
+}

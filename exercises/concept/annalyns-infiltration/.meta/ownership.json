@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "can-do-fast-attack": 1,
+    "can-spy": 2,
+    "can-signal-prisoner": 3,
+    "can-free-prisoner": 4
+  }
+}

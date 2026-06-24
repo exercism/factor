@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "sort-by-price": 1,
+    "with-missing-price": 2,
+    "expensive-items": 3,
+    "cheapest-item": 4,
+    "total-price": 5,
+    "format-price-tag": 6
+  }
+}

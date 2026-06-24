@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "assign-bibs": 1,
+    "lane-labels": 2,
+    "tag-racers": 3,
+    "record-finishes": 4,
+    "lap-bells": 5
+  }
+}

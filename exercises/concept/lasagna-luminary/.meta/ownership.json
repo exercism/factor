@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "cooking-status": 1,
+    "preparation-time": 2,
+    "quantities": 3,
+    "add-secret-ingredient": 4,
+    "scale-recipe": 5
+  }
+}

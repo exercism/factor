@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "exchange-money": 1,
+    "get-change": 2,
+    "value-of-bills": 3,
+    "number-of-bills": 4,
+    "leftover-of-bills": 5,
+    "exchangeable-value": 6,
+    "safe-change": 7,
+    "cap-spend": 8
+  }
+}

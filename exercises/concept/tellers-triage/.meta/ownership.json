@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "new-queue": 1,
+    "join-queue": 2,
+    "next-name": 3,
+    "serve-all": 4
+  }
+}

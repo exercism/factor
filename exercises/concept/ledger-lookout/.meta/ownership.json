@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "valid-amount?": 1,
+    "dollar-amounts": 2,
+    "percentages": 3,
+    "flagged?": 4
+  }
+}

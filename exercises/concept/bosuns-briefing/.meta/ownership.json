@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "greeting": 1,
+    "crew-line": 2,
+    "closing": 3,
+    "roster": 4,
+    "briefing": 5
+  }
+}

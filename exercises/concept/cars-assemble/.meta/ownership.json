@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "production-status": 1,
+    "success-rate": 2,
+    "production-rate-per-hour": 3,
+    "working-items-per-minute": 4
+  }
+}

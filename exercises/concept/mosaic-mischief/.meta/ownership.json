@@ -1,0 +1,11 @@
+{
+  "tasks": {
+    "fresh-mosaic": 1,
+    "place-tile": 2,
+    "chip-tile": 3,
+    "recolour-tile": 4,
+    "snapshot-mosaic": 5,
+    "stash-tile": 6,
+    "return-tile": 7
+  }
+}

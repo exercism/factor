@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "<tape>": 1,
+    "stream-read1": 3,
+    "stream-element-type": 4,
+    "dispose*": 5
+  },
+  "requires-task1-to-compile": true
+}

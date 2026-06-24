@@ -1,0 +1,5 @@
+{
+  "tasks": {},
+  "manual-ordering-check": true,
+  "requires-task1-to-compile": true
+}

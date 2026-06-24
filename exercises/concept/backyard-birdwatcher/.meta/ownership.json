@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "today": 1,
+    "increment-todays-count": 2,
+    "has-day-without-birds?": 3,
+    "count-for-first-days": 4,
+    "busy-days": 5,
+    "pad-missing-days": 6
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "time-to-mix-juice": 1,
+    "wedges-from-lime": 2,
+    "limes-to-cut": 2,
+    "order-times": 3,
+    "remaining-orders": 4
+  }
+}

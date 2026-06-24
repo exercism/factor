@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "create-inventory": 1,
+    "add-items": 2,
+    "decrement-items": 3,
+    "remove-item": 4,
+    "list-inventory": 5
+  }
+}

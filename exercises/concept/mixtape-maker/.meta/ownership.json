@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "count-combinations": 1,
+    "count-permutations": 2,
+    "list-combinations": 3,
+    "list-permutations": 4,
+    "combinations-summing-to": 5
+  }
+}

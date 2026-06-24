@@ -1,0 +1,7 @@
+{
+  "tasks": {
+    "message": 1,
+    "log-level": 2,
+    "reformat": 3
+  }
+}

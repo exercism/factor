@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "swap-crates": 1,
+    "clear-spill": 2,
+    "peek-under": 3,
+    "tidy-deck": 4
+  }
+}

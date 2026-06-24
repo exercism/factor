@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "compare-chars": 1,
+    "size-of-char": 2,
+    "change-size-of-char": 3,
+    "type-of-char": 4
+  }
+}

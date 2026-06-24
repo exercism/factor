@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "rate-restaurant": 1,
+    "rate-movie": 2,
+    "rate-walk": 3,
+    "rate-activity": 4,
+    "approval-counts": 5
+  }
+}

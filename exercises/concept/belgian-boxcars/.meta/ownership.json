@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "couple": 1,
+    "peek-couplings": 2,
+    "split-at-junctions": 3,
+    "coalesce-cargo": 4
+  }
+}

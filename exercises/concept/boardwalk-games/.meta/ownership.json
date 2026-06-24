@@ -1,0 +1,9 @@
+{
+  "tasks": {
+    "roll-die": 1,
+    "pick-prize": 2,
+    "shuffle-deck": 3,
+    "deal-hand": 4,
+    "play-seeded": 5
+  }
+}

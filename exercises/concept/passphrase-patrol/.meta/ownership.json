@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "valid-badge?": 1,
+    "badge-codes": 2,
+    "digit-count": 3,
+    "redact": 4
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "tasks": {
+    "preparation-time": 2,
+    "remaining-time": 3,
+    "total-working-time": 4
+  },
+  "requires-task1-to-compile": true
+}

@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "open-garden": 1,
+    "list-registrations": 1,
+    "register": 2,
+    "release": 3,
+    "get-registration": 4,
+    "find-by-name": 5
+  }
+}
