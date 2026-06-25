@@ -1,4 +1,4 @@
-USING: exercism-tools pursers-pantry tools.test ;
+USING: exercism-tools kernel pursers-pantry tools.test ;
 IN: pursers-pantry.tests
 
 TASK: 1 create-inventory
@@ -13,6 +13,11 @@ STOP-HERE
 TASK: 2 add-items
 { H{ { "coal" 2 } { "wood" 2 } { "iron" 1 } } } [
     H{ { "coal" 1 } } { "wood" "iron" "coal" "wood" } add-items
+] unit-test
+
+! the original inventory is left unmodified
+{ H{ { "coal" 1 } } } [
+    H{ { "coal" 1 } } dup { "wood" "iron" "coal" "wood" } add-items drop
 ] unit-test
 
 TASK: 3 decrement-items
@@ -30,6 +35,12 @@ TASK: 3 decrement-items
     H{ { "coal" 2 } } { "gold" "silver" } decrement-items
 ] unit-test
 
+! the original inventory is left unmodified
+{ H{ { "coal" 3 } { "diamond" 1 } { "iron" 5 } } } [
+    H{ { "coal" 3 } { "diamond" 1 } { "iron" 5 } } dup
+    { "diamond" "coal" "iron" "iron" } decrement-items drop
+] unit-test
+
 TASK: 4 remove-item
 { H{ { "wood" 1 } { "diamond" 2 } } } [
     H{ { "coal" 2 } { "wood" 1 } { "diamond" 2 } } "coal" remove-item
@@ -37,6 +48,11 @@ TASK: 4 remove-item
 
 { H{ { "coal" 2 } { "wood" 1 } { "diamond" 2 } } } [
     H{ { "coal" 2 } { "wood" 1 } { "diamond" 2 } } "gold" remove-item
+] unit-test
+
+! the original inventory is left unmodified
+{ H{ { "coal" 2 } { "wood" 1 } { "diamond" 2 } } } [
+    H{ { "coal" 2 } { "wood" 1 } { "diamond" 2 } } dup "coal" remove-item drop
 ] unit-test
 
 TASK: 5 list-inventory
