@@ -10,10 +10,10 @@ Hashtables in Factor are *associative arrays* — collections of
 H{ { "coal" 1 } { "wood" 2 } } .
 ```
 
-`H{ }` is an empty hashtable. Unlike arrays, hashtables are *mutable*
-— `clone` first if you need to leave the original alone. Printing a
-hashtable shows its entries, but the order isn't tied to insertion
-order — hashtables are unordered.
+`H{ }` is an empty hashtable. Hashtables are *mutable*, growing and
+shrinking as you add and remove keys — `clone` first if you need to
+leave the original alone. Printing a hashtable shows its entries, but
+the order isn't tied to insertion order — hashtables are unordered.
 
 ## Reading
 
