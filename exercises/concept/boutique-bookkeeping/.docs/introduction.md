@@ -47,6 +47,30 @@ sift      ( seq         -- newseq )    ! drop every `f`, keep the rest
 element except `f`, handy for clearing out the gaps a previous `map`
 left behind.
 
+### Keeping the result of the test
+
+`find` hands back the matching *element*. When the test already
+*computes* the value you actually want, `map-find` saves you a
+second pass: it runs the quotation over each element and returns the
+first non-`f` result **and** the element that produced it.
+
+```
+map-find ( seq quot: ( elt -- result/f ) -- result elt )
+```
+
+```factor
+USING: kernel math sequences ;
+
+! First multiple of 3, paired with that multiple divided by 3.
+{ 11 13 15 17 } [ dup 3 mod 0 = [ 3 /i ] [ drop f ] if ] map-find .s
+! => 5            (result: 15/3)
+! => 15           (element)
+```
+
+The quotation returns `f` for elements that don't qualify and the
+result you want to keep for the one that does. If nothing qualifies,
+`map-find` leaves `f f`, just like `find`.
+
 ### Filtering records by a slot
 
 When the elements are *tuples*, the predicate usually projects

@@ -26,6 +26,7 @@ rest     ( seq -- tailseq )    ! everything but the first element
 last     ( seq -- elt )
 but-last ( seq -- headseq )    ! everything but the last element
 nth      ( n seq -- elt )      ! 0-based
+?nth     ( n seq -- elt/f )    ! 0-based; f when out of bounds
 ```
 
 ```factor
@@ -35,6 +36,14 @@ nth      ( n seq -- elt )      ! 0-based
 { 10 20 30 } last .         ! => 30
 { 10 20 30 } but-last .     ! => { 10 20 }
 1 { 10 20 30 } nth .        ! => 20
+```
+
+`?nth` is the bounds-safe version: you can probe a position without
+checking the length first.
+
+```factor
+1 { 10 20 30 } ?nth .       ! => 20
+9 { 10 20 30 } ?nth .       ! => f  (out of bounds, no error)
 ```
 
 ## Slicing

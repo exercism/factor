@@ -33,6 +33,37 @@ body `dup . 1 -` prints it and decrements it; the loop stops once
 the counter reaches `0`. The trailing `drop` discards that final
 `0` from the stack.
 
+## `while*` — keep the predicate's value
+
+```
+while* ( pred body -- )
+```
+
+`while` only cares whether its predicate left a true value — it
+throws the value itself away before running the body. `while*`
+instead *hands that value to the body*. Reach for it whenever the
+test and the body want the same freshly-computed thing: a lookup,
+a match, a parsed token.
+
+Here each name points to the next one in a chain. The predicate
+looks the current name up; as long as there is a next name, `while*`
+passes it to the body, which prints it and carries on from there:
+
+```factor
+USING: assocs kernel locals prettyprint ;
+
+:: print-chain ( start links -- )
+    start [ links at ] [ dup . ] while* ;
+
+"a" H{ { "a" "b" } { "b" "c" } } print-chain
+! prints "b" then "c"
+```
+
+`links at` returns the next name, or `f` once a name has no entry.
+While it returns a name, `while*` gives that name to `dup .`, which
+prints it and leaves it as the key for the next lookup. The first
+`f` stops the loop — `while*` discards it, so nothing is left over.
+
 ## Multiple state values with locals
 
 When the loop carries more than one value — a remaining list and

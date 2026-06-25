@@ -135,6 +135,25 @@ H{ { "wood" 11 } { "coal" 7 } } sort-keys .
 ! => { { "coal" 7 } { "wood" 11 } }
 ```
 
+## From pairs back to a hashtable
+
+`>hashtable` (in [`hashtables`][hashtables]) is the inverse of
+`>alist`: it turns any assoc — most often an alist of
+`{ key value }` pairs — into a hashtable with O(1) lookup.
+
+```
+>hashtable ( assoc -- hashtable )
+```
+
+```factor
+{ { "coal" 7 } { "wood" 11 } } >hashtable .
+! => H{ { "wood" 11 } { "coal" 7 } }   (entry order not guaranteed)
+```
+
+Handy when you've assembled or transformed a list of pairs and
+want to fold it back into a hashtable to look entries up by key.
+
 [assocs]: https://docs.factorcode.org/content/vocab-assocs.html
 [fry]: https://docs.factorcode.org/content/article-fry.html
+[hashtables]: https://docs.factorcode.org/content/vocab-hashtables.html
 [sorting]: https://docs.factorcode.org/content/vocab-sorting.html

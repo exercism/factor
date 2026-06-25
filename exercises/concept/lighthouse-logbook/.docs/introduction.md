@@ -36,11 +36,12 @@ USING: hash-sets prettyprint ;
 ## Adjoining and removing
 
 ```
-adjoin ( elt set -- )    ! insert in place; no-op if already present
-delete ( elt set -- )    ! remove in place; no-op if absent
+adjoin     ( elt set -- )    ! insert in place; no-op if already present
+adjoin-all ( seq set -- )    ! insert every element of seq in place
+delete     ( elt set -- )    ! remove in place; no-op if absent
 ```
 
-Both mutate the set; neither returns anything on the stack.
+All three mutate the set; none returns anything on the stack.
 
 ```factor
 USING: hash-sets kernel sets ;
@@ -50,6 +51,17 @@ HS{ } clone
 "WB-203"  over adjoin
 "NS-1024" over adjoin    ! duplicate — no effect
 .                        ! => HS{ "NS-1024" "WB-203" }
+```
+
+`adjoin-all` is the bulk form: it adjoins each element of a
+sequence, skipping duplicates just like `adjoin` does one at a time.
+
+```factor
+USING: hash-sets kernel sets ;
+
+HS{ "NS-1024" } clone
+{ "WB-203" "NS-1024" "QR-7" } over adjoin-all
+.                        ! => HS{ "QR-7" "NS-1024" "WB-203" }  (order not guaranteed)
 ```
 
 ## Asking the set
