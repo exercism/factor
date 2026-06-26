@@ -41,9 +41,8 @@ return *both* the header slice and the body slice.
 ## 4. Triangulate from two readings
 
 Two consecutive signal readings give three derived measurements:
-their **difference** (`a - b`), their **midpoint** (`(a + b) / 2`),
-and their **ratio** (`a / b`). Each measurement uses *both*
-readings.
+their *difference* `a - b`, their *midpoint* `(a + b) / 2`,
+and their *ratio* `a / b`. Each measurement uses both readings.
 
 Define `triangulate` to return all three from a pair of readings.
 
