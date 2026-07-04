@@ -979,9 +979,9 @@
         "difficulty": 3
       },
       {
-        "slug": "binary-search",
+        "slug": "binary-chop",
         "name": "Binary Search",
-        "uuid": "ea3a619c-0d03-4688-821a-22379470d7e1",
+        "uuid": "49cc7b5c-d2fc-4332-89a5-9890c340f25f",
         "practices": [
           "recursion"
         ],
@@ -992,6 +992,15 @@
           "recursion"
         ],
         "difficulty": 3
+      },
+      {
+        "slug": "binary-search",
+        "name": "Binary Search (deprecated)",
+        "uuid": "ea3a619c-0d03-4688-821a-22379470d7e1",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3,
+        "status": "deprecated"
       },
       {
         "slug": "bob",

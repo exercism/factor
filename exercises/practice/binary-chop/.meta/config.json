@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "binary-chop/binary-chop.factor"
+    ],
+    "test": [
+      "binary-chop/binary-chop-tests.factor"
+    ],
+    "example": [
+      ".meta/example.factor"
+    ]
+  },
+  "blurb": "Implement a binary search algorithm.",
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Binary_search_algorithm"
+}

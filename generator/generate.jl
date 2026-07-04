@@ -4,14 +4,28 @@ using JSON3, TOML
 const GENERATOR_DIR = @__DIR__
 const TRACK_DIR = dirname(GENERATOR_DIR)
 
-function read_canonical_data(exercise)
+function specification_for(slug)
+    # A Practice Exercise may set an optional `specification` key in the track
+    # `config.json` to sync from a differently-named `problem-specifications`
+    # exercise (e.g. slug `binary-chop` <- specification `binary-search`).
+    # When the key is absent, the slug doubles as the specification name.
+    config = JSON3.read(read(joinpath(TRACK_DIR, "config.json"), String))
+    for ex in config.exercises.practice
+        if String(ex.slug) == slug
+            return haskey(ex, :specification) ? String(ex.specification) : slug
+        end
+    end
+    return slug
+end
+
+function read_canonical_data(specification)
     prefix = "Using cached 'problem-specifications' dir: "
     info = readchomp(Cmd(`$(joinpath(TRACK_DIR, "bin", "configlet")) info -o -v d`))
     lines = split(info, '\n')
     cache_lines = filter(l -> startswith(l, prefix), lines)
     length(cache_lines) == 1 || error("Could not determine 'problem-specifications' dir")
     cache_dir = cache_lines[1][length(prefix)+1:end]
-    path = joinpath(cache_dir, "exercises", exercise, "canonical-data.json")
+    path = joinpath(cache_dir, "exercises", specification, "canonical-data.json")
     return JSON3.read(read(path, String))
 end
 
@@ -123,7 +137,9 @@ function render_test_file(mod, cases, slug)
 end
 
 function generate(exercise)
-    data = read_canonical_data(exercise)
+    # The canonical data is read using the `specification` (which may differ
+    # from the slug); everything else stays keyed on the track `exercise` slug.
+    data = read_canonical_data(specification_for(exercise))
     cases = flatten_cases(data)
     cases = filter_by_toml(cases, exercise)
     extra = load_extra_cases(exercise)
