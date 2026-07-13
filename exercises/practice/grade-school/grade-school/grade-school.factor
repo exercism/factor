@@ -1,7 +1,8 @@
 USING: kernel ;
 IN: grade-school
 
-TUPLE: school students ;
+! Define a `school` tuple to hold the roster, then implement the
+! words below.
 
 : <school> ( -- school )
     "unimplemented" throw ;
