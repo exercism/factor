@@ -110,14 +110,15 @@ that happens to return a quotation.
 ## A close cousin: `<< … >>`
 
 `<< code >>` runs ordinary Factor at compile time *without* the
-return-a-quotation contract — handy when you only need a value to
-exist at parse time:
+return-a-quotation contract. Whatever the code computes stays on
+the parse-time stack, so to fold a value into the source you
+`suffix!` it onto the parser's accumulator:
 
 ```factor
 ! DOCTEST: SKIP — compile-time value, shown for contrast
-USING: calendar ;
+USING: calendar sequences ;
 
-CONSTANT: build-time << now >>
+CONSTANT: build-time << now suffix! >>
 ```
 
 It is mentioned for completeness. The four stencils you'll write —
