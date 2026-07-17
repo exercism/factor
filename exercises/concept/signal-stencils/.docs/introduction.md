@@ -107,21 +107,25 @@ looked up each `dup`, `+`, and `append` when it read the `[ … ]`.
 So a macro body is just the sequence manipulation you already do,
 that happens to return a quotation.
 
-## A close cousin: `<< … >>`
+## A close cousin: `$[ … ]`
 
-`<< code >>` runs ordinary Factor at compile time *without* the
-return-a-quotation contract — handy when you only need a value to
-exist at parse time:
+A macro returns a quotation to be spliced into a *call*. When you
+instead want a plain *value* computed at parse time, `$[ code ]`
+runs `code` while the file is being read and folds the result
+into the source as a literal:
 
 ```factor
 ! DOCTEST: SKIP — compile-time value, shown for contrast
-USING: calendar ;
+USING: calendar literals ;
 
-CONSTANT: build-time << now >>
+CONSTANT: build-time $[ now ]
 ```
 
-It is mentioned for completeness. The four stencils you'll write —
+`$[ … ]` comes from the [`literals`][literals] vocabulary, which
+collects the words for interpolating parse-time results into
+literals. It is mentioned for completeness. The four stencils you'll write —
 `twice`, `repeat-quot`, `compose-many`, and `each-literal` — are
 all `MACRO:` declarations.
 
 [macros]: https://docs.factorcode.org/content/vocab-macros.html
+[literals]: https://docs.factorcode.org/content/article-literals.html
