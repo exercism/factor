@@ -1567,6 +1567,26 @@
         "difficulty": 4
       },
       {
+        "slug": "secret-handshake",
+        "name": "Secret Handshake",
+        "uuid": "ab56856e-c5e2-467c-952e-7f7afa15c7f5",
+        "practices": [
+          "bitwise-operations"
+        ],
+        "prerequisites": [
+          "numbers",
+          "sequences",
+          "arrays",
+          "higher-order-sequences",
+          "indexed-iteration",
+          "bitwise-operations",
+          "combinators",
+          "curry-compose-fry",
+          "locals"
+        ],
+        "difficulty": 4
+      },
+      {
         "slug": "sieve",
         "name": "Sieve",
         "uuid": "8b1fc515-71c2-436c-98dc-8789d25c7ddb",
