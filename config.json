@@ -1942,6 +1942,24 @@
         "difficulty": 5
       },
       {
+        "slug": "state-of-tic-tac-toe",
+        "name": "State of Tic-Tac-Toe",
+        "uuid": "3185b66f-fedf-44b1-b447-e4adbc025e9d",
+        "practices": [
+          "errors"
+        ],
+        "prerequisites": [
+          "strings",
+          "sequences",
+          "arrays",
+          "higher-order-sequences",
+          "booleans",
+          "errors",
+          "locals"
+        ],
+        "difficulty": 5
+      },
+      {
         "slug": "tournament",
         "name": "Tournament",
         "uuid": "05a48d2a-8443-436d-826c-8736c32f02fb",
