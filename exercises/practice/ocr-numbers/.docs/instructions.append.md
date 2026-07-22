@@ -5,7 +5,7 @@
 `convert ( rows -- str )` takes the grid as an array of strings,
 one string per row, and returns the recognised digits as a single
 string. Multiple rows of cells are joined in the output with
-commas (`,`) per the canonical instructions.
+commas (`,`).
 
 ## Errors
 
