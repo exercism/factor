@@ -41,8 +41,7 @@
         "concepts": [
           "basics"
         ],
-        "prerequisites": [],
-        "status": "beta"
+        "prerequisites": []
       },
       {
         "slug": "lasagna",
@@ -53,8 +52,7 @@
         ],
         "prerequisites": [
           "basics"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "annalyns-infiltration",
@@ -65,8 +63,7 @@
         ],
         "prerequisites": [
           "words"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "currency-conversion",
@@ -77,8 +74,7 @@
         ],
         "prerequisites": [
           "words"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "cars-assemble",
@@ -90,8 +86,7 @@
         "prerequisites": [
           "booleans",
           "numbers"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "log-levels",
@@ -103,8 +98,7 @@
         "prerequisites": [
           "words",
           "conditionals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "character-study",
@@ -116,8 +110,7 @@
         "prerequisites": [
           "strings",
           "conditionals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "high-school-sweetheart",
@@ -129,8 +122,7 @@
         "prerequisites": [
           "words",
           "strings"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "joiners-journey",
@@ -143,8 +135,7 @@
           "words",
           "numbers",
           "quotations"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "secrets",
@@ -156,8 +147,7 @@
         "prerequisites": [
           "words",
           "combinators"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "bunting-bonanza",
@@ -170,8 +160,7 @@
           "quotations",
           "strings",
           "conditionals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "backyard-birdwatcher",
@@ -184,8 +173,7 @@
           "words",
           "conditionals",
           "tabulation"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "mosaic-making",
@@ -196,8 +184,7 @@
         ],
         "prerequisites": [
           "sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "boutique-bookkeeping",
@@ -212,8 +199,7 @@
           "strings",
           "combinators",
           "arrays"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "mosaic-mischief",
@@ -227,8 +213,7 @@
           "sequences",
           "combinators",
           "higher-order-sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "librarians-ledger",
@@ -239,8 +224,7 @@
         ],
         "prerequisites": [
           "higher-order-sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "coordinate-choreography",
@@ -254,8 +238,7 @@
           "quotations",
           "sequences",
           "higher-order-sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "poetry-club",
@@ -268,8 +251,7 @@
           "words",
           "combinators",
           "curry-compose-fry"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "passphrase-patrol",
@@ -281,8 +263,7 @@
         "prerequisites": [
           "strings",
           "sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "ledger-lookout",
@@ -294,8 +275,7 @@
         "prerequisites": [
           "regexp",
           "sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "lap-leaderboard",
@@ -308,8 +288,7 @@
           "higher-order-sequences",
           "mutation",
           "curry-compose-fry"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "belgian-boxcars",
@@ -320,8 +299,7 @@
         ],
         "prerequisites": [
           "higher-order-sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "role-playing-game",
@@ -335,8 +313,7 @@
           "numbers",
           "mutation",
           "curry-compose-fry"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "factory-failsafe",
@@ -350,8 +327,7 @@
           "conditionals",
           "higher-order-sequences",
           "combinators"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "bosuns-briefing",
@@ -365,8 +341,7 @@
           "strings",
           "sequences",
           "higher-order-sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "pursers-pantry",
@@ -382,8 +357,7 @@
           "combinators",
           "curry-compose-fry",
           "vocabularies"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "tellers-triage",
@@ -396,8 +370,7 @@
           "combinators",
           "assocs",
           "sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "rpn-calculator",
@@ -414,8 +387,7 @@
           "combinators",
           "curry-compose-fry",
           "vocabularies"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "backyard-birdcount",
@@ -427,8 +399,7 @@
         "prerequisites": [
           "sequences",
           "conditionals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "valentines-day",
@@ -442,8 +413,7 @@
           "sequences",
           "higher-order-sequences",
           "combinators"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "lasagna-luminary",
@@ -456,8 +426,7 @@
           "sequences",
           "assocs",
           "conditionals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "mixed-juices",
@@ -471,8 +440,7 @@
           "higher-order-sequences",
           "conditionals",
           "locals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "garden-gathering",
@@ -487,8 +455,7 @@
           "locals",
           "higher-order-sequences",
           "combinators"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "boardwalk-games",
@@ -502,8 +469,7 @@
           "sequences",
           "quotations",
           "combinators"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "ferry-schedule",
@@ -515,8 +481,7 @@
         "prerequisites": [
           "numbers",
           "sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "bering-bearings",
@@ -531,8 +496,7 @@
           "dynamic-variables",
           "case",
           "numbers"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "lighthouse-logbook",
@@ -547,8 +511,7 @@
           "locals",
           "while",
           "generics"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "pirates-path",
@@ -562,8 +525,7 @@
           "assocs",
           "locals",
           "while"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "quayside-crew",
@@ -576,8 +538,7 @@
           "higher-order-sequences",
           "tuples",
           "locals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "signalers-satchel",
@@ -591,8 +552,7 @@
           "sequences",
           "tuples",
           "strings"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "dragons-descendants",
@@ -604,8 +564,7 @@
         "prerequisites": [
           "tuples",
           "generics"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "signal-stencils",
@@ -622,8 +581,7 @@
           "wire-format",
           "sequences",
           "higher-order-sequences"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "boatswains-bilge",
@@ -638,8 +596,7 @@
           "generics",
           "combinators",
           "subclasses"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "channel-chatter",
@@ -652,8 +609,7 @@
           "destructors",
           "sequences",
           "strings"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "telegraphers-tape",
@@ -672,8 +628,7 @@
           "subclasses",
           "destructors",
           "io-streams"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "mixtape-maker",
@@ -686,8 +641,7 @@
           "higher-order-sequences",
           "reductions",
           "locals"
-        ],
-        "status": "beta"
+        ]
       },
       {
         "slug": "vltava-weather-watch",
@@ -700,8 +654,7 @@
           "io-streams",
           "sequences",
           "strings"
-        ],
-        "status": "beta"
+        ]
       }
     ],
     "practice": [
