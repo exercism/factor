@@ -33,8 +33,8 @@ over cardinality .            ! => 1
 | `set-like`    | `( set exemplar -- set' )` — coerce `set` to the class of `exemplar` |
 
 To build a set from data you already have, `>hash-set` converts
-any sequence in one step, discarding duplicates — `{ 2 3 2 5 }
->hash-set` gives `HS{ 2 3 5 }`. It's the bulk counterpart to
+any sequence in one step, discarding duplicates — `{ 2 3 2 5 } >hash-set`
+gives `HS{ 2 3 5 }`. It's the bulk counterpart to
 growing a set with repeated `adjoin`.
 
 A subtle point about `in?` versus `member?` (from
