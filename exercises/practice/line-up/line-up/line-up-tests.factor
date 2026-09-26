@@ -59,9 +59,29 @@ STOP-HERE
 { "Washi, you are the 21st customer we serve today. Thank you!" }
 [ "Washi" 21 format ] unit-test
 
+"format exceptional ordinal numeral 22 ending in nd even though it is a multiple of 11" description
+{ "Ingrid, you are the 22nd customer we serve today. Thank you!" }
+[ "Ingrid" 22 format ] unit-test
+
+"format exceptional ordinal numeral 33 ending in rd even though it is a multiple of 11" description
+{ "Mario, you are the 33rd customer we serve today. Thank you!" }
+[ "Mario" 33 format ] unit-test
+
+"format exceptional ordinal numeral 52 ending in nd even though it is a multiple of 13" description
+{ "Quentin, you are the 52nd customer we serve today. Thank you!" }
+[ "Quentin" 52 format ] unit-test
+
 "format exceptional ordinal numeral 62" description
 { "Nayra, you are the 62nd customer we serve today. Thank you!" }
 [ "Nayra" 62 format ] unit-test
+
+"format non-exceptional ordinal numeral 72 ending in nd even though it is a multiple of 12" description
+{ "Ugo, you are the 72nd customer we serve today. Thank you!" }
+[ "Ugo" 72 format ] unit-test
+
+"format exceptional ordinal numeral 91 ending in st even though it is a multiple of 13" description
+{ "Boris, you are the 91st customer we serve today. Thank you!" }
+[ "Boris" 91 format ] unit-test
 
 "format exceptional ordinal numeral 100" description
 { "John, you are the 100th customer we serve today. Thank you!" }
@@ -78,3 +98,7 @@ STOP-HERE
 "format exceptional ordinal numeral 123" description
 { "Yma, you are the 123rd customer we serve today. Thank you!" }
 [ "Yma" 123 format ] unit-test
+
+"format large number 972 ending in nd even though it is a multiple of 12" description
+{ "Elias, you are the 972nd customer we serve today. Thank you!" }
+[ "Elias" 972 format ] unit-test
