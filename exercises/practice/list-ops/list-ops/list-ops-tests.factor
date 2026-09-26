@@ -83,9 +83,13 @@ STOP-HERE
 { {  } }
 [ {  } list-reverse ] unit-test
 
-"non-empty list" description
+"non-empty even-length list" description
 { { 7 5 3 1 } }
 [ { 1 3 5 7 } list-reverse ] unit-test
+
+"non-empty odd-length list" description
+{ { 13 11 9 7 5 3 1 } }
+[ { 1 3 5 7 9 11 13 } list-reverse ] unit-test
 
 "list of lists is not flattened" description
 { { { 4 5 6 } {  } { 3 } { 1 2 } } }
