@@ -1,6 +1,7 @@
 # Tests
 
-The Factor track uses **Factor 0.102**. Each exercise ships with a bundled `exercism-tools` vocabulary that defines `STOP-HERE` and `TASK:` parsing words plus a test runner. From the exercise's directory, run:
+The Factor track uses **Factor 0.102**.
+Each exercise ships with a bundled `exercism-tools` vocabulary that defines `STOP-HERE` and `TASK:` parsing words plus a test runner. From the exercise's directory, run:
 
 ```
 factor -roots=. -run=exercism-tools <exercise>
