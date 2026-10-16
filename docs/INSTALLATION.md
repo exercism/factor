@@ -1,10 +1,10 @@
 # Installing Factor
 
-The Factor track uses **Factor 0.101**. Earlier versions are not supported.
+The Factor track uses **Factor 0.102**.
 
 You can install a [stable](#stable) or [nightly](#nightly) build, or [build from source](#build-from-source).
 
-Verify your installation by running `factor -e='vm-version print'` — it should print `0.101` or higher.
+Verify your installation by running `factor -e='vm-version print'` — it should print `0.102` or higher.
 
 ---
 ### Stable
