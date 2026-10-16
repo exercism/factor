@@ -2,9 +2,8 @@
 
 ## Running the tests
 
-The Factor track uses **Factor 0.102**. After
-[installing it](https://exercism.org/docs/tracks/factor/installation),
-run from this exercise's directory:
+The Factor track uses **Factor 0.102**.
+After [installing it](https://exercism.org/docs/tracks/factor/installation), run from this exercise's directory:
 
 ```
 factor -roots=. -run=exercism-tools <exercise>
