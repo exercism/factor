@@ -70,4 +70,4 @@ STOP-HERE
 { "ymay" } [ "my" translate ] unit-test
 
 "a whole phrase" description
-{ "ickquay astfay unray" } [ "quick fast run" translate ] unit-test
+{ "ywhay oday idssquay enjoyay xraysay" } [ "why do squids enjoy xrays" translate ] unit-test
