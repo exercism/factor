@@ -934,6 +934,7 @@
       {
         "slug": "binary-chop",
         "name": "Binary Search",
+        "problem_specifications_slug": "binary-search",
         "uuid": "49cc7b5c-d2fc-4332-89a5-9890c340f25f",
         "practices": [
           "recursion"
