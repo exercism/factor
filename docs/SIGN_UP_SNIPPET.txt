@@ -1,0 +1,8 @@
+:: most-common-word ( text -- str )
+    H{ } clone :> counts
+    "" :> best!
+    text >lower " " split [| word |
+        word counts inc-at
+        word counts at best counts at 0 or > [ word best! ] when
+    ] each
+    best dup counts at "\"%s\" appears %d times" sprintf ;
