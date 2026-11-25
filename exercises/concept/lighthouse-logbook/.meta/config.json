@@ -13,5 +13,6 @@
       ".meta/exemplar.factor"
     ]
   },
+  "icon": "lighthouse-keeper",
   "blurb": "Track unique vessel sightings and signal-relay reachability with mutable hash-sets and a textbook BFS."
 }

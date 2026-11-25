@@ -13,5 +13,6 @@
       ".meta/exemplar.factor"
     ]
   },
+  "icon": "signal-flags",
   "blurb": "Quote values, slice signal flags, and project pairs and triples with the multi-input cleave family."
 }
