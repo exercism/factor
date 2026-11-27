@@ -101,20 +101,3 @@ TYPED:: yes? ( word: string -- answer: boolean )
 "yes" yes? .   ! => t
 "no" yes? .    ! => f
 ```
-
-## Math functions and constants
-
-This exercise also leans on a few words from `math.constants`
-and `math.functions` that you'll meet for the first time here:
-
-- `pi` — the constant π, from `math.constants`.
-- `sin ( x -- y )`, `cos ( x -- y )` — sine and cosine of an
-  angle in radians.
-- `e^ ( x -- y )` — `e` raised to the power of `x`. (For an
-  arbitrary base, use `^`.)
-
-```factor
-pi 2 / sin   ! → 1.0
-0 cos        ! → 1.0
-1 e^         ! → 2.718281828459045
-```

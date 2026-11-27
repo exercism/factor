@@ -1,0 +1,17 @@
+{
+  "authors": [
+    "keiravillekode"
+  ],
+  "files": {
+    "solution": [
+      "cricket-oval/cricket-oval.factor"
+    ],
+    "test": [
+      "cricket-oval/cricket-oval-tests.factor"
+    ],
+    "exemplar": [
+      ".meta/exemplar.factor"
+    ]
+  },
+  "blurb": "Learn about square roots, angles, e^ and log by measuring up a cricket oval."
+}

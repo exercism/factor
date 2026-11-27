@@ -1,0 +1,14 @@
+[
+  {
+    "url": "https://docs.factorcode.org/content/vocab-math.functions.html",
+    "description": "math.functions vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-math.constants.html",
+    "description": "math.constants vocabulary reference"
+  },
+  {
+    "url": "https://docs.factorcode.org/content/vocab-math.libm.html",
+    "description": "math.libm vocabulary reference"
+  }
+]

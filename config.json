@@ -138,6 +138,19 @@
         ]
       },
       {
+        "slug": "cricket-oval",
+        "name": "Cricket Oval",
+        "uuid": "d79f041c-5a69-47c6-bc0c-6faa649e1256",
+        "concepts": [
+          "math-functions"
+        ],
+        "prerequisites": [
+          "numbers",
+          "combinators"
+        ],
+        "status": "beta"
+      },
+      {
         "slug": "secrets",
         "name": "Secrets",
         "uuid": "b50cc329-a4fa-496e-aafd-3278c162c367",
@@ -495,7 +508,8 @@
           "locals",
           "dynamic-variables",
           "case",
-          "numbers"
+          "numbers",
+          "math-functions"
         ]
       },
       {
@@ -2533,6 +2547,11 @@
       "uuid": "91bfacf5-4628-4775-98e0-1a72697303b8",
       "slug": "combinators",
       "name": "Combinators"
+    },
+    {
+      "uuid": "014e055c-231b-4ff5-af9b-255aff0dbbf9",
+      "slug": "math-functions",
+      "name": "Math Functions"
     },
     {
       "uuid": "0580796a-5a19-404e-9a63-7691192fed5d",
