@@ -20,6 +20,8 @@ dispatch on the class of the topmost argument.
   values
 - `dynamic-variables` — the `relative` method reads `heading`
   from a `SYMBOL:` rather than as an explicit argument
+- `math-functions` — `pi`, `sin` and `cos` for the polar
+  conversion, taught in `cricket-oval`
 
 ## Why these three representations
 

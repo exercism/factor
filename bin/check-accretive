@@ -149,6 +149,12 @@ def setup(slug, write_solutions=None):
     return work, cfg
 
 
+# Every unit-test variant prints a "Unit Test...:" header (`Unit Test:`,
+# `Unit Test~:`, `Unit Test-v~:`), so any one of them shows the test file
+# compiled and started running.
+RAN_TESTS = re.compile(r"Unit Test\S*:")
+
+
 def run(work, slug):
     p = subprocess.run([FACTOR, "-roots=.", "-run=exercism-tools", slug],
                        cwd=work, capture_output=True, text=True, timeout=300)
@@ -159,7 +165,7 @@ def stub_compiles(slug):
     work, _ = setup(slug)
     try:
         out = run(work, slug)
-        return "Unit Test:" in out
+        return bool(RAN_TESTS.search(out))
     finally:
         shutil.rmtree(work, ignore_errors=True)
 
@@ -183,7 +189,7 @@ def modeb_violations(slug):
             ttext = "\n".join(l for l in open(os.path.join(work, cfg["files"]["test"][0])).read().splitlines())
             ranges = task_ranges(ttext)
             out = run(work, slug)
-            if "Unit Test:" not in out:
+            if not RAN_TESTS.search(out):
                 bad[K] = ["COMPILE-FAIL"]; continue
             fl = [int(m.group(1)) for m in re.finditer(re.escape(test_base) + r":\s*(\d+)", out)]
             early = sorted({line_to_task(l, ranges) for l in fl if line_to_task(l, ranges) and line_to_task(l, ranges) <= K})

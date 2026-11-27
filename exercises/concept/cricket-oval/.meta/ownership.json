@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "boundary-length": 1,
+    "distance-from-pitch": 2,
+    "shot-angle": 3,
+    "carry": 4,
+    "speed-after": 5,
+    "metres-until": 6
+  }
+}

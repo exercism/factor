@@ -18,8 +18,10 @@
 
 ## 2. `>cartesian` for polar
 
-- Convert degrees to radians: `bearing pi * 180 /`.
-- `sin` and `cos` are in `math.functions`.
+- Convert degrees to radians with `deg>rad`, or by hand with
+  `bearing pi * 180 /`.
+- `sin` and `cos` are in `math.functions`, and `pi` is in
+  `math.constants`.
 - Push `magnitude * sin(rad)` then `magnitude * cos(rad)`.
 
 ## 3. `>cartesian` for relative
